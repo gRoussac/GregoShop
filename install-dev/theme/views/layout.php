@@ -4,7 +4,6 @@
  * LICENSE file that was distributed with this source code.
  */
 $installAppJs = _PS_INSTALL_PATH_ . 'theme/js/install-app.js';
-$installAppCss = _PS_INSTALL_PATH_ . 'theme/css/install-app.css';
 $viewCss = _PS_INSTALL_PATH_ . 'theme/view.css';
 $bootstrapJson = json_encode(
     $this->install_ui_bootstrap ?? ['step' => 'welcome', 'strings' => [], 'stepData' => []],
@@ -24,9 +23,6 @@ $bootstrapJson = json_encode(
     <meta name="robots" content="noindex" />
     <link rel="shortcut icon" href="theme/img/favicon.ico" />
     <link rel="stylesheet" type="text/css" media="all" href="theme/view.css?version=<?php echo rawurlencode(_PS_VERSION_ . '.' . (string) filemtime($viewCss)); ?>" />
-    <?php if (is_file($installAppCss)) { ?>
-      <link rel="stylesheet" type="text/css" media="all" href="theme/css/install-app.css?version=<?php echo rawurlencode(_PS_VERSION_ . '.' . (string) filemtime($installAppCss)); ?>" />
-    <?php } ?>
 
     <?php if ($this->language->getLanguage()->isRtl() == 'true') { ?>
       <link rel="stylesheet" type="text/css" media="all" href="theme/rtl.css" />
