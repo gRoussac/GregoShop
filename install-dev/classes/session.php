@@ -41,7 +41,7 @@ declare(strict_types=1);
  * @property array|null $content_modules Module names to install (resolved server-side)
  * @property string|null $content_theme
  * @property bool|null $content_install_fixtures Always false (no demonstration catalog)
- * @property int|null $moduleAction InstallControllerHttpContent::MODULES_* constant
+ * @property string|int|null $moduleAction Module mode token (all|none|…) or legacy MODULES_* int
  *
  * License / agreements:
  * @property bool $licence_agrement

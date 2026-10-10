@@ -16,16 +16,26 @@ function setNextDisabled(disabled) {
 }
 
 /**
- * Hide Next only when advancing (submitNext). Keep the input in the DOM
- * so submitNext stays in the POST body (v-if removal would drop it).
- * Do not hide on Refresh / Back / nameless submits.
+ * Hide Next only when advancing (submitNext) and the submit was not cancelled.
+ * Keep the input in the DOM so submitNext stays in the POST body.
+ * Defer so step handlers can preventDefault first (e.g. weak password).
  */
 function onFormSubmit(event) {
   const submitName = (event.submitter && event.submitter.name) || "";
-  if (submitName === "submitNext") {
-    nextDisplay.value = "none";
+  if (submitName !== "submitNext") {
+    return;
   }
+  queueMicrotask(() => {
+    if (!event.defaultPrevented) {
+      nextDisplay.value = "none";
+    }
+  });
 }
+
+// Available before child step onMounted (password gate calls this).
+window.__INSTALL_UI__ = {
+  setNextDisabled,
+};
 
 onMounted(() => {
   window.__INSTALL_UI__ = {

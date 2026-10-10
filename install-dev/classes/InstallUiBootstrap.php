@@ -171,7 +171,10 @@ class InstallUiBootstrap
             'selectTimezone' => $this->trans('Select your timezone'),
             'emailHelp' => $this->trans('This email address will be your username to access your store\'s back office.'),
             'passwordHelp' => $this->trans('Must be at least 8 characters'),
+            'passwordKeepHelp' => $this->trans('A password is already saved for this installation. Leave blank to keep it, or type a new one.'),
+            'passwordRequired' => $this->trans('Field required'),
             'passwordMustBeStrong' => $this->trans('The password is incorrect (must be Strong)'),
+            'passwordConfirmMismatch' => $this->trans('The password and its confirmation are different'),
             'passwordTranslations' => json_decode((string) $c->translatedStrings, true) ?: [],
             'passwordMinLength' => 8,
             'passwordMaxLength' => 72,
@@ -196,8 +199,10 @@ class InstallUiBootstrap
             'adminFirstname' => (string) ($session->admin_firstname ?? ''),
             'adminLastname' => (string) ($session->admin_lastname ?? ''),
             'adminEmail' => (string) ($session->admin_email ?? ''),
-            'adminPassword' => (string) ($session->admin_password ?? ''),
-            'adminPasswordConfirm' => (string) ($session->admin_password_confirm ?? ''),
+            // Never rehydrate passwords into the browser. Flag only: FO can allow blank Keep.
+            'adminPassword' => '',
+            'adminPasswordConfirm' => '',
+            'adminPasswordSet' => is_string($session->admin_password) && $session->admin_password !== '',
             'countries' => $c->list_countries,
             'timezones' => $c->getTimezones(),
             'fieldErrors' => is_array($c->errors) ? $c->errors : [],
@@ -236,35 +241,59 @@ class InstallUiBootstrap
             ];
         }
 
+        // Checkbox list is always shown; radios set the default checks.
+        $action = (int) $c->moduleAction;
+        $resolver = new InstallModuleListResolver();
+        $allNames = $resolver->resolveFromHttpAction(
+            InstallControllerHttpContent::MODULES_ALL,
+            $c->modules,
+            []
+        );
+        $boNames = $resolver->namesInAdministration($c->modules);
         $selected = $c->session->content_modules;
+        $selectedDefault = $resolver->defaultSelectedModuleNames($c->modules);
         if (!is_array($selected)) {
-            $selected = [];
-            foreach ($c->modules as $module) {
-                $selected[] = $module->get('name');
+            if ($action === InstallControllerHttpContent::MODULES_NONE) {
+                $selected = [];
+            } elseif (
+                $action === InstallControllerHttpContent::MODULES_BO_ONLY
+            ) {
+                $selected = $boNames;
+            } elseif (
+                $action === InstallControllerHttpContent::MODULES_FO_ONLY
+            ) {
+                $selected = array_values(array_diff($allNames, $boNames));
+            } elseif (
+                $action === InstallControllerHttpContent::MODULES_SELECTED
+            ) {
+                $selected = $selectedDefault;
+            } else {
+                // ALL (and unknown): everything checked
+                $selected = $allNames;
             }
         }
 
         return [
-            'title' => $this->trans('Content of your store'),
+            'title' => $this->trans('Installation of modules'),
             'themeLabel' => $this->trans('Installation of theme'),
             'themeHelp' => $this->trans('Select the theme to install'),
             'versionLabel' => $this->trans('Version:'),
-            'modulesLabel' => $this->trans('Installation of modules'),
-            'modulesHelp' => $this->trans('If you are using PrestaShop for the first time, you should install all modules now and uninstall the ones you don\'t need later.'),
-            'searchPlaceholder' => $this->trans('Search'),
             'selectAllLabel' => $this->trans('Select all'),
             'theme' => $c->session->content_theme,
             'themes' => $themes,
-            'moduleAction' => (int) $c->moduleAction,
+            'moduleAction' => InstallControllerHttpContent::moduleActionToToken($action),
             'selectAll' => (bool) $c->selectAllButton,
             'selectedModules' => array_values($selected),
+            'selectedDefaultModules' => $selectedDefault,
+            'boModules' => $resolver->namesInAdministration($c->modules),
+            'foModules' => array_values(array_diff($allNames, $boNames)),
             'categories' => $categories,
             'moduleOptions' => [
-                ['value' => InstallControllerHttpContent::MODULES_ALL, 'label' => $this->trans('Install all modules (recommended)')],
-                ['value' => InstallControllerHttpContent::MODULES_SELECTED, 'label' => $this->trans('Select the modules to install')],
-                ['value' => InstallControllerHttpContent::MODULES_NONE, 'label' => $this->trans('Install no modules')],
-                ['value' => InstallControllerHttpContent::MODULES_BO_ONLY, 'label' => $this->trans('Back-office modules only (Administration)')],
-                ['value' => InstallControllerHttpContent::MODULES_FO_ONLY, 'label' => $this->trans('Front-office modules only (exclude Administration)')],
+                ['value' => 'none', 'label' => $this->trans('Install no modules (recommended)')],
+                ['value' => 'all', 'label' => $this->trans('Install all modules')],
+                ['value' => 'selected', 'label' => $this->trans('Select the modules to install')],
+                ['value' => 'bo', 'label' => $this->trans('Back-office modules only (Administration)')],
+                ['value' => 'fo', 'label' => $this->trans('Front-office modules only (exclude Administration)')],
             ],
         ];
     }

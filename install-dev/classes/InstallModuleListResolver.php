@@ -33,31 +33,103 @@ class InstallModuleListResolver
      */
     public function resolveFromHttpAction(int $moduleAction, array $modulesOnDisk, array $selectedModules = []): array
     {
-        if ($moduleAction === InstallControllerHttpContent::MODULES_NONE) {
+        // All HTTP modes show the checkbox list: trust posted modules[].
+        // Radios only set the default checks (see defaultSelectedModuleNames()).
+        $picked = array_values(array_filter(
+            $selectedModules,
+            static fn ($name) => is_string($name) && $name !== ''
+        ));
+
+        if ($moduleAction === InstallControllerHttpContent::MODULES_ALL && $picked === []) {
+            // No modules[] in POST (non-UI caller): install everything.
+            return $this->allNames($modulesOnDisk);
+        }
+
+        return $picked;
+    }
+
+    /**
+     * Default checked modules for "Select the modules to install".
+     * Config: install-dev/data/module_selection_defaults.php
+     *
+     * @param list<ArrayFinder> $modulesOnDisk
+     *
+     * @return list<string>
+     */
+    public function defaultSelectedModuleNames(array $modulesOnDisk): array
+    {
+        $exclude = array_fill_keys($this->selectedExcludeNames(), true);
+        $names = [];
+        foreach ($this->allNames($modulesOnDisk) as $name) {
+            if (!isset($exclude[$name])) {
+                $names[] = $name;
+            }
+        }
+
+        return $names;
+    }
+
+    /**
+     * @return list<string>
+     */
+    public function selectedExcludeNames(): array
+    {
+        $exclude = $this->selectionDefaultsConfig()['selected_exclude'] ?? [];
+        if (!is_array($exclude)) {
             return [];
         }
 
-        if ($moduleAction === InstallControllerHttpContent::MODULES_SELECTED) {
-            return array_values(array_filter($selectedModules, static fn ($name) => is_string($name) && $name !== ''));
+        $names = [];
+        foreach ($exclude as $name) {
+            if (is_string($name) && $name !== '') {
+                $names[] = $name;
+            }
         }
 
-        $allNames = $this->allNames($modulesOnDisk);
+        return $names;
+    }
 
-        if ($moduleAction === InstallControllerHttpContent::MODULES_ALL) {
-            return $allNames;
+    /**
+     * Module folder name → install list category key (e.g. other).
+     *
+     * @return array<string, string>
+     */
+    public function categoryOverrides(): array
+    {
+        $overrides = $this->selectionDefaultsConfig()['category_overrides'] ?? [];
+        if (!is_array($overrides)) {
+            return [];
         }
 
-        $administrationNames = $this->namesInAdministration($modulesOnDisk);
-
-        if ($moduleAction === InstallControllerHttpContent::MODULES_BO_ONLY) {
-            return $administrationNames;
+        $map = [];
+        foreach ($overrides as $moduleName => $categoryKey) {
+            if (
+                is_string($moduleName)
+                && $moduleName !== ''
+                && is_string($categoryKey)
+                && $categoryKey !== ''
+            ) {
+                $map[$moduleName] = $categoryKey;
+            }
         }
 
-        if ($moduleAction === InstallControllerHttpContent::MODULES_FO_ONLY) {
-            return array_values(array_diff($allNames, $administrationNames));
+        return $map;
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    private function selectionDefaultsConfig(): array
+    {
+        $path = _PS_INSTALL_PATH_ . 'data/module_selection_defaults.php';
+        if (!is_file($path)) {
+            return [];
         }
 
-        return $allNames;
+        /** @var mixed $config */
+        $config = require $path;
+
+        return is_array($config) ? $config : [];
     }
 
     /**
@@ -177,6 +249,9 @@ class InstallModuleListResolver
         $yamlParser = new YamlParser(_PS_CACHE_DIR_);
         $config = $yamlParser->parse(_PS_ROOT_DIR_ . '/app/config/addons/categories.yml');
 
+        // First parent wins (same as CategoriesProvider). Tabs like "administration"
+        // appear under several parents later in the YAML; last-write would mis-class
+        // BO modules as Shipping / FO.
         foreach ($config['prestashop']['addons']['categories'] ?? [] as $parentCategory) {
             $parentName = $parentCategory['name'] ?? null;
             if (!is_string($parentName) || $parentName === '') {
@@ -184,7 +259,11 @@ class InstallModuleListResolver
             }
             foreach ($parentCategory['categories'] ?? [] as $childCategory) {
                 $childTab = $childCategory['tab'] ?? null;
-                if (is_string($childTab) && $childTab !== '') {
+                if (
+                    is_string($childTab)
+                    && $childTab !== ''
+                    && !isset($this->parentCategoryByTab[$childTab])
+                ) {
                     $this->parentCategoryByTab[$childTab] = $parentName;
                 }
             }

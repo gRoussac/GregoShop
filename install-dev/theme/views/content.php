@@ -5,8 +5,10 @@
  */
 ?>
 
-<div id="contentInfosBlock">
-  <h2><?php echo $this->translator->trans('Content of your store', [], 'Install'); ?></h2>
+<div id="contentInfosBlock" class="modules-step">
+  <header class="modules-step__header">
+    <h2><?php echo $this->translator->trans('Installation of modules', [], 'Install'); ?></h2>
+  </header>
 
   <?php if (count($this->themes) === 1): ?>
     <input type="hidden" value="<?php echo current($this->themes)->get('name'); ?>" name="theme" />
@@ -39,75 +41,67 @@
     </div>
   <?php endif; ?>
 
-  <div class="field clearfix">
-    <label class="aligned"><?php echo $this->translator->trans('Installation of modules', [], 'Install'); ?></label>
-    <div class="contentinput">
-      <ul class="modules-select-type">
-        <li>
-          <label>
-            <input style="vertical-align: top;" value="<?php echo static::MODULES_ALL; ?>" name="module-action" type="radio" autocomplete="off"<?php if ($this->moduleAction === static::MODULES_ALL): ?> checked="checked"<?php endif; ?>/>
-            <?php echo $this->translator->trans('Install all modules (recommended)', [], 'Install') ?>
-          </label>
-        </li>
-        <li>
-          <label>
-            <input style="vertical-align: top;" value="<?php echo static::MODULES_SELECTED; ?>" name="module-action" type="radio" autocomplete="off" <?php if ($this->moduleAction === static::MODULES_SELECTED): ?> checked="checked"<?php endif; ?>/>
-            <?php echo $this->translator->trans('Select the modules to install', [], 'Install') ?>
-          </label>
-        </li>
-        <li>
-          <label>
-            <input style="vertical-align: top;" value="<?php echo static::MODULES_NONE; ?>" name="module-action" type="radio" autocomplete="off" <?php if ($this->moduleAction === static::MODULES_NONE): ?> checked="checked"<?php endif; ?>/>
-            <?php echo $this->translator->trans('Install no modules', [], 'Install') ?>
-          </label>
-        </li>
-        <li>
-          <label>
-            <input style="vertical-align: top;" value="<?php echo static::MODULES_BO_ONLY; ?>" name="module-action" type="radio" autocomplete="off" <?php if ($this->moduleAction === static::MODULES_BO_ONLY): ?> checked="checked"<?php endif; ?>/>
-            <?php echo $this->translator->trans('Back-office modules only (Administration)', [], 'Install') ?>
-          </label>
-        </li>
-        <li>
-          <label>
-            <input style="vertical-align: top;" value="<?php echo static::MODULES_FO_ONLY; ?>" name="module-action" type="radio" autocomplete="off" <?php if ($this->moduleAction === static::MODULES_FO_ONLY): ?> checked="checked"<?php endif; ?>/>
-            <?php echo $this->translator->trans('Front-office modules only (exclude Administration)', [], 'Install') ?>
-          </label>
-        </li>
-      </ul>
-    </div>
+  <ul class="modules-mode-list">
+    <li>
+      <label>
+        <input value="none" name="module-action" type="radio" autocomplete="off"<?php if ($this->moduleAction === static::MODULES_NONE): ?> checked="checked"<?php endif; ?>/>
+        <span><?php echo $this->translator->trans('Install no modules (recommended)', [], 'Install') ?></span>
+      </label>
+    </li>
+    <li>
+      <label>
+        <input value="all" name="module-action" type="radio" autocomplete="off"<?php if ($this->moduleAction === static::MODULES_ALL): ?> checked="checked"<?php endif; ?>/>
+        <span><?php echo $this->translator->trans('Install all modules', [], 'Install') ?></span>
+      </label>
+    </li>
+    <li>
+      <label>
+        <input value="selected" name="module-action" type="radio" autocomplete="off" <?php if ($this->moduleAction === static::MODULES_SELECTED): ?> checked="checked"<?php endif; ?>/>
+        <span><?php echo $this->translator->trans('Select the modules to install', [], 'Install') ?></span>
+      </label>
+    </li>
+    <li>
+      <label>
+        <input value="bo" name="module-action" type="radio" autocomplete="off" <?php if ($this->moduleAction === static::MODULES_BO_ONLY): ?> checked="checked"<?php endif; ?>/>
+        <span><?php echo $this->translator->trans('Back-office modules only (Administration)', [], 'Install') ?></span>
+      </label>
+    </li>
+    <li>
+      <label>
+        <input value="fo" name="module-action" type="radio" autocomplete="off" <?php if ($this->moduleAction === static::MODULES_FO_ONLY): ?> checked="checked"<?php endif; ?>/>
+        <span><?php echo $this->translator->trans('Front-office modules only (exclude Administration)', [], 'Install') ?></span>
+      </label>
+    </li>
+  </ul>
 
-    <p class="userInfos aligned"><?php echo $this->translator->trans('If you are using PrestaShop for the first time, you should install all modules now and uninstall the ones you don\'t need later.', [], 'Install'); ?></p>
-
-    <div id="modules-container">
-      <div>
-        <input type="text" name="search" id="search-for-module" placeholder="<?php echo $this->translator->trans('Search', [], 'Install'); ?>">
-      </div>
-
-      <div>
-        <label>
-          <input type="checkbox" name="select-all"<?php if ($this->selectAllButton): ?> checked="checked"<?php endif; ?>>
-          <?php echo $this->translator->trans('Select all', [], 'Install'); ?>
-        </label>
-      </div>
-
-      <dl>
-        <?php foreach ($this->getModulesPerCategories() as $category): ?>
-          <?php if (empty($category->modules)): ?>
-            <?php continue; ?>
+  <div id="modules-container">
+    <?php $selectAllPlaced = false; ?>
+    <?php foreach ($this->getModulesPerCategories() as $category): ?>
+      <?php if (empty($category->modules)): ?>
+        <?php continue; ?>
+      <?php endif; ?>
+      <section class="modules-category">
+        <div class="modules-category__head">
+          <h3 class="modules-category__title"><?php echo $this->translator->trans($category->name, [], 'Install'); ?></h3>
+          <?php if (!$selectAllPlaced): ?>
+            <label class="modules-step__select-all">
+              <input type="checkbox" name="select-all"<?php if ($this->selectAllButton): ?> checked="checked"<?php endif; ?>>
+              <span><?php echo $this->translator->trans('Select all', [], 'Install'); ?></span>
+            </label>
+            <?php $selectAllPlaced = true; ?>
           <?php endif; ?>
-
-          <dt><?php echo $this->translator->trans($category->name, [], 'Install'); ?></dt>
-
+        </div>
+        <ul class="modules-grid">
           <?php foreach ($category->modules as $module): ?>
-            <dd>
+            <li>
               <label>
                 <input value="<?php echo $module->get('name') ?>" type="checkbox" name="modules[]" <?php if ($this->session->content_modules === null || is_array($this->session->content_modules) && in_array($module->get('name'), $this->session->content_modules)): ?>checked="checked"<?php endif; ?> autocomplete="off" />
-                <?php echo $module->get('displayName') ?>
+                <span><?php echo $module->get('displayName') ?></span>
               </label>
-            </dd>
+            </li>
           <?php endforeach; ?>
-        <?php endforeach; ?>
-      </dl>
-    </div>
+        </ul>
+      </section>
+    <?php endforeach; ?>
   </div>
 </div>

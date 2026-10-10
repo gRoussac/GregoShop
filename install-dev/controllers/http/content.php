@@ -23,6 +23,15 @@ class InstallControllerHttpContent extends InstallControllerHttp implements Http
     public const MODULES_BO_ONLY = 3;
     public const MODULES_FO_ONLY = 4;
 
+    /** @var array<string, int> Form tokens (never use bare 0 — empty HTML value). */
+    public const MODULE_ACTION_TOKENS = [
+        'all' => self::MODULES_ALL,
+        'selected' => self::MODULES_SELECTED,
+        'none' => self::MODULES_NONE,
+        'bo' => self::MODULES_BO_ONLY,
+        'fo' => self::MODULES_FO_ONLY,
+    ];
+
     /**
      * Modules present on the disk
      *
@@ -42,7 +51,7 @@ class InstallControllerHttpContent extends InstallControllerHttp implements Http
      *
      * @var int
      */
-    public $moduleAction = self::MODULES_ALL;
+    public $moduleAction = self::MODULES_NONE;
 
     /**
      * Define if the select all modules is selected
@@ -72,10 +81,7 @@ class InstallControllerHttpContent extends InstallControllerHttp implements Http
      */
     public function processNextStep(): void
     {
-        $moduleAction = (int) Tools::getValue('module-action');
-        if (!in_array($moduleAction, $this->getAllowedModuleActions(), true)) {
-            $moduleAction = static::MODULES_ALL;
-        }
+        $moduleAction = $this->resolveModuleActionFromRequest();
 
         $selected = Tools::getValue('modules', []);
         $selectedModules = is_array($selected) ? $selected : [];
@@ -84,8 +90,16 @@ class InstallControllerHttpContent extends InstallControllerHttp implements Http
             $this->modules,
             $selectedModules
         );
-        $this->session->moduleAction = $moduleAction;
-        $this->session->content_theme = Tools::getValue('theme', null);
+        // Store token string, never bare int 0 (MODULES_ALL): session/cookie empty() footguns.
+        $this->session->moduleAction = static::moduleActionToToken($moduleAction);
+        $theme = Tools::getValue('theme');
+        if ($theme === false || $theme === null || $theme === '') {
+            $theme = $this->session->content_theme;
+        }
+        if ($theme === false || $theme === null || $theme === '') {
+            $theme = Theme::getDefaultTheme();
+        }
+        $this->session->content_theme = $theme;
         $this->session->content_install_fixtures = false;
     }
 
@@ -111,7 +125,7 @@ class InstallControllerHttpContent extends InstallControllerHttp implements Http
             }
         }
 
-        $this->moduleAction = $this->session->moduleAction ?? static::MODULES_ALL;
+        $this->moduleAction = $this->moduleActionFromSession();
         $this->selectAllButton = $this->session->content_modules === null || count($this->modules) === count($this->session->content_modules);
 
         $this->displayContent('content');
@@ -146,6 +160,15 @@ class InstallControllerHttpContent extends InstallControllerHttp implements Http
 
     protected function findModuleCategory(ArrayFinder $module, array $categories)
     {
+        $moduleName = $module->get('name');
+        if (is_string($moduleName) && $moduleName !== '') {
+            $overrides = (new InstallModuleListResolver())->categoryOverrides();
+            $override = $overrides[$moduleName] ?? null;
+            if (is_string($override) && isset($categories[$override])) {
+                return $override;
+            }
+        }
+
         $tab = $module->get('tab');
         if (!empty($tab)) {
             foreach ($categories as $category) {
@@ -182,6 +205,66 @@ class InstallControllerHttpContent extends InstallControllerHttp implements Http
         ];
     }
 
+    /**
+     * Map POST module-action (token or legacy int) to MODULES_* constant.
+     * Default: NONE. Do not cast missing/empty to 0 (that is MODULES_ALL).
+     */
+    public function resolveModuleActionFromRequest(): int
+    {
+        $raw = Tools::getValue('module-action', 'none');
+        if ($raw === false || $raw === null || $raw === '') {
+            return static::MODULES_NONE;
+        }
+
+        return $this->coerceModuleAction($raw);
+    }
+
+    /**
+     * Read session moduleAction (token string or legacy int). Default NONE.
+     */
+    private function moduleActionFromSession(): int
+    {
+        $sessionAction = $this->session->moduleAction;
+        if ($sessionAction === null || $sessionAction === '' || $sessionAction === false) {
+            return static::MODULES_NONE;
+        }
+
+        return $this->coerceModuleAction($sessionAction);
+    }
+
+    /**
+     * @param mixed $raw
+     */
+    private function coerceModuleAction($raw): int
+    {
+        if (is_string($raw)) {
+            $token = strtolower(trim($raw));
+            if (isset(static::MODULE_ACTION_TOKENS[$token])) {
+                return static::MODULE_ACTION_TOKENS[$token];
+            }
+            if (!is_numeric($token)) {
+                return static::MODULES_NONE;
+            }
+            $raw = $token;
+        }
+
+        if (is_numeric($raw)) {
+            $asInt = (int) $raw;
+            if (in_array($asInt, $this->getAllowedModuleActions(), true)) {
+                return $asInt;
+            }
+        }
+
+        return static::MODULES_NONE;
+    }
+
+    public static function moduleActionToToken(int $moduleAction): string
+    {
+        $flip = array_flip(self::MODULE_ACTION_TOKENS);
+
+        return $flip[$moduleAction] ?? 'none';
+    }
+
     private function findParentCategoryNameByTab(string $tab): ?string
     {
         $map = $this->getParentCategoryByTabMap();
@@ -203,6 +286,8 @@ class InstallControllerHttpContent extends InstallControllerHttp implements Http
         $prestashopAddonsConfig = $yamlParser->parse(_PS_ROOT_DIR_ . '/app/config/addons/categories.yml');
         $addonsCategories = $prestashopAddonsConfig['prestashop']['addons']['categories'] ?? [];
 
+        // First parent wins (CategoriesProvider order). Do not let later YAML
+        // parents overwrite tabs such as "administration".
         foreach ($addonsCategories as $parentCategory) {
             $parentName = $parentCategory['name'] ?? null;
             if (!is_string($parentName) || $parentName === '') {
@@ -210,7 +295,11 @@ class InstallControllerHttpContent extends InstallControllerHttp implements Http
             }
             foreach ($parentCategory['categories'] ?? [] as $childCategory) {
                 $childTab = $childCategory['tab'] ?? null;
-                if (is_string($childTab) && $childTab !== '') {
+                if (
+                    is_string($childTab)
+                    && $childTab !== ''
+                    && !isset($this->parentCategoryByTab[$childTab])
+                ) {
                     $this->parentCategoryByTab[$childTab] = $parentName;
                 }
             }
