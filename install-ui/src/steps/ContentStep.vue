@@ -84,7 +84,7 @@ function modulesForAction(action) {
     return foModuleNames();
   }
   if (action === ACTION_SELECTED) {
-    // Config: install-dev/data/module_selection_defaults.php
+    // Config: install-dev/data/module_selection_defaults.json
     return selectedDefaultNames();
   }
   // all: everything checked

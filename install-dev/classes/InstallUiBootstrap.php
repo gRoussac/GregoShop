@@ -316,6 +316,7 @@ class InstallUiBootstrap
                 'prefix' => $this->trans('Tables prefix'),
                 'clear' => $this->trans('Drop existing tables'),
                 'test' => $this->trans('Test your database connection now!'),
+                'create' => $this->trans('Attempt to create the database automatically'),
             ],
             'databaseServer' => (string) $c->database_server,
             'databaseName' => (string) $c->database_name,

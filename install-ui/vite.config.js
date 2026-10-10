@@ -16,13 +16,7 @@ export default defineConfig({
         name: "GregoshopInstallUi",
         inlineDynamicImports: true,
         entryFileNames: "js/install-app.js",
-        assetFileNames: (assetInfo) => {
-          const name = assetInfo.name || "";
-          if (name.endsWith(".css")) {
-            return "css/install-app.css";
-          }
-          return "assets/[name][extname]";
-        },
+        assetFileNames: "assets/[name][extname]",
       },
     },
   },

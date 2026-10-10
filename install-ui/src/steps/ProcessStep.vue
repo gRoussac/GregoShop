@@ -1,6 +1,6 @@
 <script setup>
 import { inject, onMounted, ref } from "vue";
-import { installGetJson } from "../lib/ajax.js";
+import { installGetJson } from "../lib/http.js";
 
 const bootstrap = inject("bootstrap");
 const data = bootstrap.stepData || {};

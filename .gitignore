@@ -37,6 +37,7 @@ npm-debug.log.*
 !/img/questionmark.png
 !/img/module/default.png
 !/img/genders/index.php
+!/img/genders/*.jpg
 !/img/admin/index.php
 !/img/c/index.php
 !/img/cms/index.php
@@ -46,6 +47,7 @@ npm-debug.log.*
 !/img/l/index.php
 !/img/m/index.php
 !/img/os/index.php
+!/img/os/*.gif
 !/img/p/index.php
 !/img/pr/index.php
 !/img/pr/default.jpg

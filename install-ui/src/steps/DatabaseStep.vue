@@ -1,9 +1,10 @@
 <script setup>
-import { inject, onMounted, onBeforeUnmount, reactive, ref } from "vue";
-import { installGetJson } from "../lib/ajax.js";
+import { inject, onMounted, onBeforeUnmount, reactive, ref, watch } from "vue";
+import { installGetJson } from "../lib/http.js";
 import { loadDraft, saveDraft } from "../composables/useDraft.js";
 
 const DRAFT_KEY = "gregoshop.install.database";
+const CHECK_DEBOUNCE_MS = 600;
 const bootstrap = inject("bootstrap");
 const data = bootstrap.stepData || {};
 
@@ -23,6 +24,9 @@ const result = ref({
   waiting: false,
   message: (data.errors || []).join("<br />"),
 });
+const canCreate = ref(false);
+let checkTimer = null;
+let checkSeq = 0;
 
 function persist() {
   saveDraft(
@@ -48,17 +52,36 @@ function restore() {
       form[key] = draft[key];
     }
   });
-  if (
-    draft.db_clear === true ||
-    draft.db_clear === 1 ||
-    draft.db_clear === "1"
-  ) {
-    form.database_clear = true;
+  if (Object.prototype.hasOwnProperty.call(draft, "db_clear")) {
+    form.database_clear =
+      draft.db_clear === true || draft.db_clear === 1 || draft.db_clear === "1";
   }
 }
 
-async function testDb() {
-  result.value = { visible: true, ok: false, waiting: true, message: "&nbsp;" };
+function canProbe() {
+  return (
+    String(form.dbServer || "").trim() !== "" &&
+    String(form.dbName || "").trim() !== "" &&
+    String(form.dbLogin || "").trim() !== ""
+  );
+}
+
+async function testDb(options = {}) {
+  const { silent = false } = options;
+  if (!canProbe()) {
+    canCreate.value = false;
+    return;
+  }
+
+  const seq = ++checkSeq;
+  if (!silent) {
+    result.value = {
+      visible: true,
+      ok: false,
+      waiting: true,
+      message: "&nbsp;",
+    };
+  }
   try {
     const json = await installGetJson({
       checkDb: "true",
@@ -69,12 +92,58 @@ async function testDb() {
       db_prefix: form.db_prefix,
       clear: form.database_clear ? "1" : "0",
     });
+    if (seq !== checkSeq) {
+      return;
+    }
+    canCreate.value = !!json.canCreate;
+    if (silent && !json.success && !json.canCreate) {
+      return;
+    }
     result.value = {
       visible: true,
       ok: !!json.success,
       waiting: false,
       message: json.message || "",
     };
+  } catch (error) {
+    if (seq !== checkSeq) {
+      return;
+    }
+    canCreate.value = false;
+    if (silent) {
+      return;
+    }
+    result.value = {
+      visible: true,
+      ok: false,
+      waiting: false,
+      message: String(error.message || error),
+    };
+  }
+}
+
+async function createDb() {
+  result.value = { visible: true, ok: false, waiting: true, message: "&nbsp;" };
+  try {
+    const json = await installGetJson({
+      createDb: "true",
+      dbServer: form.dbServer,
+      dbName: form.dbName,
+      dbLogin: form.dbLogin,
+      dbPassword: form.dbPassword,
+    });
+    canCreate.value = false;
+    result.value = {
+      visible: true,
+      ok: !!json.success,
+      waiting: false,
+      message: json.message || "",
+    };
+    if (json.success) {
+      await testDb({ silent: false });
+    } else {
+      canCreate.value = true;
+    }
   } catch (error) {
     result.value = {
       visible: true,
@@ -84,6 +153,27 @@ async function testDb() {
     };
   }
 }
+
+function scheduleCheck() {
+  persist();
+  canCreate.value = false;
+  if (checkTimer) {
+    clearTimeout(checkTimer);
+  }
+  if (!canProbe()) {
+    return;
+  }
+  checkTimer = setTimeout(() => {
+    testDb({ silent: true });
+  }, CHECK_DEBOUNCE_MS);
+}
+
+watch(
+  () => [form.dbServer, form.dbName, form.dbLogin, form.dbPassword],
+  () => {
+    scheduleCheck();
+  },
+);
 
 onMounted(async () => {
   restore();
@@ -95,10 +185,16 @@ onMounted(async () => {
   } catch {
     form.rewrite_engine = "0";
   }
+  if (canProbe()) {
+    scheduleCheck();
+  }
 });
 
 onBeforeUnmount(() => {
   window.removeEventListener("beforeunload", persist);
+  if (checkTimer) {
+    clearTimeout(checkTimer);
+  }
 });
 </script>
 
@@ -180,13 +276,21 @@ onBeforeUnmount(() => {
           "
         />
       </div>
-      <div class="field">
+      <div class="field database-actions">
         <input
           id="btTestDB"
           class="button"
           type="button"
           :value="data.labels.test"
-          @click="testDb"
+          @click="testDb()"
+        />
+        <input
+          v-show="canCreate"
+          id="btCreateDB"
+          class="button"
+          type="button"
+          :value="data.labels.create"
+          @click="createDb"
         />
       </div>
       <input

@@ -146,7 +146,9 @@ class InstallControllerHttpDatabase extends InstallControllerHttp implements Htt
 
         $this->ajaxJsonAnswer(
             (count($errors)) ? false : true,
-            (count($errors)) ? implode('<br />', $errors) : $this->translator->trans('Database is connected', [], 'Install')
+            (count($errors)) ? implode('<br />', $errors) : $this->translator->trans('Database is connected', [], 'Install'),
+            '',
+            ['canCreate' => $this->model_database->canOfferCreateDatabase()]
         );
     }
 
@@ -160,7 +162,8 @@ class InstallControllerHttpDatabase extends InstallControllerHttp implements Htt
         $login = Tools::getValue('dbLogin');
         $password = Tools::getValue('dbPassword');
 
-        $success = $this->model_database->createDatabase($server, $database, $login, $password);
+        // PDO::exec returns int|false; ajaxJsonAnswer requires bool.
+        $success = (bool) $this->model_database->createDatabase($server, $database, $login, $password);
 
         $this->ajaxJsonAnswer(
             $success,
@@ -195,7 +198,7 @@ class InstallControllerHttpDatabase extends InstallControllerHttp implements Htt
             $this->database_engine = $parameters['parameters']['database_engine'];
             $this->database_prefix = substr(str_shuffle(str_repeat('0123456789abcdefghijklmnopqrstuvwxyz', mt_rand(1,10))), 0, 5).'_';
 
-            $this->database_clear = true;
+            $this->database_clear = false;
             $this->use_smtp = false;
             $this->smtp_encryption = 'off';
             $this->smtp_port = 25;

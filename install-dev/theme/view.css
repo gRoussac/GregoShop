@@ -5,30 +5,6 @@
 @charset "UTF-8";
 
 /* ****************************************************************************
-      Fonts
-**************************************************************************** */
-@font-face {
-  font-family: "Prestafont";
-  font-weight: normal;
-  src: url("./fonts/Prestafont-Regular.woff");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "IBM Plex Sans";
-  font-weight: normal;
-  src: url("./fonts/IBMPlexSans-Regular.ttf");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "IBM Plex Sans";
-  font-weight: bold;
-  src: url("./fonts/IBMPlexSans-Bold.ttf");
-  font-display: swap;
-}
-
-/* ****************************************************************************
       CSS Properties
 **************************************************************************** */
 :root {
@@ -110,9 +86,8 @@
   --cdk-size-256: 16rem;
   --cdk-size-288: 18rem;
   --cdk-size-320: 20rem;
-  --cdk-font-family-primary: "IBM Plex Sans", "Arial", "sans-serif";
-  --cdk-font-family-secondary: "Prestafont", "IBM Plex Sans", "Arial",
-    "sans-serif";
+  --cdk-font-family-primary: "DM Sans", sans-serif;
+  --cdk-font-family-secondary: "Outfit", "DM Sans", sans-serif;
   --cdk-font-size-xs: 0.75rem;
   --cdk-font-size-sm: 0.875rem;
   --cdk-font-size-base: 1rem;
@@ -860,6 +835,13 @@ ul#optional li.fail {
   display: block;
   font: italic 11px Georgia, Arial, Sans-serif italic;
   color: #999;
+}
+
+#formCheckSQL .database-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--cdk-size-12);
 }
 
 #dbResultCheck {
@@ -1774,7 +1756,7 @@ ul#optional_update li.ok {
   transform: translateX(-50%);
   z-index: 1060;
   max-width: 276px;
-  font-family: "Open Sans", helvetica, arial, sans-serif;
+  font-family: var(--cdk-font-family-primary);
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;

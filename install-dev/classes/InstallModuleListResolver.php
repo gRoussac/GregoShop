@@ -50,7 +50,7 @@ class InstallModuleListResolver
 
     /**
      * Default checked modules for "Select the modules to install".
-     * Config: install-dev/data/module_selection_defaults.php
+     * Config: install-dev/data/module_selection_defaults.json
      *
      * @param list<ArrayFinder> $modulesOnDisk
      *
@@ -121,13 +121,18 @@ class InstallModuleListResolver
      */
     private function selectionDefaultsConfig(): array
     {
-        $path = _PS_INSTALL_PATH_ . 'data/module_selection_defaults.php';
+        $path = _PS_INSTALL_PATH_ . 'data/module_selection_defaults.json';
         if (!is_file($path)) {
             return [];
         }
 
+        $raw = file_get_contents($path);
+        if ($raw === false) {
+            return [];
+        }
+
         /** @var mixed $config */
-        $config = require $path;
+        $config = json_decode($raw, true);
 
         return is_array($config) ? $config : [];
     }

@@ -1,0 +1,34 @@
+{
+  "category_overrides": {
+    "gsitemap": "other",
+    "ps_checkpayment": "Administration",
+    "ps_wirepayment": "Administration"
+  },
+  "selected_exclude": [
+    "statsdata",
+    "ps_googleanalytics",
+    "statscatalog",
+    "statsbestcategories",
+    "statsbestcustomers",
+    "statsbestmanufacturers",
+    "statsbestsuppliers",
+    "statsbestvouchers",
+    "statsbestproducts",
+    "statsforecast",
+    "statscarrier",
+    "productcomments",
+    "ps_supplierlist",
+    "ps_facetedsearch",
+    "ps_contactinfo",
+    "ps_brandlist",
+    "ps_checkpayment",
+    "ps_wirepayment",
+    "gsitemap",
+    "ps_cashondelivery",
+    "dashactivity",
+    "dashgoals",
+    "dashproducts",
+    "dashtrends",
+    "ps_themecusto"
+  ]
+}

@@ -191,6 +191,16 @@ class InstallControllerHttp
             }
         }
 
+        // DB AJAX must not run the step-rewind validator: configure validate()
+        // fails when admin_password is intentionally blank in session (keep-blank),
+        // which would rewrite session.step away from database after createDb/checkDb.
+        if (Tools::getValue('checkDb') || Tools::getValue('createDb')) {
+            self::getSteps()->setOffsetFromStepName('database');
+            self::getSteps()->current()->getControllerInstance()->process();
+
+            return;
+        }
+
         // Get current step (check first if step is changed, then take it from session)
         if (Tools::getValue('step')) {
             self::getSteps()->setOffsetFromStepName(Tools::getValue('step'));
@@ -245,13 +255,6 @@ class InstallControllerHttp
             self::getSteps()->previous();
             $session->step = self::getSteps()->current()->getName();
             $didNavigate = true;
-        }
-
-        if (Tools::getValue('checkDb') || Tools::getValue('createDb')) {
-            self::getSteps()->setOffsetFromStepName('database');
-            self::getSteps()->current()->getControllerInstance()->process();
-
-            return;
         }
 
         // Post/Redirect/Get: F5 must not replay Next/Back (that skipped or went back a step).
@@ -376,17 +379,20 @@ class InstallControllerHttp
      * @param bool $success
      * @param string $message
      */
-    public function ajaxJsonAnswer(bool $success, $message = '', $warning = ''): void
+    /**
+     * @param array<string, mixed> $extra Extra JSON fields (e.g. canCreate)
+     */
+    public function ajaxJsonAnswer(bool $success, $message = '', $warning = '', array $extra = []): void
     {
         if (!$success && empty($message)) {
             $message = print_r(@error_get_last(), true);
         }
 
-        die(json_encode([
+        die(json_encode(array_merge([
             'success' => (bool) $success,
             'message' => $message,
             'warning' => $warning,
-        ]));
+        ], $extra)));
     }
 
     /**
