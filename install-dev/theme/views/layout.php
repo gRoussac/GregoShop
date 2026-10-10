@@ -22,6 +22,9 @@ $bootstrapJson = json_encode(
     <meta http-equiv="Expires" content="-1" />
     <meta name="robots" content="noindex" />
     <link rel="shortcut icon" href="theme/img/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,700;1,9..40,400&family=Outfit:wght@500;700&display=swap" />
     <link rel="stylesheet" type="text/css" media="all" href="theme/view.css?version=<?php echo rawurlencode(_PS_VERSION_ . '.' . (string) filemtime($viewCss)); ?>" />
 
     <?php if ($this->language->getLanguage()->isRtl() == 'true') { ?>
