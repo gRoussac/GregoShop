@@ -11,7 +11,7 @@ import {
 import { zxcvbn, zxcvbnOptions } from "@zxcvbn-ts/core";
 import * as zxcvbnCommonPackage from "@zxcvbn-ts/language-common";
 import * as zxcvbnEnPackage from "@zxcvbn-ts/language-en";
-import { installGetJson } from "../lib/ajax.js";
+import { installGetJson } from "../lib/http.js";
 import {
   isBlankInstallValue,
   loadDraft,

@@ -22,7 +22,7 @@ declare(strict_types=1);
  * @property string $database_name
  * @property string $database_prefix
  * @property string $database_engine
- * @property bool $database_clear Drop existing tables (default true on first load)
+ * @property bool $database_clear Drop existing tables (default false on first load)
  * @property int $rewrite_engine
  *
  * Configure step (store + admin account):

@@ -94,7 +94,7 @@ class Datas
         ],
         'database_clear' => [
             'name' => 'db_clear',
-            'default' => '1',
+            'default' => '0',
             'validate' => 'isInt',
             'help' => 'Drop existing tables',
         ],

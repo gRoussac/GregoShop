@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <entity_order_state>
-  <fields id="name" class="OrderState" image="os">
+  <fields id="name" class="OrderState">
     <field name="invoice"/>
     <field name="send_email"/>
     <field name="module_name"/>

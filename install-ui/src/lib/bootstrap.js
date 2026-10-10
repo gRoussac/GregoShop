@@ -1,8 +1,11 @@
-/**
- * @returns {import('../types/bootstrap').InstallBootstrap}
- */
 export function getBootstrap() {
-  return window.__INSTALL_BOOTSTRAP__ || { step: 'welcome', strings: {}, stepData: {} };
+  return (
+    window.__INSTALL_BOOTSTRAP__ || {
+      step: "welcome",
+      strings: {},
+      stepData: {},
+    }
+  );
 }
 
 /**

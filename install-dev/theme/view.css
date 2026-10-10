@@ -862,6 +862,13 @@ ul#optional li.fail {
   color: #999;
 }
 
+#formCheckSQL .database-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--cdk-size-12);
+}
+
 #dbResultCheck {
   margin-top: var(--cdk-size-16);
 }

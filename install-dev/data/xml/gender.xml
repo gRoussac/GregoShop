@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <entity_gender>
-  <fields id="name" class="Gender" image="genders">
+  <fields id="name" class="Gender">
     <field name="type"/>
   </fields>
   <entities>

@@ -12,11 +12,21 @@ use PrestaShopLoggerInterface;
 
 class Database extends AbstractInstall
 {
+    /**
+     * True when the last testDatabaseSettings() found a missing DB and CREATE DATABASE works.
+     */
+    private bool $canOfferCreateDatabase = false;
+
     public function __construct(
         ?PrestaShopLoggerInterface $logger = null
     ) {
         parent::__construct();
         $this->logger = $logger;
+    }
+
+    public function canOfferCreateDatabase(): bool
+    {
+        return $this->canOfferCreateDatabase;
     }
 
     /**
@@ -34,6 +44,7 @@ class Database extends AbstractInstall
     public function testDatabaseSettings($server, $database, $login, $password, $prefix, $clear = false)
     {
         $this->getLogger()->log('Testing database settings');
+        $this->canOfferCreateDatabase = false;
         $errors = [];
 
         // Check if fields are correctly typed
@@ -89,12 +100,11 @@ class Database extends AbstractInstall
                     break;
 
                 case 2:
-                    $error = $this->translator->trans('Connection to MySQL server succeeded, but database "%database%" not found', ['%database%' => $database], 'Install') . $dbtype;
+                    $errors[] = $this->translator->trans('Connection to MySQL server succeeded, but database "%database%" not found', ['%database%' => $database], 'Install') . $dbtype;
+                    // Probe CREATE DATABASE (create then drop) — UI may offer a create button.
                     if ($this->createDatabase($server, $database, $login, $password, true)) {
-                        $error .= '<p>' . sprintf('<input type="button" value="%s" class="button" id="btCreateDB">', $this->translator->trans('Attempt to create the database automatically', [], 'Install')) . '</p>
-						<script type="text/javascript">bindCreateDB();</script>';
+                        $this->canOfferCreateDatabase = true;
                     }
-                    $errors[] = $error;
 
                     break;
             }
