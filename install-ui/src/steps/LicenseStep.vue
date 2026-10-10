@@ -1,15 +1,31 @@
 <script setup>
 import { inject, onMounted, ref, watch } from "vue";
+import { loadDraft, saveDraft } from "../composables/useDraft.js";
 
+const DRAFT_KEY = "gregoshop.install.license";
 const bootstrap = inject("bootstrap");
 const data = bootstrap.stepData || {};
-const agreed = ref(!!data.licenceAgrement);
+const draft = loadDraft(DRAFT_KEY);
+
+const agreed = ref(
+  draft.licenceAgrement === true ||
+    draft.licenceAgrement === 1 ||
+    draft.licenceAgrement === "1" ||
+    !!data.licenceAgrement,
+);
 
 function syncNext() {
   window.__INSTALL_UI__?.setNextDisabled(!agreed.value);
 }
 
-watch(agreed, syncNext);
+function persistDraft() {
+  saveDraft(DRAFT_KEY, { licenceAgrement: !!agreed.value });
+}
+
+watch(agreed, () => {
+  persistDraft();
+  syncNext();
+});
 onMounted(syncNext);
 </script>
 
@@ -23,13 +39,12 @@ onMounted(syncNext);
   <div class="checkLicense">
     <input
       id="set_license"
+      v-model="agreed"
       type="checkbox"
       class="required"
       name="licence_agrement"
       value="1"
       style="margin-top: 2px"
-      :checked="agreed"
-      @change="agreed = $event.target.checked"
     />
     <div>
       <label for="set_license">

@@ -2,14 +2,14 @@
 name: CI Install UI
 on:
   push:
-    branches: [dev]
+    branches: [ dev ]
     paths:
       - "install-ui/**"
       - "install-dev/theme/js/install-app.js"
       - "install-dev/theme/css/install-app.css"
       - ".github/workflows/ci-install-ui.yml"
   pull_request:
-    branches: [dev]
+    branches: [ dev ]
     paths:
       - "install-ui/**"
       - "install-dev/theme/js/install-app.js"

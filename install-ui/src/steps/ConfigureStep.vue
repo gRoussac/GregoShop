@@ -27,6 +27,8 @@ const minLength = Number(data.passwordMinLength) || 8;
 const maxLength = Number(data.passwordMaxLength) || 72;
 const minScore = Number(data.passwordMinScore) || 3;
 
+const passwordAlreadySet = !!data.adminPasswordSet;
+
 const form = reactive({
   shop_name: data.shopName || "",
   shop_country: data.shopCountry || "0",
@@ -42,6 +44,7 @@ const form = reactive({
 const showTimezone = ref(TIMEZONE_ISOS.includes(form.shop_country));
 const passwordScore = ref(0);
 const passwordError = ref("");
+const confirmError = ref("");
 const passwordLengthOk = ref(false);
 const passwordScoreOk = ref(false);
 const popoverHtml = ref("");
@@ -67,12 +70,18 @@ function strengthColorFor(score) {
   return "#207F4B";
 }
 
-const passwordValid = computed(() => {
-  if (!form.admin_password) {
-    return true;
+/** Same rules as legacy isPasswordInputValid (empty = not valid). */
+function isPasswordInputValid(passwordValue) {
+  if (!passwordValue) {
+    return false;
   }
-  return passwordScoreOk.value && passwordLengthOk.value;
-});
+  const result = zxcvbn(passwordValue);
+  return (
+    result.score >= minScore &&
+    passwordValue.length >= minLength &&
+    passwordValue.length <= maxLength
+  );
+}
 
 const strengthLabel = computed(
   () =>
@@ -100,7 +109,7 @@ const passwordInputClass = computed(() => {
   if (!form.admin_password) {
     return "text required";
   }
-  return passwordValid.value
+  return passwordScoreOk.value && passwordLengthOk.value
     ? "form-control border border-success"
     : "form-control border border-danger";
 });
@@ -171,15 +180,25 @@ async function onCountryChange() {
   }
 }
 
-function evaluatePassword() {
+function passwordsMatch() {
+  return form.admin_password === form.admin_password_confirm;
+}
+
+/**
+ * Gate Next on strength + confirmation when a new password is typed.
+ * Empty fields: allow Next only if PHP already has a password (adminPasswordSet).
+ * Never rehydrate the secret into the FO.
+ */
+function syncPasswordGate() {
   const passwordValue = form.admin_password;
   if (!passwordValue) {
     passwordScore.value = 0;
     passwordError.value = "";
+    confirmError.value = "";
     passwordLengthOk.value = false;
     passwordScoreOk.value = false;
     popoverHtml.value = "";
-    window.__INSTALL_UI__?.setNextDisabled(false);
+    window.__INSTALL_UI__?.setNextDisabled(!passwordAlreadySet);
     return;
   }
 
@@ -200,9 +219,22 @@ function evaluatePassword() {
   });
   popoverHtml.value = tips.join("<br>");
 
-  const valid = passwordScoreOk.value && passwordLengthOk.value;
-  passwordError.value = valid ? "" : data.passwordMustBeStrong;
-  window.__INSTALL_UI__?.setNextDisabled(!valid);
+  if (!isPasswordInputValid(passwordValue)) {
+    passwordError.value = data.passwordMustBeStrong;
+    confirmError.value = "";
+    window.__INSTALL_UI__?.setNextDisabled(true);
+    return;
+  }
+
+  passwordError.value = "";
+  if (!passwordsMatch()) {
+    confirmError.value = data.passwordConfirmMismatch;
+    window.__INSTALL_UI__?.setNextDisabled(true);
+    return;
+  }
+
+  confirmError.value = "";
+  window.__INSTALL_UI__?.setNextDisabled(false);
 }
 
 function onFormClick(event) {
@@ -224,26 +256,48 @@ function onFormSubmit(event) {
   if (submitName === "submitPrevious") {
     return;
   }
-  if (form.admin_password && !passwordValid.value) {
+  // Blank = keep server-side password only when one was already saved.
+  if (!form.admin_password) {
+    if (passwordAlreadySet) {
+      return;
+    }
     event.preventDefault();
     event.stopImmediatePropagation();
-    window.__INSTALL_UI__?.setNextDisabled(false);
+    passwordError.value = data.passwordRequired || "Field required";
+    confirmError.value = "";
+    window.__INSTALL_UI__?.setNextDisabled(true);
+    return;
+  }
+  if (!isPasswordInputValid(form.admin_password)) {
+    event.preventDefault();
+    event.stopImmediatePropagation();
     passwordError.value = data.passwordMustBeStrong;
+    confirmError.value = "";
+    window.__INSTALL_UI__?.setNextDisabled(true);
+    return;
+  }
+  if (!passwordsMatch()) {
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    passwordError.value = "";
+    confirmError.value = data.passwordConfirmMismatch;
+    window.__INSTALL_UI__?.setNextDisabled(true);
   }
 }
 
 watch(
-  () => form.admin_password,
-  () => evaluatePassword(),
+  () => [form.admin_password, form.admin_password_confirm],
+  () => syncPasswordGate(),
 );
 
 onMounted(() => {
   restore();
   persist();
-  evaluatePassword();
+  syncPasswordGate();
   const formEl = document.getElementById("mainForm");
   formEl?.addEventListener("click", onFormClick);
-  formEl?.addEventListener("submit", onFormSubmit);
+  // Capture: run before InstallShell hide-Next handler.
+  formEl?.addEventListener("submit", onFormSubmit, true);
   window.addEventListener("beforeunload", persist);
   if (isBlankInstallValue(form.shop_timezone)) {
     onCountryChange();
@@ -253,7 +307,7 @@ onMounted(() => {
 onBeforeUnmount(() => {
   const formEl = document.getElementById("mainForm");
   formEl?.removeEventListener("click", onFormClick);
-  formEl?.removeEventListener("submit", onFormSubmit);
+  formEl?.removeEventListener("submit", onFormSubmit, true);
   window.removeEventListener("beforeunload", persist);
 });
 </script>
@@ -500,7 +554,11 @@ onBeforeUnmount(() => {
         </div>
       </div>
       <p v-if="!fieldErrors.admin_password" class="userInfos aligned">
-        {{ data.passwordHelp }}
+        {{
+          passwordAlreadySet && !form.admin_password
+            ? data.passwordKeepHelp
+            : data.passwordHelp
+        }}
       </p>
       <span v-if="fieldErrors.admin_password" class="result aligned errorTxt">{{
         fieldErrors.admin_password
@@ -530,6 +588,11 @@ onBeforeUnmount(() => {
         v-if="fieldErrors.admin_password_confirm"
         class="result aligned errorTxt"
         >{{ fieldErrors.admin_password_confirm }}</span
+      >
+      <span
+        v-show="confirmError"
+        class="result aligned errorTxt js-password-confirm-client-error"
+        >{{ confirmError }}</span
       >
     </div>
   </div>

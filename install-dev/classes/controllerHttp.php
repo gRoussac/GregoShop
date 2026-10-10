@@ -103,7 +103,7 @@ class InstallControllerHttp
             ],
             [
                 'name' => 'content',
-                'displayName' => $this->translator->trans('Content of your store', [], 'Install'),
+                'displayName' => $this->translator->trans('Installation of modules', [], 'Install'),
                 'controllerClass' => 'InstallControllerHttpContent',
             ],
             [
@@ -218,6 +218,7 @@ class InstallControllerHttp
         }
 
         // Submit form to go to next step
+        $didNavigate = false;
         if (Tools::getValue('submitNext')) {
             self::getSteps()->current()->getControllerInstance()->processNextStep();
 
@@ -237,11 +238,13 @@ class InstallControllerHttp
             if (self::getSteps()->getOffset() > $self->getStepOffset($session->last_step)) {
                 $session->last_step = self::getSteps()->current()->getName();
             }
+            $didNavigate = true;
         }
         // Go to previous step
         elseif (Tools::getValue('submitPrevious') && 0 !== self::getSteps()->getOffset()) {
             self::getSteps()->previous();
             $session->step = self::getSteps()->current()->getName();
+            $didNavigate = true;
         }
 
         if (Tools::getValue('checkDb') || Tools::getValue('createDb')) {
@@ -249,6 +252,12 @@ class InstallControllerHttp
             self::getSteps()->current()->getControllerInstance()->process();
 
             return;
+        }
+
+        // Post/Redirect/Get: F5 must not replay Next/Back (that skipped or went back a step).
+        if ($didNavigate) {
+            header('Location: index.php', true, 303);
+            exit;
         }
 
         self::getSteps()->current()->getControllerInstance()->process();

@@ -1,49 +1,178 @@
 <script setup>
-import { computed, inject, ref } from "vue";
+import { inject, ref, watch } from "vue";
+import { loadDraft, saveDraft } from "../composables/useDraft.js";
 
-const MODULES_SELECTED = 1;
+const ACTION_SELECTED = "selected";
+const ACTION_NONE = "none";
+const ACTION_ALL = "all";
+const ACTION_BO = "bo";
+const ACTION_FO = "fo";
+const DRAFT_KEY = "gregoshop.install.content";
 const bootstrap = inject("bootstrap");
 const data = bootstrap.stepData || {};
 
-const theme = ref(data.theme || (data.themes?.[0]?.name ?? ""));
-const moduleAction = ref(data.moduleAction ?? 0);
-const selectedModules = ref([...(data.selectedModules || [])]);
-const selectAll = ref(!!data.selectAll);
-const search = ref("");
+/**
+ * Token values (none/all/selected/bo/fo). Never use numeric 0 for "all":
+ * HTML/Vue drop empty-looking values and the POST became missing → default none.
+ */
+function normalizeModuleAction(value) {
+  const allowed = new Set([
+    ACTION_NONE,
+    ACTION_ALL,
+    ACTION_SELECTED,
+    ACTION_BO,
+    ACTION_FO,
+  ]);
+  if (value === undefined || value === null || value === "") {
+    return ACTION_NONE;
+  }
+  const asString = String(value);
+  if (allowed.has(asString)) {
+    return asString;
+  }
+  const legacy = {
+    0: ACTION_ALL,
+    1: ACTION_SELECTED,
+    2: ACTION_NONE,
+    3: ACTION_BO,
+    4: ACTION_FO,
+  };
+  return legacy[asString] || ACTION_NONE;
+}
 
-const showModuleList = computed(
-  () => Number(moduleAction.value) === MODULES_SELECTED,
+function allModuleNames() {
+  return (data.categories || []).flatMap((category) =>
+    category.modules.map((module) => module.name),
+  );
+}
+
+function boModuleNames() {
+  if (Array.isArray(data.boModules) && data.boModules.length > 0) {
+    return [...data.boModules];
+  }
+  return (data.categories || [])
+    .filter((category) => category.name === "Administration")
+    .flatMap((category) => category.modules.map((module) => module.name));
+}
+
+function foModuleNames() {
+  if (Array.isArray(data.foModules) && data.foModules.length > 0) {
+    return [...data.foModules];
+  }
+  const bo = new Set(boModuleNames());
+  return allModuleNames().filter((name) => !bo.has(name));
+}
+
+function selectedDefaultNames() {
+  if (
+    Array.isArray(data.selectedDefaultModules) &&
+    data.selectedDefaultModules.length > 0
+  ) {
+    return [...data.selectedDefaultModules];
+  }
+  return allModuleNames();
+}
+
+function modulesForAction(action) {
+  if (action === ACTION_NONE) {
+    return [];
+  }
+  if (action === ACTION_BO) {
+    return boModuleNames();
+  }
+  if (action === ACTION_FO) {
+    return foModuleNames();
+  }
+  if (action === ACTION_SELECTED) {
+    // Config: install-dev/data/module_selection_defaults.php
+    return selectedDefaultNames();
+  }
+  // all: everything checked
+  return allModuleNames();
+}
+
+const draft = loadDraft(DRAFT_KEY);
+const serverAction = normalizeModuleAction(data.moduleAction);
+const moduleAction = ref(
+  draft.moduleAction !== undefined &&
+    draft.moduleAction !== null &&
+    draft.moduleAction !== ""
+    ? normalizeModuleAction(draft.moduleAction)
+    : serverAction,
 );
 
-const filteredCategories = computed(() => {
-  const needle = search.value.toLowerCase();
-  return (data.categories || [])
-    .map((category) => {
-      const modules = (category.modules || []).filter((module) => {
-        if (!needle) {
-          return true;
-        }
-        return module.displayName.toLowerCase().includes(needle);
-      });
-      return { ...category, modules };
-    })
-    .filter((category) => category.modules.length > 0);
+function initialSelectedModules() {
+  const action = moduleAction.value;
+  if (Array.isArray(draft.selectedModules)) {
+    // Draft may be [] (NONE / unchecked all) — still trust it.
+    return [...draft.selectedModules];
+  }
+  const fromSession = Array.isArray(data.selectedModules)
+    ? [...data.selectedModules]
+    : null;
+  if (fromSession !== null) {
+    return fromSession;
+  }
+  return modulesForAction(action);
+}
+
+const selectedModules = ref(initialSelectedModules());
+const theme = ref(data.theme || (data.themes?.[0]?.name ?? ""));
+const selectAll = ref(
+  selectedModules.value.length > 0 &&
+    selectedModules.value.length === allModuleNames().length,
+);
+
+function persistDraft() {
+  saveDraft(DRAFT_KEY, {
+    moduleAction: moduleAction.value,
+    selectedModules: [...selectedModules.value],
+    theme: theme.value,
+  });
+}
+
+function applyActionModules(action) {
+  // Switching radio: load the preset for that mode (user can then refine).
+  selectedModules.value = modulesForAction(action);
+  const allNames = allModuleNames();
+  selectAll.value =
+    allNames.length > 0 &&
+    allNames.every((name) => selectedModules.value.includes(name));
+}
+
+watch(moduleAction, (action) => {
+  applyActionModules(action);
+  persistDraft();
 });
+
+watch(
+  selectedModules,
+  () => {
+    persistDraft();
+  },
+  { deep: true },
+);
+
+watch(theme, () => {
+  persistDraft();
+});
+
+function visibleCategories() {
+  return (data.categories || []).filter(
+    (category) => (category.modules || []).length > 0,
+  );
+}
 
 function toggleSelectAll() {
   if (selectAll.value) {
-    selectedModules.value = (data.categories || []).flatMap((category) =>
-      category.modules.map((module) => module.name),
-    );
+    selectedModules.value = allModuleNames();
   } else {
     selectedModules.value = [];
   }
 }
 
 function onModuleToggle() {
-  const allNames = (data.categories || []).flatMap((category) =>
-    category.modules.map((module) => module.name),
-  );
+  const allNames = allModuleNames();
   selectAll.value =
     allNames.length > 0 &&
     allNames.every((name) => selectedModules.value.includes(name));
@@ -51,8 +180,10 @@ function onModuleToggle() {
 </script>
 
 <template>
-  <div id="contentInfosBlock">
-    <h2>{{ data.title }}</h2>
+  <div id="contentInfosBlock" class="modules-step">
+    <header class="modules-step__header">
+      <h2>{{ data.title }}</h2>
+    </header>
 
     <input
       v-if="(data.themes || []).length === 1"
@@ -91,67 +222,55 @@ function onModuleToggle() {
       </div>
     </div>
 
-    <div class="field clearfix">
-      <label class="aligned">{{ data.modulesLabel }}</label>
-      <div class="contentinput">
-        <ul class="modules-select-type">
-          <li v-for="option in data.moduleOptions" :key="option.value">
-            <label>
-              <input
-                v-model="moduleAction"
-                type="radio"
-                name="module-action"
-                :value="option.value"
-                style="vertical-align: top"
-                autocomplete="off"
-              />
-              {{ option.label }}
-            </label>
-          </li>
-        </ul>
-      </div>
-      <p class="userInfos aligned">{{ data.modulesHelp }}</p>
-
-      <div v-show="showModuleList" id="modules-container">
-        <div>
+    <ul class="modules-mode-list">
+      <li v-for="option in data.moduleOptions" :key="option.value">
+        <label>
           <input
-            id="search-for-module"
-            v-model="search"
-            type="text"
-            name="search"
-            :placeholder="data.searchPlaceholder"
+            v-model="moduleAction"
+            type="radio"
+            name="module-action"
+            :value="normalizeModuleAction(option.value)"
+            autocomplete="off"
           />
-        </div>
-        <div>
-          <label>
+          <span>{{ option.label }}</span>
+        </label>
+      </li>
+    </ul>
+
+    <div id="modules-container">
+      <section
+        v-for="(category, index) in visibleCategories()"
+        :key="category.name"
+        class="modules-category"
+      >
+        <div class="modules-category__head">
+          <h3 class="modules-category__title">{{ category.label }}</h3>
+          <label v-if="index === 0" class="modules-step__select-all">
             <input
               v-model="selectAll"
               type="checkbox"
               name="select-all"
               @change="toggleSelectAll"
             />
-            {{ data.selectAllLabel }}
+            <span>{{ data.selectAllLabel }}</span>
           </label>
         </div>
-        <dl>
-          <template v-for="category in filteredCategories" :key="category.name">
-            <dt>{{ category.label }}</dt>
-            <dd v-for="module in category.modules" :key="module.name">
-              <label>
-                <input
-                  v-model="selectedModules"
-                  type="checkbox"
-                  name="modules[]"
-                  :value="module.name"
-                  autocomplete="off"
-                  @change="onModuleToggle"
-                />
-                {{ module.displayName }}
-              </label>
-            </dd>
-          </template>
-        </dl>
-      </div>
+        <ul class="modules-grid">
+          <li v-for="module in category.modules" :key="module.name">
+            <label>
+              <input
+                v-model="selectedModules"
+                type="checkbox"
+                name="modules[]"
+                :value="module.name"
+                autocomplete="off"
+                @change="onModuleToggle"
+              />
+              <span>{{ module.displayName }}</span>
+            </label>
+          </li>
+        </ul>
+      </section>
     </div>
   </div>
 </template>
