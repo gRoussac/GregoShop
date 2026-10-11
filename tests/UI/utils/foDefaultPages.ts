@@ -43,4 +43,3 @@ export {
   foHummingbirdStoresPage as foDefaultStoresPage,
   foHummingbirdTermsAndConditionsOfUsePage as foDefaultTermsAndConditionsOfUsePage,
 } from '@prestashop-core/ui-testing';
-

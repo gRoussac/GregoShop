@@ -6,10 +6,11 @@ import {deleteProductTest} from '@commonTests/BO/catalog/product';
 import setFeatureFlag from '@commonTests/BO/advancedParameters/newFeatures';
 
 import {
-  foDefaultMyAccountPage,
-  foDefaultMyOrderHistoryPage,
-  foDefaultMyOrderDetailsPage,
+  foDefaultHomePage,
   foDefaultLoginPage,
+  foDefaultMyAccountPage,
+  foDefaultMyOrderDetailsPage,
+  foDefaultMyOrderHistoryPage,
 } from '@utils/foDefaultPages';
 
 import {
@@ -26,8 +27,6 @@ import {
   boProductsCreateTabShippingPage,
   boOrdersViewBlockProductsPage,
   boOrdersViewBlockTabListPage,
-  // FO pages
-  foDefaultHomePage,
   // Data
   dataCustomers,
   dataOrderStatuses,

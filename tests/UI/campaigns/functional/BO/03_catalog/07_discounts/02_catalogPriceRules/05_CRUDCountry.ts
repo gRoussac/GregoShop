@@ -2,13 +2,14 @@ import testContext from '@utils/testContext';
 import {expect} from 'chai';
 
 import {
-  foDefaultSearchResultsPage,
+  foDefaultCartPage,
   foDefaultHomePage,
   foDefaultLoginPage,
-  foDefaultProductPage,
   foDefaultMyAccountPage,
-  foDefaultMyAddressesPage,
   foDefaultMyAddressesCreatePage,
+  foDefaultMyAddressesPage,
+  foDefaultProductPage,
+  foDefaultSearchResultsPage,
 } from '@utils/foDefaultPages';
 
 import {
@@ -20,8 +21,6 @@ import {
   boLocalizationPage,
   boLoginPage,
   boCurrenciesPage,
-  // Import FO pages
-  foDefaultCartPage,
   // Import data
   dataProducts,
   FakerCustomer,

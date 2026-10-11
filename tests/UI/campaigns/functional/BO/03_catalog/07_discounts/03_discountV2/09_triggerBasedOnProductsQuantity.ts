@@ -10,10 +10,10 @@ import {
   foDefaultCartPage,
   foDefaultCheckoutPage,
   foDefaultCheckoutOrderConfirmationPage,
+  foDefaultHomePage,
 } from '@utils/foDefaultPages';
 
 import {
-  // BO pages
   boDiscountsPage,
   boDiscountsCreatePage,
   boDashboardPage,
@@ -21,9 +21,6 @@ import {
   boFeatureFlagPage,
   boOrdersPage,
   boOrdersViewBlockProductsPage,
-  // FO pages
-  foDefaultHomePage,
-  // Data
   dataProducts,
   FakerDiscount,
   dataCustomers,
