@@ -30,6 +30,7 @@ use PrestaShopBundle\Install\Install;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Tests\Resources\DatabaseDump;
 use Tests\Resources\ResourceResetter;
+use Tests\Resources\SeedTestCatalog;
 
 function checkInstallationErrors(Install $install, SymfonyConsoleLogger $logger)
 {
@@ -110,6 +111,9 @@ $logger->log('Configure SMTP server for maildev');
 Configuration::updateGlobalValue('PS_MAIL_METHOD', Mail::METHOD_SMTP);
 Configuration::updateGlobalValue('PS_MAIL_SERVER', 'localhost');
 Configuration::updateGlobalValue('PS_MAIL_SMTP_PORT', '1025');
+
+$logger->log('Seeding minimal test catalog');
+SeedTestCatalog::seed();
 
 $logger->log('Creating database dump');
 DatabaseDump::create();

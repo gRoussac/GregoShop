@@ -26,7 +26,7 @@ watch(language, () => {
     <span v-html="data.upgradeWarningHtml"></span>
   </div>
 
-  <h2>{{ data.title }}</h2>
+  <h2 id="install-welcome-title">{{ data.title }}</h2>
   <p>{{ data.intro }}</p>
 
   <template v-if="(data.languages || []).length > 1">

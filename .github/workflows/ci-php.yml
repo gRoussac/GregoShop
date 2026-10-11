@@ -99,7 +99,7 @@ jobs:
           composer config platform.php ${{ matrix.php }}
 
       - name: Run phpstan
-        run: ./vendor/bin/phpstan analyse -c phpstan/phpstan.neon.dist
+        run: php -d memory_limit=-1 ./vendor/bin/phpstan analyse -c phpstan/phpstan.neon.dist
   phpunit:
     permissions:
       contents: read # for actions/checkout to fetch code

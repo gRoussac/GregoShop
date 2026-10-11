@@ -18,4 +18,4 @@ php "${PS_FOLDER_INSTALL:-install-dev}/index_cli.php" \
   --all_languages="${PS_ALL_LANGUAGES:-0}" \
   --newsletter=0 \
   --send_email=0 \
-  --fixtures="${PS_INSTALL_DEMO_PRODUCTS:-1}"
+  --fixtures="${PS_INSTALL_DEMO_PRODUCTS:-0}"
