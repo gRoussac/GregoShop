@@ -27,7 +27,7 @@ const showTestLists = computed(() => {
 </script>
 
 <template>
-  <h2>{{ data.title }}</h2>
+  <h2 id="install-system-title">{{ data.title }}</h2>
 
   <h3 v-if="data.requiredSuccess" class="okBlock">{{ data.okMessage }}</h3>
   <h3 v-else class="errorBlock">{{ data.errorMessage }}</h3>

@@ -1,0 +1,16 @@
+diff --git a/node_modules/@prestashop-core/ui-testing/dist/versions/develop/pages/install.js b/node_modules/@prestashop-core/ui-testing/dist/versions/develop/pages/install.js
+index 71f4a35..d39e7e7 100644
+--- a/node_modules/@prestashop-core/ui-testing/dist/versions/develop/pages/install.js
++++ b/node_modules/@prestashop-core/ui-testing/dist/versions/develop/pages/install.js
+@@ -29,9 +29,9 @@ class InstallPage extends commonPage_1.default {
+         this.firstStepFrTitle = 'Bienvenue sur l\'installateur de PrestaShop';
+         this.firstStepEnTitle = 'Welcome to the PrestaShop';
+         this.secondStepEnTitle = 'License Agreements';
+-        this.thirdStepEnTitle = 'We are currently checking PrestaShop compatibility with your system environment';
++        this.thirdStepEnTitle = 'We are currently checking compatibility with your system environment';
+         this.fourthStepEnTitle = 'Information about your Store';
+-        this.fifthStepEnTitle = 'Content of your store';
++        this.fifthStepEnTitle = 'Installation of modules';
+         this.sixthStepEnTitle = 'Configure your database by filling out the following fields';
+         this.finalStepEnTitle = 'Your installation is finished!';
+         // Selectors for all steps

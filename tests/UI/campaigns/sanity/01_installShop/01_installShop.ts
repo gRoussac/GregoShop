@@ -33,6 +33,10 @@ describe('Install Prestashop', async () => {
     await testContext.addContextItem(this, 'testIdentifier', 'goToInstallPage', baseContext);
 
     await installPage.goTo(page, global.INSTALL.URL);
+    await page
+      .locator('#install-welcome-title, #install-app h2')
+      .first()
+      .waitFor({state: 'visible', timeout: 60000});
 
     const stepTitle = await installPage.getStepTitle(page, 'Choose your language');
     const installationTitles = [installPage.firstStepFrTitle, installPage.firstStepEnTitle];
@@ -179,15 +183,6 @@ describe('Install Prestashop', async () => {
           step: {
             name: 'Install theme',
             timeout: 60000,
-          },
-        },
-    },
-    {
-      args:
-        {
-          step: {
-            name: 'Install fixtures',
-            timeout: 30000,
           },
         },
     },

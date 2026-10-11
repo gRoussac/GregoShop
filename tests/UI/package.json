@@ -88,7 +88,8 @@
     "// Audit": "Scripts to run audit tests",
     "test:audit": "TEST_PATH='audit/**/*' npm run test:specific",
     "// All tests": "Scripts to run all campaigns",
-    "test:all": "ts-mocha --file utils/setup.ts campaigns/audit/* campaigns/cldr/* campaigns/functional/* campaigns/modules/* campaigns/regression/* campaigns/sanity/*"
+    "test:all": "ts-mocha --file utils/setup.ts campaigns/audit/* campaigns/cldr/* campaigns/functional/* campaigns/modules/* campaigns/regression/* campaigns/sanity/*",
+    "postinstall": "patch-package"
   },
   "repository": {
     "type": "git",
@@ -131,6 +132,7 @@
     "eslint-plugin-html": "^8.2.1",
     "eslint-plugin-import": "^2.32.0",
     "mochawesome-merge": "^5.1.1",
+    "patch-package": "^8.0.1",
     "ts-mocha": "^11.1.0",
     "tsconfig-paths": "^4.2.0",
     "typescript": "~5.9.3"
