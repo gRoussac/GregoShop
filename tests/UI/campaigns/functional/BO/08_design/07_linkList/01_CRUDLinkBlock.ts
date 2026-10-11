@@ -3,14 +3,14 @@ import testContext from '@utils/testContext';
 import {expect} from 'chai';
 import type {BrowserContext, Page} from 'playwright';
 
+import {foDefaultHomePage} from '@utils/foDefaultPages';
+
 import {
   // Import BO pages
   boDashboardPage,
   boLoginPage,
   boDesignLinkListPage,
   boDesignLinkListCreatePage,
-  // Import FO pages
-  foDefaultHomePage,
   // Import data
   dataHooks,
   FakerLinkWidget,

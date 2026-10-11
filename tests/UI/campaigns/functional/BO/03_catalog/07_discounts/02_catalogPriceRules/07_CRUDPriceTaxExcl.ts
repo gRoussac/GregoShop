@@ -5,21 +5,17 @@ import {
   foDefaultSearchResultsPage,
   foDefaultHomePage,
   foDefaultProductPage,
+  foDefaultCartPage,
 } from '@utils/foDefaultPages';
 
 import {
-  // Import BO pages
   boCartRulesPage,
   boCatalogPriceRulesCreatePage,
   boCatalogPriceRulesPage,
   boDashboardPage,
   boLoginPage,
-  // Import FO pages
-  foDefaultCartPage,
-  // Import data
   dataProducts,
   FakerCatalogPriceRule,
-  // Import type
   type BrowserContext,
   type Page,
   utilsPlaywright,

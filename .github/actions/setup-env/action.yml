@@ -89,6 +89,8 @@ runs:
         ADMIN_PASSWD: "Pr3st4Sh0P"
       run: |
         cd ${{ inputs.PRESTASHOP_DIR }}
+        mkdir -p var/cache var/logs
+        chmod -R a+rwX var
         COMPOSE=(docker compose -f docker/docker-compose.yml)
         if [[ "${{ inputs.DB_SERVER }}" = "mariadb" ]]; then
           COMPOSE+=(-f docker/compose.mariadb.yml)

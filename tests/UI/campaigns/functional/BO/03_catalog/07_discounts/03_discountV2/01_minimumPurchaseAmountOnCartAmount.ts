@@ -8,18 +8,15 @@ import {
   foDefaultModalQuickViewPage,
   foDefaultModalBlockCartPage,
   foDefaultCartPage,
+  foDefaultHomePage,
 } from '@utils/foDefaultPages';
 
 import {
-  // BO pages
   boDiscountsPage,
   boDiscountsCreatePage,
   boDashboardPage,
   boLoginPage,
   boFeatureFlagPage,
-  // FO pages
-  foDefaultHomePage,
-  // Data
   dataProducts,
   FakerDiscount,
   utilsCore,
