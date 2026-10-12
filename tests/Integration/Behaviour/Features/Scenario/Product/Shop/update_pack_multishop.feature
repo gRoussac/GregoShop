@@ -5,6 +5,7 @@
 @restore-shops-after-feature
 @product-multishop
 @update-pack-multishop
+@requires-demo-catalog
 Feature: Add product to pack from Back Office (BO)
   As a BO user
   I need to be able to add product to pack from BO

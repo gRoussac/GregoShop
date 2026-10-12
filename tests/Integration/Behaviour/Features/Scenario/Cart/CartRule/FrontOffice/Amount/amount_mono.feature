@@ -1,6 +1,7 @@
 # ./vendor/bin/behat -c tests/Integration/Behaviour/behat.yml -s cart --tags fo-cart-rule-amount-mono
 @restore-all-tables-before-feature
 @fo-cart-rule-amount-mono
+@requires-demo-catalog
 Feature: Cart rule (amount) calculation with one cart rule
   As a customer
   I must be able to have correct cart total when adding cart rules

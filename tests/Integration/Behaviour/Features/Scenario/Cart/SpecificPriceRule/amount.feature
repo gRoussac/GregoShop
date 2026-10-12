@@ -1,4 +1,5 @@
 @restore-all-tables-before-feature
+@requires-demo-catalog
 Feature: Cart calculation with specific price rule (amount)
   As a customer
   I must be able to have correct cart total when adding specific price rule

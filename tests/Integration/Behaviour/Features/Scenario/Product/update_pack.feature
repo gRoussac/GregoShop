@@ -2,6 +2,7 @@
 @restore-products-before-feature
 @clear-cache-after-feature
 @update-pack
+@requires-demo-catalog
 Feature: Add product to pack from Back Office (BO)
   As a BO user
   I need to be able to add product to pack from BO

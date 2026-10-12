@@ -29,6 +29,8 @@ use Tests\Resources\Resetter\LanguageResetter;
  * to the declared types, follows the loaded language for LANG values, is purged on
  * delete(), and enforces the SAME implicit type validation as every other write path
  * (registry defaults, Admin API, BO form constraint) BEFORE any row is written.
+ *
+ * @group requires-demo-catalog
  */
 class ObjectModelExtraPropertiesTest extends KernelTestCase
 {

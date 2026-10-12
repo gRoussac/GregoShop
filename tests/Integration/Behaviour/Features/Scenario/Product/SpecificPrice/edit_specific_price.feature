@@ -4,6 +4,7 @@
 @clear-cache-before-feature
 @edit-specific-price
 @specific-prices
+@requires-demo-catalog
 Feature: Edit existing Specific Price from Back Office (BO).
   As an employee I want to be able to edit existing specific price for a product
 

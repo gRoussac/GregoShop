@@ -2,6 +2,7 @@
 @restore-all-tables-before-feature
 @clear-cache-before-feature
 @order_update_shipment_shipping_cost
+@requires-demo-catalog
 Feature: Shipping cost recalculation after product quantity update in shipment
   As a BO user
   I want to update the quantity of a product assigned to a shipment

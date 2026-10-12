@@ -3,6 +3,7 @@
 @mock-context-on-scenario
 @clear-cache-before-feature
 @order-multi-shop
+@requires-demo-catalog
 Feature: Order from Back Office (BO)
   In order to manage orders for FO customers
   As a BO user

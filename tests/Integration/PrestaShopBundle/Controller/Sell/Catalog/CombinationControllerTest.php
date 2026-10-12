@@ -166,6 +166,8 @@ class CombinationControllerTest extends FormGridControllerTestCase
      * @param array $generatedCombinations
      *
      * @return array
+     *
+     * @group requires-demo-catalog
      */
     public function testEditNotDefaultCombination(array $generatedCombinations): array
     {

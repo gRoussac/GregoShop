@@ -2,6 +2,7 @@
 @restore-products-before-feature
 @clear-cache-before-feature
 @category-tree
+@requires-demo-catalog
 Feature: Show category tree in product page (BO)
   As an employee
   I need to be able to see category tree in product page with marked product-category associations

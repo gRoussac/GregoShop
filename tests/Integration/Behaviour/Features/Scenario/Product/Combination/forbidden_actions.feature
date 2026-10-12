@@ -3,6 +3,7 @@
 @clear-cache-before-feature
 @product-combination
 @forbidden-combination-actions
+@requires-demo-catalog
 Feature: Combination actions are forbidden on product which do not have combinations type (BO)
   As an employee
   I can not perform combination actions on standard, pack or virtual products

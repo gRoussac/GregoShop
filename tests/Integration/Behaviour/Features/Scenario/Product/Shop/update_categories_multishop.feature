@@ -7,6 +7,7 @@
 @clear-cache-after-feature
 @product-multishop
 @update-categories-multishop
+@requires-demo-catalog
 Feature: Copy product from shop to shop.
   As a BO user I want to be able to copy product from shop to shop.
 

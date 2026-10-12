@@ -1,6 +1,7 @@
 # ./vendor/bin/behat -c tests/Integration/Behaviour/behat.yml -s order --tags order-to-cart
 @restore-all-tables-before-feature
 @order-to-cart
+@requires-demo-catalog
 Feature: Check order to cart data copy
   As a BO user
   I must be able to duplicate a cart from an existing order

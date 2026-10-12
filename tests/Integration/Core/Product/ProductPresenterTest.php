@@ -21,6 +21,8 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * @todo Move to Unit Tests when HookManager will be instanciated in ProductPresenter
+ *
+ * @group requires-demo-catalog
  */
 class ProductPresenterTest extends KernelTestCase
 {

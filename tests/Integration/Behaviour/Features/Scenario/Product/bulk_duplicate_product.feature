@@ -5,6 +5,7 @@
 @restore-languages-after-feature
 @bulk-product
 @bulk-duplicate-product
+@requires-demo-catalog
 Feature: Duplicate product from Back Office (BO).
   As an employee I want to be able to duplicate product
 

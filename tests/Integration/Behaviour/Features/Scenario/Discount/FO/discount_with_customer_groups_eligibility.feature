@@ -2,6 +2,7 @@
 @restore-all-tables-before-feature
 @restore-languages-after-feature
 @discount-customer-groups-fo
+@requires-demo-catalog
 Feature: Customer using discount with customer groups eligibility
   PrestaShop allows customers to use discounts that are limited to their customer group
   As a customer

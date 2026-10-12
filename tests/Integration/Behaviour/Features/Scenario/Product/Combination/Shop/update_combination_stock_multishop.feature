@@ -3,6 +3,7 @@
 @clear-cache-before-feature
 @product-combination
 @update-combination-stock-multishop
+@requires-demo-catalog
 Feature: Update product combination stock information in Back Office (BO) in multi shop context
   As an employee
   I need to be able to update product combination stock information from BO for multiple shops

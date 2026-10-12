@@ -89,8 +89,18 @@ runs:
         ADMIN_PASSWD: "Pr3st4Sh0P"
       run: |
         cd ${{ inputs.PRESTASHOP_DIR }}
-        mkdir -p var/cache var/logs
-        chmod -R a+rwX var
+        mkdir -p var/cache var/logs \
+          themes/default/lang themes/default/pdf/lang themes/default/cache \
+          themes/default/assets/cache \
+          app/config app/Resources/translations \
+          admin-dev/bundles
+        # Web installer (INSTALL_AUTO=false) runs as Apache/php-fpm and must write these trees.
+        chmod -R a+rwX \
+          var config img mails modules translations upload download \
+          app/config app/Resources/translations \
+          themes/default/lang themes/default/pdf/lang themes/default/cache \
+          themes/default/assets \
+          admin-dev
         COMPOSE=(docker compose -f docker/docker-compose.yml)
         if [[ "${{ inputs.DB_SERVER }}" = "mariadb" ]]; then
           COMPOSE+=(-f docker/compose.mariadb.yml)
@@ -98,6 +108,13 @@ runs:
         COMPOSE+=(--project-directory .)
         "${COMPOSE[@]}" up -d --build
         if [[ "${{ inputs.INSTALL_AUTO }}" = "true" ]]; then
+          # Healthy MySQL is not always accepting connections from php yet.
+          for _ in $(seq 1 30); do
+            if "${COMPOSE[@]}" exec -T php php -r 'try { new PDO("mysql:host=" . getenv("DB_SERVER") . ";port=" . (getenv("DB_PORT") ?: "3306"), getenv("DB_USER") ?: "root", getenv("DB_PASSWD") ?: "prestashop"); exit(0); } catch (Throwable $e) { exit(1); }'; then
+              break
+            fi
+            sleep 2
+          done
           "${COMPOSE[@]}" exec -T php sh docker/install/database.sh
         fi
         if [[ "${{ inputs.DOCKER_DAEMON }}" = "true" ]]; then

@@ -3,6 +3,7 @@
 @restore-all-tables-before-feature
 @clear-cache-before-feature
 @clear-cache-after-feature
+@requires-demo-catalog
 Feature: Customer using discount with usage limits in FO
   PrestaShop allows customers to use discounts that are limited by usage per user or total.
   As a customer

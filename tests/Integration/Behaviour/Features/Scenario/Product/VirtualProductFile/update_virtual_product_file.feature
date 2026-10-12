@@ -3,6 +3,7 @@
 @virtual-product-file
 @update-virtual-product-file
 @reset-downloads-after-feature
+@requires-demo-catalog
 Feature: Add virtual product file from BO (Back Office).
   As an employee I want to be able to add file of virtual product.
 

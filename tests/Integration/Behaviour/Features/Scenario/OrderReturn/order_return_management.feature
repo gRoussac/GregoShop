@@ -1,6 +1,7 @@
 # ./vendor/bin/behat -c tests/Integration/Behaviour/behat.yml -s order_return
 @restore-all-tables-before-feature
 @clear-cache-before-feature
+@requires-demo-catalog
 Feature: Order return Management
   As BO user I must be able to change status of order return
 

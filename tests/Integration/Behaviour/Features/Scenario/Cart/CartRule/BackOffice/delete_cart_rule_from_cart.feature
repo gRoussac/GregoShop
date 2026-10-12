@@ -1,6 +1,7 @@
 # ./vendor/bin/behat -c tests/Integration/Behaviour/behat.yml -s cart --tags bo-delete-cart-rule
 @restore-all-tables-before-feature
 @bo-delete-cart-rule
+@requires-demo-catalog
 Feature: Delete cart rule from cart in Back Office (BO)
   As a BO user I must be able to delete cart rules from cart
   Background:

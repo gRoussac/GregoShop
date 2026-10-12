@@ -3,6 +3,7 @@
 @clear-cache-before-feature
 @product-combination
 @update-combination-details
+@requires-demo-catalog
 Feature: Update product combination details in Back Office (BO)
   As an employee
   I need to be able to update product combination details from BO

@@ -1,6 +1,7 @@
 # ./vendor/bin/behat -c tests/Integration/Behaviour/behat.yml -s discount --tags discount-with-supplier-trigger
 @restore-all-tables-before-feature
 @discount-with-supplier-trigger
+@requires-demo-catalog
 Feature: Add discount with supplier trigger on FO
   PrestaShop allows discounts with supplier trigger as the condition
 

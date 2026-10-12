@@ -1,6 +1,7 @@
 # ./vendor/bin/behat -c tests/Integration/Behaviour/behat.yml -s cart --tags bo-cart-gift-cart-rule
 @restore-all-tables-before-feature
 @bo-cart-gift-cart-rule
+@requires-demo-catalog
 Feature: Apply cart rule to cart from Back Office (BO)
   As an employee
   I must be able to correctly apply various cart rules to cart when creating order in BO

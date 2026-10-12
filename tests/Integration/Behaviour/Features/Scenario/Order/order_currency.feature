@@ -6,6 +6,7 @@
 @reboot-kernel-after-feature
 @restore-currencies-before-scenario
 @order-currency
+@requires-demo-catalog
 Feature: Multiple currencies for Order in Back Office (BO)
   In order to manage multiple currencies for orders in BO
   As a BO user

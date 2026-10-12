@@ -2,6 +2,7 @@
 @restore-all-tables-before-feature
 @restore-languages-after-feature
 @add-discount-with-product-conditions
+@requires-demo-catalog
 Feature: Create discount with conditions
   PrestaShop allows BO users to create discounts conditions
   As a BO user

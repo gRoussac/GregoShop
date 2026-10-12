@@ -1,6 +1,7 @@
 # ./vendor/bin/behat -c tests/Integration/Behaviour/behat.yml -s discount --tags discount-with-carrier-trigger
 @restore-all-tables-before-feature
 @discount-with-carrier-trigger
+@requires-demo-catalog
 Feature: Add discount with carrier trigger on FO
   PrestaShop allows discounts with restricted carriers as the condition
 

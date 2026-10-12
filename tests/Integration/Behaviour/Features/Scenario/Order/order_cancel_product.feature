@@ -2,6 +2,7 @@
 @restore-all-tables-before-feature
 @order-cancel-product
 @clear-cache-before-feature
+@requires-demo-catalog
 Feature: Cancel Order Product from Back Office (BO)
   In order to cancel order products for FO customers
   As a BO user

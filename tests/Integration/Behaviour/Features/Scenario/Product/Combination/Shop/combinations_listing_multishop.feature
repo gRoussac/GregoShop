@@ -4,6 +4,7 @@
 @product-combination
 @product-multishop
 @combinations-listing-multishop
+@requires-demo-catalog
 Feature: List attribute combinations for product in Back Office (BO) of multiple shops
   As an employee
   I need to be able to see and manipulate a list of product attribute combinations in BO of multiple shops

@@ -7,6 +7,7 @@
 @generate-combination
 @product-multishop
 @generate-combination-multishop
+@requires-demo-catalog
 Feature: Generate combination from Back Office (BO) when using multi-shop feature
   As a BO user
   I need to be able to generate product combinations from BO for specified shop when using multi-shop feature

@@ -39,6 +39,9 @@ class ProductControllerTest extends FormGridControllerTestCase
         ProductResetter::resetProducts();
     }
 
+    /**
+     * @group requires-demo-catalog
+     */
     public function testIndex(): int
     {
         $products = $this->getEntitiesFromGrid();

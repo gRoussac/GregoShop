@@ -35,6 +35,8 @@ class EmployeeTypeTest extends FormListenerTestCase
      * being rejected against the previously saved role.
      *
      * @see https://github.com/PrestaShop/PrestaShop/issues/42015
+     *
+     * @group requires-demo-catalog
      */
     public function testDefaultPageAccessibleOnlyToTheNewlySelectedProfileIsAccepted(): void
     {

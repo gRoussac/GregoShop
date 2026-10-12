@@ -4,6 +4,7 @@
 @specific-prices
 @specific-prices-listing
 
+@requires-demo-catalog
 Feature: List specific prices for product in Back Office (BO)
   As an employee
   I need to be able to see all product specific prices from BO

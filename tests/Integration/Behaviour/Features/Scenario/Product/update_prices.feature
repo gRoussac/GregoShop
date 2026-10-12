@@ -3,6 +3,7 @@
 @restore-taxes-after-feature
 @update-product-prices
 @update-prices
+@requires-demo-catalog
 Feature: Update product price fields from Back Office (BO) when default country has states.
   As a BO user I want to be able to update product fields associated with price.
 

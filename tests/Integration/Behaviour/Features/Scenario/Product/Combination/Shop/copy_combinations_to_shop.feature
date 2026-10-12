@@ -6,6 +6,7 @@
 @product-combination
 @product-multishop
 @copy-combinations-to-shop
+@requires-demo-catalog
 Feature: Copy combinations from Back Office (BO) when using multi-shop feature
   As a BO user
   I need to be able to copy product combinations from BO from one shop to another when using multi-shop feature

@@ -2,6 +2,7 @@
 @restore-all-tables-before-feature
 @clear-cache-before-feature
 @reset-img-after-feature
+@requires-demo-catalog
 Feature: Category Management
   PrestaShop allows BO users to manage categories for products
   As a BO user

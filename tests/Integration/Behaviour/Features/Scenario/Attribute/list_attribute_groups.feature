@@ -1,6 +1,7 @@
 # ./vendor/bin/behat -c tests/Integration/Behaviour/behat.yml -s attribute --tags list-attribute-group
 @restore-all-tables-before-feature
 @list-attribute-group
+@requires-demo-catalog
 Feature: Attribute Group
   PrestaShop allows BO users to list attribute groups
   As a BO user

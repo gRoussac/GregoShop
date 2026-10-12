@@ -94,6 +94,8 @@ class InstallControllerHttpProcess extends InstallControllerHttp implements Http
                 $this->processPostInstall();
             } elseif (Tools::getValue('finalize') && !empty($this->session->process_validated['postInstall'])) {
                 $this->processFinalize();
+            } elseif ($this->hasProcessAjaxAction()) {
+                $this->ajaxJsonAnswer(false, $this->translator->trans('Installation step is not ready yet. Please retry.', [], 'Install'));
             }
         } catch (\Exception $e) {
             if (_PS_MODE_DEV_) {
@@ -107,16 +109,33 @@ class InstallControllerHttpProcess extends InstallControllerHttp implements Http
             $this->ajaxJsonAnswer(false, $message);
         }
 
-        // With no parameters, we consider that we are doing a new install, so session where the last process step
-        // was stored can be cleaned
+        // Restart clears process progress. Do not rewind to configure on bare GET:
+        // Post/Redirect/Get after submitNext lands here without submitNext in the query.
         if (Tools::getValue('restart')) {
             $this->session->process_validated = [];
             $this->session->database_clear = true;
-        } elseif (!Tools::getValue('submitNext')) {
-            $this->session->step = 'configure';
-            $this->session->last_step = 'configure';
-            Tools::redirect('index.php');
         }
+    }
+
+    private function hasProcessAjaxAction(): bool
+    {
+        foreach ([
+            'generateSettingsFile',
+            'installDatabase',
+            'installDefaultData',
+            'populateDatabase',
+            'configureShop',
+            'installModules',
+            'installTheme',
+            'postInstall',
+            'finalize',
+        ] as $action) {
+            if (Tools::getValue($action)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**

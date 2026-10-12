@@ -6,6 +6,7 @@
 @reboot-kernel-after-feature
 @restore-currencies-before-scenario
 @add-payment-to-order
+@requires-demo-catalog
 Feature: Add payment to Order from Back Office (BO)
   In order to manage orders for FO customers
   As a BO user

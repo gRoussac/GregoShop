@@ -3,6 +3,7 @@
 @clear-cache-before-feature
 @clear-cache-after-feature
 @discount-priority-by-type
+@requires-demo-catalog
 Feature: Discount priority by type
   Test that discounts are sorted by their TYPE priority (product > cart > shipping)
 

@@ -19,6 +19,9 @@ use Store;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Tests\Resources\DatabaseDump;
 
+/**
+ * @group requires-demo-catalog
+ */
 class StoreAtLeastOneExistsShopScopeTest extends KernelTestCase
 {
     private const TABLES_TO_RESTORE = ['shop', 'shop_url', 'configuration', 'store', 'store_lang', 'store_shop'];

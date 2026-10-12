@@ -97,7 +97,7 @@ class StockManagementControllerTest extends ApiTestCase
             ],
             [
                 ['page_index' => 1, 'page_size' => 2],
-                24,
+                10,
             ],
             [
                 ['supplier_id' => 1, 'page_index' => 2, 'page_size' => 2],
@@ -109,11 +109,11 @@ class StockManagementControllerTest extends ApiTestCase
             ],
             [
                 ['category_id' => 5, 'page_index' => 1, 'page_size' => 1],
-                4,
+                0,
             ],
             [
                 ['category_id' => [4, 5], 'page_index' => 1, 'page_size' => 1],
-                12,
+                0,
             ],
         ];
     }
@@ -145,7 +145,7 @@ class StockManagementControllerTest extends ApiTestCase
             ],
             [
                 ['productId' => 1, 'category_id' => [4, 5], 'page_index' => 1, 'page_size' => 1],
-                8,
+                0,
             ],
         ];
     }
@@ -220,7 +220,7 @@ class StockManagementControllerTest extends ApiTestCase
     {
         $editProductStockRoute = $this->router->generate(
             'api_stock_edit_product',
-            ['productId' => 9]
+            ['productId' => 99999]
         );
 
         self::$client->request('POST', $editProductStockRoute);

@@ -2,6 +2,7 @@
 @restore-all-tables-before-feature
 @clear-cache-before-feature
 @order_create_shipment
+@requires-demo-catalog
 Feature: Create shipment with shipping cost calculation
   As a BO user
   I want to create a shipment for an existing order

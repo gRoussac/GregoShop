@@ -2,6 +2,7 @@
 @restore-all-tables-before-feature
 @clear-cache-before-feature
 @products-with-different-carriers
+@requires-demo-catalog
 Feature: Product associated with different carriers
   As a BO users
   I want to order products associated with different carriers

@@ -39,6 +39,7 @@ parameters:
     - ../install-dev/theme/config.php
     - ../tests/Resources
     - ../tests/Unit/Core/Foundation/IoC/Fixtures
+    - ../override/modules
     - */node_modules/*
   ignoreErrors:
     - '#^Call to an undefined method Symfony\\Component\\Config\\Definition\\Builder\\NodeDefinition\:\:#'

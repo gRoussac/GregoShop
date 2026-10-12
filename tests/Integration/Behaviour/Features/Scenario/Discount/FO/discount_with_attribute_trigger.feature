@@ -1,6 +1,7 @@
 # ./vendor/bin/behat -c tests/Integration/Behaviour/behat.yml -s discount --tags discount-with-attribute-trigger
 @restore-all-tables-before-feature
 @discount-with-attribute-trigger
+@requires-demo-catalog
 Feature: Add discount with attribute trigger on FO
   PrestaShop allows discounts with restricted products as the condition
 

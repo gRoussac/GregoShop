@@ -1,6 +1,7 @@
 # ./vendor/bin/behat -c tests/Integration/Behaviour/behat.yml -s cart --tags fo-cart-rule-free-shipping
 @restore-all-tables-before-feature
 @fo-cart-rule-free-shipping
+@requires-demo-catalog
 Feature: Cart rule (amount) calculation with one cart rule offering free shipping
   As a customer
   I must be able to have correct cart total when adding cart rules

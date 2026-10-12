@@ -17,6 +17,7 @@ const failedKey = ref("");
 const successKeys = ref([]);
 
 let busy = false;
+let started = false;
 let currentIndex = 0;
 
 async function runStep(step) {
@@ -58,9 +59,10 @@ async function runSubtasks(step) {
 }
 
 async function start() {
-  if (busy) {
+  if (busy || started) {
     return;
   }
+  started = true;
   busy = true;
   installing.value = true;
   done.value = false;
@@ -180,34 +182,34 @@ onMounted(start);
       <hr />
       <h3 class="messagesBlock">{{ data.deleteInstallFolder }}</h3>
       <div class="fo-bo-container">
-        <div
+        <a
           id="boBlock"
           class="blockInfoEnd clearfix"
-          @click="window.open('../' + data.adminFolderName)"
+          :href="'../' + data.adminFolderName"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           <img :src="'theme/img/visu_boBlock.png'" alt="" />
           <div class="bo-infos">
             <h3>{{ data.boTitle }}</h3>
             <p class="description">{{ data.boDescription }}</p>
-            <a class="button button--small" target="_blank">{{
-              data.boButton
-            }}</a>
+            <span class="button button--small">{{ data.boButton }}</span>
           </div>
-        </div>
-        <div
+        </a>
+        <a
           id="foBlock"
           class="blockInfoEnd last clearfix"
-          @click="window.open('../')"
+          href="../"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           <img :src="'theme/img/visu_foBlock.png'" alt="" />
           <div class="bo-infos">
             <h3>{{ data.foTitle }}</h3>
             <p class="description">{{ data.foDescription }}</p>
-            <a class="button button--small" target="_blank">{{
-              data.foButton
-            }}</a>
+            <span class="button button--small">{{ data.foButton }}</span>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   </div>

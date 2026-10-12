@@ -7,6 +7,7 @@
 @clear-cache-after-feature
 @product-multishop
 @combinations-shop-collection
+@requires-demo-catalog
 Feature: Edit combinations with specific list of shops.
   As a BO user I want to be able to edit combinations for specific shops.
 

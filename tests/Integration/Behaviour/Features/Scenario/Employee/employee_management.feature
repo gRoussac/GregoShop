@@ -1,6 +1,7 @@
 # ./vendor/bin/behat -c tests/Integration/Behaviour/behat.yml -s employee --tags employee-management
 @restore-all-tables-before-feature
 @employee-management
+@requires-demo-catalog
 Feature: Employee management
   PrestaShop allows BO users to manage employees
   As a BO user

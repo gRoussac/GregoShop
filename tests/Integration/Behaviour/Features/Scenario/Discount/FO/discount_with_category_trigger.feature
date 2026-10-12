@@ -1,6 +1,7 @@
 # ./vendor/bin/behat -c tests/Integration/Behaviour/behat.yml -s discount --tags discount-with-category-trigger
 @restore-all-tables-before-feature
 @discount-with-category-trigger
+@requires-demo-catalog
 Feature: Add discount with category trigger on FO
   PrestaShop allows discounts with restricted products as the condition
 

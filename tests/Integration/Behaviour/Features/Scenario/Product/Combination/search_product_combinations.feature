@@ -3,6 +3,7 @@
 @clear-cache-before-feature
 @product-combination
 @search-product-combinations
+@requires-demo-catalog
 Feature: Search attribute combinations for product in Back Office (BO) of multiple shops
   As an employee
   I need to be able to see search product attribute combinations in BO of multiple shops

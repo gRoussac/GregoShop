@@ -5,6 +5,7 @@
 @clear-cache-after-feature
 @product-multishop
 @update-status-multishop
+@requires-demo-catalog
 Feature: Feature: Update product options from Back Office (BO) for multiple shops
   As a BO user
   I want to be able to update product fields associated with options in multiple shops.

@@ -2,6 +2,7 @@
 @restore-all-tables-before-feature
 @restore-languages-after-feature
 @update-free-gift-level-discount
+@requires-demo-catalog
 Feature: Update discount
   PrestaShop allows BO users to update discounts
   As a BO user

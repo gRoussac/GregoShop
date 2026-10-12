@@ -105,6 +105,12 @@ if (isset($install->getErrors()['ganalytics']) && $install->getErrors()['ganalyt
     $logger->log('One expected error from test module not installable');
     $install->resetErrors();
 }
+// Failed ganalytics install can leave an override/ tree under the fixture module;
+// that breaks ModuleTest::testDummyGetOverride once modules are backed up.
+$ganalyticsOverrideDir = _PS_MODULE_DIR_ . 'ganalytics/override';
+if (is_dir($ganalyticsOverrideDir)) {
+    Tools::deleteDirectory($ganalyticsOverrideDir);
+}
 checkInstallationErrors($install, $logger);
 
 $logger->log('Configure SMTP server for maildev');

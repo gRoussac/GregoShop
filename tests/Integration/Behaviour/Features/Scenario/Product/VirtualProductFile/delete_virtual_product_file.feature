@@ -3,6 +3,7 @@
 @virtual-product-file
 @delete-virtual-product-file
 @reset-downloads-after-feature
+@requires-demo-catalog
 Feature: Delete virtual product file from BO (Back Office).
   As an employee I want to be able to delete file of virtual product.
 

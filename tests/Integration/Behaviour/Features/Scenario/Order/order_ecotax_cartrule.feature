@@ -4,6 +4,7 @@
 @clear-cache-before-feature
 @order-ecotax
 @order-ecotax-cartrule
+@requires-demo-catalog
 Feature: Ecotax for Order in Back Office (BO)
 
   Background:

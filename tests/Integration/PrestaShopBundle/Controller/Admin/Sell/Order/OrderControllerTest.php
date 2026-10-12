@@ -61,6 +61,9 @@ class OrderControllerTest extends WebTestCase
         $this->tokenManager = self::$kernel->getContainer()->get(CsrfTokenManagerInterface::class);
     }
 
+    /**
+     * @group requires-demo-catalog
+     */
     public function testSearchProductsWithContent(): void
     {
         $this->client->request(

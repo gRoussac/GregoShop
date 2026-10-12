@@ -43,6 +43,9 @@ class AddressControllerTest extends FormGridControllerTestCase
         ConfigurationResetter::resetConfiguration();
     }
 
+    /**
+     * @group requires-demo-catalog
+     */
     public function testIndex(): int
     {
         $adresses = $this->getEntitiesFromGrid();

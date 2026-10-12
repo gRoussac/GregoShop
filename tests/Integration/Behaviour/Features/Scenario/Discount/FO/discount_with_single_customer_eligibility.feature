@@ -1,6 +1,7 @@
 # ./vendor/bin/behat -c tests/Integration/Behaviour/behat.yml -s discount --tags discount-single-customer-fo
 @restore-all-tables-before-feature
 @discount-single-customer-fo
+@requires-demo-catalog
 Feature: Customer using discount with single customer eligibility
   PrestaShop allows customers to use discounts that are limited to them
   As a customer

@@ -1,6 +1,7 @@
 # ./vendor/bin/behat -c tests/Integration/Behaviour/behat.yml -s discount --tags discount-validity-date-range
 @restore-all-tables-before-feature
 @discount-validity-date-range
+@requires-demo-catalog
 Feature: Discount validity date range in FO
   Check that discount validity is enforced by valid_from and valid_to:
   - if current date is in the range, the discount can be used

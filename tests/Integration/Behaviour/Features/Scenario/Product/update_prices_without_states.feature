@@ -7,6 +7,7 @@
 @update-product-prices
 @reboot-kernel-after-feature
 @restore-all-tables-after-feature
+@requires-demo-catalog
 Feature: Update product price fields from Back Office (BO) when default country has no states.
   As a BO user I want to be able to update product fields associated with price.
 

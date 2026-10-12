@@ -13,6 +13,9 @@ use Context;
 use Employee;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
+/**
+ * @group requires-demo-catalog
+ */
 class AdminSearchControllerCoreTest extends KernelTestCase
 {
     /**

@@ -1,6 +1,7 @@
 # ./vendor/bin/behat -c tests/Integration/Behaviour/behat.yml -s cart --tags round-item
 @restore-all-tables-before-feature
 @round-item
+@requires-demo-catalog
 Feature: Cart calculation with rounding type ITEM
   As a customer
   I must be able to have correct cart total when configuration is set to different rounding types

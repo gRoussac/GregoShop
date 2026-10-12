@@ -9,6 +9,7 @@
 @clear-cache-after-feature
 @product-multishop
 @duplicate-product-multishop
+@requires-demo-catalog
 Feature: Copy product from shop to shop.
   As a BO user I want to be able to duplicate products for specific shop, group shop and all shops
 

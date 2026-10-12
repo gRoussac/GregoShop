@@ -7,6 +7,7 @@
 @clear-cache-after-feature
 @product-multishop
 @product-management-shop-collection
+@requires-demo-catalog
 Feature: Edit product with specific list of shops.
   As a BO user I want to be able to edit a product for specific shops.
 

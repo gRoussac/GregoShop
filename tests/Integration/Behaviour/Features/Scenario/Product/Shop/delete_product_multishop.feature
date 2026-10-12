@@ -7,6 +7,7 @@
 @clear-cache-after-feature
 @product-multishop
 @delete-product-multishop
+@requires-demo-catalog
 Feature: Delete product when multishop feature is enabled
   As a BO user I want to be able to delete product from certain shops.
 

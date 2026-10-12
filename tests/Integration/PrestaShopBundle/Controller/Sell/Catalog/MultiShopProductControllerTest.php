@@ -27,6 +27,9 @@ use Tests\Integration\PrestaShopBundle\Controller\TestEntityDTO;
 use Tests\Resources\Resetter\ProductResetter;
 use Tests\Resources\Resetter\ShopResetter;
 
+/**
+ * @group requires-demo-catalog
+ */
 class MultiShopProductControllerTest extends GridControllerTestCase
 {
     protected const DEFAULT_SHOP_ID = 1;

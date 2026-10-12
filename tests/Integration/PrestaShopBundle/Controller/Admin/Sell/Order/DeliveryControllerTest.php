@@ -19,6 +19,9 @@ use Symfony\Component\Security\Csrf\CsrfTokenManager;
 use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use Tests\Integration\Utility\LoginTrait;
 
+/**
+ * @group requires-demo-catalog
+ */
 class DeliveryControllerTest extends WebTestCase
 {
     use LoginTrait;

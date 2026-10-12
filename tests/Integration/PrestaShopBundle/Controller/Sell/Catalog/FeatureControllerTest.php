@@ -29,6 +29,9 @@ class FeatureControllerTest extends FormGridControllerTestCase
         FeatureResetter::resetFeatures();
     }
 
+    /**
+     * @group requires-demo-catalog
+     */
     public function testIndex(): int
     {
         $features = $this->getEntitiesFromGrid();

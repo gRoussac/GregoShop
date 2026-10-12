@@ -1,6 +1,7 @@
 # ./vendor/bin/behat -c tests/Integration/Behaviour/behat.yml -s profile --tags profile-permissions
 @profile-permissions
 @restore-all-tables-before-feature
+@requires-demo-catalog
 Feature: Manage profile permissions from BO
   As a BO user
   I need to be able to edit profilepermissions

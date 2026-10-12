@@ -199,6 +199,8 @@ final class ExtraPropertyEndpointTest extends ApiTestCase
      * includes an API-only property (no grid association), which the grid never fetches and is therefore surfaced
      * through the batch-reader fallback. The localized values follow the langId query parameter, so we assert the
      * exact value per language.
+     *
+     * @group requires-demo-catalog
      */
     public function testListInjectsExtraProperties(): void
     {
