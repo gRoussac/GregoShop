@@ -2,6 +2,7 @@
 @restore-all-tables-before-feature
 @clear-cache-before-feature
 @order-rounding-type
+@requires-demo-catalog
 Feature: In BO, get right display prices for products and totals, depending on the order's rounding type
   As a BO user, I need to see the right prices depending on rounding type with odd tax
 

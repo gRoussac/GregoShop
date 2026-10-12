@@ -1,6 +1,7 @@
 # ./vendor/bin/behat -c tests/Integration/Behaviour/behat.yml -s cart --tags fo-cart-rule-validation
 @restore-all-tables-before-feature
 @fo-cart-rule-validation
+@requires-demo-catalog
 Feature: Cart rule application is validated before it is applied to cart
   As a customer
   I must not be able to apply invalid cart rules

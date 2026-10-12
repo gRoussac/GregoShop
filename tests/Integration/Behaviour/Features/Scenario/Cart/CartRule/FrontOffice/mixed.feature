@@ -1,6 +1,7 @@
 # ./vendor/bin/behat -c tests/Integration/Behaviour/behat.yml -s cart --tags fo-cart-rule-mixed
 @restore-all-tables-before-feature
 @fo-cart-rule-mixed
+@requires-demo-catalog
 Feature: Cart rule (mixed) calculation with multiple cart rules
   As a customer
   I must be able to have correct cart total when adding cart rules

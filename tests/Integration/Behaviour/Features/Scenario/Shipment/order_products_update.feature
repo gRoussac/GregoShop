@@ -2,6 +2,7 @@
 @restore-all-tables-before-feature
 @clear-cache-before-feature
 @order-products-update-with-shipments
+@requires-demo-catalog
 Feature: Update order products with shipments
   As a BO users
   I want to update order products with shipments

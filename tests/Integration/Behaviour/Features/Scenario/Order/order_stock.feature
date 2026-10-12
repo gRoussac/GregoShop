@@ -1,4 +1,5 @@
 # ./vendor/bin/behat -c tests/Integration/Behaviour/behat.yml -s order --tags order-stock
+@requires-demo-catalog
 @restore-all-tables-before-feature
 @clear-cache-before-feature
 @order-stock

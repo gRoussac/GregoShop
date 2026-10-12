@@ -1,6 +1,7 @@
 # ./vendor/bin/behat -c tests/Integration/Behaviour/behat.yml -s order --tags order-partial-refund
 @restore-all-tables-before-feature
 @clear-cache-before-feature
+@requires-demo-catalog
 Feature: Refund Order from Back Office (BO)
   In order to refund orders for FO customers
   As a BO user

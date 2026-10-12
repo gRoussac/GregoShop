@@ -1,6 +1,7 @@
 # ./vendor/bin/behat -c tests/Integration/Behaviour/behat.yml -s discount --tags discount-condition-minimum-amount
 @restore-all-tables-before-feature
 @discount-condition-minimum-amount
+@requires-demo-catalog
 Feature: Full UX discount test
   PrestaShop allows discounts with minimum amount as the condition
 

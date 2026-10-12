@@ -2,6 +2,7 @@
 @restore-all-tables-before-feature
 @clear-cache-before-feature
 @carrier-available
+@requires-demo-catalog
 Feature: Carrier available
   As a BO user i want to recover the common carriers of different products, as well as those filtered
 

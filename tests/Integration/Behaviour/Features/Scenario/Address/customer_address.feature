@@ -1,6 +1,7 @@
 # ./vendor/bin/behat -c tests/Integration/Behaviour/behat.yml -s address --tags customer-address
 @restore-all-tables-before-feature
 @customer-address
+@requires-demo-catalog
 Feature: Address
   PrestaShop allows BO users to manage customer addresses
   As a BO user

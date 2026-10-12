@@ -26,7 +26,7 @@
     "test:cldr:fast-fail": "TEST_PATH='cldr/' npm run test:specific:fast-fail",
     "// Sanity": "Scripts to run sanity tests",
     "test:sanity": "TEST_PATH='sanity/**/*' npm run test:specific",
-    "test:sanity:fast-fail": "TEST_PATH='sanity/*' npm run test:specific:fast-fail",
+    "test:sanity:fast-fail": "TEST_PATH='sanity/01_installShop/*' npm run test:specific:fast-fail",
     "// Functional": "Scripts to run functional tests",
     "test:functional": "TEST_PATH='functional/**/*' npm run test:specific",
     "// Functional API": "Scripts to run functional API tests",

@@ -2,6 +2,7 @@
 @restore-all-tables-before-feature
 @restore-languages-after-feature
 @add-product-level-discount
+@requires-demo-catalog
 Feature: Add discount
   PrestaShop allows BO users to create discounts
   As a BO user

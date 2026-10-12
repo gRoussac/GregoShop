@@ -3,6 +3,7 @@
 @clear-cache-before-feature
 @order-products-add-with-shipments
 @order_products_add
+@requires-demo-catalog
 Feature: Add order products with shipments
   As a BO users
   I want to add order products with shipments

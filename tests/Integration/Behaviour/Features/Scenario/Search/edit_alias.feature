@@ -4,6 +4,7 @@
 @clear-cache-after-feature
 @update_alias_feature
 
+@requires-demo-catalog
 Feature: Edit alias from Back Office (BO)
   As a BO user
   I need to be able to edit alias from the BO

@@ -1,6 +1,7 @@
 # ./vendor/bin/behat -c tests/Integration/Behaviour/behat.yml -s order --tags duplicate-products-in-order
 @restore-all-tables-before-feature
 @duplicate-products-in-order
+@requires-demo-catalog
 Feature: Order from Back Office (BO)
   In order to manage orders for FO customers
   As a BO user

@@ -1,6 +1,7 @@
 # ./vendor/bin/behat -c tests/Integration/Behaviour/behat.yml -s discount --tags discount-with-code
 @restore-all-tables-before-feature
 @discount-with-code
+@requires-demo-catalog
 Feature: Full UX discount test
   PrestaShop allows discounts with promo code or not
 

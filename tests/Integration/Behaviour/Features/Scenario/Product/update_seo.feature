@@ -4,6 +4,7 @@
 @reset-img-after-feature
 @clear-cache-before-feature
 @update-seo
+@requires-demo-catalog
 Feature: Update product SEO options from Back Office (BO)
   As an employee
   I need to be able to update product SEO options from Back Office

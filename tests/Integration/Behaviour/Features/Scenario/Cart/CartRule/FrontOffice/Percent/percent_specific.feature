@@ -2,6 +2,7 @@
 @restore-all-tables-before-feature
 @fo-cart-rule-percent-specific
 @clear-cache-before-feature
+@requires-demo-catalog
 Feature: Cart rule (percent) calculation with one cart rule restricted to one product
   As a customer
   I must be able to have correct cart total when adding cart rules

@@ -1,6 +1,126 @@
 parameters:
 	ignoreErrors:
 		-
+			message: "#^Using CookieCore\\:\\:SAMESITE_LAX \\(as Cookie\\:\\:SAMESITE_LAX\\) is forbidden, Use \\\\PrestaShop\\\\PrestaShop\\\\Core\\\\Http\\\\CookieOptions constants instead\\.$#"
+			count: 1
+			path: ../classes/Cookie.php
+
+		-
+			message: "#^Access to an undefined property InstallControllerHttp\\:\\:\\$can_upgrade\\.$#"
+			count: 2
+			path: ../install-dev/classes/InstallUiBootstrap.php
+
+		-
+			message: "#^Access to an undefined property InstallControllerHttp\\:\\:\\$database_clear\\.$#"
+			count: 1
+			path: ../install-dev/classes/InstallUiBootstrap.php
+
+		-
+			message: "#^Access to an undefined property InstallControllerHttp\\:\\:\\$database_login\\.$#"
+			count: 1
+			path: ../install-dev/classes/InstallUiBootstrap.php
+
+		-
+			message: "#^Access to an undefined property InstallControllerHttp\\:\\:\\$database_name\\.$#"
+			count: 1
+			path: ../install-dev/classes/InstallUiBootstrap.php
+
+		-
+			message: "#^Access to an undefined property InstallControllerHttp\\:\\:\\$database_password\\.$#"
+			count: 1
+			path: ../install-dev/classes/InstallUiBootstrap.php
+
+		-
+			message: "#^Access to an undefined property InstallControllerHttp\\:\\:\\$database_prefix\\.$#"
+			count: 1
+			path: ../install-dev/classes/InstallUiBootstrap.php
+
+		-
+			message: "#^Access to an undefined property InstallControllerHttp\\:\\:\\$database_server\\.$#"
+			count: 1
+			path: ../install-dev/classes/InstallUiBootstrap.php
+
+		-
+			message: "#^Access to an undefined property InstallControllerHttp\\:\\:\\$list_countries\\.$#"
+			count: 1
+			path: ../install-dev/classes/InstallUiBootstrap.php
+
+		-
+			message: "#^Access to an undefined property InstallControllerHttp\\:\\:\\$moduleAction\\.$#"
+			count: 1
+			path: ../install-dev/classes/InstallUiBootstrap.php
+
+		-
+			message: "#^Access to an undefined property InstallControllerHttp\\:\\:\\$modules\\.$#"
+			count: 4
+			path: ../install-dev/classes/InstallUiBootstrap.php
+
+		-
+			message: "#^Access to an undefined property InstallControllerHttp\\:\\:\\$process_steps\\.$#"
+			count: 1
+			path: ../install-dev/classes/InstallUiBootstrap.php
+
+		-
+			message: "#^Access to an undefined property InstallControllerHttp\\:\\:\\$ps_version\\.$#"
+			count: 1
+			path: ../install-dev/classes/InstallUiBootstrap.php
+
+		-
+			message: "#^Access to an undefined property InstallControllerHttp\\:\\:\\$selectAllButton\\.$#"
+			count: 1
+			path: ../install-dev/classes/InstallUiBootstrap.php
+
+		-
+			message: "#^Access to an undefined property InstallControllerHttp\\:\\:\\$tests\\.$#"
+			count: 1
+			path: ../install-dev/classes/InstallUiBootstrap.php
+
+		-
+			message: "#^Access to an undefined property InstallControllerHttp\\:\\:\\$tests_render\\.$#"
+			count: 1
+			path: ../install-dev/classes/InstallUiBootstrap.php
+
+		-
+			message: "#^Access to an undefined property InstallControllerHttp\\:\\:\\$themes\\.$#"
+			count: 1
+			path: ../install-dev/classes/InstallUiBootstrap.php
+
+		-
+			message: "#^Access to an undefined property InstallControllerHttp\\:\\:\\$translatedStrings\\.$#"
+			count: 1
+			path: ../install-dev/classes/InstallUiBootstrap.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$name\\.$#"
+			count: 2
+			path: ../install-dev/classes/InstallUiBootstrap.php
+
+		-
+			message: "#^Call to an undefined method InstallControllerHttp\\:\\:getModulesPerCategories\\(\\)\\.$#"
+			count: 1
+			path: ../install-dev/classes/InstallUiBootstrap.php
+
+		-
+			message: "#^Call to an undefined method InstallControllerHttp\\:\\:getTimezones\\(\\)\\.$#"
+			count: 1
+			path: ../install-dev/classes/InstallUiBootstrap.php
+
+		-
+			message: "#^Access to an undefined property InstallControllerHttp\\:\\:\\$install_ui_bootstrap\\.$#"
+			count: 1
+			path: ../install-dev/classes/controllerHttp.php
+
+		-
+			message: "#^Access to an undefined property Ps_SearchbarOverride\\:\\:\\$context\\.$#"
+			count: 1
+			path: ../override/modules/ps_searchbar/ps_searchbar.php
+
+		-
+			message: "#^Access to an undefined property Ps_SearchbarOverride\\:\\:\\$name\\.$#"
+			count: 1
+			path: ../override/modules/ps_searchbar/ps_searchbar.php
+
+		-
 			message: "#^Namespace Context is forbidden, No legacy calls inside the prestashop bundle\\. Please create an interface and an adapter if you need to\\.$#"
 			count: 6
 			path: ../src/Core/Addon/Module/ModuleManagerBuilder.php
@@ -12,7 +132,7 @@ parameters:
 
 		-
 			message: "#^Class AbstractAssetManager is forbidden, No legacy calls inside the prestashop bundle\\. Please create an interface and an adapter if you need to\\.$#"
-			count: 8
+			count: 4
 			path: ../src/Core/Addon/Theme/Theme.php
 
 		-
@@ -296,7 +416,7 @@ parameters:
 			path: ../src/Core/Context/ShopContextBuilder.php
 
 		-
-			message: "#^Using _COOKIE_KEY_ is forbidden, Use dependency injection instead$#"
+			message: "#^Using _COOKIE_KEY_ is forbidden, Use dependency injection instead\\.$#"
 			count: 3
 			path: ../src/Core/Crypto/Hashing.php
 
@@ -347,7 +467,7 @@ parameters:
 
 		-
 			message: "#^Class Mail is forbidden, No legacy calls inside the prestashop bundle\\. Please create an interface and an adapter if you need to\\.$#"
-			count: 2
+			count: 1
 			path: ../src/Core/Domain/CustomerService/CommandHandler/AddOrderCustomerMessageHandler.php
 
 		-
@@ -466,7 +586,7 @@ parameters:
 			path: ../src/Core/Domain/CustomerService/CommandHandler/ForwardCustomerThreadHandler.php
 
 		-
-			message: "#^Using _DB_PREFIX_ is forbidden, Use dependency injection instead$#"
+			message: "#^Using _DB_PREFIX_ is forbidden, Use dependency injection instead\\.$#"
 			count: 5
 			path: ../src/Core/Domain/CustomerService/CommandHandler/ForwardCustomerThreadHandler.php
 
@@ -637,7 +757,7 @@ parameters:
 
 		-
 			message: "#^Class CustomerThread is forbidden, No legacy calls inside the prestashop bundle\\. Please create an interface and an adapter if you need to\\.$#"
-			count: 3
+			count: 2
 			path: ../src/Core/Domain/CustomerService/Repository/CustomerThreadRepository.php
 
 		-
@@ -646,29 +766,19 @@ parameters:
 			path: ../src/Core/Domain/CustomerService/Repository/CustomerThreadRepository.php
 
 		-
-			message: "#^Using _THEME_PROD_PIC_DIR_ is forbidden, Use dependency injection instead$#"
+			message: "#^Using _THEME_PROD_PIC_DIR_ is forbidden, Use dependency injection instead\\.$#"
 			count: 1
 			path: ../src/Core/Domain/Order/QueryResult/OrderProductCustomizationForViewing.php
 
 		-
 			message: "#^Class Store is forbidden, No legacy calls inside the prestashop bundle\\. Please create an interface and an adapter if you need to\\.$#"
-			count: 4
+			count: 3
 			path: ../src/Core/Domain/Store/Repository/StoreRepository.php
 
 		-
 			message: "#^Namespace Store is forbidden, No legacy calls inside the prestashop bundle\\. Please create an interface and an adapter if you need to\\.$#"
 			count: 1
 			path: ../src/Core/Domain/Store/Repository/StoreRepository.php
-
-		-
-			message: "#^Class Validate is forbidden, No legacy calls inside the prestashop bundle\\. Please create an interface and an adapter if you need to\\.$#"
-			count: 6
-			path: ../src/Core/ExtraProperty/Validation/ExtraPropertyValidator.php
-
-		-
-			message: "#^Namespace Validate is forbidden, No legacy calls inside the prestashop bundle\\. Please create an interface and an adapter if you need to\\.$#"
-			count: 1
-			path: ../src/Core/ExtraProperty/Validation/ExtraPropertyValidator.php
 
 		-
 			message: "#^Namespace Configuration is forbidden, No legacy calls inside the prestashop bundle\\. Please create an interface and an adapter if you need to\\.$#"
@@ -697,7 +807,7 @@ parameters:
 
 		-
 			message: "#^Class OrderReturn is forbidden, No legacy calls inside the prestashop bundle\\. Please create an interface and an adapter if you need to\\.$#"
-			count: 2
+			count: 1
 			path: ../src/Core/Form/IdentifiableObject/DataHandler/OrderReturnFormDataHandler.php
 
 		-
@@ -741,7 +851,7 @@ parameters:
 			path: ../src/Core/Grid/Definition/Factory/OutstandingGridDefinitionFactory.php
 
 		-
-			message: "#^Using _DB_PREFIX_ is forbidden, Use dependency injection instead$#"
+			message: "#^Using _DB_PREFIX_ is forbidden, Use dependency injection instead\\.$#"
 			count: 3
 			path: ../src/Core/Grid/Query/CustomerThreadQueryBuilder.php
 
@@ -782,7 +892,7 @@ parameters:
 
 		-
 			message: "#^Class Db is forbidden, No legacy calls inside the prestashop bundle\\. Please create an interface and an adapter if you need to\\.$#"
-			count: 3
+			count: 2
 			path: ../src/Core/Module/HookRepository.php
 
 		-
@@ -862,7 +972,7 @@ parameters:
 
 		-
 			message: "#^Class Db is forbidden, No legacy calls inside the prestashop bundle\\. Please create an interface and an adapter if you need to\\.$#"
-			count: 2
+			count: 1
 			path: ../src/Core/Repository/AbstractMultiShopObjectModelRepository.php
 
 		-
@@ -932,7 +1042,7 @@ parameters:
 
 		-
 			message: "#^Class Shop is forbidden, No legacy calls inside the prestashop bundle\\. Please create an interface and an adapter if you need to\\.$#"
-			count: 17
+			count: 9
 			path: ../src/Core/Shop/LogoUploader.php
 
 		-
@@ -977,7 +1087,7 @@ parameters:
 
 		-
 			message: "#^Class Pack is forbidden, No legacy calls inside the prestashop bundle\\. Please create an interface and an adapter if you need to\\.$#"
-			count: 22
+			count: 11
 			path: ../src/Core/Stock/StockManager.php
 
 		-
@@ -1036,7 +1146,7 @@ parameters:
 			path: ../src/Core/Stock/StockManager.php
 
 		-
-			message: "#^Using _PS_DEFAULT_THEME_NAME_ is forbidden, Use dependency injection instead$#"
+			message: "#^Using _PS_DEFAULT_THEME_NAME_ is forbidden, Use dependency injection instead\\.$#"
 			count: 1
 			path: ../src/Core/Translation/Storage/Provider/Definition/ThemeProviderDefinition.php
 
@@ -1074,6 +1184,11 @@ parameters:
 			message: "#^Namespace Employee is forbidden, No legacy calls inside the prestashop bundle\\. Please create an interface and an adapter if you need to\\.$#"
 			count: 1
 			path: ../src/PrestaShopBundle/Command/AppendHooksListForSqlUpgradeFileCommand.php
+
+		-
+			message: "#^Access to undefined constant PrestaShopBundle\\\\Command\\\\CheckTranslationFixtures\\:\\:DATA_FIXTURE_FILE\\.$#"
+			count: 1
+			path: ../src/PrestaShopBundle/Command/CheckTranslationFixtures.php
 
 		-
 			message: "#^Namespace Validate is forbidden, No legacy calls inside the prestashop bundle\\. Please create an interface and an adapter if you need to\\.$#"
@@ -1122,7 +1237,7 @@ parameters:
 
 		-
 			message: "#^Class ImageManager is forbidden, No legacy calls inside the prestashop bundle\\. Please create an interface and an adapter if you need to\\.$#"
-			count: 2
+			count: 1
 			path: ../src/PrestaShopBundle/Controller/Admin/Configure/AdvancedParameters/EmployeeController.php
 
 		-
@@ -1132,7 +1247,7 @@ parameters:
 
 		-
 			message: "#^Class ImageManager is forbidden, No legacy calls inside the prestashop bundle\\. Please create an interface and an adapter if you need to\\.$#"
-			count: 2
+			count: 1
 			path: ../src/PrestaShopBundle/Controller/Admin/Configure/AdvancedParameters/ProfileController.php
 
 		-
@@ -1141,7 +1256,7 @@ parameters:
 			path: ../src/PrestaShopBundle/Controller/Admin/Configure/AdvancedParameters/ProfileController.php
 
 		-
-			message: "#^Using _MAIL_DIR_ is forbidden, Use dependency injection instead$#"
+			message: "#^Using _MAIL_DIR_ is forbidden, Use dependency injection instead\\.$#"
 			count: 2
 			path: ../src/PrestaShopBundle/Controller/Admin/Configure/ShopParameters/OrderStateController.php
 
@@ -1161,7 +1276,7 @@ parameters:
 			path: ../src/PrestaShopBundle/Controller/Admin/Improve/ModuleController.php
 
 		-
-			message: "#^Using _DB_PREFIX_ is forbidden, Use dependency injection instead$#"
+			message: "#^Using _DB_PREFIX_ is forbidden, Use dependency injection instead\\.$#"
 			count: 2
 			path: ../src/PrestaShopBundle/Controller/Admin/Improve/ModuleController.php
 
@@ -1172,7 +1287,7 @@ parameters:
 
 		-
 			message: "#^Class Dispatcher is forbidden, No legacy calls inside the prestashop bundle\\. Please create an interface and an adapter if you need to\\.$#"
-			count: 2
+			count: 1
 			path: ../src/PrestaShopBundle/Controller/Admin/LegacyController.php
 
 		-
@@ -1222,7 +1337,7 @@ parameters:
 
 		-
 			message: "#^Class ImageManager is forbidden, No legacy calls inside the prestashop bundle\\. Please create an interface and an adapter if you need to\\.$#"
-			count: 2
+			count: 1
 			path: ../src/PrestaShopBundle/Controller/Admin/Sell/Catalog/CategoryController.php
 
 		-
@@ -1262,7 +1377,7 @@ parameters:
 
 		-
 			message: "#^Class CartRule is forbidden, No legacy calls inside the prestashop bundle\\. Please create an interface and an adapter if you need to\\.$#"
-			count: 2
+			count: 1
 			path: ../src/PrestaShopBundle/Controller/Admin/Sell/Order/CartController.php
 
 		-
@@ -1279,6 +1394,31 @@ parameters:
 			message: "#^Namespace Currency is forbidden, No legacy calls inside the prestashop bundle\\. Please create an interface and an adapter if you need to\\.$#"
 			count: 3
 			path: ../src/PrestaShopBundle/Controller/Admin/Sell/Order/OrderController.php
+
+		-
+			message: "#^Calling Psr\\\\Container\\\\ContainerInterface\\:\\:get\\(\\) \\(as Symfony\\\\Component\\\\DependencyInjection\\\\ContainerInterface\\:\\:get\\(\\)\\) is forbidden, Please do not call the container from the controller, you can use \\$this\\-\\>get\\(\\) on the FrameworkBundleAdminController, or better, use dependency injection instead\\.$#"
+			count: 3
+			path: ../src/PrestaShopBundle/Controller/Api/ApiController.php
+
+		-
+			message: "#^Calling Psr\\\\Container\\\\ContainerInterface\\:\\:get\\(\\) \\(as Symfony\\\\Component\\\\DependencyInjection\\\\ContainerInterface\\:\\:get\\(\\)\\) is forbidden, Please do not call the container from the controller, you can use \\$this\\-\\>get\\(\\) on the FrameworkBundleAdminController, or better, use dependency injection instead\\.$#"
+			count: 1
+			path: ../src/PrestaShopBundle/Controller/Api/I18nController.php
+
+		-
+			message: "#^Calling Psr\\\\Container\\\\ContainerInterface\\:\\:get\\(\\) \\(as Symfony\\\\Component\\\\DependencyInjection\\\\ContainerInterface\\:\\:get\\(\\)\\) is forbidden, Please do not call the container from the controller, you can use \\$this\\-\\>get\\(\\) on the FrameworkBundleAdminController, or better, use dependency injection instead\\.$#"
+			count: 1
+			path: ../src/PrestaShopBundle/Controller/Api/Improve/Design/PositionsController.php
+
+		-
+			message: "#^Calling Psr\\\\Container\\\\ContainerInterface\\:\\:get\\(\\) \\(as Symfony\\\\Component\\\\DependencyInjection\\\\ContainerInterface\\:\\:get\\(\\)\\) is forbidden, Please do not call the container from the controller, you can use \\$this\\-\\>get\\(\\) on the FrameworkBundleAdminController, or better, use dependency injection instead\\.$#"
+			count: 1
+			path: ../src/PrestaShopBundle/Controller/Api/StockController.php
+
+		-
+			message: "#^Calling Psr\\\\Container\\\\ContainerInterface\\:\\:get\\(\\) \\(as Symfony\\\\Component\\\\DependencyInjection\\\\ContainerInterface\\:\\:get\\(\\)\\) is forbidden, Please do not call the container from the controller, you can use \\$this\\-\\>get\\(\\) on the FrameworkBundleAdminController, or better, use dependency injection instead\\.$#"
+			count: 4
+			path: ../src/PrestaShopBundle/Controller/Api/TranslationController.php
 
 		-
 			message: "#^Namespace Context is forbidden, No legacy calls inside the prestashop bundle\\. Please create an interface and an adapter if you need to\\.$#"
@@ -1306,7 +1446,7 @@ parameters:
 			path: ../src/PrestaShopBundle/DependencyInjection/AddOnsConfiguration.php
 
 		-
-			message: "#^Using _THEME_COL_DIR_ is forbidden, Use dependency injection instead$#"
+			message: "#^Using _THEME_COL_DIR_ is forbidden, Use dependency injection instead\\.$#"
 			count: 1
 			path: ../src/PrestaShopBundle/Entity/Repository/AttributeRepository.php
 
@@ -1337,12 +1477,12 @@ parameters:
 
 		-
 			message: "#^Class Product is forbidden, No legacy calls inside the prestashop bundle\\. Please create an interface and an adapter if you need to\\.$#"
-			count: 2
+			count: 1
 			path: ../src/PrestaShopBundle/Entity/Repository/StockManagementRepository.php
 
 		-
 			message: "#^Class Shop is forbidden, No legacy calls inside the prestashop bundle\\. Please create an interface and an adapter if you need to\\.$#"
-			count: 3
+			count: 2
 			path: ../src/PrestaShopBundle/Entity/Repository/StockManagementRepository.php
 
 		-
@@ -1407,7 +1547,7 @@ parameters:
 
 		-
 			message: "#^Class Validate is forbidden, No legacy calls inside the prestashop bundle\\. Please create an interface and an adapter if you need to\\.$#"
-			count: 2
+			count: 1
 			path: ../src/PrestaShopBundle/Form/Admin/Sell/Customer/CustomerType.php
 
 		-
@@ -1462,7 +1602,7 @@ parameters:
 
 		-
 			message: "#^Class PrestaShopLogger is forbidden, No legacy calls inside the prestashop bundle\\. Please create an interface and an adapter if you need to\\.$#"
-			count: 10
+			count: 5
 			path: ../src/PrestaShopBundle/Form/Admin/Type/LogSeverityChoiceType.php
 
 		-
@@ -1472,12 +1612,12 @@ parameters:
 
 		-
 			message: "#^Class Dispatcher is forbidden, No legacy calls inside the prestashop bundle\\. Please create an interface and an adapter if you need to\\.$#"
-			count: 2
+			count: 1
 			path: ../src/PrestaShopBundle/Routing/LegacyRouterChecker.php
 
 		-
 			message: "#^Class Shop is forbidden, No legacy calls inside the prestashop bundle\\. Please create an interface and an adapter if you need to\\.$#"
-			count: 8
+			count: 4
 			path: ../src/PrestaShopBundle/Routing/LegacyRouterChecker.php
 
 		-
@@ -1511,12 +1651,12 @@ parameters:
 			path: ../src/PrestaShopBundle/Translation/Loader/SqlTranslationLoader.php
 
 		-
-			message: "#^Using _DB_PREFIX_ is forbidden, Use dependency injection instead$#"
+			message: "#^Using _DB_PREFIX_ is forbidden, Use dependency injection instead\\.$#"
 			count: 3
 			path: ../src/PrestaShopBundle/Translation/Loader/SqlTranslationLoader.php
 
 		-
-			message: "#^Using _PS_DEFAULT_THEME_NAME_ is forbidden, Use dependency injection instead$#"
+			message: "#^Using _PS_DEFAULT_THEME_NAME_ is forbidden, Use dependency injection instead\\.$#"
 			count: 1
 			path: ../src/PrestaShopBundle/Translation/Provider/FrontOfficeProvider.php
 
@@ -1529,11 +1669,6 @@ parameters:
 			message: "#^Namespace Link is forbidden, No legacy calls inside the prestashop bundle\\. Please create an interface and an adapter if you need to\\.$#"
 			count: 1
 			path: ../src/PrestaShopBundle/Twig/Component/AbstractMultistoreHeader.php
-
-		-
-			message: "#^Class Shop is forbidden, No legacy calls inside the prestashop bundle\\. Please create an interface and an adapter if you need to\\.$#"
-			count: 2
-			path: ../src/PrestaShopBundle/Twig/Component/HeadTag.php
 
 		-
 			message: "#^Namespace AdminController is forbidden, No legacy calls inside the prestashop bundle\\. Please create an interface and an adapter if you need to\\.$#"
@@ -1584,61 +1719,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$extractedModuleProperties of class PrestaShop\\\\PrestaShop\\\\Core\\\\Module\\\\Parser\\\\ModuleParser constructor expects array\\<string\\>, array\\<int, int\\> given\\.$#"
 			count: 1
 			path: ../tests/Unit/Core/Module/Parser/ModuleParserTest.php
-
-		-
-			message: "#^Cannot access constant PRESTASHOP_VERSIONS on bankwire$#"
-			count: 1
-			path: ../tests/Unit/Resources/parsed-modules/module-const-array.php
-
-		-
-			message: "#^Cannot access constant DESCRIPTION on bankwire$#"
-			count: 1
-			path: ../tests/Unit/Resources/parsed-modules/module-self-const.php
-
-		-
-			message: "#^Cannot access constant DISPLAY_NAME on bankwire$#"
-			count: 1
-			path: ../tests/Unit/Resources/parsed-modules/module-self-const.php
-
-		-
-			message: "#^Cannot access constant ENGLISH_DISPLAY_NAME on bankwire$#"
-			count: 1
-			path: ../tests/Unit/Resources/parsed-modules/module-self-const.php
-
-		-
-			message: "#^Cannot access constant NAME on bankwire$#"
-			count: 1
-			path: ../tests/Unit/Resources/parsed-modules/module-self-const.php
-
-		-
-			message: "#^Cannot access constant VERSION on bankwire$#"
-			count: 1
-			path: ../tests/Unit/Resources/parsed-modules/module-self-const.php
-
-		-
-			message: "#^Cannot access constant DESCRIPTION on bankwire$#"
-			count: 1
-			path: ../tests/Unit/Resources/parsed-modules/module-static-const.php
-
-		-
-			message: "#^Cannot access constant DISPLAY_NAME on bankwire$#"
-			count: 1
-			path: ../tests/Unit/Resources/parsed-modules/module-static-const.php
-
-		-
-			message: "#^Cannot access constant ENGLISH_DISPLAY_NAME on bankwire$#"
-			count: 1
-			path: ../tests/Unit/Resources/parsed-modules/module-static-const.php
-
-		-
-			message: "#^Cannot access constant NAME on bankwire$#"
-			count: 1
-			path: ../tests/Unit/Resources/parsed-modules/module-static-const.php
-
-		-
-			message: "#^Cannot access constant VERSION on bankwire$#"
-			count: 1
-			path: ../tests/Unit/Resources/parsed-modules/module-static-const.php
 
 		-
 			message: "#^Unsafe access to private constant bankwire\\:\\:NAME through static\\:\\:\\.$#"

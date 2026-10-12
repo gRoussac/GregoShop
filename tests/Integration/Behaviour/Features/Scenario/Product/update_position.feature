@@ -2,6 +2,7 @@
 @restore-products-before-feature
 @clear-cache-before-feature
 @update-position
+@requires-demo-catalog
 Feature: Update product position from BO (Back Office)
   As an employee I must be able to update product position
 

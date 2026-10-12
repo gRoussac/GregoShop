@@ -2,6 +2,7 @@
 @restore-all-tables-before-feature
 @clear-cache-before-feature
 @cart-price-calculation
+@requires-demo-catalog
 Feature: Cart price calculation through the new pricing pipeline
   As a developer
   I want the cart calculator to compute cart totals correctly

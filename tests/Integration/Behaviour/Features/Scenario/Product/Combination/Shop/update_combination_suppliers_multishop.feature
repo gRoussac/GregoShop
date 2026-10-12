@@ -6,6 +6,7 @@
 @product-combination
 @product-multishop
 @update-combination-suppliers-multishop
+@requires-demo-catalog
 Feature: Update product combination suppliers in Back Office (BO) when using multi-stire feature
   As an employee
   I need to be able to update product combination suppliers from BO when multi-store feature is enabled

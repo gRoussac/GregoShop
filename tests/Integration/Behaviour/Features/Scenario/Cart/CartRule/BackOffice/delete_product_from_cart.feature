@@ -1,6 +1,7 @@
 # ./vendor/bin/behat -c tests/Integration/Behaviour/behat.yml -s cart --tags bo-delete-product
 @restore-all-tables-before-feature
 @bo-delete-product
+@requires-demo-catalog
 Feature: Delete product from cart in Back Office (BO)
   As a BO user I must be able to delete products from cart
   Background:

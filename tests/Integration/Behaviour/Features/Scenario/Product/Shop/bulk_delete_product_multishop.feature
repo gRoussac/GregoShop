@@ -7,6 +7,7 @@
 @clear-cache-after-feature
 @product-multishop
 @bulk-delete-product-multishop
+@requires-demo-catalog
 Feature: Bulk delete products when multishop feature is enabled
   As a BO user I want to be able to delete multiple products at once depending on shop context.
 

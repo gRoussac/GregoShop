@@ -2,6 +2,7 @@
 
 @restore-all-tables-before-feature
 @add-standard-product
+@requires-demo-catalog
 Feature: Add product in cart
   As a customer
   I must be able to correctly add products in my cart

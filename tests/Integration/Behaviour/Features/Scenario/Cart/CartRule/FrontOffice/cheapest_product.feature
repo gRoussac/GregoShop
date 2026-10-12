@@ -1,6 +1,7 @@
 # ./vendor/bin/behat -c tests/Integration/Behaviour/behat.yml -s cart --tags fo-cart-rule-cheapest-product
 @restore-all-tables-before-feature
 @fo-cart-rule-cheapest-product
+@requires-demo-catalog
 Feature: Cart rule (percent) calculation with one cart rule restricted to cheapest product
   As a customer
   I must be able to have correct cart total when adding cart rules

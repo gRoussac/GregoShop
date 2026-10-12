@@ -1016,6 +1016,14 @@ ul#optional_update li.ok {
 #progress_bar {
   display: none;
 }
+/* Vue mount (#install-app): show process UI; v-show toggles via inline display. */
+#install-app #progress_bar,
+#install-app #progress_bar .installing,
+#install-app #install_process_success,
+#install-app #error_process,
+#install-app #warning_process {
+  display: block;
+}
 #progress_bar .total {
   position: relative;
   width: 100%;

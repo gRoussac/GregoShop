@@ -3,6 +3,7 @@
 @clear-cache-before-feature
 @bulk-product
 @bulk-update-status
+@requires-demo-catalog
 Feature: Bulk update product status from BO (Back Office)
   As an employee I must be able to bulk update product status (enable/disable)
 

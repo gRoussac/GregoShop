@@ -3,6 +3,7 @@
 @restore-currencies-after-feature
 @delete-specific-price
 @specific-prices
+@requires-demo-catalog
 Feature: Delete a product specific price from Back Office (BO)
   As a BO user
   I need to be able to delete a product specific price from BO

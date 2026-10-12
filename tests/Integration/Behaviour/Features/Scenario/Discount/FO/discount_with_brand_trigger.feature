@@ -1,6 +1,7 @@
 # ./vendor/bin/behat -c tests/Integration/Behaviour/behat.yml -s discount --tags discount-with-brand-trigger
 @restore-all-tables-before-feature
 @discount-with-brand-trigger
+@requires-demo-catalog
 Feature: Add discount with brand trigger on FO
   PrestaShop allows discounts with restricted products as the condition
 

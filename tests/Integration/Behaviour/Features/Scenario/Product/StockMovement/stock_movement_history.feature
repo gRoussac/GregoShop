@@ -3,6 +3,7 @@
 @clear-cache-before-feature
 @product-stock-movement-history
 @stock-movement-history
+@requires-demo-catalog
 Feature: Search stock movements from Back Office (BO)
   As a BO user
   I need to be able to search stock movements for a product from BO

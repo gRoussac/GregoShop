@@ -3,6 +3,7 @@
 @reboot-kernel-before-feature
 @clear-cache-before-feature
 @order-documents
+@requires-demo-catalog
 Feature: Order from Back Office (BO)
   In order to manage orders for FO customers
   As a BO user

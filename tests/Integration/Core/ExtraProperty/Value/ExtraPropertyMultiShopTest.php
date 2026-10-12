@@ -37,6 +37,8 @@ use Tests\Resources\Resetter\ShopResetter;
  * ObjectModel deletion. The shop list resolver itself is covered by
  * Tests\Integration\Core\Shop\ShopListResolverTest, and the legacy context constraint
  * mapping by Tests\Integration\Classes\ContextTest.
+ *
+ * @group requires-demo-catalog
  */
 class ExtraPropertyMultiShopTest extends KernelTestCase
 {

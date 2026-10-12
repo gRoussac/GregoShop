@@ -4,6 +4,7 @@
 @catalog-price-rule
 @catalog-price-rule-listing
 
+@requires-demo-catalog
 Feature: List catalog price rules for product in Back Office (BO)
   As an employee
   I need to be able to see all catalog price rules in product page

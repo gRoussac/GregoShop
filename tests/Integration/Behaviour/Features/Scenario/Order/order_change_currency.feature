@@ -3,6 +3,7 @@
 @order-change-currency
 @clear-cache-before-feature
 @reboot-kernel-before-feature
+@requires-demo-catalog
 Feature: Order from Back Office (BO)
   In order to manage orders for FO customers
   As a BO user

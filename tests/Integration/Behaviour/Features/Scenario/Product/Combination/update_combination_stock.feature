@@ -3,6 +3,7 @@
 @clear-cache-before-feature
 @product-combination
 @update-combination-stock
+@requires-demo-catalog
 Feature: Update product combination stock information in Back Office (BO)
   As an employee
   I need to be able to update product combination stock information from BO

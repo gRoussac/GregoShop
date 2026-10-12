@@ -2,6 +2,7 @@
 @restore-all-tables-before-feature
 @reboot-kernel-before-feature
 @add-discounts-to-order
+@requires-demo-catalog
 Feature: Add discounts to order from Back Office (BO)
   As a BO user
   I need to be able to add discounts to existing orders from the BO

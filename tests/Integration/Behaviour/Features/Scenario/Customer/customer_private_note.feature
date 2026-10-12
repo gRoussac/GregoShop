@@ -1,6 +1,7 @@
 # ./vendor/bin/behat -c tests/Integration/Behaviour/behat.yml -s customer --tags customer-private-note
 @restore-all-tables-before-feature
 @customer-private-note
+@requires-demo-catalog
 Feature: Setting private note about customer
   In order to have private notes about FO customers
   As a BO user

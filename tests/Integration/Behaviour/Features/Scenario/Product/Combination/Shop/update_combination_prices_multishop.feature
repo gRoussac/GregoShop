@@ -4,6 +4,7 @@
 @product-combination
 @update-product-prices
 @update-combination-prices-multishop
+@requires-demo-catalog
 Feature: Update product combination prices in Back Office (BO) in multi shop context
   As an employee
   I need to be able to update product combination prices from BO for multiple shops

@@ -2,6 +2,7 @@
 @restore-products-before-feature
 @clear-cache-before-feature
 @update-options
+@requires-demo-catalog
 Feature: Update product options from Back Office (BO)
   As a BO user
   I need to be able to update product options from BO

@@ -4,6 +4,7 @@
 @reset-img-after-feature
 @product-combination
 @update-combination-images
+@requires-demo-catalog
 Feature: Associate combination image from Back Office (BO)
   As an employee I need to be able to associate combination images
 

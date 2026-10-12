@@ -1,6 +1,7 @@
 # ./vendor/bin/behat -c tests/Integration/Behaviour/behat.yml -s discount --tags discount-with-country-trigger
 @restore-all-tables-before-feature
 @discount-with-country-trigger
+@requires-demo-catalog
 Feature: Add discount with country trigger on FO
   PrestaShop allows discounts with restricted products as the condition
 

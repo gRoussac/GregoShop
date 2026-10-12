@@ -6,6 +6,7 @@
 @reset-img-after-feature
 @clear-cache-after-feature
 @duplicate-product
+@requires-demo-catalog
 Feature: Duplicate product from Back Office (BO).
   As an employee I want to be able to duplicate product
 

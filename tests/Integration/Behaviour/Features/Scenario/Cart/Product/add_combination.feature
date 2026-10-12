@@ -1,4 +1,5 @@
 @restore-all-tables-before-feature
+@requires-demo-catalog
 Feature: Add product combination in cart
   As a customer
   I must be able to correctly add product combinations in my cart

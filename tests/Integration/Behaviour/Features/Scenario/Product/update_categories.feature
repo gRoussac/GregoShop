@@ -3,6 +3,7 @@
 @restore-languages-after-feature
 @clear-cache-before-feature
 @update-categories
+@requires-demo-catalog
 Feature: Update product categories from Back Office (BO)
   As a BO user
   I need to be able to update product categories from BO

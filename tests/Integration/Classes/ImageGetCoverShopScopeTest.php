@@ -15,6 +15,9 @@ use Shop as LegacyShop;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Tests\Resources\DatabaseDump;
 
+/**
+ * @group requires-demo-catalog
+ */
 class ImageGetCoverShopScopeTest extends KernelTestCase
 {
     private const TABLES_TO_RESTORE = ['shop', 'shop_group', 'image_shop', 'configuration'];

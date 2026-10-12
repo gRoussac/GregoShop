@@ -2,6 +2,7 @@
 @restore-all-tables-before-feature
 @clear-cache-before-feature
 @bo-delete-cart
+@requires-demo-catalog
 Feature: Cart deleting in BO
   PrestaShop allows BO users to delete carts not already ordered
   As a BO user

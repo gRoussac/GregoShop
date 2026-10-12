@@ -3,6 +3,7 @@
 @clear-cache-before-feature
 @unit-price-specific-price
 @specific-prices
+@requires-demo-catalog
 Feature: Calculate product unit price for Front Office with specific prices
   As a customer
   I need product unit prices to use the displayed product price with the stored unit price ratio

@@ -4,6 +4,7 @@
 @reset-img-after-feature
 @clear-cache-before-feature
 @search-products
+@requires-demo-catalog
 Feature: Search products to associate them in the BO
   As an employee
   I need to be able to search for products in the BO to associate them

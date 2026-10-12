@@ -2,6 +2,7 @@
 @restore-all-tables-before-feature
 @full-ux-discount-test-cart-level
 
+@requires-demo-catalog
 Feature: Full UX discount test
   PrestaShop allows BO users to create discounts
   As a BO user

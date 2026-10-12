@@ -3,6 +3,7 @@
 @reset-img-after-feature
 @clear-cache-before-feature
 @related-products
+@requires-demo-catalog
 Feature: Update product related products from Back Office (BO)
   As an employee
   I need to be able to update related products of a product from Back Office

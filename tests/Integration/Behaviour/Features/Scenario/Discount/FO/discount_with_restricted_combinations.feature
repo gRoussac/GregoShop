@@ -1,6 +1,7 @@
 # ./vendor/bin/behat -c tests/Integration/Behaviour/behat.yml -s discount --tags discount-condition-restricted-combinations
 @restore-all-tables-before-feature
 @discount-condition-restricted-combinations
+@requires-demo-catalog
 Feature: Full UX discount test
   PrestaShop allows discounts with restricted combinations as the condition
 

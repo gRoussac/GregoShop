@@ -1,6 +1,7 @@
 # ./vendor/bin/behat -c tests/Integration/Behaviour/behat.yml -s cart --tags cart-updating-product-pack
 @restore-all-tables-before-feature
 @cart-updating-product-pack
+@requires-demo-catalog
 Feature: Add product pack in cart
   As a customer
   I must be able to correctly update product packs in my cart

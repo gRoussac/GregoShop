@@ -3,6 +3,7 @@
 @discount-priority-creation-date
 @clear-cache-before-feature
 @clear-cache-after-feature
+@requires-demo-catalog
 Feature: Discount priority - Creation date ordering
   Test that when type and priority field are same, older discount has higher priority
 

@@ -1,6 +1,7 @@
 # ./vendor/bin/behat -c tests/Integration/Behaviour/behat.yml -s cart --tags round-line
 @restore-all-tables-before-feature
 @round-line
+@requires-demo-catalog
 Feature: Cart calculation with rounding type LINE
   As a customer
   I must be able to have correct cart total when configuration is set to different rounding types

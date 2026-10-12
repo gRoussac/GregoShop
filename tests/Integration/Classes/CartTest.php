@@ -349,6 +349,9 @@ class CartTest extends KernelTestCase
         $this->assertEquals(13.2, $cart->getOrderTotal(true, Cart::BOTH, null, $id_carrier));
     }
 
+    /**
+     * @group requires-demo-catalog
+     */
     public function testDeliveryOptionListCacheIsScopedByDeliveryAddress(): void
     {
         Cart::resetStaticCache();

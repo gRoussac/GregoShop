@@ -191,14 +191,35 @@ class InstallControllerHttp
             }
         }
 
-        // DB AJAX must not run the step-rewind validator: configure validate()
+        // Installer AJAX must not run the step-rewind validator: configure validate()
         // fails when admin_password is intentionally blank in session (keep-blank),
-        // which would rewrite session.step away from database after createDb/checkDb.
+        // which would rewrite session.step away from database/process mid-install.
         if (Tools::getValue('checkDb') || Tools::getValue('createDb')) {
             self::getSteps()->setOffsetFromStepName('database');
             self::getSteps()->current()->getControllerInstance()->process();
 
             return;
+        }
+
+        $processAjaxActions = [
+            'generateSettingsFile',
+            'installDatabase',
+            'installDefaultData',
+            'populateDatabase',
+            'configureShop',
+            'installModules',
+            'installTheme',
+            'postInstall',
+            'finalize',
+        ];
+        foreach ($processAjaxActions as $processAjaxAction) {
+            if (Tools::getValue($processAjaxAction)) {
+                self::getSteps()->setOffsetFromStepName('process');
+                $session->step = 'process';
+                self::getSteps()->current()->getControllerInstance()->process();
+
+                return;
+            }
         }
 
         // Get current step (check first if step is changed, then take it from session)

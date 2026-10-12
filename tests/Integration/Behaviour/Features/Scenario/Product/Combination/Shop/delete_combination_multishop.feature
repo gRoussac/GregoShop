@@ -7,6 +7,7 @@
 @delete-combination
 @product-multishop
 @delete-combination-multishop
+@requires-demo-catalog
 Feature: Delete combination from Back Office (BO) in multiple shops
   As a BO user
   I need to be able to delete product combinations from BO in multiple shops

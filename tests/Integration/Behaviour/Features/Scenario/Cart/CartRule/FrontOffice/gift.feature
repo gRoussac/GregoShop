@@ -1,6 +1,7 @@
 # ./vendor/bin/behat -c tests/Integration/Behaviour/behat.yml -s cart --tags fo-cart-rule-gift
 @restore-all-tables-before-feature
 @fo-cart-rule-gift
+@requires-demo-catalog
 Feature: Cart calculation with cart rules giving gift
   As a customer
   I must be able to have correct cart total when adding products, and adding cart rule with gift

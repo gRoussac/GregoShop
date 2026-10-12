@@ -3,6 +3,7 @@
 @discount-priority-order
 @clear-cache-before-feature
 @clear-cache-after-feature
+@requires-demo-catalog
 Feature: Discount priority - Verify application order
   Test that discounts are applied in the correct priority order using amount-based discounts
 

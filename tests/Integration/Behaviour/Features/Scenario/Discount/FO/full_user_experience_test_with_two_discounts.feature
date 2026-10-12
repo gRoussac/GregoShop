@@ -3,6 +3,7 @@
 @full-ux-multiple-discount-test
 @clear-cache-before-feature
 @clear-cache-after-feature
+@requires-demo-catalog
 Feature: Full UX discount test
   PrestaShop allows BO users to create discounts
   As a BO user

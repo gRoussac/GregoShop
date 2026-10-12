@@ -5,6 +5,7 @@
 @clear-cache-before-feature
 @search-combinations
 @product-combination
+@requires-demo-catalog
 Feature: Search combinations to associate them in the BO
   As an employee
   I need to be able to search for combinations in the BO to associate them

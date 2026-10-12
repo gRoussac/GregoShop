@@ -3,6 +3,7 @@
 @clear-cache-before-feature
 @clear-cache-after-feature
 @update-product-type
+@requires-demo-catalog
 Feature: Add basic product from Back Office (BO)
   As a BO user
   I need to be able to add new product with basic information from the BO

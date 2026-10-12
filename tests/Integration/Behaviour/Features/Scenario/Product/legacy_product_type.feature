@@ -3,6 +3,7 @@
 @clear-cache-before-feature
 @clear-cache-after-feature
 @legacy-product-type
+@requires-demo-catalog
 Feature: Legacy products have consistent product type through dynamic checking (BO)
   As a BO user
   I need to be sure that "legacy" products (created with page v1) have a correct product type (used for v2)

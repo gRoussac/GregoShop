@@ -4,6 +4,7 @@
 @clear-cache-before-feature
 @product-combination
 @update-combination-suppliers
+@requires-demo-catalog
 Feature: Update product combination suppliers in Back Office (BO)
   As an employee
   I need to be able to update product combination suppliers from BO

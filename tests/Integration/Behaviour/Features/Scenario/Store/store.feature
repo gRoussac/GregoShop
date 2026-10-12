@@ -1,4 +1,5 @@
 @restore-all-tables-before-feature
+@requires-demo-catalog
 Feature: store
   In order to be able to manage shops in Shop Parameters > Contact > Shops
   As a BO user

@@ -4,6 +4,7 @@
 @reset-img-after-feature
 @restore-shops-after-feature
 @carrier-multishop
+@requires-demo-catalog
 Feature: Carrier management
   PrestaShop allows BO users to manage carrier for shipping
   As a BO user

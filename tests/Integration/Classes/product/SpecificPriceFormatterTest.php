@@ -20,6 +20,9 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Tests\Integration\Utility\ContextMockerTrait;
 use Tests\Resources\Resetter\LocalizationPackResetter;
 
+/**
+ * @group requires-demo-catalog
+ */
 class SpecificPriceFormatterTest extends KernelTestCase
 {
     use ContextMockerTrait;

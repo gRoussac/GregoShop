@@ -3,6 +3,7 @@
 @discount-priority-incompatible
 @clear-cache-before-feature
 @clear-cache-after-feature
+@requires-demo-catalog
 Feature: Discount priority - Incompatible discounts
   Test that incompatible discounts are resolved by priority
 

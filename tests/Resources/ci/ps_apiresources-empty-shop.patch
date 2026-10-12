@@ -1,0 +1,324 @@
+--- a/tests/Integration/ApiPlatform/AddressEndpointTest.php
++++ b/tests/Integration/ApiPlatform/AddressEndpointTest.php
+@@ -170,6 +170,9 @@
+         $this->assertEquals('69001', $expected['postCode']);
+     }
+ 
++    /**
++     * @group requires-demo-catalog
++     */
+     public function testUpdateCartAddress(): void
+     {
+         $expectedData = [
+@@ -223,6 +226,9 @@
+         $this->partialUpdateItem('/addresses/carts/999999', $updatedData, ['address_write'], Response::HTTP_NOT_FOUND);
+     }
+ 
++    /**
++     * @group requires-demo-catalog
++     */
+     public function testUpdateOrderAddress(): void
+     {
+         // First, create a customer address that we'll use for the order
+@@ -305,6 +311,9 @@
+         $this->partialUpdateItem('/addresses/orders/999999', $updatedData, ['address_write'], Response::HTTP_UNPROCESSABLE_ENTITY);
+     }
+ 
++    /**
++     * @group requires-demo-catalog
++     */
+     public function testAddCustomerAddress(): int
+     {
+         $postData = [
+@@ -458,6 +467,9 @@
+         $this->getItem('/addresses/customers/' . $secondAddressId, ['address_read'], Response::HTTP_NOT_FOUND);
+     }
+ 
++    /**
++     * @group requires-demo-catalog
++     */
+     public function testDeleteSingleAddress(): void
+     {
+         // Create an address to delete
+--- a/tests/Integration/ApiPlatform/AttributeEndpointTest.php
++++ b/tests/Integration/ApiPlatform/AttributeEndpointTest.php
+@@ -195,6 +195,7 @@
+      * @param int $attributeId
+      *
+      * @return int
++     * @group requires-demo-catalog
+      */
+     public function testListAttributes(int $attributeId): int
+     {
+@@ -279,6 +280,9 @@
+         $this->assertEquals(2, $this->countItems('/attributes/groups/1/attributes', ['attribute_read']));
+     }
+ 
++    /**
++     * @group requires-demo-catalog
++     */
+     public function testAttributePositions(): void
+     {
+         // List default fixture Color
+--- a/tests/Integration/ApiPlatform/AttributeGroupEndpointTest.php
++++ b/tests/Integration/ApiPlatform/AttributeGroupEndpointTest.php
+@@ -213,6 +213,7 @@
+      * @param int $attributeGroupId
+      *
+      * @return int
++     * @group requires-demo-catalog
+      */
+     public function testListAttributeGroups(int $attributeGroupId): int
+     {
+@@ -269,6 +270,9 @@
+         $this->getItem('/attributes/groups/' . $attributeGroupId, ['attribute_group_read'], Response::HTTP_NOT_FOUND);
+     }
+ 
++    /**
++     * @group requires-demo-catalog
++     */
+     public function testAttributeGroupPositions(): void
+     {
+         // List default fixture Color
+@@ -382,6 +386,9 @@
+         $this->assertEquals($expectedAttributeGroups, $list['items']);
+     }
+ 
++    /**
++     * @group requires-demo-catalog
++     */
+     public function testBulkRemoveAttributeGroups(): void
+     {
+         $attributeGroups = $this->listItems('/attributes/groups', ['attribute_group_read']);
+--- a/tests/Integration/ApiPlatform/CartEmailEndpointTest.php
++++ b/tests/Integration/ApiPlatform/CartEmailEndpointTest.php
+@@ -55,6 +55,9 @@
+         yield 'send cart to customer endpoint' => ['PUT', '/carts/1/emails'];
+     }
+ 
++    /**
++     * @group requires-demo-catalog
++     */
+     public function testSendCartToCustomer(): void
+     {
+         $cartId = $this->createCustomerCart();
+--- a/tests/Integration/ApiPlatform/CategoryEndpointTest.php
++++ b/tests/Integration/ApiPlatform/CategoryEndpointTest.php
+@@ -159,6 +159,7 @@
+ 
+     /**
+      * @depends testGetCategory
++     * @group requires-demo-catalog
+      */
+     public function testListCategories(int $categoryId): int
+     {
+@@ -234,6 +235,9 @@
+         );
+     }
+ 
++    /**
++     * @group requires-demo-catalog
++     */
+     public function testDeleteCategoryCover(): void
+     {
+         // This test checks the happy path of the "delete cover" endpoint.
+--- a/tests/Integration/ApiPlatform/DiscountEndpointTest.php
++++ b/tests/Integration/ApiPlatform/DiscountEndpointTest.php
+@@ -384,6 +384,7 @@
+      * @param array $expectedDiscount
+      *
+      * @return int
++     * @group requires-demo-catalog
+      */
+     public function testUpdateDiscountConditions(array $expectedDiscount): array
+     {
+--- a/tests/Integration/ApiPlatform/ExtraPropertyValuesEndpointTest.php
++++ b/tests/Integration/ApiPlatform/ExtraPropertyValuesEndpointTest.php
+@@ -244,6 +244,7 @@
+      * The grid-backed product list inlines the values at the item root under extra_<module>_<property>
+      * (never a nested extraProperties object): the grid-associated property comes from the grid query,
+      * the API-only one from the batch reader.
++     * @group requires-demo-catalog
+      */
+     public function testGridBackedListInlinesValues(): void
+     {
+--- a/tests/Integration/ApiPlatform/FeatureEndpointTest.php
++++ b/tests/Integration/ApiPlatform/FeatureEndpointTest.php
+@@ -156,6 +156,9 @@
+         $this->getItem('/features/' . $featureId, ['feature_read'], Response::HTTP_NOT_FOUND);
+     }
+ 
++    /**
++     * @group requires-demo-catalog
++     */
+     public function testBulkDeleteFeatures(): void
+     {
+         $features = $this->listItems('/features', ['feature_read']);
+--- a/tests/Integration/ApiPlatform/FeatureValueEndpointTest.php
++++ b/tests/Integration/ApiPlatform/FeatureValueEndpointTest.php
+@@ -81,6 +81,9 @@
+         ];
+     }
+ 
++    /**
++     * @group requires-demo-catalog
++     */
+     public function testAddFeatureValue(): int
+     {
+         $postData = [
+@@ -155,6 +158,9 @@
+         $this->getItem('/features/values/' . $featureValueId, ['feature_value_read'], Response::HTTP_NOT_FOUND);
+     }
+ 
++    /**
++     * @group requires-demo-catalog
++     */
+     public function testBulkRemoveFeatureValues(): void
+     {
+         $features = $this->listItems('/features/1/values', ['feature_value_read']);
+--- a/tests/Integration/ApiPlatform/ManufacturerEndpointTest.php
++++ b/tests/Integration/ApiPlatform/ManufacturerEndpointTest.php
+@@ -303,6 +303,7 @@
+      * @depends testListManufacturers
+      *
+      * @param int $manufacturerId
++     * @group requires-demo-catalog
+      */
+     public function testBulkRemoveManufacturers(): void
+     {
+--- a/tests/Integration/ApiPlatform/OrderReturnEndpointTest.php
++++ b/tests/Integration/ApiPlatform/OrderReturnEndpointTest.php
+@@ -26,6 +26,9 @@
+ use Symfony\Component\HttpFoundation\Response;
+ use Tests\Resources\DatabaseDump;
+ 
++/**
++ * @group requires-demo-catalog
++ */
+ class OrderReturnEndpointTest extends ApiTestCase
+ {
+     private static \OrderReturn $orderReturn;
+--- a/tests/Integration/ApiPlatform/OrderReturnStateEndpointTest.php
++++ b/tests/Integration/ApiPlatform/OrderReturnStateEndpointTest.php
+@@ -27,6 +27,9 @@
+ use Tests\Resources\DatabaseDump;
+ use Tests\Resources\Resetter\LanguageResetter;
+ 
++/**
++ * @group requires-demo-catalog
++ */
+ class OrderReturnStateEndpointTest extends ApiTestCase
+ {
+     public static function setUpBeforeClass(): void
+--- a/tests/Integration/ApiPlatform/ProductCombinationEndpointTest.php
++++ b/tests/Integration/ApiPlatform/ProductCombinationEndpointTest.php
+@@ -108,6 +108,7 @@
+ 
+     /**
+      * @depends testAddProductWithCombinations
++     * @group requires-demo-catalog
+      */
+     public function testCreateProductCombinations(int $productId): array
+     {
+--- a/tests/Integration/ApiPlatform/ProductEndpointTest.php
++++ b/tests/Integration/ApiPlatform/ProductEndpointTest.php
+@@ -56,8 +56,8 @@
+         'priceTaxIncluded' => 0.0,
+         'ecotaxTaxExcluded' => 0.0,
+         'ecotaxTaxIncluded' => 0.0,
+-        // US-FL Rate (6%)
+-        'taxRulesGroupId' => 9,
++        // Empty-shop default tax rules group
++        'taxRulesGroupId' => 1,
+         'onSale' => false,
+         'wholesalePrice' => 0.0,
+         'unitPriceTaxExcluded' => 0.0,
+@@ -214,6 +214,9 @@
+         ];
+     }
+ 
++    /**
++     * @group requires-demo-catalog
++     */
+     public function testAddProduct(): int
+     {
+         $productsNumber = $this->countItems('/products', ['product_read']);
+@@ -397,8 +400,8 @@
+             ],
+             'priceTaxExcluded' => 10.0,
+             'ecotaxTaxExcluded' => 2.0,
+-            // US-GA Rate (4%)
+-            'taxRulesGroupId' => 10,
++            // Empty-shop default tax rules group
++            'taxRulesGroupId' => 1,
+             'onSale' => true,
+             'wholesalePrice' => 3.45,
+             'unitPriceTaxExcluded' => 5.0,
+--- a/tests/Integration/ApiPlatform/ProductMultiShopEndpointTest.php
++++ b/tests/Integration/ApiPlatform/ProductMultiShopEndpointTest.php
+@@ -62,7 +62,7 @@
+         'priceTaxIncluded' => 0.0,
+         'ecotaxTaxExcluded' => 0.0,
+         'ecotaxTaxIncluded' => 0.0,
+-        'taxRulesGroupId' => 9,
++        'taxRulesGroupId' => 1,
+         'onSale' => false,
+         'wholesalePrice' => 0.0,
+         'unitPriceTaxExcluded' => 0.0,
+--- a/tests/Integration/ApiPlatform/SearchAliasEndpointTest.php
++++ b/tests/Integration/ApiPlatform/SearchAliasEndpointTest.php
+@@ -322,6 +322,7 @@
+ 
+     /**
+      * @depends testUpdateFullSearch
++     * @group requires-demo-catalog
+      */
+     public function testListSearchAliases(): void
+     {
+--- a/tests/Integration/ApiPlatform/SupplierEndpointTest.php
++++ b/tests/Integration/ApiPlatform/SupplierEndpointTest.php
+@@ -736,6 +736,7 @@
+      * @param int $supplierId
+      *
+      * @return int
++     * @group requires-demo-catalog
+      */
+     public function testListSuppliers(int $supplierId): int
+     {
+--- a/tests/Integration/ApiPlatform/VersionedEndpointsTest.php
++++ b/tests/Integration/ApiPlatform/VersionedEndpointsTest.php
+@@ -42,6 +42,8 @@
+  * this class copied the test resource keeps serving its old routes (without the test resource) even after
+  * the cache has been cleared. For the same reason, the resource is copied and the cache is cleared BEFORE
+  * the parent setUpBeforeClass boots the first kernel of each process.
++ *
++ * @group requires-demo-catalog
+  */
+ #[RunTestsInSeparateProcesses]
+ class VersionedEndpointsTest extends ApiTestCase
+--- a/tests/Integration/phpunit-ci.xml
++++ b/tests/Integration/phpunit-ci.xml
+@@ -12,6 +12,11 @@
+       <directory>.</directory>
+     </testsuite>
+   </testsuites>
++  <groups>
++    <exclude>
++      <group>requires-demo-catalog</group>
++    </exclude>
++  </groups>
+   <source>
+     <include>
+       <directory suffix=".php">../../src</directory>
+--- a/tests/Integration/phpunit-local.xml
++++ b/tests/Integration/phpunit-local.xml
+@@ -12,4 +12,9 @@
+       <directory>.</directory>
+     </testsuite>
+   </testsuites>
++  <groups>
++    <exclude>
++      <group>requires-demo-catalog</group>
++    </exclude>
++  </groups>
+ </phpunit>

@@ -88,7 +88,8 @@ describe('Install Prestashop', async () => {
   it('should fill shop Information form and go to step \'Content Configuration\'', async function () {
     await testContext.addContextItem(this, 'testIdentifier', 'goToContentConfiguration', baseContext);
 
-    await installPage.fillInformationForm(page);
+    // Vue install-ui uses a native <select id="infosCountry"> (no Chosen widget).
+    await fillStoreInformationForm(page);
     await installPage.nextStep(page);
     await installPage.waitForFinishedForthStep(page);
 
@@ -110,7 +111,17 @@ describe('Install Prestashop', async () => {
     await testContext.addContextItem(this, 'testIdentifier', 'checkDatabaseConnection', baseContext);
 
     await installPage.fillDatabaseForm(page);
-    const result = await installPage.isDatabaseConnected(page);
+    // MariaDB/MySQL can still be refusing connections right after compose healthy.
+    let result = false;
+
+    for (let attempt = 0; attempt < 10 && !result; attempt += 1) {
+      result = await installPage.isDatabaseConnected(page);
+
+      if (!result) {
+        await page.waitForTimeout(2000);
+      }
+    }
+
     expect(result).to.eq(true);
   });
 
@@ -229,3 +240,14 @@ describe('Install Prestashop', async () => {
     expect(result).to.eq(true);
   });
 });
+
+async function fillStoreInformationForm(page: Page): Promise<void> {
+  await page.locator('#infosShop').fill(global.INSTALL.SHOP_NAME);
+  await page.locator('#infosCountry').selectOption({label: global.INSTALL.COUNTRY});
+  await page.locator(`input[name="enable_ssl"][value="${global.INSTALL.ENABLE_SSL ? 1 : 0}"]`).click();
+  await page.locator('#infosFirstname').fill(global.BO.FIRSTNAME);
+  await page.locator('#infosName').fill(global.BO.LASTNAME);
+  await page.locator('#infosEmail').fill(global.BO.EMAIL);
+  await page.locator('#infosPassword').fill(global.BO.PASSWD);
+  await page.locator('#infosPasswordRepeat').fill(global.BO.PASSWD);
+}

@@ -2,6 +2,7 @@
 @restore-all-tables-before-feature
 @clear-cache-before-feature
 @order-fixed-product-prices
+@requires-demo-catalog
 Feature: Order from Back Office (BO)
   In order to manage orders for FO customers
   As a BO user

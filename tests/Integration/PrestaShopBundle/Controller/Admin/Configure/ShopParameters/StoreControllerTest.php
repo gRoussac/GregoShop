@@ -16,6 +16,9 @@ use Tests\Integration\PrestaShopBundle\Controller\TestEntityDTO;
 use Tests\Resources\Resetter\StoreResetter;
 
 // @todo: when form actions are ready, this class should extend FormGridControllerTestCase and add additional tests for forms
+/**
+ * @group requires-demo-catalog
+ */
 class StoreControllerTest extends GridControllerTestCase
 {
     /**

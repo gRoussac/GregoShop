@@ -3,6 +3,7 @@
 @clear-cache-before-feature
 @product-combination
 @generate-combinations
+@requires-demo-catalog
 Feature: Generate attribute combinations for product in Back Office (BO)
   As an employee
   I need to be able to generate product attribute combinations from BO

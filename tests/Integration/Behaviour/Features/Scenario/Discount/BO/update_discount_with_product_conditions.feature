@@ -2,6 +2,7 @@
 @restore-all-tables-before-feature
 @restore-languages-after-feature
 @update-discount-with-product-conditions
+@requires-demo-catalog
 Feature: Update discount condition
   PrestaShop allows BO users to update discounts conditions
   As a BO user

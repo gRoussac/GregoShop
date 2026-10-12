@@ -265,11 +265,13 @@
         "post-update-cmd": [],
         "api-module-tests": [
             "@composer create-test-db",
+            "bash tests/Resources/ci/apply-ps-apiresources-empty-shop-patch.sh",
             "@composer dump-autoload --dev --working-dir=modules/ps_apiresources",
             "@php -d date.timezone=UTC ./vendor/phpunit/phpunit/phpunit -c modules/ps_apiresources/tests/Integration/phpunit-ci.xml"
         ],
         "api-module-tests-local": [
             "@composer create-test-db",
+            "bash tests/Resources/ci/apply-ps-apiresources-empty-shop-patch.sh",
             "@composer dump-autoload --dev --working-dir=modules/ps_apiresources",
             "@composer run-api-module-tests-local"
         ],
