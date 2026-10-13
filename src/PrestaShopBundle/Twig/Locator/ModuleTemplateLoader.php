@@ -20,6 +20,8 @@ class ModuleTemplateLoader extends FilesystemLoader
      */
     public function __construct(array $namespaces, array $modulePaths = [])
     {
+        parent::__construct();
+
         if (!empty($modulePaths)) {
             $this->registerNamespacesFromConfig($modulePaths, $namespaces);
         }
