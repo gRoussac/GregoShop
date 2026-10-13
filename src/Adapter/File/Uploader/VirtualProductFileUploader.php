@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -36,7 +37,7 @@ class VirtualProductFileUploader
      */
     public function __construct(
         VirtualProductFileValidator $virtualProductFileValidator,
-        string $downloadDir
+        string $downloadDir,
     ) {
         $this->virtualProductFileValidator = $virtualProductFileValidator;
         $this->virtualProductFileDir = $downloadDir;

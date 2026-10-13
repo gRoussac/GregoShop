@@ -47,7 +47,7 @@ class GetTagForEditingHandler implements GetTagForEditingHandlerInterface
     public function __construct(
         ProductRepository $productRepository,
         ProductImageRepository $productImageRepository,
-        ProductImagePathFactory $productImagePathFactory
+        ProductImagePathFactory $productImagePathFactory,
     ) {
         $this->productRepository = $productRepository;
         $this->productImageRepository = $productImageRepository;

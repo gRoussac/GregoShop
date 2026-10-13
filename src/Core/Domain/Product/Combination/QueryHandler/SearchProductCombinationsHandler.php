@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -33,7 +34,7 @@ class SearchProductCombinationsHandler implements SearchProductCombinationsHandl
      */
     public function __construct(
         CombinationRepository $combinationRepository,
-        CombinationNameBuilderInterface $combinationNameBuilder
+        CombinationNameBuilderInterface $combinationNameBuilder,
     ) {
         $this->combinationRepository = $combinationRepository;
         $this->combinationNameBuilder = $combinationNameBuilder;

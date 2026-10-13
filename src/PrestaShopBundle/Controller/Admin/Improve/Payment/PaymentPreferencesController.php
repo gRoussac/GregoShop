@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -33,7 +34,7 @@ class PaymentPreferencesController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.admin.payment_preferences.form_handler')]
         FormHandlerInterface $paymentPreferencesFormHandler,
         #[Autowire(service: 'prestashop.adapter.module.payment_module_provider')]
-        PaymentModuleListProviderInterface $paymentModulesListProvider
+        PaymentModuleListProviderInterface $paymentModulesListProvider,
     ): Response {
         $legacyController = $request->attributes->get('_legacy_controller');
 
@@ -68,7 +69,7 @@ class PaymentPreferencesController extends PrestaShopAdminController
     public function processFormAction(
         Request $request,
         #[Autowire(service: 'prestashop.admin.payment_preferences.form_handler')]
-        FormHandlerInterface $paymentPreferencesFormHandler
+        FormHandlerInterface $paymentPreferencesFormHandler,
     ): RedirectResponse {
         $paymentPreferencesForm = $paymentPreferencesFormHandler->getForm();
         $paymentPreferencesForm->handleRequest($request);

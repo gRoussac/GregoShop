@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -55,7 +56,7 @@ class ModuleController extends ModuleAbstractController
     #[AdminSecurity("is_granted('read', 'ADMINMODULESSF_')")]
     public function manageAction(
         AdminModuleDataProvider $modulesProvider,
-        CategoriesProvider $categoriesProvider
+        CategoriesProvider $categoriesProvider,
     ): Response {
         $installedProducts = $this->getModuleRepository()->getList();
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -22,7 +23,7 @@ class ObjectPresenter implements PresenterInterface
      */
     public function present($object)
     {
-        if (!($object instanceof ObjectModel)) {
+        if (!$object instanceof ObjectModel) {
             throw new Exception('ObjectPresenter can only present ObjectModel classes');
         }
 

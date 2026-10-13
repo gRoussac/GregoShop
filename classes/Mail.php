@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -135,7 +136,7 @@ class MailCore extends ObjectModel
         $idShop = null,
         $bcc = null,
         $replyTo = null,
-        $replyToName = ''
+        $replyToName = '',
     ) {
         // If no ID shop was provided, we use the one from the context
         if (!$idShop) {
@@ -558,7 +559,7 @@ class MailCore extends ObjectModel
             }
 
             // Now, we add common links that are available in every template
-            if (!(Context::getContext()->link instanceof Link)) {
+            if (!Context::getContext()->link instanceof Link) {
                 Context::getContext()->link = new Link();
             }
             $templateVars['{shop_name}'] = Tools::safeOutput($configuration['PS_SHOP_NAME']);
@@ -784,7 +785,7 @@ class MailCore extends ObjectModel
         bool $dkimEnable = false,
         string $dkimKey = '',
         string $dkimDomain = '',
-        string $dkimSelector = ''
+        string $dkimSelector = '',
     ) {
         $result = false;
 
@@ -1011,7 +1012,7 @@ class MailCore extends ObjectModel
         $die,
         $message,
         $templates = [],
-        $domain = 'Admin.Advparameters.Notification'
+        $domain = 'Admin.Advparameters.Notification',
     ) {
         Tools::dieOrLog(
             Context::getContext()->getTranslator()->trans(

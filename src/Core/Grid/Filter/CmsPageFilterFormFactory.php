@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -40,7 +41,7 @@ final class CmsPageFilterFormFactory implements GridFilterFormFactoryInterface
     public function __construct(
         GridFilterFormFactoryInterface $formFactory,
         UrlGeneratorInterface $urlGenerator,
-        RequestStack $requestStack
+        RequestStack $requestStack,
     ) {
         $this->formFactory = $formFactory;
         $this->urlGenerator = $urlGenerator;

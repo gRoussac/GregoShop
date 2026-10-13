@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -87,7 +88,7 @@ class RetailPriceType extends TranslatorAwareType
         bool $isEcotaxEnabled,
         int $ecoTaxGroupId,
         TaxComputer $taxComputer,
-        int $contextCountryId
+        int $contextCountryId,
     ) {
         parent::__construct($translator, $locales);
         $this->contextLocale = $contextLocale;

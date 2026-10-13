@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -711,7 +712,7 @@ class FactoryTest extends TestCase
         string $code,
         string $currencyPattern,
         string $percentPattern,
-        string $decimalPattern
+        string $decimalPattern,
     ): Locale {
         $localeData = new LocaleData();
         $localeData->setLocaleCode($code);

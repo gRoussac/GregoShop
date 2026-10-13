@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -33,7 +34,7 @@ final class BackUrlRedirectResponseListener
      */
     public function __construct(
         BackUrlProvider $backUrlProvider,
-        LegacyContext $legacyContext
+        LegacyContext $legacyContext,
     ) {
         $this->backUrlProvider = $backUrlProvider;
         $context = $legacyContext->getContext();
@@ -81,7 +82,7 @@ final class BackUrlRedirectResponseListener
     private function areUrlsEquals(
         string $urlA,
         string $urlB,
-        Request $request
+        Request $request,
     ) {
         $parsedUrlA = parse_url($urlA);
         $parsedUrlB = parse_url($urlB);

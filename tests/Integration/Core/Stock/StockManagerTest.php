@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -67,7 +68,7 @@ class StockManagerTest extends KernelTestCase
         FakeProduct4759 $pack,
         array $products,
         int $delta,
-        array $expected
+        array $expected,
     ): void {
         $this->configuration->method('get')->willReturn($default_stock_type);
         $packItemsManager = new FakePackItemsManager4759();
@@ -160,7 +161,7 @@ class StockManagerTest extends KernelTestCase
         FakeProduct4759 $pack,
         array $products,
         int $delta,
-        array $expected
+        array $expected,
     ): void {
         $this->configuration->method('get')->willReturn($default_stock_type);
         $this->packItemsManager = new FakePackItemsManager4759();
@@ -258,7 +259,7 @@ class StockManagerTest extends KernelTestCase
         array $products,
         int $product_to_update,
         int $delta,
-        array $expected
+        array $expected,
     ): void {
         $this->configuration->method('get')->willReturn($default_stock_type);
         $this->packItemsManager = new FakePackItemsManager4759();

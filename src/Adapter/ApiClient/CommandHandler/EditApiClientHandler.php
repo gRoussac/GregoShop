@@ -25,7 +25,7 @@ class EditApiClientHandler implements EditApiClientCommandHandlerInterface
 {
     public function __construct(
         private readonly ApiClientRepository $repository,
-        private readonly ValidatorInterface $validator
+        private readonly ValidatorInterface $validator,
     ) {
     }
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -114,6 +115,7 @@ class PaginatedList extends AbstractCQRSOperation implements CollectionOperation
         ?array $defaultValues = null,
     ) {
         $passedArguments = \get_defined_vars();
+        unset($passedArguments['this']);
         $passedArguments['method'] = self::METHOD_GET;
         $passedArguments['provider'] = $provider ?? QueryListProvider::class;
         $passedArguments['filtersClass'] = $filtersClass ?? Filters::class;

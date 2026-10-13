@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -60,7 +61,7 @@ class PositionsController extends PrestaShopAdminController
         Module $moduleAdapter,
         #[Autowire(service: 'prestashop.adapter.legacy.hook')]
         HookInformationProvider $hookProvider,
-        LegacyContext $legacyContextService
+        LegacyContext $legacyContextService,
     ): Response {
         $isSingleShopContext = $this->getShopContext()->getShopConstraint()->isSingleShopContext();
         if (!$isSingleShopContext) {
@@ -165,7 +166,7 @@ class PositionsController extends PrestaShopAdminController
     public function hookModuleAction(
         Request $request,
         #[Autowire(service: 'prestashop.adapter.legacy.module')]
-        Module $moduleAdapter
+        Module $moduleAdapter,
     ): Response {
         $moduleChoices = $this->buildModuleChoices($moduleAdapter);
 
@@ -224,7 +225,7 @@ class PositionsController extends PrestaShopAdminController
         Request $request,
         #[Autowire(service: 'prestashop.adapter.legacy.module')]
         Module $moduleAdapter,
-        HookModuleFormDataProvider $dataProvider
+        HookModuleFormDataProvider $dataProvider,
     ): Response {
         $submittedHookModule = $request->request->all('hook_module');
         $moduleId = (int) ($submittedHookModule['id_module'] ?? $request->query->get('id_module') ?? 0);
@@ -328,7 +329,7 @@ class PositionsController extends PrestaShopAdminController
         Module $moduleAdapter,
         #[Autowire(service: 'prestashop.adapter.validate')]
         Validate $validateAdapter,
-        ShopContextInterface $shopContext
+        ShopContextInterface $shopContext,
     ): Response {
         $unhooks = $request->request->all('unhooks');
         $context = null;

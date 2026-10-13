@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -30,7 +31,7 @@ class BulkDeleteCartHandler extends AbstractBulkCommandHandler implements BulkDe
 {
     public function __construct(
         protected readonly CartRepository $cartRepository,
-        protected readonly OrderRepository $orderRepository
+        protected readonly OrderRepository $orderRepository,
     ) {
     }
 

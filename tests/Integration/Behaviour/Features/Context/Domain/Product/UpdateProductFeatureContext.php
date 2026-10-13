@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -124,7 +125,7 @@ class UpdateProductFeatureContext extends AbstractProductFeatureContext
     public function updateLocalizedSeoFieldsTooLongValueForDefaultShop(
         string $productReference,
         string $field,
-        int $length
+        int $length,
     ): void {
         $this->updateLocalizedSeoFieldsTooLongValue(
             $productReference,
@@ -144,7 +145,7 @@ class UpdateProductFeatureContext extends AbstractProductFeatureContext
         string $productReference,
         string $field,
         int $length,
-        ShopConstraint $shopConstraint
+        ShopConstraint $shopConstraint,
     ): void {
         try {
             $command = new UpdateProductCommand(

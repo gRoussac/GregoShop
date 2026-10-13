@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -41,7 +42,7 @@ class CategoryLazyArray extends AbstractLazyArray
         array $category,
         Language $language,
         ImageRetriever $imageRetriever,
-        Link $link
+        Link $link,
     ) {
         $this->category = $category;
         $this->language = $language;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -15,7 +16,7 @@ use PrestaShop\PrestaShop\Core\Domain\ApiClient\QueryResult\EditableApiClient;
 class ApiClientFormDataProvider implements FormDataProviderInterface
 {
     public function __construct(
-        private CommandBusInterface $queryBus
+        private CommandBusInterface $queryBus,
     ) {
     }
 

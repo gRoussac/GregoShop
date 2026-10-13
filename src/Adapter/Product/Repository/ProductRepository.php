@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -96,7 +97,7 @@ class ProductRepository extends AbstractMultiShopObjectModelRepository
         ProductValidator $productValidator,
         TaxRulesGroupRepository $taxRulesGroupRepository,
         ManufacturerRepository $manufacturerRepository,
-        CategoryRepository $categoryRepository
+        CategoryRepository $categoryRepository,
     ) {
         $this->connection = $connection;
         $this->dbPrefix = $dbPrefix;
@@ -242,7 +243,7 @@ class ProductRepository extends AbstractMultiShopObjectModelRepository
         array $localizedNames,
         array $localizedLinkRewrites,
         string $productType,
-        ShopId $shopId
+        ShopId $shopId,
     ): Product {
         $defaultCategoryId = $this->categoryRepository->getShopDefaultCategory($shopId);
 
@@ -807,7 +808,7 @@ class ProductRepository extends AbstractMultiShopObjectModelRepository
         LanguageId $languageId,
         ShopId $shopId,
         array $filters = [],
-        ?int $limit = null
+        ?int $limit = null,
     ): array {
         $qb = $this->getSearchQueryBuilder(
             $searchPhrase,
@@ -901,7 +902,7 @@ class ProductRepository extends AbstractMultiShopObjectModelRepository
         LanguageId $languageId,
         ShopId $shopId,
         array $filters = [],
-        ?int $limit = null
+        ?int $limit = null,
     ): QueryBuilder {
         $qb = $this->connection->createQueryBuilder();
         $qb

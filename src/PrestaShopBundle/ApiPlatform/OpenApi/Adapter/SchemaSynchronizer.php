@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -48,7 +49,7 @@ class SchemaSynchronizer implements OpenApiSchemaAdapterInterface
     public function __construct(
         protected readonly PropertyInfoExtractorInterface $propertyInfoExtractor,
         protected readonly ClassMetadataFactoryInterface $classMetadataFactory,
-        protected readonly DomainObjectDetector $domainObjectDetector
+        protected readonly DomainObjectDetector $domainObjectDetector,
     ) {
     }
 

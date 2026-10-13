@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -33,7 +34,7 @@ final class CancelProductFormDataProvider implements FormDataProviderInterface
      */
     public function __construct(
         CommandBusInterface $queryBus,
-        CurrencyDataProviderInterface $currencyDataProvider
+        CurrencyDataProviderInterface $currencyDataProvider,
     ) {
         $this->queryBus = $queryBus;
         $this->currencyDataProvider = $currencyDataProvider;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -42,7 +43,7 @@ class EditCartAddressCommand extends AbstractEditAddressCommand
      */
     public function __construct(
         int $cartId,
-        string $addressType
+        string $addressType,
     ) {
         $this->cartId = new CartId($cartId);
         $this->setAddressType($addressType);

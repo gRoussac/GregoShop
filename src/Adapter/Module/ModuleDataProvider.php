@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -192,9 +193,9 @@ class ModuleDataProvider
         AND ms.`id_shop` IN (' . implode(',', array_map('intval', $id_shops)) . ')');
         if ($result) {
             return (bool) ($result['active'] && $result['shop_active']);
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     public function isInstalled($name)

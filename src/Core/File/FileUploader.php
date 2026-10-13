@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -35,7 +36,7 @@ class FileUploader implements FileUploaderInterface
      */
     public function __construct(
         string $downloadDirectory,
-        int $maximumSize
+        int $maximumSize,
     ) {
         $this->downloadDirectory = $downloadDirectory;
         $this->maximumSize = $maximumSize;

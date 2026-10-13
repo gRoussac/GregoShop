@@ -417,7 +417,7 @@ class ExtraPropertyConstraintParser
         ?string $rawOptions,
         string $token,
         int $depth = 0,
-        bool $allowInternal = false
+        bool $allowInternal = false,
     ): Constraint {
         $fqcn = ExtraPropertyConstraintGrammar::resolveName($name, $allowInternal);
 

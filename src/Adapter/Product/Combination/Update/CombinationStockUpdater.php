@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -65,7 +66,7 @@ class CombinationStockUpdater
         MovementReasonRepository $movementReasonRepository,
         StockManager $stockManager,
         ShopConfigurationInterface $configuration,
-        HookDispatcherInterface $hookDispatcher
+        HookDispatcherInterface $hookDispatcher,
     ) {
         $this->stockAvailableRepository = $stockAvailableRepository;
         $this->combinationRepository = $combinationRepository;
@@ -82,7 +83,7 @@ class CombinationStockUpdater
     public function update(
         CombinationId $combinationId,
         CombinationStockProperties $properties,
-        ShopConstraint $shopConstraint
+        ShopConstraint $shopConstraint,
     ): void {
         $combination = $this->combinationRepository->getByShopConstraint($combinationId, $shopConstraint);
         $this->updateStockByShopConstraint(
@@ -167,7 +168,7 @@ class CombinationStockUpdater
     private function updateStockByShopConstraint(
         Combination $combination,
         CombinationStockProperties $properties,
-        ShopConstraint $shopConstraint
+        ShopConstraint $shopConstraint,
     ): void {
         $combinationId = new CombinationId((int) $combination->id);
         if ($shopConstraint->forAllShops() || ($shopConstraint instanceof ShopCollection && $shopConstraint->hasShopIds())) {

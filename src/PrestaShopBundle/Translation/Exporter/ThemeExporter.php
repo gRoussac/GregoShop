@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -65,7 +66,7 @@ class ThemeExporter
         ThemeRepository $themeRepository,
         XliffFileDumper $dumper,
         ZipManager $zipManager,
-        Filesystem $filesystem
+        Filesystem $filesystem,
     ) {
         $this->themeExtractor = $themeExtractor;
         $this->themeExtractor
@@ -318,7 +319,7 @@ class ThemeExporter
     protected function ensureCatalogueHasRequiredMetadata(
         MessageCatalogue $catalogue,
         array $messages,
-        $domain
+        $domain,
     ) {
         foreach (array_keys($messages) as $id) {
             $metadata = $catalogue->getMetadata($id, $domain);

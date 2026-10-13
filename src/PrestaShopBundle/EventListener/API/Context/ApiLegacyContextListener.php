@@ -14,7 +14,7 @@ use Symfony\Component\HttpKernel\Event\RequestEvent;
 class ApiLegacyContextListener
 {
     public function __construct(
-        private readonly iterable $legacyBuilders
+        private readonly iterable $legacyBuilders,
     ) {
     }
 

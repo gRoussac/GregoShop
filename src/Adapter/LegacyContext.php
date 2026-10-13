@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -40,7 +41,7 @@ class LegacyContext
      */
     public function __construct(
         $mailThemesUri = null,
-        ?Tools $tools = null
+        ?Tools $tools = null,
     ) {
         $this->mailThemesUri = $mailThemesUri;
         $this->tools = null !== $tools ? $tools : new Tools();

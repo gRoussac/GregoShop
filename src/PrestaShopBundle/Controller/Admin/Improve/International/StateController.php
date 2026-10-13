@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -54,7 +55,7 @@ class StateController extends PrestaShopAdminController
     public function getStatesAction(
         Request $request,
         #[Autowire(service: 'prestashop.adapter.form.choice_provider.country_state_by_id')]
-        CountryStateByIdChoiceProvider $statesProvider
+        CountryStateByIdChoiceProvider $statesProvider,
     ): JsonResponse {
         try {
             $countryId = (int) $request->query->get('id_country');
@@ -85,7 +86,7 @@ class StateController extends PrestaShopAdminController
     public function getLegacyStatesOptionsAction(
         Request $request,
         #[Autowire(service: 'prestashop.adapter.form.choice_provider.country_state_by_id')]
-        CountryStateByIdChoiceProvider $statesProvider
+        CountryStateByIdChoiceProvider $statesProvider,
     ): Response {
         try {
             $countryId = (int) $request->query->get('id_country');
@@ -131,7 +132,7 @@ class StateController extends PrestaShopAdminController
         Request $request,
         StateFilters $filters,
         #[Autowire(service: 'prestashop.core.grid.grid_factory.state')]
-        GridFactoryInterface $gridFactory
+        GridFactoryInterface $gridFactory,
     ): Response {
         $stateGrid = $gridFactory->getGrid($filters);
         $changeStatesZoneForm = $this->createForm(ChangeStatesZoneType::class);
@@ -184,7 +185,7 @@ class StateController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.state_form_builder')]
         FormBuilderInterface $formBuilder,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.handler.state_form_handler')]
-        FormHandlerInterface $formHandler
+        FormHandlerInterface $formHandler,
     ): Response {
         try {
             /** @var EditableState $editableState */
@@ -235,7 +236,7 @@ class StateController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.state_form_builder')]
         FormBuilderInterface $formBuilder,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.handler.state_form_handler')]
-        FormHandlerInterface $formHandler
+        FormHandlerInterface $formHandler,
     ): Response {
         $stateForm = $formBuilder->getForm();
         $stateForm->handleRequest($request);

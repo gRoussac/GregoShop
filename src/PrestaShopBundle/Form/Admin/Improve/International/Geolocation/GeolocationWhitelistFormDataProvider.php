@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -32,7 +33,7 @@ final class GeolocationWhitelistFormDataProvider implements FormDataProviderInte
      */
     public function __construct(
         DataConfigurationInterface $dataConfiguration,
-        ValidatorInterface $validator
+        ValidatorInterface $validator,
     ) {
         $this->dataConfiguration = $dataConfiguration;
         $this->validator = $validator;

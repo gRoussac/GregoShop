@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -179,7 +180,7 @@ class WebserviceEndpointFeatureContext extends AbstractPrestaShopFeatureContext
         string $wsKey,
         string $requestMethod,
         string $url,
-        string $postFields = ''
+        string $postFields = '',
     ): Crawler {
         $output = $this->requestWebservice('XML', $wsKey, $requestMethod, $url, $postFields);
 
@@ -206,7 +207,7 @@ class WebserviceEndpointFeatureContext extends AbstractPrestaShopFeatureContext
         string $wsKey,
         string $requestMethod,
         string $url,
-        string $postFields
+        string $postFields,
     ): string {
         // Define mandatory values directly used in webservice/dispatcher.php
         $_SERVER['REQUEST_METHOD'] = $requestMethod;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -47,7 +48,7 @@ abstract class AbstractAddCurrencyCommand
     public function __construct(
         string $isoCode,
         float $exchangeRate,
-        bool $isEnabled
+        bool $isEnabled,
     ) {
         $this->isoCode = new AlphaIsoCode($isoCode);
         $this->exchangeRate = new ExchangeRate($exchangeRate);

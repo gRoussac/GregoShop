@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -55,7 +56,7 @@ class OrderProductQuantityUpdater
     public function __construct(
         OrderAmountUpdater $orderAmountUpdater,
         OrderProductRemover $orderProductRemover,
-        ContextStateManager $contextStateManager
+        ContextStateManager $contextStateManager,
     ) {
         $this->orderAmountUpdater = $orderAmountUpdater;
         $this->orderProductRemover = $orderProductRemover;
@@ -80,7 +81,7 @@ class OrderProductQuantityUpdater
         OrderDetail $orderDetail,
         int $newQuantity,
         ?OrderInvoice $orderInvoice,
-        bool $updateCart = true
+        bool $updateCart = true,
     ): Order {
         $cart = new Cart($order->id_cart);
 
@@ -125,7 +126,7 @@ class OrderProductQuantityUpdater
         OrderDetail $orderDetail,
         int $newQuantity,
         ?OrderInvoice $orderInvoice,
-        bool $updateCart
+        bool $updateCart,
     ): void {
         $oldQuantity = (int) $orderDetail->product_quantity;
 
@@ -171,7 +172,7 @@ class OrderProductQuantityUpdater
         Order $order,
         Cart $cart,
         ?OrderInvoice $orderInvoice,
-        array $updatedProducts
+        array $updatedProducts,
     ): void {
         // Some products have been affected by the removal of the initial product (probably related to a CartRule)
         // So we detect the changes that happened in the cart and apply them on the OrderDetail
@@ -214,7 +215,7 @@ class OrderProductQuantityUpdater
         Order $order,
         Cart $cart,
         ?OrderInvoice $orderInvoice,
-        array $createdProducts
+        array $createdProducts,
     ): void {
         $productsToAdd = [];
         foreach ($createdProducts as $createdProduct) {
@@ -253,7 +254,7 @@ class OrderProductQuantityUpdater
         Cart $cart,
         OrderDetail $orderDetail,
         int $oldQuantity,
-        int $newQuantity
+        int $newQuantity,
     ): CartProductsComparator {
         $cartComparator = new CartProductsComparator($cart);
 
@@ -366,7 +367,7 @@ class OrderProductQuantityUpdater
         OrderDetail $orderDetail,
         int $oldQuantity,
         int $newQuantity,
-        $delete = false
+        $delete = false,
     ) {
         // Reinject product
         $reinjectableQuantity = $oldQuantity - $newQuantity;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -76,7 +77,7 @@ class DeliveryController extends PrestaShopAdminController
     public function generatePdfAction(
         Request $request,
         #[Autowire(service: 'prestashop.adapter.order.delivery.slip.pdf.form_handler')] FormHandlerInterface $formHandler,
-        LegacyContext $legacyContext
+        LegacyContext $legacyContext,
     ) {
         /** @var Form $form */
         $form = $formHandler->getForm();

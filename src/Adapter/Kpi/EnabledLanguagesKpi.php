@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -46,7 +47,7 @@ final class EnabledLanguagesKpi implements KpiInterface
         TranslatorInterface $translator,
         ConfigurationInterface $configuration,
         $clickLink,
-        $sourceLink
+        $sourceLink,
     ) {
         $this->translator = $translator;
         $this->configuration = $configuration;

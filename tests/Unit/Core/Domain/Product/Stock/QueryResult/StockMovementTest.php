@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -28,7 +29,7 @@ class StockMovementTest extends TestCase
         ?string $employeeName,
         int $deltaQuantity,
         array $apiClientIds = [],
-        array $apiClientNames = []
+        array $apiClientNames = [],
     ): void {
         $history = StockMovement::createEditionMovement(
             $dateAdd,
@@ -121,7 +122,7 @@ class StockMovementTest extends TestCase
         array $employeeIds,
         int $deltaQuantity,
         array $apiClientIds = [],
-        array $apiClientNames = []
+        array $apiClientNames = [],
     ): void {
         $history = StockMovement::createOrdersMovement(
             $fromDate,

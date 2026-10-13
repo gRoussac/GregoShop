@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -27,7 +28,7 @@ class ProductImageFormDataHandler implements FormDataHandlerInterface
      * @param CommandBusInterface $bus
      */
     public function __construct(
-        CommandBusInterface $bus
+        CommandBusInterface $bus,
     ) {
         $this->bus = $bus;
     }
@@ -39,7 +40,7 @@ class ProductImageFormDataHandler implements FormDataHandlerInterface
     {
         $uploadedFile = $data['file'] ?? null;
 
-        if (!($uploadedFile instanceof UploadedFile)) {
+        if (!$uploadedFile instanceof UploadedFile) {
             throw new FileUploadException('No file was uploaded', UPLOAD_ERR_NO_FILE);
         }
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -76,7 +77,7 @@ class ConfigCommand extends Command
 
     public function __construct(
         ShopConfigurationInterface $configuration,
-        LanguageDataProvider $languageDataProvider
+        LanguageDataProvider $languageDataProvider,
     ) {
         parent::__construct();
         $this->configuration = $configuration;

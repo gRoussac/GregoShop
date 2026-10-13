@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -39,7 +40,7 @@ final class PageLayoutCustomizationFormFactory implements PageLayoutCustomizatio
     public function __construct(
         FormFactoryInterface $formFactory,
         ThemeRepository $themeRepository,
-        $shopThemeName
+        $shopThemeName,
     ) {
         $this->formFactory = $formFactory;
         $this->themeRepository = $themeRepository;

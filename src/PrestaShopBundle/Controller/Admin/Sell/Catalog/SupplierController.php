@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -59,7 +60,7 @@ class SupplierController extends PrestaShopAdminController
         Request $request,
         #[Autowire(service: 'prestashop.core.grid.factory.supplier')]
         GridFactoryInterface $supplierGridFactory,
-        SupplierFilters $filters
+        SupplierFilters $filters,
     ): Response {
         $supplierGrid = $supplierGridFactory->getGrid($filters);
 
@@ -88,7 +89,7 @@ class SupplierController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.supplier_form_builder')]
         FormBuilderInterface $formBuilder,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.handler.supplier_form_handler')]
-        FormHandlerInterface $formHandler
+        FormHandlerInterface $formHandler,
     ): Response {
         $formData = [];
         if ($request->request->has('supplier') && isset($request->request->all('supplier')['id_country'])) {
@@ -255,7 +256,7 @@ class SupplierController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.supplier_form_builder')]
         FormBuilderInterface $formBuilder,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.handler.supplier_form_handler')]
-        FormHandlerInterface $formHandler
+        FormHandlerInterface $formHandler,
     ): Response {
         $formData = [];
         if ($request->request->has('supplier') && isset($request->request->all('supplier')['id_country'])) {
@@ -379,7 +380,7 @@ class SupplierController extends PrestaShopAdminController
     public function exportAction(
         #[Autowire(service: 'prestashop.core.grid.factory.supplier')]
         GridFactoryInterface $supplierGridFactory,
-        SupplierFilters $filters
+        SupplierFilters $filters,
     ): CsvResponse {
         $filters = new SupplierFilters(['limit' => null] + $filters->all());
         $supplierGrid = $supplierGridFactory->getGrid($filters);

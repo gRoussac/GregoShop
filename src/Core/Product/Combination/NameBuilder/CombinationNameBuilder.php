@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -33,7 +34,7 @@ class CombinationNameBuilder implements CombinationNameBuilderInterface
     public function __construct(
         TranslatorInterface $translator,
         string $attributesSeparator,
-        string $attributesInsideSeparator
+        string $attributesInsideSeparator,
     ) {
         $this->translator = $translator;
         $this->attributesSeparator = $attributesSeparator;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -33,7 +34,7 @@ class FeatureRepository extends AbstractMultiShopObjectModelRepository
     public function __construct(
         protected readonly Connection $connection,
         protected readonly string $dbPrefix,
-        protected readonly FeatureValidator $featureValidator
+        protected readonly FeatureValidator $featureValidator,
     ) {
     }
 
@@ -57,7 +58,7 @@ class FeatureRepository extends AbstractMultiShopObjectModelRepository
      */
     public function create(
         array $localizedNames,
-        array $associatedShopIds
+        array $associatedShopIds,
     ): Feature {
         $feature = new Feature();
         $feature->name = $localizedNames;

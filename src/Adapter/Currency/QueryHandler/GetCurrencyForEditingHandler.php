@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -37,7 +38,7 @@ final class GetCurrencyForEditingHandler implements GetCurrencyForEditingHandler
      */
     public function __construct(
         int $contextShopId,
-        PatternTransformer $patternTransformer
+        PatternTransformer $patternTransformer,
     ) {
         $this->contextShopId = $contextShopId;
         $this->patternTransformer = $patternTransformer;

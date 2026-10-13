@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -21,7 +22,7 @@ class AddCustomerGroupHandler implements AddCustomerGroupHandlerInterface
 {
     public function __construct(
         private readonly CustomerGroupValidator $customerGroupValidator,
-        private readonly GroupRepository $customerGroupRepository
+        private readonly GroupRepository $customerGroupRepository,
     ) {
     }
 

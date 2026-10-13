@@ -358,17 +358,17 @@ class ProductLazyArray extends AbstractLazyArray
         } elseif ($this->product['additional_delivery_times'] == DeliveryTimeNoteType::TYPE_DEFAULT) {
             if ($productQuantity >= $this->getQuantityWanted()) {
                 return $this->configuration->get('PS_LABEL_DELIVERY_TIME_AVAILABLE')[$this->language->id] ?? null;
-            } else {
-                return $this->configuration->get('PS_LABEL_DELIVERY_TIME_OOSBOA')[$this->language->id] ?? null;
             }
+
+            return $this->configuration->get('PS_LABEL_DELIVERY_TIME_OOSBOA')[$this->language->id] ?? null;
 
         // Type 2 - use product information
         } elseif ($this->product['additional_delivery_times'] == DeliveryTimeNoteType::TYPE_SPECIFIC) {
             if ($productQuantity >= $this->getQuantityWanted()) {
                 return $this->product['delivery_in_stock'] ?? null;
-            } else {
-                return $this->product['delivery_out_stock'] ?? null;
             }
+
+            return $this->product['delivery_out_stock'] ?? null;
         }
 
         return null;
@@ -539,10 +539,10 @@ class ProductLazyArray extends AbstractLazyArray
             && $this->product['allow_oosp']
         ) {
             return 'https://schema.org/BackOrder';
-        // If it's not in stock and not available for order
-        } else {
-            return 'https://schema.org/OutOfStock';
+            // If it's not in stock and not available for order
         }
+
+        return 'https://schema.org/OutOfStock';
     }
 
     /**

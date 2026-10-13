@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -38,7 +39,7 @@ final class NonInstalledLocalizationChoiceProvider implements FormChoiceProvider
     public function __construct(
         array $languagePackList,
         LanguageValidatorInterface $languageValidator,
-        LanguageDataProvider $languageProvider
+        LanguageDataProvider $languageProvider,
     ) {
         $this->languageValidator = $languageValidator;
         $this->languageProvider = $languageProvider;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -71,7 +72,7 @@ final class GridDefinition implements GridDefinitionInterface
         FilterCollectionInterface $filters,
         GridActionCollectionInterface $gridActions,
         BulkActionCollectionInterface $bulkActions,
-        ViewOptionsCollectionInterface $viewOptions
+        ViewOptionsCollectionInterface $viewOptions,
     ) {
         $this->id = $id;
         $this->name = $name;

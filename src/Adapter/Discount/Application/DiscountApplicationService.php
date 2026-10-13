@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -23,7 +24,7 @@ use PrestaShop\PrestaShop\Core\Domain\Discount\ValueObject\DiscountPriority;
 class DiscountApplicationService
 {
     public function __construct(
-        private readonly DiscountTypeRepository $discountTypeRepository
+        private readonly DiscountTypeRepository $discountTypeRepository,
     ) {
     }
 
@@ -96,7 +97,7 @@ class DiscountApplicationService
      */
     private function checkAllCompatibilities(
         int $newDiscountId,
-        array $existingDiscountsWithTypes
+        array $existingDiscountsWithTypes,
     ): array {
         $incompatibleDiscounts = [];
 
@@ -133,7 +134,7 @@ class DiscountApplicationService
     private function resolveByPriority(
         array $newDiscountInfo,
         array $existingDiscountsWithTypes,
-        array $incompatibleDiscounts
+        array $incompatibleDiscounts,
     ): DiscountApplicationResult {
         $discountsToRemove = [];
         $discountsToKeep = [];

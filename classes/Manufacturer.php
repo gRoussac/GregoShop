@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -354,7 +355,7 @@ class ManufacturerCore extends ObjectModel
         $getTotal = false,
         $active = true,
         $activeCategory = true,
-        ?Context $context = null
+        ?Context $context = null,
     ) {
         if (!$context) {
             $context = Context::getContext();

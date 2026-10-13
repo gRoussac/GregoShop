@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -22,7 +23,7 @@ use Symfony\Component\HttpKernel\Event\RequestEvent;
 class SSLMiddlewareListener
 {
     public function __construct(
-        private readonly ConfigurationInterface $configuration
+        private readonly ConfigurationInterface $configuration,
     ) {
     }
 

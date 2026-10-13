@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -18,7 +19,7 @@ class HookableInfo
         public readonly int $id,
         public readonly string $name,
         public readonly string $title,
-        public readonly bool $registered
+        public readonly bool $registered,
     ) {
     }
 

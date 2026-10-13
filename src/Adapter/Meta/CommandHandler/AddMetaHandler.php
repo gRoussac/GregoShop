@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -59,7 +60,7 @@ final class AddMetaHandler implements AddMetaHandlerInterface
         HookDispatcherInterface $hookDispatcher,
         ValidatorInterface $validator,
         $defaultLanguageId,
-        MetaDataProvider $metaDataProvider
+        MetaDataProvider $metaDataProvider,
     ) {
         $this->hookDispatcher = $hookDispatcher;
         $this->defaultLanguageId = $defaultLanguageId;

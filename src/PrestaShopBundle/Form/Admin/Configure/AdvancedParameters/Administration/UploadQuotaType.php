@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -34,7 +35,7 @@ class UploadQuotaType extends TranslatorAwareType
         TranslatorInterface $translator,
         array $locales,
         ConfigurationInterface $configuration,
-        UploadSizeConfigurationInterface $uploadSizeConfiguration
+        UploadSizeConfigurationInterface $uploadSizeConfiguration,
     ) {
         parent::__construct($translator, $locales);
         $this->configuration = $configuration;

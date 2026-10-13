@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -47,7 +48,7 @@ class RemoveProductFromCartCommand
         int $cartId,
         int $productId,
         ?int $combinationId = null,
-        ?int $customizationId = null
+        ?int $customizationId = null,
     ) {
         $this->cartId = new CartId($cartId);
         $this->productId = new ProductId($productId);

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -19,7 +20,7 @@ class PathExtension extends AbstractExtension
     public function __construct(
         private readonly LegacyContext $context,
         private readonly Hashing $hashing,
-        private readonly string $cookieKey
+        private readonly string $cookieKey,
     ) {
     }
 

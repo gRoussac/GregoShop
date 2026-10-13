@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -11,7 +12,7 @@ class PsOnePageCheckoutTestProvider implements CheckoutProcessProviderInterface
 {
     public function __construct(
         private readonly Context $context,
-        private readonly bool $enabled
+        private readonly bool $enabled,
     ) {
     }
 
@@ -22,7 +23,7 @@ class PsOnePageCheckoutTestProvider implements CheckoutProcessProviderInterface
 
     public function buildCheckoutProcess(
         $session,
-        TranslatorComponent $translator
+        TranslatorComponent $translator,
     ): CheckoutProcess {
         return new CheckoutProcess($this->context, $session);
     }

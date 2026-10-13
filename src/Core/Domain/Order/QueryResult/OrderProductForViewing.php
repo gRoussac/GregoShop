@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -205,7 +206,7 @@ class OrderProductForViewing implements JsonSerializable
         array $packItems = [],
         ?OrderProductCustomizationsForViewing $customizations = null,
         string $mpn = '',
-        array $shipmentIds = []
+        array $shipmentIds = [],
     ) {
         $this->id = $id;
         $this->combinationId = $combinationId;

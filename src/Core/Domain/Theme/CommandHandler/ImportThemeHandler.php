@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -45,7 +46,7 @@ final class ImportThemeHandler implements ImportThemeHandlerInterface
     public function __construct(
         ThemeUploaderInterface $themeUploader,
         ThemeManager $themeManager,
-        ConfigurationInterface $configuration
+        ConfigurationInterface $configuration,
     ) {
         $this->themeUploader = $themeUploader;
         $this->themeManager = $themeManager;

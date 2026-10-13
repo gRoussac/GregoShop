@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -29,7 +30,7 @@ final class BulkDeleteProductHandler extends AbstractBulkHandler implements Bulk
     private $productDeleter;
 
     public function __construct(
-        ProductDeleter $productDeleter
+        ProductDeleter $productDeleter,
     ) {
         $this->productDeleter = $productDeleter;
     }
@@ -50,7 +51,7 @@ final class BulkDeleteProductHandler extends AbstractBulkHandler implements Bulk
      */
     protected function handleSingleAction(ProductId $productId, $command = null): void
     {
-        if (!($command instanceof BulkDeleteProductCommand)) {
+        if (!$command instanceof BulkDeleteProductCommand) {
             throw new InvalidArgumentException(
                 sprintf(
                     'Expected argument $command of type "%s". Got "%s"',

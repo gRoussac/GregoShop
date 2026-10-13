@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -57,7 +58,7 @@ class StockRepository extends StockManagementRepository
         ContextAdapter $contextAdapter,
         ImageManager $imageManager,
         StockManager $stockManager,
-        $tablePrefix
+        $tablePrefix,
     ) {
         parent::__construct(
             $container,
@@ -209,7 +210,7 @@ class StockRepository extends StockManagementRepository
     protected function selectSql(
         $andWhereClause = '',
         $having = '',
-        $orderByClause = null
+        $orderByClause = null,
     ) {
         if (null === $orderByClause) {
             $orderByClause = $this->orderByProductIds();

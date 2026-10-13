@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -31,7 +32,7 @@ final class CountryByIsoCodeChoiceProvider implements FormChoiceProviderInterfac
      */
     public function __construct(
         $langId,
-        CountryDataProvider $countryDataProvider
+        CountryDataProvider $countryDataProvider,
     ) {
         $this->countryDataProvider = $countryDataProvider;
         $this->langId = $langId;

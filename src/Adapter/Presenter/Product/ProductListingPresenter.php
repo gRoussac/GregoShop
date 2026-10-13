@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -25,7 +26,7 @@ class ProductListingPresenter extends ProductPresenter
     public function present(
         ProductPresentationSettings $settings,
         array $product,
-        Language $language
+        Language $language,
     ) {
         $productListingLazyArray = new ProductListingLazyArray(
             $settings,

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -55,7 +56,7 @@ final class ImportDataConfigurationFormDataProvider implements ImportFormDataPro
         DataRowCollectionFactoryInterface $dataRowCollectionFactory,
         ImportMatchRepository $importMatchRepository,
         DataMatchSaver $dataMatchSaver,
-        array $entityFieldChoices
+        array $entityFieldChoices,
     ) {
         $this->importDirectory = $importDirectory;
         $this->dataRowCollectionFactory = $dataRowCollectionFactory;

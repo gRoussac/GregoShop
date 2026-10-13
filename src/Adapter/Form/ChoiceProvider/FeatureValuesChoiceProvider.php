@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -34,7 +35,7 @@ class FeatureValuesChoiceProvider implements ConfigurableFormChoiceProviderInter
 
     public function __construct(
         FeatureValueRepository $featureValueRepository,
-        LegacyContext $legacyContext
+        LegacyContext $legacyContext,
     ) {
         $this->featureValueRepository = $featureValueRepository;
         $this->contextLanguageId = (int) $legacyContext->getLanguage()->getId();

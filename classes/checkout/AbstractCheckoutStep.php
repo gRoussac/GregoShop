@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -47,9 +48,9 @@ abstract class AbstractCheckoutStepCore implements CheckoutStepInterface
     {
         if ($this->isReachable()) {
             return $this->template;
-        } else {
-            return $this->unreachableStepTemplate;
         }
+
+        return $this->unreachableStepTemplate;
     }
 
     protected function getTranslator()

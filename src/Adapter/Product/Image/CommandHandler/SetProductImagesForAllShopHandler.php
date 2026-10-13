@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -35,7 +36,7 @@ class SetProductImagesForAllShopHandler implements SetProductImagesForAllShopHan
 
     public function __construct(
         ProductImageRepository $productImageRepository,
-        ProductRepository $productRepository
+        ProductRepository $productRepository,
     ) {
         $this->productImageRepository = $productImageRepository;
         $this->productRepository = $productRepository;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -28,7 +29,7 @@ class StockMovementRepository
 
     public function __construct(
         Connection $connection,
-        string $dbPrefix
+        string $dbPrefix,
     ) {
         $this->connection = $connection;
         $this->dbPrefix = $dbPrefix;
@@ -42,7 +43,7 @@ class StockMovementRepository
     public function getLastStockMovements(
         StockId $stockId,
         int $offset = 0,
-        int $limit = self::DEFAULT_LIMIT
+        int $limit = self::DEFAULT_LIMIT,
     ): array {
         $queryBuilder = $this->connection->createQueryBuilder();
         $queryBuilder

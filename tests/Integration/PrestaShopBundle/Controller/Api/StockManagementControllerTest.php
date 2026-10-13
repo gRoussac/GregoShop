@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -158,7 +159,7 @@ class StockManagementControllerTest extends ApiTestCase
     private function assertOkResponseOnList(
         string $routeName,
         array $parameters = [],
-        ?int $expectedTotalPages = null
+        ?int $expectedTotalPages = null,
     ): void {
         $route = $this->router->generate($routeName, $parameters);
         self::$client->request('GET', $route);

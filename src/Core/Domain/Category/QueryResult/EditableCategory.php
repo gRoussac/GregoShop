@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -129,7 +130,7 @@ class EditableCategory
         $coverImage = null,
         $thumbnailImage = null,
         array $subCategories = [],
-        array $additionalDescription = []
+        array $additionalDescription = [],
     ) {
         $this->id = $id;
         $this->name = $name;

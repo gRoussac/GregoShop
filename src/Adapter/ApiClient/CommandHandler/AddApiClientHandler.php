@@ -28,7 +28,7 @@ class AddApiClientHandler implements AddApiClientCommandHandlerInterface
     public function __construct(
         private readonly ApiClientRepository $repository,
         private readonly ValidatorInterface $validator,
-        private readonly PasswordHasherInterface $passwordHasher
+        private readonly PasswordHasherInterface $passwordHasher,
     ) {
     }
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -64,7 +65,7 @@ class ProductImageUpdater
         PositionUpdateFactoryInterface $positionUpdateFactory,
         PositionDefinition $positionDefinition,
         GridPositionUpdaterInterface $positionUpdater,
-        ProductImageRepository $productImageRepository
+        ProductImageRepository $productImageRepository,
     ) {
         $this->productImageUploader = $productImageUploader;
         $this->positionUpdateFactory = $positionUpdateFactory;

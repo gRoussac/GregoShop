@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -50,7 +51,7 @@ class TaxController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.grid.factory.tax')]
         GridFactoryInterface $taxGridFactory,
         #[Autowire(service: 'prestashop.admin.tax_options.form_handler')]
-        ConfigurationFormHandlerInterface $taxOptionsFormHandler
+        ConfigurationFormHandlerInterface $taxOptionsFormHandler,
     ): Response {
         $legacyController = $request->attributes->get('_legacy_controller');
 
@@ -77,7 +78,7 @@ class TaxController extends PrestaShopAdminController
     public function saveOptionsAction(
         Request $request,
         #[Autowire(service: 'prestashop.admin.tax_options.form_handler')]
-        ConfigurationFormHandlerInterface $taxOptionsFormHandler
+        ConfigurationFormHandlerInterface $taxOptionsFormHandler,
     ): RedirectResponse {
         $taxOptionsForm = $taxOptionsFormHandler->getForm();
         $taxOptionsForm->handleRequest($request);
@@ -108,7 +109,7 @@ class TaxController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.tax_form_builder')]
         FormBuilderInterface $taxFormBuilder,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.handler.tax_form_handler')]
-        FormHandlerInterface $taxFormHandler
+        FormHandlerInterface $taxFormHandler,
     ): Response {
         try {
             $taxForm = $taxFormBuilder->getForm();
@@ -165,7 +166,7 @@ class TaxController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.tax_form_builder')]
         FormBuilderInterface $taxFormBuilder,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.handler.tax_form_handler')]
-        FormHandlerInterface $taxFormHandler
+        FormHandlerInterface $taxFormHandler,
     ): Response {
         try {
             $taxForm = $taxFormBuilder->getFormFor((int) $taxId);

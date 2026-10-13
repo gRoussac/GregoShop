@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -32,7 +33,7 @@ class RedirectTypeTest extends TestCase
         bool $isProductType,
         bool $isCategoryType,
         bool $isTypeNotFound,
-        bool $isTypeGone
+        bool $isTypeGone,
     ): void {
         $redirectType = new RedirectType($type);
 

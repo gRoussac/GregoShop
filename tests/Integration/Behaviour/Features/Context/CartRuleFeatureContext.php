@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -343,7 +344,7 @@ class CartRuleFeatureContext extends AbstractPrestaShopFeatureContext
     public function cartRuleNamedIsRestrictedToProductNamed(
         string $cartRuleName,
         string $productName,
-        int $quantity = 1
+        int $quantity = 1,
     ): void {
         $cartRuleId = $this->getCartRuleId($cartRuleName);
         $this->productFeatureContext->checkProductWithNameExists($productName);

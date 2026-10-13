@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -42,7 +43,7 @@ final class CurrencyQueryBuilder extends AbstractDoctrineQueryBuilder
         $dbPrefix,
         DoctrineSearchCriteriaApplicatorInterface $searchCriteriaApplicator,
         array $contextShopIds,
-        $contextLangId
+        $contextLangId,
     ) {
         parent::__construct($connection, $dbPrefix);
 

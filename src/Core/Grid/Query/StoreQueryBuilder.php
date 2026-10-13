@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -43,7 +44,7 @@ class StoreQueryBuilder extends AbstractDoctrineQueryBuilder
         string $dbPrefix,
         DoctrineSearchCriteriaApplicatorInterface $searchCriteriaApplicator,
         int $languageId,
-        StoreRepository $storeRepository
+        StoreRepository $storeRepository,
     ) {
         parent::__construct($connection, $dbPrefix);
         $this->languageId = $languageId;

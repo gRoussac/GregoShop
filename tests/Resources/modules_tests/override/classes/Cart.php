@@ -170,18 +170,17 @@ class Cart extends CartCore
             $params = Hook::exec('ppbsGetProducts', ['products' => $products], null, true);
             if (isset($params['productpricebysize']['products'])) {
                 return $params['productpricebysize']['products'];
-            } else {
-                return $products;
             }
-        } else {
-            $params = Hook::exec('ppbsGetProducts', ['products' => $products], null);
-            $params = json_decode($params, true);
-            if (isset($params['products'])) {
-                return $params['products'];
-            } else {
-                return $products;
-            }
+
+            return $products;
         }
+        $params = Hook::exec('ppbsGetProducts', ['products' => $products], null);
+        $params = json_decode($params, true);
+        if (isset($params['products'])) {
+            return $params['products'];
+        }
+
+        return $products;
     }
 
     /*

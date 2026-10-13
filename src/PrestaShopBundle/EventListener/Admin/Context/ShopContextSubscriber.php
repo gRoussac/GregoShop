@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -380,9 +381,9 @@ class ShopContextSubscriber implements EventSubscriberInterface
             $attributes = array_merge($classAttributes, $methodAttributes);
             if (!empty($attributes)) {
                 return ShopConstraint::allShops();
-            } else {
-                return null;
             }
+
+            return null;
         } catch (NoConfigurationException|ReflectionException) {
             return null;
         }

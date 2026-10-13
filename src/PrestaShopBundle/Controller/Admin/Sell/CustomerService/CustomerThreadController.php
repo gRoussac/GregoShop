@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -50,7 +51,7 @@ class CustomerThreadController extends PrestaShopAdminController
         Request $request,
         #[Autowire(service: 'prestashop.core.grid.factory.customer_thread')]
         GridFactoryInterface $customerGridFactory,
-        CustomerThreadFilter $filters
+        CustomerThreadFilter $filters,
     ): Response {
         $customerThreadGrid = $customerGridFactory->getGrid($filters);
 
@@ -74,7 +75,7 @@ class CustomerThreadController extends PrestaShopAdminController
     public function viewAction(
         Request $request,
         EmployeeContext $employeeContext,
-        int $customerThreadId
+        int $customerThreadId,
     ) {
         /** @var CustomerThreadView $customerThreadView */
         $customerThreadView = $this->dispatchQuery(

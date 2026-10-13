@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -55,7 +56,7 @@ class FeatureFlagManagerTest extends TestCase
             'query' => $queryLayer,
             'dotenv' => $dotenvLayer,
             'db' => $dbLayer,
-            default => null
+            default => null,
         };
 
         $mockedLayerUsed->expects($this->once())
@@ -177,7 +178,7 @@ class FeatureFlagManagerTest extends TestCase
                 'query' => true,
                 'dotenv' => true,
                 'db' => true,
-                default => false
+                default => false,
             });
 
         $mock->expects($this->atLeastOnce())
@@ -187,7 +188,7 @@ class FeatureFlagManagerTest extends TestCase
                 'query' => $queryLayer,
                 'dotenv' => $dotenvLayer,
                 'db' => $dbLayer,
-                default => null
+                default => null,
             });
 
         return $mock;

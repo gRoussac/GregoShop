@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -67,7 +68,7 @@ class LogsController extends PrestaShopAdminController
     public function searchAction(
         Request $request,
         #[Autowire(service: 'prestashop.core.grid.definition.factory.logs')]
-        GridDefinitionFactoryInterface $definitionFactory
+        GridDefinitionFactoryInterface $definitionFactory,
     ): RedirectResponse {
         $this->dispatchHookWithParameters('actionAdminLogsControllerPostProcessBefore', ['controller' => $this]);
 

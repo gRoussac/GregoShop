@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -21,7 +22,7 @@ use PrestaShopException;
 class ImageGenerator
 {
     public function __construct(
-        private readonly ImageFormatConfiguration $imageFormatConfiguration
+        private readonly ImageFormatConfiguration $imageFormatConfiguration,
     ) {
     }
 

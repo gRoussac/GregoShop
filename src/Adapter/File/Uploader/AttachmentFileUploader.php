@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -39,7 +40,7 @@ class AttachmentFileUploader implements AttachmentFileUploaderInterface
      */
     public function __construct(
         ConfigurationInterface $configuration,
-        UploadSizeConfigurationInterface $uploadSizeConfiguration
+        UploadSizeConfigurationInterface $uploadSizeConfiguration,
     ) {
         $this->configuration = $configuration;
         $this->uploadSizeConfiguration = $uploadSizeConfiguration;
@@ -59,7 +60,7 @@ class AttachmentFileUploader implements AttachmentFileUploaderInterface
         string $uniqueFileName,
         int $fileSize,
         ?int $id = null,
-        bool $throwExceptionOnFailure = true
+        bool $throwExceptionOnFailure = true,
     ): void {
         $this->checkFileAllowedForUpload($fileSize);
         $this->uploadFile($filePath, $uniqueFileName, $fileSize);

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -34,7 +35,7 @@ class ProductShopsFormDataProvider implements FormDataProviderInterface
      */
     public function __construct(
         ProductRepository $productRepository,
-        ?int $contextShopId
+        ?int $contextShopId,
     ) {
         $this->productRepository = $productRepository;
         $this->contextShopId = $contextShopId;

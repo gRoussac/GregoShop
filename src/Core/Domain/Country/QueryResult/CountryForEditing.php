@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -114,7 +115,7 @@ class CountryForEditing
         bool $containsStates,
         bool $needIdNumber,
         bool $displayTaxLabel,
-        array $shopAssociation
+        array $shopAssociation,
     ) {
         $this->countryId = $countryId;
         $this->localizedNames = $localisedNames;

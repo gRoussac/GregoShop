@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -37,7 +38,7 @@ class Money
     public function __construct(
         DecimalNumber $amount,
         CurrencyId $currencyId,
-        bool $taxIncluded
+        bool $taxIncluded,
     ) {
         if (!$amount->isGreaterOrEqualThanZero()) {
             throw new DomainConstraintException(sprintf('Money amount cannot be lower than zero, %f given', (string) $amount), DomainConstraintException::INVALID_MONEY_AMOUNT);

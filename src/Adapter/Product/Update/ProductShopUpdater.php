@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -97,7 +98,7 @@ class ProductShopUpdater
         CombinationStockUpdater $combinationStockUpdater,
         DefaultCombinationUpdater $defaultCombinationUpdater,
         ProductCategoryUpdater $productCategoryUpdater,
-        CategoryRepository $categoryRepository
+        CategoryRepository $categoryRepository,
     ) {
         $this->productRepository = $productRepository;
         $this->stockAvailableRepository = $stockAvailableRepository;

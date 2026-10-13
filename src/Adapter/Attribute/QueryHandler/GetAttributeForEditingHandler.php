@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -33,7 +34,7 @@ final class GetAttributeForEditingHandler implements GetAttributeForEditingHandl
 
     public function __construct(
         AttributeRepository $attributeRepository,
-        ImageTagSourceParserInterface $imageTagSourceParser
+        ImageTagSourceParserInterface $imageTagSourceParser,
     ) {
         $this->attributeRepository = $attributeRepository;
         $this->imageTagSourceParser = $imageTagSourceParser;

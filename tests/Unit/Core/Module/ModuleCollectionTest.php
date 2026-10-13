@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -99,7 +100,7 @@ class ModuleCollectionTest extends TestCase
 
     public function testFilter(): void
     {
-        $halfCallback = new class() {
+        $halfCallback = new class {
             private static $i = 0;
 
             public function __invoke()

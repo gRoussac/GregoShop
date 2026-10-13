@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -59,7 +60,7 @@ final class Importer implements ImporterInterface
         ImportEntityDeleterInterface $entityDeleter,
         FileReaderInterface $fileReader,
         ImportDirectory $importDir,
-        IniConfiguration $iniConfiguration
+        IniConfiguration $iniConfiguration,
     ) {
         $this->entityDeleter = $entityDeleter;
         $this->accessChecker = $accessChecker;
@@ -74,7 +75,7 @@ final class Importer implements ImporterInterface
     public function import(
         ImportConfigInterface $importConfig,
         ImportRuntimeConfigInterface $runtimeConfig,
-        ImportHandlerInterface $importHandler
+        ImportHandlerInterface $importHandler,
     ) {
         $this->setUp($importHandler, $importConfig, $runtimeConfig);
 
@@ -152,7 +153,7 @@ final class Importer implements ImporterInterface
      */
     public function shouldTruncateData(
         ImportConfigInterface $importConfig,
-        ImportRuntimeConfigInterface $runtimeConfig
+        ImportRuntimeConfigInterface $runtimeConfig,
     ) {
         return
             $importConfig->truncate()
@@ -183,7 +184,7 @@ final class Importer implements ImporterInterface
     private function setUp(
         ImportHandlerInterface $importHandler,
         ImportConfigInterface $importConfig,
-        ImportRuntimeConfigInterface $runtimeConfig
+        ImportRuntimeConfigInterface $runtimeConfig,
     ) {
         if ($this->shouldTruncateData($importConfig, $runtimeConfig) && $this->accessChecker->canTruncateData()) {
             $this->entityDeleter->deleteAll($importConfig->getEntityType());
@@ -202,7 +203,7 @@ final class Importer implements ImporterInterface
     private function tearDown(
         ImportHandlerInterface $importHandler,
         ImportConfigInterface $importConfig,
-        ImportRuntimeConfigInterface $runtimeConfig
+        ImportRuntimeConfigInterface $runtimeConfig,
     ) {
         $importHandler->tearDown($importConfig, $runtimeConfig);
 

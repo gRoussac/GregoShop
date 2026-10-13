@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -29,7 +30,7 @@ class LanguageContext implements LanguageInterface, LocaleInterface
         protected readonly bool $isRTL,
         protected readonly string $dateFormat,
         protected readonly string $dateTimeFormat,
-        protected readonly LocaleInterface $localizationLocale
+        protected readonly LocaleInterface $localizationLocale,
     ) {
     }
 

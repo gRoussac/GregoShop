@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -43,7 +44,7 @@ class HookExtension extends AbstractExtension
     public function __construct(
         HookDispatcherInterface $hookDispatcher,
         ModuleDataProvider $moduleDataProvider,
-        ?ModuleRepository $moduleRepository = null
+        ?ModuleRepository $moduleRepository = null,
     ) {
         $this->hookDispatcher = $hookDispatcher;
         $this->moduleDataProvider = $moduleDataProvider;

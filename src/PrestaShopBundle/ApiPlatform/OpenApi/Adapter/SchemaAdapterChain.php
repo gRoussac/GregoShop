@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -20,7 +21,7 @@ class SchemaAdapterChain implements OpenApiSchemaAdapterInterface
      * @param iterable<OpenApiSchemaAdapterInterface> $adapters
      */
     public function __construct(
-        iterable $adapters
+        iterable $adapters,
     ) {
         $this->adapters = is_array($adapters) ? $adapters : iterator_to_array($adapters);
     }

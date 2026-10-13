@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -131,7 +132,7 @@ class TranslationCatalogueBuilderTest extends TestCase
     public function testGetDomainCatalogueStructure(
         TranslationCatalogueBuilder $translationCatalogueBuilder,
         array $parameters,
-        array $expectedArrayCatalogue
+        array $expectedArrayCatalogue,
     ) {
         $catalogue = $translationCatalogueBuilder->getDomainCatalogue(
             $parameters['providerDefinition'],
@@ -402,7 +403,7 @@ class TranslationCatalogueBuilderTest extends TestCase
     private function buildCatalogueProviderFromCatalogues(
         array $defaultTranslations,
         array $fileTranslatedTranslations,
-        array $userTranslatedTranslations
+        array $userTranslatedTranslations,
     ): TranslationCatalogueBuilder {
         $provider = $this->createMock(CatalogueLayersProviderInterface::class);
 

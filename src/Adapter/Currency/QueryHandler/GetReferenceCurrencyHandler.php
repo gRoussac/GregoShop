@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -34,7 +35,7 @@ class GetReferenceCurrencyHandler implements GetReferenceCurrencyHandlerInterfac
      */
     public function __construct(
         LocaleRepository $localeRepository,
-        array $languages
+        array $languages,
     ) {
         $this->localeRepository = $localeRepository;
         $this->languages = $languages;

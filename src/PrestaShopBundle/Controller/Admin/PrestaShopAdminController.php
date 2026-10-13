@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -323,7 +324,7 @@ class PrestaShopAdminController extends AbstractController
         Request $request,
         string $filterId,
         string $redirectRoute,
-        array $queryParamsToKeep = []
+        array $queryParamsToKeep = [],
     ): RedirectResponse {
         $responseBuilder = $this->container->get(ResponseBuilder::class);
 

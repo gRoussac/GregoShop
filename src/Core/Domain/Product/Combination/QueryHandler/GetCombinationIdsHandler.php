@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -25,7 +26,7 @@ class GetCombinationIdsHandler implements GetCombinationIdsHandlerInterface
      * @param ProductCombinationQueryBuilder $productCombinationQueryBuilder
      */
     public function __construct(
-        ProductCombinationQueryBuilder $productCombinationQueryBuilder
+        ProductCombinationQueryBuilder $productCombinationQueryBuilder,
     ) {
         $this->productCombinationQueryBuilder = $productCombinationQueryBuilder;
     }

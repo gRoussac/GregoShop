@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -29,7 +30,7 @@ abstract class AbstractAttributeGroupQueryHandler
 
     public function __construct(
         AttributeRepository $attributeRepository,
-        AttributeGroupRepository $attributeGroupRepository
+        AttributeGroupRepository $attributeGroupRepository,
     ) {
         $this->attributeRepository = $attributeRepository;
         $this->attributeGroupRepository = $attributeGroupRepository;
@@ -43,7 +44,7 @@ abstract class AbstractAttributeGroupQueryHandler
      */
     protected function formatAttributeGroupsList(
         array $attributeGroups,
-        array $attributes
+        array $attributes,
     ): array {
         $attributeGroupsResult = [];
 

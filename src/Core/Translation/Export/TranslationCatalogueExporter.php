@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -58,7 +59,7 @@ class TranslationCatalogueExporter
         XliffFileDumper $dumper,
         Filesystem $filesystem,
         ZipManager $zipManager,
-        string $exportDir
+        string $exportDir,
     ) {
         $this->translationCatalogueBuilder = $translationCatalogueBuilder;
         $this->providerDefinitionFactory = $providerDefinitionFactory;
@@ -154,7 +155,7 @@ class TranslationCatalogueExporter
      * @throws Exception
      */
     private function validateParameters(
-        array $selections
+        array $selections,
     ): void {
         foreach ($selections as $selection) {
             if (!in_array($selection['type'], ProviderDefinitionInterface::ALLOWED_EXPORT_TYPES, true)) {

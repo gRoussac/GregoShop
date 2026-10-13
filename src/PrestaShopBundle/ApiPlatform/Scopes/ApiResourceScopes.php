@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -15,20 +16,20 @@ class ApiResourceScopes
 {
     public static function createModuleScopes(
         array $scopes,
-        string $moduleName
+        string $moduleName,
     ) {
         return new self($scopes, $moduleName);
     }
 
     public static function createCoreScopes(
-        array $scopes
+        array $scopes,
     ) {
         return new self($scopes, null);
     }
 
     private function __construct(
         private array $scopes,
-        private ?string $moduleName
+        private ?string $moduleName,
     ) {
     }
 

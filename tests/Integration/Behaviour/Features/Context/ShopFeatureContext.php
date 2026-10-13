@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -404,12 +405,11 @@ class ShopFeatureContext extends AbstractDomainFeatureContext
                         $currentExpectedShop->getName(),
                         $currentExpectedShop->getGroupName()
                     ));
-                } else {
-                    throw new RuntimeException(sprintf(
-                        'Expected shop group with name %s',
-                        $currentExpectedShop->getName()
-                    ));
                 }
+                throw new RuntimeException(sprintf(
+                    'Expected shop group with name %s',
+                    $currentExpectedShop->getName()
+                ));
             }
         }
     }

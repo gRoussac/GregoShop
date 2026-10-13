@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -45,7 +46,7 @@ final class OrderStatesGridDefinitionFactory extends AbstractGridDefinitionFacto
 
     public function __construct(
         HookDispatcherInterface $hookDispatcher,
-        AccessibilityCheckerInterface $deleteOrderStatesAccessibilityChecker
+        AccessibilityCheckerInterface $deleteOrderStatesAccessibilityChecker,
     ) {
         parent::__construct($hookDispatcher);
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -43,7 +44,7 @@ class EditableTaxRulesGroup
         TaxRulesGroupId $taxRulesGroupId,
         string $name,
         bool $active,
-        array $shopAssociationIds
+        array $shopAssociationIds,
     ) {
         $this->taxRulesGroupId = $taxRulesGroupId;
         $this->name = $name;

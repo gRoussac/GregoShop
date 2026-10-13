@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -341,7 +342,7 @@ class ExportModuleTranslationsCommand extends Command
     private function autoInstallTranslations(
         string $zipFilePath,
         string $moduleName,
-        string $locale
+        string $locale,
     ): void {
         // Create a temporary directory for extraction
         $tempDir = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'prestashop_translation_export_' . uniqid();

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -14,7 +15,7 @@ class ResetModuleCommand
 
     public function __construct(
         string $technicalName,
-        protected bool $keepData = true
+        protected bool $keepData = true,
     ) {
         $this->technicalName = new ModuleTechnicalName($technicalName);
     }

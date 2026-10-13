@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -40,7 +41,7 @@ class VoucherGenerator
      */
     public function __construct(
         Locale $locale,
-        TranslatorInterface $translator
+        TranslatorInterface $translator,
     ) {
         $this->locale = $locale;
         $this->translator = $translator;
@@ -61,7 +62,7 @@ class VoucherGenerator
         Order $order,
         float $voucherAmount,
         string $currencyIsoCode,
-        bool $isTaxIncluded
+        bool $isTaxIncluded,
     ) {
         $cartRule = new CartRule();
         $cartRule->description = $this->translator->trans(

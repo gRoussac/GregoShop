@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -31,7 +32,7 @@ class LogRepository implements RepositoryInterface
 
     public function __construct(
         Connection $connection,
-        $databasePrefix
+        $databasePrefix,
     ) {
         $this->connection = $connection;
         $this->databasePrefix = $databasePrefix;

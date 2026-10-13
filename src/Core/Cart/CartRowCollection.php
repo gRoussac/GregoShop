@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -62,9 +63,9 @@ class CartRowCollection implements Iterator, Countable
         $keys = array_keys($this->cartRows);
         if (!isset($keys[$iteratorPosition])) {
             return null;
-        } else {
-            return $keys[$iteratorPosition];
         }
+
+        return $keys[$iteratorPosition];
     }
 
     public function count(): int

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -268,7 +269,7 @@ class LegacyUrlConverterTest extends SymfonyIntegrationTestCase
         string $expectedUrl,
         string $controller,
         ?string $action = null,
-        ?array $params = null
+        ?array $params = null,
     ): void {
         /** @var LegacyUrlConverter $converter */
         $converter = self::$kernel->getContainer()->get('prestashop.bundle.routing.converter.legacy_url_converter');
@@ -386,7 +387,7 @@ class LegacyUrlConverterTest extends SymfonyIntegrationTestCase
         string $expectedUrl,
         string $controller,
         ?string $action = null,
-        ?array $params = null
+        ?array $params = null,
     ): void {
         $parameters = [
             'action' => $action,
@@ -405,7 +406,7 @@ class LegacyUrlConverterTest extends SymfonyIntegrationTestCase
         string $expectedUrl,
         string $controller,
         ?string $action = null,
-        ?array $params = null
+        ?array $params = null,
     ): void {
         $parameters = null !== $params ? $params : [];
         if (null != $action && !isset($parameters[$action])) {

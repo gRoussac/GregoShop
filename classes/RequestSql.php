@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -125,9 +126,9 @@ class RequestSqlCore extends ObjectModel
             }
 
             return true;
-        } else {
-            return $this->validateSql($tab, $in, $sql);
         }
+
+        return $this->validateSql($tab, $in, $sql);
     }
 
     /**
@@ -451,11 +452,10 @@ class RequestSqlCore extends ObjectModel
                             $this->error_sql['checkedSelect'] = $this->error_sql['returnNameTable'];
 
                             return false;
-                        } else {
-                            $this->error_sql['checkedSelect'] = false;
-
-                            return false;
                         }
+                        $this->error_sql['checkedSelect'] = false;
+
+                        return false;
                     }
                 }
 
@@ -550,11 +550,10 @@ class RequestSqlCore extends ObjectModel
                         $this->error_sql['checkedHaving'] = $this->error_sql['returnNameTable'];
 
                         return false;
-                    } else {
-                        $this->error_sql['checkedHaving'] = false;
-
-                        return false;
                     }
+                    $this->error_sql['checkedHaving'] = false;
+
+                    return false;
                 }
             }
 
@@ -593,11 +592,10 @@ class RequestSqlCore extends ObjectModel
                     $this->error_sql['checkedOrder'] = $this->error_sql['returnNameTable'];
 
                     return false;
-                } else {
-                    $this->error_sql['checkedOrder'] = false;
-
-                    return false;
                 }
+                $this->error_sql['checkedOrder'] = false;
+
+                return false;
             }
         }
 
@@ -627,11 +625,10 @@ class RequestSqlCore extends ObjectModel
                     $this->error_sql['checkedGroupBy'] = $this->error_sql['returnNameTable'];
 
                     return false;
-                } else {
-                    $this->error_sql['checkedGroupBy'] = false;
-
-                    return false;
                 }
+                $this->error_sql['checkedGroupBy'] = false;
+
+                return false;
             }
         }
 

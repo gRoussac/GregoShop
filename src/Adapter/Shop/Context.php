@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -75,9 +76,9 @@ class Context implements MultistoreContextCheckerInterface, ShopContextInterface
 
         if (!empty($groupSettings['share_customer'])) {
             return Shop::getContextListShopID(Shop::SHARE_CUSTOMER);
-        } else {
-            return Shop::getContextListShopID();
         }
+
+        return Shop::getContextListShopID();
     }
 
     /**

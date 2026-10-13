@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -51,7 +52,7 @@ final class CustomerCartGridDataFactoryDecorator implements GridDataFactoryInter
         GridDataFactoryInterface $customerCartDoctrineGridDataFactory,
         LocaleInterface $locale,
         $contextCurrencyIsoCode,
-        CommandBusInterface $queryBus
+        CommandBusInterface $queryBus,
     ) {
         $this->customerCartDoctrineGridDataFactory = $customerCartDoctrineGridDataFactory;
         $this->locale = $locale;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -99,16 +100,15 @@ class PackCore extends Product
             }
 
             return self::$cacheIsPacked[$cache_key];
-        } else {
-            $cache_key = $id_product . '-' . $id_product_attribute;
-            if (!array_key_exists($cache_key, self::$cacheIsPacked)) {
-                $result = Db::getInstance()->getValue('SELECT COUNT(*) FROM `' . _DB_PREFIX_ . 'pack` WHERE id_product_item = ' . ((int) $id_product) . ' AND
-					id_product_attribute_item = ' . ((int) $id_product_attribute));
-                self::$cacheIsPacked[$cache_key] = ($result > 0);
-            }
-
-            return self::$cacheIsPacked[$cache_key];
         }
+        $cache_key = $id_product . '-' . $id_product_attribute;
+        if (!array_key_exists($cache_key, self::$cacheIsPacked)) {
+            $result = Db::getInstance()->getValue('SELECT COUNT(*) FROM `' . _DB_PREFIX_ . 'pack` WHERE id_product_item = ' . ((int) $id_product) . ' AND
+					id_product_attribute_item = ' . ((int) $id_product_attribute));
+            self::$cacheIsPacked[$cache_key] = ($result > 0);
+        }
+
+        return self::$cacheIsPacked[$cache_key];
     }
 
     public static function noPackPrice($id_product)
@@ -255,7 +255,7 @@ class PackCore extends Product
         $idProductAttribute = null,
         $cacheIsPack = null,
         ?CartCore $cart = null,
-        $idCustomization = null
+        $idCustomization = null,
     ) {
         $idProduct = (int) $idProduct;
         $idProductAttribute = (int) $idProductAttribute;
@@ -289,9 +289,9 @@ class PackCore extends Product
          * STOCK_TYPE_PACK_BOTH - pack 1pcs + product A 10pcs + product B 20pcs = 1 pcs
          */
 
-        // If no pack stock or shop default, set it from configuration
-        // Avoid using empty(), because it would treat STOCK_TYPE_PACK_ONLY (0) as STOCK_TYPE_DEFAULT
-        if ($packStockType === null || $packStockType === '' || (int) $packStockType == self::STOCK_TYPE_DEFAULT) {
+        // If shop default, set it from configuration.
+        // Avoid empty(): STOCK_TYPE_PACK_ONLY (0) must not be treated as STOCK_TYPE_DEFAULT.
+        if ((int) $packStockType === self::STOCK_TYPE_DEFAULT) {
             $packStockType = Configuration::get('PS_PACK_STOCK_TYPE');
         }
 

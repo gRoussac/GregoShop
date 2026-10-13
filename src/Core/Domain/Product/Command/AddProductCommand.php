@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -39,7 +40,7 @@ class AddProductCommand
     public function __construct(
         string $productType,
         int $shopId,
-        array $localizedNames = []
+        array $localizedNames = [],
     ) {
         $this->productType = new ProductType($productType);
         $this->shopId = new ShopId($shopId);

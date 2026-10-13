@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -24,7 +25,7 @@ class DiscountApplicationResult
         private readonly bool $canApply,
         private readonly array $discountsToApply,
         private readonly array $discountsToRemove = [],
-        private readonly ?string $rejectionReason = null
+        private readonly ?string $rejectionReason = null,
     ) {
     }
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -25,7 +26,7 @@ class AliasForEditing
 
     public function __construct(
         array $aliases,
-        string $searchTerm
+        string $searchTerm,
     ) {
         $this->aliases = $aliases;
         $this->searchTerm = $searchTerm;

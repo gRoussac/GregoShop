@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -46,7 +47,7 @@ class CategoryForTree
         bool $active,
         string $name,
         string $displayName,
-        array $children
+        array $children,
     ) {
         $this->categoryId = $categoryId;
         $this->active = $active;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -33,7 +34,7 @@ final class ProfileImageUploader extends AbstractImageUploader implements ImageU
      */
     public function __construct(
         string $profileImageDir = _PS_PROFILE_IMG_DIR_,
-        string $tmpImageDir = _PS_TMP_IMG_DIR_
+        string $tmpImageDir = _PS_TMP_IMG_DIR_,
     ) {
         $this->profileImageDir = $profileImageDir;
         $this->tmpImageDir = $tmpImageDir;

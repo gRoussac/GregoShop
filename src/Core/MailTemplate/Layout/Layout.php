@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -35,7 +36,7 @@ class Layout implements LayoutInterface
         $name,
         $htmlPath,
         $txtPath,
-        $moduleName = ''
+        $moduleName = '',
     ) {
         $this->name = $name;
         $this->htmlPath = $htmlPath;

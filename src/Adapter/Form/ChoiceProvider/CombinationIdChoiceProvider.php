@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -48,7 +49,7 @@ class CombinationIdChoiceProvider implements ConfigurableFormChoiceProviderInter
         CombinationRepository $combinationRepository,
         AttributeRepository $attributeRepository,
         CombinationNameBuilderInterface $combinationNameBuilder,
-        int $languageId
+        int $languageId,
     ) {
         $this->combinationRepository = $combinationRepository;
         $this->attributeRepository = $attributeRepository;

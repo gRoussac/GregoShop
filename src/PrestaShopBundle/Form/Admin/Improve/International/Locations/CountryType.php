@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -47,7 +48,7 @@ class CountryType extends AbstractType
     public function __construct(
         TranslatorInterface $translator,
         bool $isMultistoreEnabled,
-        ConfigurableFormChoiceProviderInterface $zoneChoiceProvider
+        ConfigurableFormChoiceProviderInterface $zoneChoiceProvider,
     ) {
         $this->translator = $translator;
         $this->isMultistoreEnabled = $isMultistoreEnabled;

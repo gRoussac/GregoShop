@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -20,7 +21,7 @@ final class AverageOrderValueKpi implements KpiInterface
     public function __construct(
         private readonly TranslatorInterface $translator,
         private readonly ShopConfigurationInterface $configuration,
-        private readonly LegacyContext $contextAdapter
+        private readonly LegacyContext $contextAdapter,
     ) {
     }
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -59,7 +60,7 @@ class CombinationDetails
         string $mpn,
         string $reference,
         string $upc,
-        DecimalNumber $impactOnWeight
+        DecimalNumber $impactOnWeight,
     ) {
         $this->gtin = $gtin;
         $this->isbn = $isbn;

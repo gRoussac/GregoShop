@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -24,7 +25,7 @@ class CartProductLazyArray extends ProductListingLazyArray
     public function addQuantityInformation(
         ProductPresentationSettings $settings,
         array $product,
-        Language $language
+        Language $language,
     ) {
         // Define if we should show availability
         $show_price = $this->shouldShowPrice($settings, $product);

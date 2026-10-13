@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -37,7 +38,7 @@ class UpdateCombinationSuppliersCommand
      */
     public function __construct(
         int $combinationId,
-        array $combinationSuppliers
+        array $combinationSuppliers,
     ) {
         $this->combinationId = new CombinationId($combinationId);
         $this->setCombinationSuppliers($combinationSuppliers);

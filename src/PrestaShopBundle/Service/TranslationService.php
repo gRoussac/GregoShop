@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -145,7 +146,7 @@ class TranslationService
     public function getTranslationsTree(
         ProviderDefinitionInterface $providerDefinition,
         string $locale,
-        array $search
+        array $search,
     ): array {
         $translationTreeBuilder = $this->container->get('prestashop.translation.builder.translation_tree');
 
@@ -183,7 +184,7 @@ class TranslationService
         ProviderDefinitionInterface $providerDefinition,
         string $locale,
         string $domain,
-        ?array $search = null
+        ?array $search = null,
     ): array {
         $domainCatalogue = $this->container->get('prestashop.translation.builder.translation_catalogue')->getDomainCatalogue(
             $providerDefinition,

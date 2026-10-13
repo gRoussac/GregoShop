@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -82,7 +83,7 @@ class CombinationRepository extends AbstractMultiShopObjectModelRepository
         string $dbPrefix,
         CombinationValidator $combinationValidator,
         AttributeRepository $attributeRepository,
-        ProductRepository $productRepository
+        ProductRepository $productRepository,
     ) {
         $this->connection = $connection;
         $this->dbPrefix = $dbPrefix;
@@ -644,7 +645,7 @@ class CombinationRepository extends AbstractMultiShopObjectModelRepository
     public function setDefaultCombination(
         ProductId $productId,
         CombinationId $newDefaultCombinationId,
-        ShopConstraint $shopConstraint
+        ShopConstraint $shopConstraint,
     ): void {
         $defaultShopId = $this->getDefaultShopIdForCombination($newDefaultCombinationId);
         $shopIds = $this->getShopIdsByConstraint($newDefaultCombinationId, $shopConstraint);
@@ -664,7 +665,7 @@ class CombinationRepository extends AbstractMultiShopObjectModelRepository
     public function updateCombinationOutOfStockType(
         ProductId $productId,
         OutOfStockType $outOfStockType,
-        ShopConstraint $shopConstraint
+        ShopConstraint $shopConstraint,
     ): void {
         $qb = $this->connection->createQueryBuilder();
         $qb
@@ -712,7 +713,7 @@ class CombinationRepository extends AbstractMultiShopObjectModelRepository
         LanguageId $languageId,
         ShopConstraint $shopConstraint,
         string $searchPhrase,
-        ?int $limit = null
+        ?int $limit = null,
     ): array {
         $combinationIds = $this->searchCombinationIdsByAttributes(
             $productId,
@@ -760,7 +761,7 @@ class CombinationRepository extends AbstractMultiShopObjectModelRepository
     private function setDefaultCombinationInShopTable(
         ProductId $productId,
         CombinationId $newDefaultCombinationId,
-        array $shopIds
+        array $shopIds,
     ): void {
         if (empty($shopIds)) {
             return;
@@ -825,7 +826,7 @@ class CombinationRepository extends AbstractMultiShopObjectModelRepository
         LanguageId $languageId,
         ShopConstraint $shopConstraint,
         string $searchPhrase,
-        ?int $limit
+        ?int $limit,
     ): array {
         if ($shopConstraint->getShopGroupId()) {
             throw new InvalidShopConstraintException('Group shop constraint is not supported');

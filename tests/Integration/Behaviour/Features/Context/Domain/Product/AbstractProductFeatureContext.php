@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -238,7 +239,7 @@ abstract class AbstractProductFeatureContext extends AbstractDomainFeatureContex
             );
         } else {
             $expectedDateTime = new DateTime($data[$propertyName]);
-            if (!($actualValue instanceof DateTimeInterface)) {
+            if (!$actualValue instanceof DateTimeInterface) {
                 throw new RuntimeException(sprintf('Unexpected type %s, expected DateTimeInterface', get_class($actualValue)));
             }
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -110,7 +111,7 @@ class ImageController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.product_image_form_builder')]
         FormBuilderInterface $productImageFormBuilder,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.product_image_form_handler')]
-        FormHandlerInterface $productImageFormHandler
+        FormHandlerInterface $productImageFormHandler,
     ): JsonResponse {
         $imageForm = $productImageFormBuilder->getForm();
         $imageForm->handleRequest($request);
@@ -151,7 +152,7 @@ class ImageController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.product_image_form_builder')]
         FormBuilderInterface $productImageFormBuilder,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.product_image_form_handler')]
-        FormHandlerInterface $productImageFormHandler
+        FormHandlerInterface $productImageFormHandler,
     ): JsonResponse {
         $imageForm = $productImageFormBuilder->getFormFor($productImageId, [], [
             'method' => $request->getMethod(),

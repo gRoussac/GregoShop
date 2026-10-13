@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -277,14 +278,13 @@ abstract class AdminStatsTabControllerCore extends AdminController
                         'date_from' => $this->context->employee->stats_date_from,
                         'date_to' => $this->context->employee->stats_date_to, ]
                 ));
-            } else {
-                die(json_encode(
-                    [
-                        'has_errors' => false,
-                        'date_from' => $this->context->employee->stats_date_from,
-                        'date_to' => $this->context->employee->stats_date_to, ]
-                ));
             }
+            die(json_encode(
+                [
+                    'has_errors' => false,
+                    'date_from' => $this->context->employee->stats_date_from,
+                    'date_to' => $this->context->employee->stats_date_to, ]
+            ));
         }
     }
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -49,7 +50,7 @@ final class PositionDefinition implements PositionDefinitionInterface
         $idField,
         $positionField,
         $parentIdField = null,
-        int $firstPosition = 0
+        int $firstPosition = 0,
     ) {
         $this->table = $table;
         $this->idField = $idField;

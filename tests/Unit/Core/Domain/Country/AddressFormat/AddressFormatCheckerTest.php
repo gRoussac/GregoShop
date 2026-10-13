@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -24,7 +25,7 @@ class AddressFormatCheckerTest extends TestCase
 
     protected function setUp(): void
     {
-        $fieldsProvider = new class() implements AddressFormatFieldsProviderInterface {
+        $fieldsProvider = new class implements AddressFormatFieldsProviderInterface {
             public function getPickerClasses(): array
             {
                 return ['Address', 'Country', 'State', 'Customer', 'Warehouse'];
@@ -47,7 +48,7 @@ class AddressFormatCheckerTest extends TestCase
             }
         };
 
-        $translator = new class() implements TranslatorInterface {
+        $translator = new class implements TranslatorInterface {
             public function trans(string $id, array $parameters = [], ?string $domain = null, ?string $locale = null): string
             {
                 return strtr($id, $parameters);

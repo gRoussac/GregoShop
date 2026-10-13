@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -45,7 +46,7 @@ class OrderShippingForViewing
         bool $isRecycledPackaging,
         bool $isGiftWrapping,
         ?string $giftMessage,
-        ?string $carrierModuleInfo
+        ?string $carrierModuleInfo,
     ) {
         foreach ($carriers as $carrier) {
             $this->addCarrier($carrier);

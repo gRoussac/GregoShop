@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -37,7 +38,7 @@ class NavigationTabType extends AbstractType
      */
     public function __construct(
         LoggerInterface $logger,
-        bool $isDebug
+        bool $isDebug,
     ) {
         $this->logger = $logger;
         $this->isDebug = $isDebug;
@@ -62,9 +63,8 @@ class NavigationTabType extends AbstractType
         if ($builder->has($buttonCollectionName)) {
             if ($this->isDebug) {
                 throw new InvalidConfigurationException(sprintf('You cannot add a field which name is %s on this component as it is used internally.', $buttonCollectionName));
-            } else {
-                $this->logger->warning(sprintf('You should not add a field which name is %s on this component as it is used internally.', $buttonCollectionName));
             }
+            $this->logger->warning(sprintf('You should not add a field which name is %s on this component as it is used internally.', $buttonCollectionName));
         }
 
         $builder->add($buttonCollectionName, ButtonCollectionType::class, array_merge([

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -273,17 +274,16 @@ class CarrierCore extends ObjectModel
     {
         if ($this->isUsed()) {
             return parent::softDelete() && Carrier::cleanPositions();
-        } else {
-            if (!parent::delete()) {
-                return false;
-            }
-
-            Carrier::cleanPositions();
-
-            return Db::getInstance()->delete('cart_rule_carrier', 'id_carrier = ' . (int) $this->id)
-                    && Db::getInstance()->delete('module_carrier', 'id_reference = ' . (int) $this->id_reference)
-                    && $this->deleteTaxRulesGroup(Shop::getShops(true, null, true));
         }
+        if (!parent::delete()) {
+            return false;
+        }
+
+        Carrier::cleanPositions();
+
+        return Db::getInstance()->delete('cart_rule_carrier', 'id_carrier = ' . (int) $this->id)
+                && Db::getInstance()->delete('module_carrier', 'id_reference = ' . (int) $this->id_reference)
+                && $this->deleteTaxRulesGroup(Shop::getShops(true, null, true));
     }
 
     /**
@@ -1385,11 +1385,10 @@ class CarrierCore extends ObjectModel
     {
         if ($use_average_tax_of_products) {
             return ServiceLocator::get('AverageTaxOfProductsTaxCalculator')->setIdOrder($id_order);
-        } else {
-            $tax_manager = TaxManagerFactory::getManager($address, $this->getIdTaxRulesGroup());
-
-            return $tax_manager->getTaxCalculator();
         }
+        $tax_manager = TaxManagerFactory::getManager($address, $this->getIdTaxRulesGroup());
+
+        return $tax_manager->getTaxCalculator();
     }
 
     /**

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -28,7 +29,7 @@ class CurrencyContext
         protected array $localizedSymbols,
         protected int $precision,
         protected string $pattern,
-        protected array $localizedPatterns
+        protected array $localizedPatterns,
     ) {
         $this->conversionRate = new DecimalNumber($conversionRate);
     }

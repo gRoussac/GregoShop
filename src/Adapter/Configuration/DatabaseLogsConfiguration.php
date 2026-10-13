@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -16,7 +17,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class DatabaseLogsConfiguration implements DataConfigurationInterface
 {
     public function __construct(
-        private ConfigurationInterface $configuration
+        private ConfigurationInterface $configuration,
     ) {
     }
 

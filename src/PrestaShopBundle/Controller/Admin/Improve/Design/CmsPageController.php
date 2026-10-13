@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -489,7 +490,7 @@ class CmsPageController extends PrestaShopAdminController
     public function updateCmsCategoryPositionAction(
         Request $request,
         #[Autowire(service: 'prestashop.core.grid.cms_page_category.position_definition')]
-        PositionDefinition $positionDefinition
+        PositionDefinition $positionDefinition,
     ): RedirectResponse {
         $cmsCategoryParentId = $request->query->getInt('id_cms_category') ?:
             CmsPageCategoryId::ROOT_CMS_PAGE_CATEGORY_ID
@@ -526,7 +527,7 @@ class CmsPageController extends PrestaShopAdminController
     public function updateCmsPositionAction(
         Request $request,
         #[Autowire(service: 'prestashop.core.grid.cms_page.position_definition')]
-        PositionDefinition $positionDefinition
+        PositionDefinition $positionDefinition,
     ): RedirectResponse {
         $cmsCategoryParentId = $request->query->getInt('id_cms_category') ?:
             CmsPageCategoryId::ROOT_CMS_PAGE_CATEGORY_ID

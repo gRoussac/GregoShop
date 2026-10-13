@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -43,7 +44,7 @@ class SetProductCustomizationFieldsCommand
     public function __construct(
         int $productId,
         array $customizationFields,
-        ShopConstraint $shopConstraint
+        ShopConstraint $shopConstraint,
     ) {
         $this->productId = new ProductId($productId);
         $this->setCustomizationFields($customizationFields);

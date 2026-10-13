@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -60,7 +61,7 @@ class CountryController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.grid.factory.country')]
         GridFactoryInterface $countryGridFactory,
         #[Autowire(service: 'prestashop.admin.country.options.form_handler')]
-        ConfigurationFormHandlerInterface $countryOptionsFormHandler
+        ConfigurationFormHandlerInterface $countryOptionsFormHandler,
     ): Response {
         $countryGrid = $countryGridFactory->getGrid($filters);
         $countryOptionsForm = $countryOptionsFormHandler->getForm();
@@ -84,7 +85,7 @@ class CountryController extends PrestaShopAdminController
     public function saveOptionsAction(
         Request $request,
         #[Autowire(service: 'prestashop.admin.country.options.form_handler')]
-        ConfigurationFormHandlerInterface $countryOptionsFormHandler
+        ConfigurationFormHandlerInterface $countryOptionsFormHandler,
     ): Response {
         $form = $countryOptionsFormHandler->getForm();
         $form->handleRequest($request);
@@ -117,7 +118,7 @@ class CountryController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.country_form_builder')]
         FormBuilderInterface $countryFormBuilder,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.handler.country_form_handler')]
-        FormHandlerInterface $countryFormHandler
+        FormHandlerInterface $countryFormHandler,
     ): Response {
         $countryForm = $countryFormBuilder->getForm();
         $countryForm->handleRequest($request);
@@ -157,7 +158,7 @@ class CountryController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.country_form_builder')]
         FormBuilderInterface $countryFormBuilder,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.handler.country_form_handler')]
-        FormHandlerInterface $countryFormHandler
+        FormHandlerInterface $countryFormHandler,
     ): Response {
         try {
             /** @var CountryForEditing $editableCountry */

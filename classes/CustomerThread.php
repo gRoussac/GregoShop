@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -201,14 +202,14 @@ class CustomerThreadCore extends ObjectModel
 				FROM ' . _DB_PREFIX_ . 'customer_thread
 				WHERE 1 ' . Shop::addSqlRestriction()
             );
-        } else {
-            return (int) Db::getInstance()->getValue(
-                '
+        }
+
+        return (int) Db::getInstance()->getValue(
+            '
 				SELECT COUNT(*)
 				FROM ' . _DB_PREFIX_ . 'customer_thread
 				WHERE ' . $where . Shop::addSqlRestriction()
-            );
-        }
+        );
     }
 
     public static function getMessageCustomerThreads($id_customer_thread)

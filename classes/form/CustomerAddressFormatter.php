@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -16,7 +17,7 @@ class CustomerAddressFormatterCore implements FormFormatterInterface
     public function __construct(
         Country $country,
         TranslatorInterface $translator,
-        array $availableCountries
+        array $availableCountries,
     ) {
         $this->country = $country;
         $this->translator = $translator;

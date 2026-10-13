@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -61,7 +62,7 @@ class ProductPresenter
         ProductColorsRetriever $productColorsRetriever,
         TranslatorInterface $translator,
         ?HookManager $hookManager = null,
-        ?Configuration $configuration = null
+        ?Configuration $configuration = null,
     ) {
         $this->imageRetriever = $imageRetriever;
         $this->link = $link;
@@ -75,7 +76,7 @@ class ProductPresenter
     public function present(
         ProductPresentationSettings $settings,
         array $product,
-        Language $language
+        Language $language,
     ) {
         $productLazyArray = new ProductLazyArray(
             $settings,

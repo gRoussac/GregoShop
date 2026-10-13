@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -2199,7 +2200,7 @@ class AdminTranslationsControllerCore extends AdminController
         Language $obj_lang,
         string $id_html,
         string $title,
-        string|bool $name_for_module = false
+        string|bool $name_for_module = false,
     ) {
         $str_return = '';
         $group_name = 'mail';
@@ -2320,7 +2321,7 @@ class AdminTranslationsControllerCore extends AdminController
         string $lang,
         string $mail_name,
         string $group_name,
-        string|bool $name_for_module = false
+        string|bool $name_for_module = false,
     ) {
         if (!empty($content)) {
             $text_content = Tools::htmlentitiesUTF8(stripslashes(strip_tags($content[$lang])));
@@ -2353,7 +2354,7 @@ class AdminTranslationsControllerCore extends AdminController
         string $url,
         string $mail_name,
         string $group_name,
-        string|bool $name_for_module = false
+        string|bool $name_for_module = false,
     ) {
         $title = [];
 
@@ -2375,7 +2376,7 @@ class AdminTranslationsControllerCore extends AdminController
         string $lang,
         string $mail_name,
         string $group_name,
-        string|bool $name_for_module = false
+        string|bool $name_for_module = false,
     ) {
         $title = [];
 
@@ -2727,7 +2728,7 @@ class AdminTranslationsControllerCore extends AdminController
         array &$array_files,
         string $module_name,
         string $lang_file,
-        bool $is_default = false
+        bool $is_default = false,
     ) {
         $files_module = [];
         if (Tools::file_exists_cache($path)) {

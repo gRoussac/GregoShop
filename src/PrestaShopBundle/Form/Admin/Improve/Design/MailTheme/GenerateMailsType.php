@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -42,7 +43,7 @@ class GenerateMailsType extends TranslatorAwareType
         array $locales,
         ConfigurationInterface $configuration,
         array $mailThemes,
-        array $themes
+        array $themes,
     ) {
         parent::__construct($translator, $locales);
         $this->mailThemes = $mailThemes;

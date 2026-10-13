@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -32,7 +33,7 @@ final class PDFGenerator implements PDFGeneratorInterface
      */
     public function __construct(
         Smarty $smarty,
-        PDFTemplateTypeProviderInterface $templateTypeProvider
+        PDFTemplateTypeProviderInterface $templateTypeProvider,
     ) {
         $this->smarty = $smarty;
         $this->templateTypeProvider = $templateTypeProvider;

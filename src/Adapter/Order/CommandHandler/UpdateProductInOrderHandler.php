@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -130,7 +131,7 @@ final class UpdateProductInOrderHandler extends AbstractOrderCommandHandler impl
         UpdateProductInOrderCommand $command,
         OrderDetail $orderDetail,
         Order $order,
-        ?OrderInvoice $orderInvoice = null
+        ?OrderInvoice $orderInvoice = null,
     ) {
         // assert product exists
         $product = new Product($orderDetail->product_id);

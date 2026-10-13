@@ -30,7 +30,7 @@ class DeliveryOptionsProvider extends DeliveryOptionsFinderCore
         TranslatorInterface $translator,
         ObjectPresenter $objectPresenter,
         PriceFormatter $priceFormatter,
-        CartPresenter $cartPresenter
+        CartPresenter $cartPresenter,
     ) {
         parent::__construct($context, $translator, $objectPresenter, $priceFormatter);
         $this->context = $context;

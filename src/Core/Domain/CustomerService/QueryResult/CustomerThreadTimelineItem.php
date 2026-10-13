@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -55,7 +56,7 @@ class CustomerThreadTimelineItem
         $arrow,
         $date,
         $color = null,
-        $relatedOrderId = null
+        $relatedOrderId = null,
     ) {
         $this->content = $content;
         $this->icon = $icon;

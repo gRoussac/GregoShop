@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -50,7 +51,7 @@ final class GetProductImagesHandler implements GetProductImagesHandlerInterface
     public function __construct(
         ProductImageRepository $productImageRepository,
         ProductImagePathFactory $productImageUrlFactory,
-        ProductRepository $productRepository
+        ProductRepository $productRepository,
     ) {
         $this->productImageRepository = $productImageRepository;
         $this->productImageUrlFactory = $productImageUrlFactory;

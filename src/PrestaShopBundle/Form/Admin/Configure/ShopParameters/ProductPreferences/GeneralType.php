@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -38,7 +39,7 @@ class GeneralType extends TranslatorAwareType
     public function __construct(
         TranslatorInterface $translator,
         array $locales,
-        LegacyContext $legacyContext
+        LegacyContext $legacyContext,
     ) {
         parent::__construct($translator, $locales);
         $this->legacyContext = $legacyContext;

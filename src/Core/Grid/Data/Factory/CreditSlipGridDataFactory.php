@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -32,7 +33,7 @@ final class CreditSlipGridDataFactory implements GridDataFactoryInterface
      */
     public function __construct(
         GridDataFactoryInterface $creditSlipDataFactory,
-        TranslatorInterface $translator
+        TranslatorInterface $translator,
     ) {
         $this->creditSlipDataFactory = $creditSlipDataFactory;
         $this->translator = $translator;

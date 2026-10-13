@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -49,7 +50,7 @@ class InvoiceOptionsType extends TranslatorAwareType
         TranslatorInterface $translator,
         array $locales,
         FormChoiceProviderInterface $invoiceModelChoiceProvider,
-        $nextInvoiceNumber
+        $nextInvoiceNumber,
     ) {
         parent::__construct($translator, $locales);
         $this->invoiceModelChoiceProvider = $invoiceModelChoiceProvider;

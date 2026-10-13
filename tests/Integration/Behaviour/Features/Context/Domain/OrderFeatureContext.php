@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -152,7 +153,7 @@ class OrderFeatureContext extends AbstractDomainFeatureContext
         string $orderReference,
         string $cartReference,
         string $paymentModuleName,
-        string $orderStatus
+        string $orderStatus,
     ) {
         $orderStates = OrderState::getOrderStates(Context::getContext()->language->id);
         $orderStatusId = null;
@@ -1585,7 +1586,7 @@ class OrderFeatureContext extends AbstractDomainFeatureContext
     public function getOrderPreviewFormattedAddress(
         string $orderReference,
         string $addressType,
-        PyStringNode $pyStringNode
+        PyStringNode $pyStringNode,
     ): void {
         $orderId = $this->getSharedStorage()->get($orderReference);
         /** @var OrderPreview $orderPreview */
@@ -1746,7 +1747,7 @@ class OrderFeatureContext extends AbstractDomainFeatureContext
         string $productName,
         string $orderReference,
         ?string $combinationName = null,
-        ?int $orderInvoiceId = null
+        ?int $orderInvoiceId = null,
     ): array {
         $product = $this->getProductByName($productName);
         $productId = $product->getProductId();

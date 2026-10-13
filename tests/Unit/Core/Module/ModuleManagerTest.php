@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -207,7 +208,7 @@ class ModuleManagerTest extends TestCase
         // With the second way, we need to be sure that the module is installed before calling uninstall and uninstalled
         // before calling install. This callback returns true twice and then false to simulate the expected behavior
         // for the `INSTALLED_THEN_UNINSTALLED_MODULE_NAME` module name
-        $isInstalledCallback = new class() {
+        $isInstalledCallback = new class {
             private $count = 0;
 
             public function isInstalled($name)

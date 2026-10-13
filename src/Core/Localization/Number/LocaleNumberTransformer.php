@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -16,7 +17,7 @@ class LocaleNumberTransformer
     private const FORCED_LOCALES_TO_EN_NUMBERS = ['ar', 'bn', 'fa'];
 
     public function __construct(
-        private LocaleInterface $locale
+        private LocaleInterface $locale,
     ) {
     }
 

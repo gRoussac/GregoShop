@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -18,7 +19,7 @@ use PrestaShop\PrestaShop\Core\Language\ContextLanguageProviderInterface;
 class ContextLanguageProvider implements ContextLanguageProviderInterface
 {
     public function __construct(
-        protected readonly LegacyContext $context
+        protected readonly LegacyContext $context,
     ) {
     }
 

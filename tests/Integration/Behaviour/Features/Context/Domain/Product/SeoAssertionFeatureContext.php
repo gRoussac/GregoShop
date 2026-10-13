@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -27,7 +28,7 @@ class SeoAssertionFeatureContext extends AbstractProductFeatureContext
     public function assertSeoOptionsForShops(
         string $productReference,
         string $shopReferences,
-        TableNode $tableNode
+        TableNode $tableNode,
     ): void {
         foreach (explode(',', $shopReferences) as $shopReference) {
             $this->assertSeoOptions(
@@ -78,7 +79,7 @@ class SeoAssertionFeatureContext extends AbstractProductFeatureContext
     private function assertSeoOptions(
         string $productReference,
         ?int $shopId,
-        TableNode $tableNode
+        TableNode $tableNode,
     ): void {
         $productSeoOptions = $this
             ->getProductForEditing($productReference, $shopId)

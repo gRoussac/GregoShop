@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -43,7 +44,7 @@ class ProductFeatureValue
         int $featureId,
         int $featureValueId,
         array $localizedValues,
-        bool $custom
+        bool $custom,
     ) {
         $this->featureId = $featureId;
         $this->featureValueId = $featureValueId;

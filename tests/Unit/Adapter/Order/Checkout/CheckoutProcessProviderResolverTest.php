@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -19,7 +20,7 @@ class StubCheckoutProcessProvider implements CheckoutProcessProviderInterface
 {
     public function __construct(
         private readonly bool $enabled,
-        private readonly CheckoutProcess $checkoutProcess
+        private readonly CheckoutProcess $checkoutProcess,
     ) {
     }
 
@@ -30,7 +31,7 @@ class StubCheckoutProcessProvider implements CheckoutProcessProviderInterface
 
     public function buildCheckoutProcess(
         $session,
-        TranslatorComponent $translator
+        TranslatorComponent $translator,
     ): CheckoutProcess {
         return $this->checkoutProcess;
     }
@@ -39,7 +40,7 @@ class StubCheckoutProcessProvider implements CheckoutProcessProviderInterface
 class TestableCheckoutProcessProviderResolver extends CheckoutProcessProviderResolver
 {
     public function __construct(
-        private readonly array $validProviders = []
+        private readonly array $validProviders = [],
     ) {
     }
 

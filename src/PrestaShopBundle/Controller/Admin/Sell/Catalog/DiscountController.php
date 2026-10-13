@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -164,9 +165,8 @@ class DiscountController extends PrestaShopAdminController
                     }
 
                     return $this->redirectToRoute('admin_discount_edit', ['discountId' => $result->getIdentifiableObjectId()]);
-                } else {
-                    $this->displayFormErrors($form);
                 }
+                $this->displayFormErrors($form);
             }
         } catch (Exception $e) {
             $this->addFlash('error', $this->getErrorMessageForException($e, $this->getErrorMessages($e)));
@@ -208,9 +208,8 @@ class DiscountController extends PrestaShopAdminController
                     $this->addFlash('success', $this->trans('Successful update', [], 'Admin.Notifications.Success'));
 
                     return $this->redirectToRoute('admin_discount_edit', ['discountId' => $discountId]);
-                } else {
-                    $this->displayFormErrors($form);
                 }
+                $this->displayFormErrors($form);
             }
         } catch (Exception $e) {
             $this->addFlash('error', $this->getErrorMessageForException($e, $this->getErrorMessages($e)));

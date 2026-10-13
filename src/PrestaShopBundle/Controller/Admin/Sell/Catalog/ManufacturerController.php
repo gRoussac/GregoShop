@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -71,7 +72,7 @@ class ManufacturerController extends PrestaShopAdminController
         ManufacturerFilters $manufacturerFilters,
         #[Autowire(service: 'prestashop.core.grid.grid_factory.manufacturer_address')]
         GridFactoryInterface $manufacturerAddressFactory,
-        ManufacturerAddressFilters $manufacturerAddressFilters
+        ManufacturerAddressFilters $manufacturerAddressFilters,
     ) {
         $manufacturerGrid = $manufacturerGridFactory->getGrid($manufacturerFilters);
         $manufacturerAddressGrid = $manufacturerAddressFactory->getGrid($manufacturerAddressFilters);
@@ -98,7 +99,7 @@ class ManufacturerController extends PrestaShopAdminController
         GridDefinitionFactoryInterface $manufacturerGridDefinitionFactory,
         #[Autowire(service: 'prestashop.core.grid.definition.factory.manufacturer_address')]
         GridDefinitionFactoryInterface $manufacturerAddressGridDefinitionFactory,
-        ResponseBuilder $responseBuilder
+        ResponseBuilder $responseBuilder,
     ) {
         $gridDefinitionFactory = $manufacturerGridDefinitionFactory;
         $filterId = ManufacturerGridDefinitionFactory::GRID_ID;
@@ -126,7 +127,7 @@ class ManufacturerController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.manufacturer_form_builder')]
         FormBuilderInterface $formBuilder,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.handler.manufacturer_form_handler')]
-        FormHandlerInterface $formHandler
+        FormHandlerInterface $formHandler,
     ): Response {
         $manufacturerForm = $formBuilder->getForm();
         $manufacturerForm->handleRequest($request);
@@ -206,7 +207,7 @@ class ManufacturerController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.manufacturer_form_builder')]
         FormBuilderInterface $formBuilder,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.handler.manufacturer_form_handler')]
-        FormHandlerInterface $formHandler
+        FormHandlerInterface $formHandler,
     ): Response {
         try {
             /** @var EditableManufacturer $editableManufacturer */
@@ -386,7 +387,7 @@ class ManufacturerController extends PrestaShopAdminController
     public function exportAction(
         ManufacturerFilters $filters,
         #[Autowire(service: 'prestashop.core.grid.grid_factory.manufacturer')]
-        GridFactoryInterface $manufacturersGridFactory
+        GridFactoryInterface $manufacturersGridFactory,
     ): Response {
         $filters = new ManufacturerFilters(['limit' => null] + $filters->all());
         $manufacturersGrid = $manufacturersGridFactory->getGrid($filters);
@@ -480,7 +481,7 @@ class ManufacturerController extends PrestaShopAdminController
     public function exportAddressAction(
         ManufacturerAddressFilters $filters,
         #[Autowire(service: 'prestashop.core.grid.grid_factory.manufacturer_address')]
-        GridFactoryInterface $addressesGridFactory
+        GridFactoryInterface $addressesGridFactory,
     ) {
         $addressesGrid = $addressesGridFactory->getGrid($filters);
 
@@ -550,7 +551,7 @@ class ManufacturerController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.manufacturer_address_form_builder')]
         FormBuilderInterface $addressFormBuilder,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.handler.manufacturer_address_form_handler')]
-        FormHandlerInterface $addressFormHandler
+        FormHandlerInterface $addressFormHandler,
     ): Response {
         $formData = [];
         if ($request->request->has('manufacturer_address') && isset($request->request->all('manufacturer_address')['id_country'])) {
@@ -598,7 +599,7 @@ class ManufacturerController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.manufacturer_address_form_builder')]
         FormBuilderInterface $addressFormBuilder,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.handler.manufacturer_address_form_handler')]
-        FormHandlerInterface $addressFormHandler
+        FormHandlerInterface $addressFormHandler,
     ): Response {
         $formData = [];
         if ($request->request->has('manufacturer_address') && isset($request->request->all('manufacturer_address')['id_country'])) {

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -169,9 +170,9 @@ abstract class TreeToolbarButtonCore
                 . $this->getTemplateDirectory() . $template)) {
             return $this->_normalizeDirectory($this->getContext()->smarty->getTemplateDir(0))
                 . $this->getTemplateDirectory() . $template;
-        } else {
-            return $this->getTemplateDirectory() . $template;
         }
+
+        return $this->getTemplateDirectory() . $template;
     }
 
     public function hasAttribute($name)

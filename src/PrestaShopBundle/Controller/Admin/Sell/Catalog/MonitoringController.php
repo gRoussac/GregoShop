@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -89,7 +90,7 @@ class MonitoringController extends PrestaShopAdminController
         ProductWithoutDescriptionFilters $productWithoutDescriptionFilters,
         #[Autowire(service: 'prestashop.core.grid.grid_factory.product_without_price')]
         GridFactoryInterface $productWithoutPriceGrid,
-        ProductWithoutPriceFilters $productWithoutPriceFilters
+        ProductWithoutPriceFilters $productWithoutPriceFilters,
     ): Response {
         $deleteCategoryForm = $this->createForm(DeleteCategoriesType::class);
 

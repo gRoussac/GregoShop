@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -65,7 +66,7 @@ class AddressController extends PrestaShopAdminController
         Request $request,
         #[Autowire(service: 'prestashop.core.grid.grid_factory.address')]
         GridFactoryInterface $addressGridFactory,
-        AddressFilters $filters
+        AddressFilters $filters,
     ): Response {
         $addressGrid = $addressGridFactory->getGrid($filters);
         $requiredFieldsForm = $this->getRequiredFieldsForm();
@@ -215,7 +216,7 @@ class AddressController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.handler.address_form_handler')]
         FormHandlerInterface $addressFormHandler,
         #[Autowire(service: 'prestashop.adapter.data_provider.customer')]
-        CustomerDataProvider $customerDataProvider
+        CustomerDataProvider $customerDataProvider,
     ): Response {
         $formData = [];
         $customerInfo = null;
@@ -298,7 +299,7 @@ class AddressController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.address_form_builder')]
         FormBuilderInterface $addressFormBuilder,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.handler.address_form_handler')]
-        FormHandlerInterface $addressFormHandler
+        FormHandlerInterface $addressFormHandler,
     ): Response {
         try {
             /** @var EditableCustomerAddress $editableAddress */
@@ -371,7 +372,7 @@ class AddressController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.address_form_builder')]
         FormBuilderInterface $addressFormBuilder,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.handler.order_address_form_handler')]
-        FormHandlerInterface $addressFormHandler
+        FormHandlerInterface $addressFormHandler,
     ): Response {
         // @todo: don't rely on Order ObjectModel, use a Adapter DataProvider
         $order = new Order($orderId);
@@ -467,7 +468,7 @@ class AddressController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.address_form_builder')]
         FormBuilderInterface $addressFormBuilder,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.handler.cart_address_form_handler')]
-        FormHandlerInterface $addressFormHandler
+        FormHandlerInterface $addressFormHandler,
     ): Response {
         // @todo: don't rely on Cart ObjectModel, use a Adapter DataProvider
         $cart = new Cart($cartId);

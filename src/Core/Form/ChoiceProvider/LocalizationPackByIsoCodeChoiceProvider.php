@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -47,7 +48,7 @@ final class LocalizationPackByIsoCodeChoiceProvider implements FormChoiceProvide
         LocalizationPackLoaderInterface $remoteLocalizationPackLoader,
         LocalizationPackLoaderInterface $localLocalizationPackLoader,
         ConfigurationInterface $configuration,
-        TranslatorInterface $translator
+        TranslatorInterface $translator,
     ) {
         $this->remoteLocalizationPackLoader = $remoteLocalizationPackLoader;
         $this->localLocalizationPackLoader = $localLocalizationPackLoader;

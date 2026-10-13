@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -41,7 +42,7 @@ class EditableTitle
         array $localizedNames,
         int $gender,
         int $width,
-        int $height
+        int $height,
     ) {
         $this->titleId = $titleId;
         $this->localizedNames = $localizedNames;

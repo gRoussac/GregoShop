@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -41,7 +42,7 @@ class CartRule
         int $cartRuleId,
         string $name,
         string $description,
-        string $value
+        string $value,
     ) {
         $this->cartRuleId = $cartRuleId;
         $this->name = $name;

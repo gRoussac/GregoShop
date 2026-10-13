@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -53,7 +54,7 @@ class UpdateProductImageHandler implements UpdateProductImageHandlerInterface
         ProductImageRepository $productImageRepository,
         ProductImageUpdater $productImageUpdater,
         ProductImageUploader $productImageUploader,
-        ProductImageFileValidator $imageValidator
+        ProductImageFileValidator $imageValidator,
     ) {
         $this->productImageRepository = $productImageRepository;
         $this->productImageUpdater = $productImageUpdater;

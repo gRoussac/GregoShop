@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -38,7 +39,7 @@ class ModulePresenter implements PresenterInterface
      */
     public function present($module)
     {
-        if (!($module instanceof ModuleInterface)) {
+        if (!$module instanceof ModuleInterface) {
             throw new Exception('ModulePresenter can only present instance of Module');
         }
 

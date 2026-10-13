@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -136,7 +137,7 @@ class AddCustomerAddressCommand
         int $id_state = 0,
         ?string $phone = null,
         ?string $phone_mobile = null,
-        ?string $other = null
+        ?string $other = null,
     ) {
         $this->customerId = new CustomerId($customerId);
         $this->addressAlias = $addressAlias;

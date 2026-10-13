@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -57,7 +58,7 @@ class CQRSApiNormalizer extends ObjectNormalizer
         ?PropertyTypeExtractorInterface $propertyTypeExtractor = null,
         ?ClassDiscriminatorResolverInterface $classDiscriminatorResolver = null,
         ?callable $objectClassResolver = null,
-        array $defaultContext = []
+        array $defaultContext = [],
     ) {
         parent::__construct($classMetadataFactory, $nameConverter, $propertyAccessor, $propertyTypeExtractor, $classDiscriminatorResolver, $objectClassResolver, $defaultContext);
     }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -53,7 +54,7 @@ class OrderSlipCreator
      */
     public function __construct(
         ConfigurationInterface $configuration,
-        TranslatorInterface $translator
+        TranslatorInterface $translator,
     ) {
         $this->configuration = $configuration;
         $this->translator = $translator;
@@ -70,7 +71,7 @@ class OrderSlipCreator
      */
     public function create(
         Order $order,
-        OrderRefundSummary $orderRefundSummary
+        OrderRefundSummary $orderRefundSummary,
     ) {
         if ($orderRefundSummary->getRefundedAmount() > 0) {
             $orderSlipCreated = $this->createOrderSlip(
@@ -165,7 +166,7 @@ class OrderSlipCreator
         float $amount = 0,
         bool $amount_choosen = false,
         bool $add_tax = true,
-        int $precision = 6
+        int $precision = 6,
     ) {
         $currency = new Currency((int) $order->id_currency);
         $orderSlip = new OrderSlip();

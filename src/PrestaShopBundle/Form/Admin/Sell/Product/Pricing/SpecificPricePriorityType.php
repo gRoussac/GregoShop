@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -23,7 +24,7 @@ class SpecificPricePriorityType extends CollectionType
      * @param FormChoiceProviderInterface $priorityChoiceProvider
      */
     public function __construct(
-        FormChoiceProviderInterface $priorityChoiceProvider
+        FormChoiceProviderInterface $priorityChoiceProvider,
     ) {
         $this->priorityChoiceProvider = $priorityChoiceProvider;
     }

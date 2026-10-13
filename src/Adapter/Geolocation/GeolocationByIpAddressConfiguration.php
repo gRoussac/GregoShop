@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -23,7 +24,7 @@ final class GeolocationByIpAddressConfiguration implements DataConfigurationInte
      * @param Configuration $configuration
      */
     public function __construct(
-        Configuration $configuration
+        Configuration $configuration,
     ) {
         $this->configuration = $configuration;
     }

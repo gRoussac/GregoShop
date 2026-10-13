@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -57,7 +58,7 @@ final class FormHandler implements FormHandlerInterface
         HookDispatcherInterface $hookDispatcher,
         TranslatorInterface $translator,
         $isDemoModeEnabled,
-        ExtraPropertiesFormDataPersister $extraPropertiesFormDataPersister
+        ExtraPropertiesFormDataPersister $extraPropertiesFormDataPersister,
     ) {
         $this->dataHandler = $dataHandler;
         $this->hookDispatcher = $hookDispatcher;

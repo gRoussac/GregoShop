@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -17,7 +18,7 @@ class UploadModuleCommand
      * @param string $source Source for module
      */
     public function __construct(
-        private readonly string $source
+        private readonly string $source,
     ) {
     }
 

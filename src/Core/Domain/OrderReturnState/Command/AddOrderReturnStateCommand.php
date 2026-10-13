@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -22,7 +23,7 @@ class AddOrderReturnStateCommand
     public function __construct(
         array $localizedNames,
         private string $color,
-        private bool $isCancellingReturn = false
+        private bool $isCancellingReturn = false,
     ) {
         $this->setLocalizedNames($localizedNames);
     }

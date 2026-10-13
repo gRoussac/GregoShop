@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -17,7 +18,7 @@ class EntityManager
 
     public function __construct(
         DatabaseInterface $db,
-        \PrestaShop\PrestaShop\Core\ConfigurationInterface $configuration
+        \PrestaShop\PrestaShop\Core\ConfigurationInterface $configuration,
     ) {
         $this->db = $db;
         $this->configuration = $configuration;

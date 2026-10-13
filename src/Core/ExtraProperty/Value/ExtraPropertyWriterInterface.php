@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -65,7 +66,7 @@ interface ExtraPropertyWriterInterface
         int $entityId,
         array $valuesByModule,
         ShopConstraint $shopConstraint,
-        ?int $defaultLangId = null
+        ?int $defaultLangId = null,
     ): void;
 
     /**

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -89,7 +90,7 @@ class OrderPaymentForViewing
         string $cardBrand,
         string $cardExpiration,
         string $cardHolder,
-        ?string $employeeName = null
+        ?string $employeeName = null,
     ) {
         $this->paymentId = $paymentId;
         $this->date = $date;

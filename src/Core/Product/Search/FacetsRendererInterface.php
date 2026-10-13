@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -19,7 +20,7 @@ interface FacetsRendererInterface
      */
     public function renderFacets(
         ProductSearchContext $context,
-        ProductSearchResult $result
+        ProductSearchResult $result,
     );
 
     /**
@@ -30,6 +31,6 @@ interface FacetsRendererInterface
      */
     public function renderActiveFilters(
         ProductSearchContext $context,
-        ProductSearchResult $result
+        ProductSearchResult $result,
     );
 }

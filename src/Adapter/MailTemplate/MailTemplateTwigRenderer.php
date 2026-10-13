@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -52,7 +53,7 @@ class MailTemplateTwigRenderer implements MailTemplateRendererInterface
         Environment $twig,
         LayoutVariablesBuilderInterface $variablesBuilder,
         HookDispatcherInterface $hookDispatcher,
-        bool $hasGiftWrapping
+        bool $hasGiftWrapping,
     ) {
         $this->twig = $twig;
         $this->variablesBuilder = $variablesBuilder;
@@ -103,7 +104,7 @@ class MailTemplateTwigRenderer implements MailTemplateRendererInterface
     private function render(
         LayoutInterface $layout,
         LanguageInterface $language,
-        $templateType
+        $templateType,
     ) {
         $layoutVariables = $this->variablesBuilder->buildVariables($layout, $language);
         $layoutVariables['templateType'] = $templateType;

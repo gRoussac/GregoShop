@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -37,7 +38,7 @@ final class SearchCustomersHandler implements SearchCustomersHandlerInterface
      */
     public function __construct(
         Configuration $configuration,
-        int $contextLangId
+        int $contextLangId,
     ) {
         $this->configuration = $configuration;
         $this->contextLangId = $contextLangId;

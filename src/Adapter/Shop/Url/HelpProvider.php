@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -43,7 +44,7 @@ class HelpProvider implements UrlProviderInterface
         LegacyContext $legacyContext,
         TranslatorInterface $translator,
         RouterInterface $router,
-        Documentation $documentation
+        Documentation $documentation,
     ) {
         $this->legacyContext = $legacyContext;
         $this->translator = $translator;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -28,7 +29,7 @@ final class SetAssociatedProductCategoriesHandler implements SetAssociatedProduc
      * @param ProductCategoryUpdater $productCategoryUpdater
      */
     public function __construct(
-        ProductCategoryUpdater $productCategoryUpdater
+        ProductCategoryUpdater $productCategoryUpdater,
     ) {
         $this->productCategoryUpdater = $productCategoryUpdater;
     }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -38,7 +39,7 @@ class CategoryProductSearchProvider implements ProductSearchProviderInterface
 
     public function __construct(
         TranslatorInterface $translator,
-        Category $category
+        Category $category,
     ) {
         $this->translator = $translator;
         $this->category = $category;
@@ -57,7 +58,7 @@ class CategoryProductSearchProvider implements ProductSearchProviderInterface
     private function getProductsOrCount(
         ProductSearchContext $context,
         ProductSearchQuery $query,
-        $type = 'products'
+        $type = 'products',
     ) {
         if ($query->getSortOrder()->isRandom()) {
             return $this->category->getProducts(
@@ -71,16 +72,16 @@ class CategoryProductSearchProvider implements ProductSearchProviderInterface
                 true,
                 $query->getResultsPerPage()
             );
-        } else {
-            return $this->category->getProducts(
-                $context->getIdLang(),
-                $query->getPage(),
-                $query->getResultsPerPage(),
-                $query->getSortOrder()->toLegacyOrderBy(),
-                $query->getSortOrder()->toLegacyOrderWay(),
-                $type !== 'products'
-            );
         }
+
+        return $this->category->getProducts(
+            $context->getIdLang(),
+            $query->getPage(),
+            $query->getResultsPerPage(),
+            $query->getSortOrder()->toLegacyOrderBy(),
+            $query->getSortOrder()->toLegacyOrderWay(),
+            $type !== 'products'
+        );
     }
 
     /**
@@ -93,7 +94,7 @@ class CategoryProductSearchProvider implements ProductSearchProviderInterface
      */
     public function runQuery(
         ProductSearchContext $context,
-        ProductSearchQuery $query
+        ProductSearchQuery $query,
     ) {
         $products = $this->getProductsOrCount($context, $query, 'products');
         $count = $this->getProductsOrCount($context, $query, 'count');

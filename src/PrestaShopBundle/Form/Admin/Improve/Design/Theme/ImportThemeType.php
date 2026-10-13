@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -33,7 +34,7 @@ class ImportThemeType extends TranslatorAwareType
     public function __construct(
         TranslatorInterface $translator,
         array $locales,
-        array $themeZipsChoices
+        array $themeZipsChoices,
     ) {
         parent::__construct($translator, $locales);
         $this->themeZipsChoices = $themeZipsChoices;

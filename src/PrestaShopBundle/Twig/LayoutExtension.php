@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -34,7 +35,7 @@ class LayoutExtension extends AbstractExtension implements GlobalsInterface
     public function __construct(
         private readonly LegacyContext $context,
         private readonly ShopConfigurationInterface $configuration,
-        private readonly CurrencyDataProvider $currencyDataProvider
+        private readonly CurrencyDataProvider $currencyDataProvider,
     ) {
     }
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -42,7 +43,7 @@ final class EnableThemeHandler implements EnableThemeHandlerInterface
     public function __construct(
         ThemeManager $themeManager,
         CacheClearerInterface $smartyCacheClearer,
-        $isSingleShopContext
+        $isSingleShopContext,
     ) {
         $this->themeManager = $themeManager;
         $this->smartyCacheClearer = $smartyCacheClearer;

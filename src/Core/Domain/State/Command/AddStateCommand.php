@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -53,7 +54,7 @@ class AddStateCommand
         int $zoneId,
         string $name,
         string $isoCode,
-        bool $active
+        bool $active,
     ) {
         $this->countryId = new CountryId($countryId);
         $this->zoneId = new ZoneId($zoneId);

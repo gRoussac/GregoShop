@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -29,7 +30,7 @@ final class DuplicateProductHandler implements DuplicateProductHandlerInterface
      * @param ProductDuplicator $productDuplicator
      */
     public function __construct(
-        ProductDuplicator $productDuplicator
+        ProductDuplicator $productDuplicator,
     ) {
         $this->productDuplicator = $productDuplicator;
     }

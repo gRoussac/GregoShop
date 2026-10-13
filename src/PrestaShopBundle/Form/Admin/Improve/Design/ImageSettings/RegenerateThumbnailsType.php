@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -21,7 +22,7 @@ class RegenerateThumbnailsType extends TranslatorAwareType
     public function __construct(
         TranslatorInterface $translator,
         array $locales,
-        private readonly ImageTypeChoiceProvider $imageTypeChoiceProvider
+        private readonly ImageTypeChoiceProvider $imageTypeChoiceProvider,
     ) {
         parent::__construct($translator, $locales);
     }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -29,7 +30,7 @@ class CachedApiResourceScopesExtractor implements ApiResourceScopesExtractorInte
 
     public function __construct(
         private readonly CacheItemPoolInterface $cacheItemPool,
-        private readonly ApiResourceScopesExtractorInterface $decorated
+        private readonly ApiResourceScopesExtractorInterface $decorated,
     ) {
     }
 

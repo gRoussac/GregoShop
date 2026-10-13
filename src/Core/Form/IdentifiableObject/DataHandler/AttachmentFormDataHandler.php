@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -68,7 +69,7 @@ final class AttachmentFormDataHandler implements FormDataHandlerInterface
      */
     private function createEditAttachmentCommand(
         AttachmentId $attachmentId,
-        array $data
+        array $data,
     ): EditAttachmentCommand {
         /** @var UploadedFile|null $fileObject */
         $fileObject = $data['file'];

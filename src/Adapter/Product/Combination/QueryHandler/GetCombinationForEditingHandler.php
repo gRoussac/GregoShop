@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -123,7 +124,7 @@ class GetCombinationForEditingHandler implements GetCombinationForEditingHandler
         TaxComputer $taxComputer,
         int $contextLanguageId,
         ShopConfigurationInterface $configuration,
-        ProductImagePathFactory $productImageUrlFactory
+        ProductImagePathFactory $productImageUrlFactory,
     ) {
         $this->combinationRepository = $combinationRepository;
         $this->combinationNameBuilder = $combinationNameBuilder;

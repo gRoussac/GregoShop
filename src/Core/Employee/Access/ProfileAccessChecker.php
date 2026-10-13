@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -29,7 +30,7 @@ final class ProfileAccessChecker implements ProfileAccessCheckerInterface
      */
     public function __construct(
         EmployeeDataProviderInterface $employeeDataProvider,
-        $superAdminProfileId
+        $superAdminProfileId,
     ) {
         $this->employeeDataProvider = $employeeDataProvider;
         $this->superAdminProfileId = $superAdminProfileId;

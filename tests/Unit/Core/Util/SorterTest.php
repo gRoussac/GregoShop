@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -29,7 +30,7 @@ class SorterTest extends TestCase
         array $array,
         string $order,
         string $criteria1 = '',
-        string $criteria2 = ''
+        string $criteria2 = '',
     ): void {
         $sorter = new Sorter();
         $this->assertEquals(

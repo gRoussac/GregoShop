@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -48,7 +49,7 @@ class CartAddress
         string $alias,
         string $formattedAddress,
         bool $delivery,
-        bool $invoice
+        bool $invoice,
     ) {
         $this->addressId = $addressId;
         $this->alias = $alias;

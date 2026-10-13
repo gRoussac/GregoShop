@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -29,7 +30,7 @@ class DeleteCombinationCommand
      */
     public function __construct(
         int $combinationId,
-        ShopConstraint $shopConstraint
+        ShopConstraint $shopConstraint,
     ) {
         $this->combinationId = new CombinationId($combinationId);
         $this->shopConstraint = $shopConstraint;

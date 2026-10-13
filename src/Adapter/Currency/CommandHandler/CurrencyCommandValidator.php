@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -47,7 +48,7 @@ final class CurrencyCommandValidator
     public function __construct(
         LocaleRepository $localeRepoCLDR,
         CurrencyDataProviderInterface $currencyDataProvider,
-        int $defaultCurrencyId
+        int $defaultCurrencyId,
     ) {
         $this->localeRepoCLDR = $localeRepoCLDR;
         $this->currencyDataProvider = $currencyDataProvider;

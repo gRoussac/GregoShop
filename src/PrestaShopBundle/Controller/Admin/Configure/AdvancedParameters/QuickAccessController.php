@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -46,7 +47,7 @@ class QuickAccessController extends PrestaShopAdminController
         Request $request,
         QuickAccessFilters $filters,
         #[Autowire(service: 'prestashop.core.grid.factory.quick_access')]
-        GridFactoryInterface $quickAccessGridFactory
+        GridFactoryInterface $quickAccessGridFactory,
     ): Response {
         $quickAccessGrid = $quickAccessGridFactory->getGrid($filters);
 
@@ -63,7 +64,7 @@ class QuickAccessController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.quick_access_form_builder')]
         FormBuilderInterface $quickAccessFormBuilder,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.handler.quick_access_form_handler')]
-        FormHandlerInterface $quickAccessFormHandler
+        FormHandlerInterface $quickAccessFormHandler,
     ): Response {
         try {
             $quickAccessForm = $quickAccessFormBuilder->getForm();
@@ -101,7 +102,7 @@ class QuickAccessController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.quick_access_form_builder')]
         FormBuilderInterface $quickAccessFormBuilder,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.handler.quick_access_form_handler')]
-        FormHandlerInterface $quickAccessFormHandler
+        FormHandlerInterface $quickAccessFormHandler,
     ): Response {
         try {
             $quickAccessForm = $quickAccessFormBuilder->getFormFor($quickAccessId);

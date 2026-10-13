@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -53,7 +54,7 @@ class GetSpecificPriceList
         int $languageId,
         ?int $limit = null,
         ?int $offset = null,
-        array $filters = []
+        array $filters = [],
     ) {
         $this->productId = new ProductId($productId);
         $this->languageId = new LanguageId($languageId);

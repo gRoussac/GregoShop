@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -47,7 +48,7 @@ class AddAttachmentCommand
      */
     public function __construct(
         array $localizedNames,
-        array $localizedDescriptions
+        array $localizedDescriptions,
     ) {
         $this->localizedNames = $localizedNames;
         $this->localizedDescriptions = $localizedDescriptions;
@@ -63,7 +64,7 @@ class AddAttachmentCommand
         string $pathName,
         int $fileSize,
         string $mimeType,
-        string $originalName
+        string $originalName,
     ): void {
         $this->pathName = $pathName;
         $this->fileSize = $fileSize;

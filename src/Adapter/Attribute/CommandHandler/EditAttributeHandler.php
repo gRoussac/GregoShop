@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -27,7 +28,7 @@ class EditAttributeHandler implements EditAttributeHandlerInterface
     public function __construct(
         private AttributeRepository $attributeRepository,
         private AttributeValidator $attributeValidator,
-        private AttributeFileUploader $attributeFileUploader
+        private AttributeFileUploader $attributeFileUploader,
     ) {
     }
 

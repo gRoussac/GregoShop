@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -164,9 +165,9 @@ class CartPresenter implements PresenterInterface
                     || $a['id_customization'] > $b['id_customization']
                 ) {
                     return -1;
-                } else {
-                    return 1;
                 }
+
+                return 1;
             });
 
             $product['customizations'] = $customizations;

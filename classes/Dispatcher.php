@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -830,7 +831,7 @@ class DispatcherCore
         $id_lang = null,
         array $keywords = [],
         array $params = [],
-        $id_shop = null
+        $id_shop = null,
     ) {
         $context = Context::getContext();
 
@@ -1043,7 +1044,7 @@ class DispatcherCore
         array $params = [],
         $force_routes = false,
         $anchor = '',
-        $id_shop = null
+        $id_shop = null,
     ) {
         if ($id_lang === null) {
             $id_lang = (int) Context::getContext()->language->id;

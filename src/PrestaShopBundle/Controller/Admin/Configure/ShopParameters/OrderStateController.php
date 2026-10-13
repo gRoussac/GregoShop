@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -81,7 +82,7 @@ class OrderStateController extends PrestaShopAdminController
 
     #[AdminSecurity("is_granted('read', request.get('_legacy_controller'))")]
     public function searchGridAction(
-        Request $request
+        Request $request,
     ): RedirectResponse {
         if ($request->request->has(OrderReturnStatesGridDefinitionFactory::GRID_ID)) {
             $gridDefinitionFactory = $this->container->get(OrderReturnStatesGridDefinitionFactory::GRID_ID);

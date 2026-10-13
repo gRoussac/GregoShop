@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -28,7 +29,7 @@ abstract class AbstractProductSupplierHandler
      * @param ProductSupplierRepository $productSupplierRepository
      */
     public function __construct(
-        ProductSupplierRepository $productSupplierRepository
+        ProductSupplierRepository $productSupplierRepository,
     ) {
         $this->productSupplierRepository = $productSupplierRepository;
     }

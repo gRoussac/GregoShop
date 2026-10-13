@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -25,7 +26,7 @@ class EditFeatureHandler extends AbstractObjectModelHandler implements EditFeatu
     private $featureRepository;
 
     public function __construct(
-        FeatureRepository $featureRepository
+        FeatureRepository $featureRepository,
     ) {
         $this->featureRepository = $featureRepository;
     }

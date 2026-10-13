@@ -56,7 +56,7 @@ class UpdateProductHandler implements UpdateProductHandlerInterface
         ProductFillerInterface $productUpdatablePropertyFiller,
         ProductRepository $productRepository,
         ProductIndexationUpdater $productIndexationUpdater,
-        CartRuleDisablerService $cartRuleDisablerService
+        CartRuleDisablerService $cartRuleDisablerService,
     ) {
         $this->productUpdatablePropertyFiller = $productUpdatablePropertyFiller;
         $this->productRepository = $productRepository;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -69,7 +70,7 @@ class TranslatableType extends TranslatorAwareType
         UrlGeneratorInterface $urlGenerator,
         $saveFormLocaleChoice,
         $defaultFormLanguageId,
-        $defaultShopLanguageId
+        $defaultShopLanguageId,
     ) {
         parent::__construct($translator, $locales);
         $this->enabledLocales = $this->filterEnableLocales($availableLocales);
@@ -232,7 +233,7 @@ class TranslatableType extends TranslatorAwareType
     private function getSingleTranslatableErrorExcludingDefaultLocale(
         FormErrorIterator $formErrors,
         FormInterface $form,
-        array $locales
+        array $locales,
     ) {
         $errorByLocale = null;
         $formError = $formErrors[0];
@@ -271,7 +272,7 @@ class TranslatableType extends TranslatorAwareType
     private function getTranslatableErrors(
         FormErrorIterator $formErrors,
         FormInterface $form,
-        array $locales
+        array $locales,
     ) {
         $errorsByLocale = null;
         $iteration = 0;

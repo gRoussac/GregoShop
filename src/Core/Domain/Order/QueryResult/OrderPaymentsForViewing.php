@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -40,7 +41,7 @@ class OrderPaymentsForViewing
         array $payments,
         ?string $amountToPay,
         ?string $paidAmount,
-        array $paymentMismatchOrderIds
+        array $paymentMismatchOrderIds,
     ) {
         foreach ($payments as $payment) {
             $this->add($payment);

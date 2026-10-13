@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -42,7 +43,7 @@ class CarrierGridDataFactory implements GridDataFactoryInterface
     public function __construct(
         GridDataFactoryInterface $carrierDataFactory,
         ImageProviderInterface $carrierLogoProvider,
-        ConfigurationInterface $configuration
+        ConfigurationInterface $configuration,
     ) {
         $this->carrierDataFactory = $carrierDataFactory;
         $this->carrierLogoProvider = $carrierLogoProvider;

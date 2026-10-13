@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -35,7 +36,7 @@ class AddImageTypeCommand
         private readonly bool $manufacturers,
         private readonly bool $suppliers,
         private readonly bool $stores,
-        private readonly string $imageFitment = ImageFitment::FIT
+        private readonly string $imageFitment = ImageFitment::FIT,
     ) {
         ImageFitment::assertIsValid($imageFitment);
     }

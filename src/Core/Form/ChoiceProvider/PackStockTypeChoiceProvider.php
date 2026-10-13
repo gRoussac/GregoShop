@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -30,7 +31,7 @@ final class PackStockTypeChoiceProvider implements FormChoiceProviderInterface
      */
     public function __construct(
         TranslatorInterface $translator,
-        ShopConfigurationInterface $shopConfiguration
+        ShopConfigurationInterface $shopConfiguration,
     ) {
         $this->translator = $translator;
         $this->shopConfiguration = $shopConfiguration;

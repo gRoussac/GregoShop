@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -84,7 +85,7 @@ class OrderShipment
         ?DateTime $packedAt,
         ?DateTime $shippedAt,
         ?DateTime $deliveredAt,
-        ?DateTime $cancelledAt
+        ?DateTime $cancelledAt,
     ) {
         $this->id = $id;
         $this->orderId = $orderId;

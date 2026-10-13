@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -62,7 +63,7 @@ class OrderReturnProductForEditing
         string $productName,
         int $quantity,
         bool $isCustomization,
-        array $customizationFields = []
+        array $customizationFields = [],
     ) {
         $this->orderDetailId = $orderDetailId;
         $this->customizationId = $customizationId;

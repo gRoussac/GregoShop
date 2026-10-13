@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -47,7 +48,7 @@ final class UploadLogosHandler implements UploadLogosHandlerInterface
     public function __construct(
         ConfigurationInterface $configuration,
         LogoUploader $logoUploader,
-        HookDispatcherInterface $hookDispatcher
+        HookDispatcherInterface $hookDispatcher,
     ) {
         $this->configuration = $configuration;
         $this->logoUploader = $logoUploader;

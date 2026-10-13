@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -37,7 +38,7 @@ class UpdateStockFeatureContext extends AbstractProductFeatureContext
     public function updateProductStockForShop(
         string $productReference,
         string $shopReference,
-        TableNode $table
+        TableNode $table,
     ): void {
         $shopId = $this->getSharedStorage()->get(trim($shopReference));
         $shopConstraint = ShopConstraint::shop($shopId);
@@ -55,7 +56,7 @@ class UpdateStockFeatureContext extends AbstractProductFeatureContext
     public function updateProductStockForShopCollection(
         string $productReference,
         string $shopReferences,
-        TableNode $table
+        TableNode $table,
     ): void {
         $shopConstraint = ShopCollection::shops($this->referencesToIds($shopReferences));
 
@@ -104,7 +105,7 @@ class UpdateStockFeatureContext extends AbstractProductFeatureContext
     private function updateProductStock(
         string $productReference,
         TableNode $table,
-        ShopConstraint $shopConstraint
+        ShopConstraint $shopConstraint,
     ): void {
         $data = $this->localizeByRows($table);
         $productId = $this->getSharedStorage()->get($productReference);

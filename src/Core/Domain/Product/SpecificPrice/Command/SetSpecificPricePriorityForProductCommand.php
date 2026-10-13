@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -32,7 +33,7 @@ class SetSpecificPricePriorityForProductCommand
      */
     public function __construct(
         int $productId,
-        array $priorities
+        array $priorities,
     ) {
         $this->productId = new ProductId($productId);
         $this->priorityList = new PriorityList($priorities);

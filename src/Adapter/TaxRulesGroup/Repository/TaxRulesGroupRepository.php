@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -51,7 +52,7 @@ class TaxRulesGroupRepository extends AbstractMultiShopObjectModelRepository
     public function __construct(
         Connection $connection,
         string $dbPrefix,
-        TaxRulesGroupValidator $taxRulesGroupValidator
+        TaxRulesGroupValidator $taxRulesGroupValidator,
     ) {
         $this->connection = $connection;
         $this->dbPrefix = $dbPrefix;
@@ -169,7 +170,7 @@ class TaxRulesGroupRepository extends AbstractMultiShopObjectModelRepository
         TaxRulesGroup $taxRulesGroup,
         array $propertiesToUpdate,
         array $shopIds,
-        int $errorCode
+        int $errorCode,
     ): void {
         $this->partiallyUpdateObjectModelForShops(
             $taxRulesGroup,

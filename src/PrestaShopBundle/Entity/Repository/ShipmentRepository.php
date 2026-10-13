@@ -52,7 +52,7 @@ class ShipmentRepository extends EntityRepository
      */
     public function findByOrderIdAndOrderDetailId(
         int $orderId,
-        int $orderDetailId
+        int $orderDetailId,
     ): array {
         $conn = $this->getEntityManager()->getConnection();
         $qb = $conn->createQueryBuilder();
@@ -161,7 +161,7 @@ class ShipmentRepository extends EntityRepository
 
     public function deleteShipmentProductByOrderAndOrderDetail(
         int $orderId,
-        int $orderDetailId
+        int $orderDetailId,
     ): void {
         $shipments = $this->findByOrderId($orderId);
         foreach ($shipments as $shipment) {
@@ -192,7 +192,7 @@ class ShipmentRepository extends EntityRepository
     public function updateShipmentProductQuantity(
         int $shipmentId,
         int $orderDetailId,
-        int $quantity
+        int $quantity,
     ): void {
         $shipment = $this->findById($shipmentId);
         if (!$shipment) {

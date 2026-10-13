@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -48,7 +49,7 @@ class OrderDetailUpdater
      */
     public function __construct(
         ContextStateManager $contextStateManager,
-        ShopConfigurationInterface $shopConfiguration
+        ShopConfigurationInterface $shopConfiguration,
     ) {
         $this->contextStateManager = $contextStateManager;
         $this->shopConfiguration = $shopConfiguration;
@@ -66,7 +67,7 @@ class OrderDetailUpdater
         OrderDetail $orderDetail,
         Order $order,
         DecimalNumber $priceTaxExcluded,
-        DecimalNumber $priceTaxIncluded
+        DecimalNumber $priceTaxIncluded,
     ): void {
         [$roundType, $computingPrecision, $taxAddress] = $this->prepareOrderContext($order);
 
@@ -115,7 +116,7 @@ class OrderDetailUpdater
         int $combinationId,
         DecimalNumber $priceTaxExcluded,
         DecimalNumber $priceTaxIncluded,
-        int $customizationId = 0
+        int $customizationId = 0,
     ): void {
         [$roundType, $computingPrecision, $taxAddress] = $this->prepareOrderContext($order);
 
@@ -298,7 +299,7 @@ class OrderDetailUpdater
         DecimalNumber $priceTaxExcluded,
         DecimalNumber $priceTaxIncluded,
         int $roundType,
-        int $computingPrecision
+        int $computingPrecision,
     ): void {
         $floatPriceTaxExcluded = (float) (string) $priceTaxExcluded;
         $floatPriceTaxIncluded = (float) (string) $priceTaxIncluded;
@@ -353,7 +354,7 @@ class OrderDetailUpdater
         int $roundType,
         int $computingPrecision,
         Address $taxAddress,
-        int $customizationId = 0
+        int $customizationId = 0,
     ): void {
         $identicalOrderDetails = $this->getOrderDetailsForProduct($order, $productId, $combinationId, $customizationId);
         if (empty($identicalOrderDetails)) {
@@ -401,7 +402,7 @@ class OrderDetailUpdater
         Order $order,
         int $productId,
         int $combinationId,
-        int $customizationId = 0
+        int $customizationId = 0,
     ): array {
         $identicalOrderDetails = [];
         $orderDetails = $order->getOrderDetailList();
@@ -434,7 +435,7 @@ class OrderDetailUpdater
         DecimalNumber $priceTaxExcluded,
         Order $order,
         OrderDetail $orderDetail,
-        Address $taxAddress
+        Address $taxAddress,
     ): DecimalNumber {
         $productOriginalPrice = $this->getProductRegularPrice($order, $orderDetail, $taxAddress);
 
@@ -474,7 +475,7 @@ class OrderDetailUpdater
         DecimalNumber $priceTaxExcluded,
         Order $order,
         OrderDetail $orderDetail,
-        Address $taxAddress
+        Address $taxAddress,
     ): DecimalNumber {
         $productOriginalPrice = $this->getProductRegularPrice($order, $orderDetail, $taxAddress);
 
@@ -499,7 +500,7 @@ class OrderDetailUpdater
     private function getProductRegularPrice(
         Order $order,
         OrderDetail $orderDetail,
-        Address $taxAddress
+        Address $taxAddress,
     ): DecimalNumber {
         // Get price via getPriceStatic so that the catalog price rules are applied
         $null = null;

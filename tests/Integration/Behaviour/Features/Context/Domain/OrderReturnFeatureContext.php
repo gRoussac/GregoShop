@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -91,7 +92,7 @@ class OrderReturnFeatureContext extends AbstractDomainFeatureContext
     public function assertQueriedProductContainsReferenceWithQuantity(
         string $orderReturnReference,
         string $reference,
-        int $quantity
+        int $quantity,
     ): void {
         foreach ($this->getStoredProducts($orderReturnReference) as $product) {
             if ($product->getReference() === $reference && $product->getQuantity() === $quantity) {

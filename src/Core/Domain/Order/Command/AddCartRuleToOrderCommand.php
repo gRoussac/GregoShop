@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -54,7 +55,7 @@ class AddCartRuleToOrderCommand
         string $cartRuleName,
         string $cartRuleType,
         ?string $value,
-        $orderInvoiceId = null
+        $orderInvoiceId = null,
     ) {
         $this->assertCartRuleNameIsNotEmpty($cartRuleName);
         $this->assertCartRuleTypeAndValueCombination($cartRuleType, $value);

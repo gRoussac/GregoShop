@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -61,7 +62,7 @@ class PriceCalculator
         $useGroupReduction = true,
         ?Context $context = null,
         $useCustomerPrice = true,
-        $idCustomization = null
+        $idCustomization = null,
     ) {
         return Product::getPriceStatic(
             $idProduct,
@@ -134,7 +135,7 @@ class PriceCalculator
         $useCustomerPrice = true,
         $idCart = 0,
         $realQuantity = 0,
-        $idCustomization = 0
+        $idCustomization = 0,
     ) {
         return Product::priceCalculation(
             $idShop,
@@ -180,7 +181,7 @@ class PriceCalculator
         bool $withTaxes,
         bool $useReduction,
         bool $withEcoTax,
-        int $customizationId = 0
+        int $customizationId = 0,
     ): ?float {
         return Product::getPriceFromOrder(
             $orderId,

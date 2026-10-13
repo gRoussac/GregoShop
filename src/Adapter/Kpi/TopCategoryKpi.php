@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -48,7 +49,7 @@ final class TopCategoryKpi implements KpiInterface
         TranslatorInterface $translator,
         ConfigurationInterface $kpiConfiguration,
         $sourceUrl,
-        $employeeIdLang
+        $employeeIdLang,
     ) {
         $this->translator = $translator;
         $this->kpiConfiguration = $kpiConfiguration;

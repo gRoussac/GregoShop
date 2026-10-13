@@ -36,7 +36,7 @@ final class ShipmentDeliverySlipPdfGenerator implements PDFGeneratorInterface
 
     public function __construct(
         TranslatorInterface $translator,
-        ShipmentRepository $shipmentRepository
+        ShipmentRepository $shipmentRepository,
     ) {
         $this->translator = $translator;
         $this->shipmentRepository = $shipmentRepository;

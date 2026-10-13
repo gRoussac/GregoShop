@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -71,7 +72,7 @@ class OrderRefundSummary
         float $voucherAmount,
         bool $voucherChosen,
         bool $isTaxIncluded,
-        int $precision
+        int $precision,
     ) {
         $this->orderDetails = $orderDetails;
         $this->productRefunds = $productRefunds;

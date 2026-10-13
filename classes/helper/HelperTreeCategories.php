@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -26,7 +27,7 @@ class HelperTreeCategoriesCore extends TreeCore
         $title = null,
         $root_category = null,
         $lang = null,
-        $use_shop_restriction = true
+        $use_shop_restriction = true,
     ) {
         parent::__construct($id);
 

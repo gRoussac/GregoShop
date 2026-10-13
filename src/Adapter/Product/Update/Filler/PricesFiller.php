@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -35,7 +36,7 @@ class PricesFiller implements ProductFillerInterface
      */
     public function __construct(
         NumberExtractor $numberExtractor,
-        Configuration $configuration
+        Configuration $configuration,
     ) {
         $this->numberExtractor = $numberExtractor;
         $this->configuration = $configuration;
@@ -93,7 +94,7 @@ class PricesFiller implements ProductFillerInterface
         ?DecimalNumber $unitPrice,
         ?DecimalNumber $wholesalePrice,
         ?DecimalNumber $ecotax,
-        ShopConstraint $shopConstraint
+        ShopConstraint $shopConstraint,
     ): array {
         $updatableProperties = [];
         if (null !== $wholesalePrice) {
@@ -144,7 +145,7 @@ class PricesFiller implements ProductFillerInterface
         ?DecimalNumber $price,
         ?DecimalNumber $ecotax,
         Product $product,
-        ShopConstraint $shopConstraint
+        ShopConstraint $shopConstraint,
     ): DecimalNumber {
         $price = $price ?: $this->numberExtractor->extract($product, 'price');
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -172,7 +173,7 @@ abstract class AbstractProvider implements ProviderInterface, XliffCatalogueInte
         $databaseCatalogue = new MessageCatalogue($this->locale);
 
         foreach ($this->getTranslationDomains() as $translationDomain) {
-            if (!($this->getDatabaseLoader() instanceof DatabaseTranslationLoader)) {
+            if (!$this->getDatabaseLoader() instanceof DatabaseTranslationLoader) {
                 continue;
             }
             $domainCatalogue = $this->getDatabaseLoader()->load(null, $this->locale, $translationDomain, $theme);

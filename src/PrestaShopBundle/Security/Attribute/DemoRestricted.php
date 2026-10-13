@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -30,7 +31,7 @@ class DemoRestricted
         /**
          * The route params which are used together to generate the redirect route.
          */
-        private array $redirectQueryParamsToKeep = []
+        private array $redirectQueryParamsToKeep = [],
     ) {
     }
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -50,7 +51,7 @@ final class AttributeGroupQueryBuilder extends AbstractDoctrineQueryBuilder
         DoctrineSearchCriteriaApplicatorInterface $searchCriteriaApplicator,
         $contextLangId,
         MultistoreContextCheckerInterface $multistoreContextChecker,
-        array $contextShopIds
+        array $contextShopIds,
     ) {
         parent::__construct($connection, $dbPrefix);
         $this->contextLangId = $contextLangId;

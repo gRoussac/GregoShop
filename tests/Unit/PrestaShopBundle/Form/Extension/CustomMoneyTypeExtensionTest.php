@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -32,7 +33,7 @@ class CustomMoneyTypeExtensionTest extends TestCase
         string $currencyIso,
         string $symbol,
         string $cldrPattern,
-        string $expectedPattern
+        string $expectedPattern,
     ): void {
         $localeNumberTransformer = $this->createMock(LocaleNumberTransformer::class);
         $localeNumberTransformer->method('getLocaleForNumberInputs')->willReturn('en');

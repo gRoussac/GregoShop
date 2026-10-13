@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -31,7 +32,7 @@ class ProductLightGridDefinitionFactory extends AbstractGridDefinitionFactory
      */
     public function __construct(
         HookDispatcherInterface $hookDispatcher,
-        ConfigurationInterface $configuration
+        ConfigurationInterface $configuration,
     ) {
         parent::__construct($hookDispatcher);
         $this->configuration = $configuration;

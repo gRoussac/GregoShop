@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -211,7 +212,7 @@ class Shipment
     }
 
     public function setShippingCostTaxExcluded(
-        float $shippingCostTaxExcluded
+        float $shippingCostTaxExcluded,
     ): self {
         $this->shippingCostTaxExcluded = $shippingCostTaxExcluded;
 
@@ -219,7 +220,7 @@ class Shipment
     }
 
     public function setShippingCostTaxIncluded(
-        float $shippingCostTaxIncluded
+        float $shippingCostTaxIncluded,
     ): self {
         $this->shippingCostTaxIncluded = $shippingCostTaxIncluded;
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -58,7 +59,7 @@ class FoundShop
         string $name,
         int $groupId,
         string $groupName,
-        string $groupColor
+        string $groupColor,
     ) {
         $this->id = $id;
         $this->color = $color;

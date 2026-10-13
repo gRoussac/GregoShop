@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -41,7 +42,7 @@ class FeatureController extends PrestaShopAdminController
     use BulkActionsTrait;
 
     public function __construct(
-        private readonly FeatureFeature $featureFeature
+        private readonly FeatureFeature $featureFeature,
     ) {
     }
 
@@ -94,7 +95,7 @@ class FeatureController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.feature_form_builder')]
         FormBuilderInterface $featureFormBuilder,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.handler.feature_form_handler')]
-        FormHandlerInterface $featureFormHandler
+        FormHandlerInterface $featureFormHandler,
     ): Response {
         if (!$this->isFeatureEnabled()) {
             return $this->render('@PrestaShop/Admin/Sell/Catalog/Features/create.html.twig', [
@@ -139,7 +140,7 @@ class FeatureController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.feature_form_builder')]
         FormBuilderInterface $featureFormBuilder,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.handler.feature_form_handler')]
-        FormHandlerInterface $featureFormHandler
+        FormHandlerInterface $featureFormHandler,
     ): Response {
         try {
             $editableFeature = $this->dispatchQuery(new GetFeatureForEditing($featureId));
@@ -186,7 +187,7 @@ class FeatureController extends PrestaShopAdminController
     public function exportAction(
         FeatureFilters $filters,
         #[Autowire(service: 'prestashop.core.grid.grid_factory.feature')]
-        GridFactoryInterface $featuresGridFactory
+        GridFactoryInterface $featuresGridFactory,
     ): CsvResponse {
         $filters = new FeatureFilters($filters->getShopConstraint(), ['limit' => null] + $filters->all());
 

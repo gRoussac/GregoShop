@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -313,7 +314,7 @@ class SearchCore
         $order_way = 'desc',
         $ajax = false,
         $use_cookie = true,
-        ?Context $context = null
+        ?Context $context = null,
     ) {
         if (!$context) {
             $context = Context::getContext();
@@ -1051,7 +1052,7 @@ class SearchCore
         $orderBy = false,
         $orderWay = false,
         $useCookie = true,
-        ?Context $context = null
+        ?Context $context = null,
     ) {
         if (!$context) {
             $context = Context::getContext();

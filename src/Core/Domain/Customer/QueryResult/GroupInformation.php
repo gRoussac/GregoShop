@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -36,7 +37,7 @@ class GroupInformation
     public function __construct(
         int $groupId,
         string $name,
-        bool $isDefault = false
+        bool $isDefault = false,
     ) {
         $this->groupId = $groupId;
         $this->name = $name;

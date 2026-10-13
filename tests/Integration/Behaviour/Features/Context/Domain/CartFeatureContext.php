@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -302,7 +303,7 @@ class CartFeatureContext extends AbstractDomainFeatureContext
         int $quantity,
         string $productReference,
         string $withCombinations,
-        string $reference
+        string $reference,
     ) {
         $hasCombinations = ($withCombinations === 'with');
         $cartId = (int) SharedStorage::getStorage()->get($reference);
@@ -362,7 +363,7 @@ class CartFeatureContext extends AbstractDomainFeatureContext
         int $quantity,
         string $combinationName,
         string $productName,
-        string $cartReference
+        string $cartReference,
     ) {
         // Use product reference from shared storage if available, or from legacy context otherwise
         if ($this->getSharedStorage()->exists($productName)) {
@@ -445,7 +446,7 @@ class CartFeatureContext extends AbstractDomainFeatureContext
         string $cartReference,
         string $customerReference,
         string $countryIsoCode,
-        string $stateName
+        string $stateName,
     ) {
         $customerId = SharedStorage::getStorage()->get($customerReference);
         $customer = new Customer($customerId);
@@ -960,7 +961,7 @@ class CartFeatureContext extends AbstractDomainFeatureContext
     public function assertReductionValueOfCartCartRule(
         string $voucherCode,
         string $cartReference,
-        string $value
+        string $value,
     ) {
         $cartInfo = $this->getCartForOrderCreationByReference($cartReference);
         $cartRuleId = $this->getSharedStorage()->get($voucherCode);

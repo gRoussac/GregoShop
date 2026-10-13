@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -49,7 +50,7 @@ class ProductFormDataHandler implements FormDataHandlerInterface
         CommandBusInterface $bus,
         ProductCommandsBuilderInterface $commandsBuilder,
         int $defaultShopId,
-        ?int $contextShopId
+        ?int $contextShopId,
     ) {
         $this->bus = $bus;
         $this->commandsBuilder = $commandsBuilder;

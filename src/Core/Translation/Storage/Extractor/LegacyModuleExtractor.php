@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -57,7 +58,7 @@ final class LegacyModuleExtractor implements LegacyModuleExtractorInterface
         SmartyExtractor $smartyExtractor,
         TwigExtractor $twigExtractor,
         string $modulesDirectory,
-        array $catalogueExtractExcludedDirectories
+        array $catalogueExtractExcludedDirectories,
     ) {
         $this->phpExtractor = $phpExtractor;
         $this->smartyExtractor = $smartyExtractor;

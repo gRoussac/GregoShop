@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -130,7 +131,7 @@ class CategoryController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.handler.category_form_handler')]
         FormHandlerInterface $categoryFormHandler,
         #[Autowire(service: 'prestashop.adapter.group.provider.default_groups_provider')]
-        DefaultGroupsProviderInterface $defaultGroupsProvider
+        DefaultGroupsProviderInterface $defaultGroupsProvider,
     ): Response {
         $configuration = $this->getConfiguration();
         $parentId = (int) $request->query->get('id_parent', (int) $configuration->get('PS_HOME_CATEGORY'));
@@ -191,7 +192,7 @@ class CategoryController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.handler.root_category_form_handler')]
         FormHandlerInterface $rootCategoryFormHandler,
         #[Autowire(service: 'prestashop.adapter.group.provider.default_groups_provider')]
-        DefaultGroupsProviderInterface $defaultGroupsProvider
+        DefaultGroupsProviderInterface $defaultGroupsProvider,
     ): Response {
         $rootCategoryForm = $rootCategoryFormBuilder->getForm();
         $rootCategoryForm->handleRequest($request);
@@ -324,7 +325,7 @@ class CategoryController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.handler.root_category_form_handler')]
         FormHandlerInterface $rootCategoryFormHandler,
         #[Autowire(service: 'prestashop.adapter.group.provider.default_groups_provider')]
-        DefaultGroupsProviderInterface $defaultGroupsProvider
+        DefaultGroupsProviderInterface $defaultGroupsProvider,
     ): Response {
         try {
             /** @var EditableCategory $editableCategory */
@@ -625,7 +626,7 @@ class CategoryController extends PrestaShopAdminController
     public function exportAction(
         CategoryFilters $filters,
         #[Autowire(service: 'prestashop.core.grid.factory.category')]
-        GridFactoryInterface $categoriesGridFactory
+        GridFactoryInterface $categoriesGridFactory,
     ): Response {
         $filters = new CategoryFilters(['limit' => null] + $filters->all());
         $categoriesGrid = $categoriesGridFactory->getGrid($filters);
@@ -700,7 +701,7 @@ class CategoryController extends PrestaShopAdminController
         int $limit,
         Request $request,
         #[Autowire(service: 'prestashop.adapter.data_provider.category')]
-        CategoryDataProvider $categoryDataProvider
+        CategoryDataProvider $categoryDataProvider,
     ): JsonResponse {
         if (!$request->isXmlHttpRequest()) {
             throw new NotFoundHttpException('Should be ajax request.');

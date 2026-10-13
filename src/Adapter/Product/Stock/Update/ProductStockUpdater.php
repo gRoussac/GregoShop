@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -71,7 +72,7 @@ class ProductStockUpdater
         StockAvailableRepository $stockAvailableRepository,
         MovementReasonRepository $movementReasonRepository,
         ShopConfigurationInterface $configuration,
-        HookManager $hookManager
+        HookManager $hookManager,
     ) {
         $this->stockManager = $stockManager;
         $this->productRepository = $productRepository;
@@ -176,7 +177,7 @@ class ProductStockUpdater
     private function fillUpdatableProperties(
         Product $product,
         StockAvailable $stockAvailable,
-        ProductStockProperties $properties
+        ProductStockProperties $properties,
     ): array {
         $updatableProperties = [];
 

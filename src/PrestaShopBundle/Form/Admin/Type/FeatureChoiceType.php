@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -18,7 +19,7 @@ class FeatureChoiceType extends TranslatorAwareType
     public function __construct(
         TranslatorInterface $translator,
         array $locales,
-        protected readonly FormChoiceProviderInterface $featureChoiceProvider
+        protected readonly FormChoiceProviderInterface $featureChoiceProvider,
     ) {
         parent::__construct($translator, $locales);
     }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -26,7 +27,7 @@ class MoneyTest extends TestCase
     public function testItCreatesMoneyClass(
         string $number,
         int $currencyId,
-        bool $taxIncluded
+        bool $taxIncluded,
     ): void {
         $money = new Money(new DecimalNumber($number), new CurrencyId($currencyId), $taxIncluded);
 

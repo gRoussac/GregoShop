@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -175,7 +176,7 @@ class PDFCore
             $class = new $class_name($object, $this->smarty, $this->send_bulk_flag);
         }
 
-        if (!($class instanceof HTMLTemplate)) {
+        if (!$class instanceof HTMLTemplate) {
             throw new PrestaShopException('Invalid class. It should be an instance of HTMLTemplate');
         }
 

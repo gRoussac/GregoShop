@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -54,7 +55,7 @@ final class LogDataFactory implements GridDataFactoryInterface
     public function __construct(
         GridDataFactoryInterface $dataFactory,
         TranslatorInterface $translator,
-        AvatarProviderInterface $avatarProvider
+        AvatarProviderInterface $avatarProvider,
     ) {
         $this->dataFactory = $dataFactory;
         $this->translator = $translator;

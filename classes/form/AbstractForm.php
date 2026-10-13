@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -41,7 +42,7 @@ abstract class AbstractFormCore implements FormInterface
     public function __construct(
         Smarty $smarty,
         TranslatorInterface $translator,
-        FormFormatterInterface $formatter
+        FormFormatterInterface $formatter,
     ) {
         $this->smarty = $smarty;
         $this->translator = $translator;

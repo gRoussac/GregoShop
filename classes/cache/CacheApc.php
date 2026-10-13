@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -85,9 +86,9 @@ class CacheApcCore extends Cache
         if (!function_exists('apc_exists') && !function_exists('apcu_exists')) {
             // We're dealing with APC < 3.1.4; use this boolean wrapper as a fallback:
             return (bool) apc_fetch($key);
-        } else {
-            return ($this->apcu) ? apcu_exists($key) : apc_exists($key);
         }
+
+        return ($this->apcu) ? apcu_exists($key) : apc_exists($key);
     }
 
     /**

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -202,7 +203,7 @@ abstract class PaymentModuleCore extends Module
         $dont_touch_amount = false,
         $secure_key = false,
         ?Shop $shop = null,
-        ?string $order_reference = null
+        ?string $order_reference = null,
     ) {
         if (self::DEBUG_MODE) {
             PrestaShopLogger::addLog('PaymentModule::validateOrder - Function called', 1, null, 'Cart', (int) $id_cart, true);
@@ -1239,7 +1240,7 @@ abstract class PaymentModuleCore extends Module
         $order_list,
         $total_reduction_value_ti,
         $total_reduction_value_tex,
-        $id_order_state
+        $id_order_state,
     ) {
         $cart_rule_used = [];
         $computingPrecision = Context::getContext()->getComputingPrecision();

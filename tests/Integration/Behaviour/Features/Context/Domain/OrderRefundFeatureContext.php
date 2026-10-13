@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -51,7 +52,7 @@ class OrderRefundFeatureContext extends AbstractDomainFeatureContext
         string $restockProducts,
         string $generateCreditSlip,
         string $generateVoucher,
-        TableNode $table
+        TableNode $table,
     ) {
         $restockProducts = 'with' === $restockProducts;
         $generateCreditSlip = 'with' === $generateCreditSlip;
@@ -86,7 +87,7 @@ class OrderRefundFeatureContext extends AbstractDomainFeatureContext
         string $orderReference,
         string $generateCreditSlip,
         string $generateVoucher,
-        TableNode $table
+        TableNode $table,
     ) {
         $generateCreditSlip = 'with' === $generateCreditSlip;
         $generateVoucher = 'with' === $generateVoucher;
@@ -121,7 +122,7 @@ class OrderRefundFeatureContext extends AbstractDomainFeatureContext
         string $restockProducts,
         string $generateCreditSlip,
         string $generateVoucher,
-        TableNode $table
+        TableNode $table,
     ) {
         $restockProducts = 'with' === $restockProducts;
         $generateCreditSlip = 'with' === $generateCreditSlip;
@@ -321,7 +322,7 @@ class OrderRefundFeatureContext extends AbstractDomainFeatureContext
         bool $generateCreditSlip,
         bool $generateVoucher,
         int $voucherRefundType = VoucherRefundType::PRODUCT_PRICES_EXCLUDING_VOUCHER_REFUND,
-        ?string $voucherRefundAmount = null
+        ?string $voucherRefundAmount = null,
     ): IssuePartialRefundCommand {
         /** @var OrderForViewing $orderForViewing */
         $orderForViewing = $this->getQueryBus()->handle(new GetOrderForViewing((int) $orderId));
@@ -375,7 +376,7 @@ class OrderRefundFeatureContext extends AbstractDomainFeatureContext
         array $refunds,
         bool $generateCreditSlip,
         bool $generateVoucher,
-        int $voucherRefundType = VoucherRefundType::PRODUCT_PRICES_EXCLUDING_VOUCHER_REFUND
+        int $voucherRefundType = VoucherRefundType::PRODUCT_PRICES_EXCLUDING_VOUCHER_REFUND,
     ): IssueStandardRefundCommand {
         /** @var OrderForViewing $orderForViewing */
         $orderForViewing = $this->getQueryBus()->handle(new GetOrderForViewing((int) $orderId));
@@ -428,7 +429,7 @@ class OrderRefundFeatureContext extends AbstractDomainFeatureContext
         bool $restockRefundedProducts,
         bool $generateCreditSlip,
         bool $generateVoucher,
-        int $voucherRefundType = VoucherRefundType::PRODUCT_PRICES_EXCLUDING_VOUCHER_REFUND
+        int $voucherRefundType = VoucherRefundType::PRODUCT_PRICES_EXCLUDING_VOUCHER_REFUND,
     ): IssueReturnProductCommand {
         /** @var OrderForViewing $orderForViewing */
         $orderForViewing = $this->getQueryBus()->handle(new GetOrderForViewing((int) $orderId));

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -23,9 +24,9 @@ class QueryBuilder
 
         if (is_string($value)) {
             return "'" . $escaped . "'";
-        } else {
-            return $escaped;
         }
+
+        return $escaped;
     }
 
     public function buildWhereConditions($andOrOr, array $conditions)

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -41,7 +42,7 @@ class CountryFormDataProvider implements FormDataProviderInterface
     public function __construct(
         CommandBusInterface $queryBus,
         bool $multistoreEnabled,
-        array $defaultShopAssociation
+        array $defaultShopAssociation,
     ) {
         $this->queryBus = $queryBus;
         $this->multistoreEnabled = $multistoreEnabled;

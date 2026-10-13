@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -195,7 +196,7 @@ class HookCore extends ObjectModel
      */
     public static function getHooks(
         $position = false,
-        $only_display_hooks = false
+        $only_display_hooks = false,
     ) {
         $hooks = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS(
             '
@@ -234,7 +235,7 @@ class HookCore extends ObjectModel
     public static function getIdByName(
         $hookName,
         bool $withAliases = true,
-        bool $refreshCache = false
+        bool $refreshCache = false,
     ) {
         $hookName = strtolower($hookName);
         if (!Validate::isHookName($hookName)) {
@@ -407,7 +408,7 @@ class HookCore extends ObjectModel
     public static function isHookCallableOn(
         Module $module,
         string $hookName,
-        $strict = false
+        $strict = false,
     ): bool {
         $hooksToCheck = !$strict
             ? static::getAllKnownNames($hookName)
@@ -434,7 +435,7 @@ class HookCore extends ObjectModel
     private static function callHookOn(
         Module $module,
         string $hookName,
-        array $hookArgs
+        array $hookArgs,
     ) {
         try {
             // Note: we need to make sure to call the exact hook name first.
@@ -547,7 +548,7 @@ class HookCore extends ObjectModel
     public static function isModuleRegisteredOnHook(
         $module_instance,
         $hook_name,
-        $id_shop
+        $id_shop,
     ) {
         $prefix = _DB_PREFIX_;
         $id_hook = (int) Hook::getIdByName($hook_name, true);
@@ -579,7 +580,7 @@ class HookCore extends ObjectModel
     public static function registerHook(
         $module_instance,
         $hook_name,
-        $shop_list = null
+        $shop_list = null,
     ) {
         $return = true;
         $hook_names = is_array($hook_name) ? $hook_name : [$hook_name];
@@ -711,7 +712,7 @@ class HookCore extends ObjectModel
     public static function unregisterHook(
         $module_instance,
         $hook_identifier,
-        $shop_list = null
+        $shop_list = null,
     ) {
         if (Validate::isUnsignedInt($hook_identifier)) {
             // If we received hook ID as an integer directly, we try to find it's name
@@ -891,7 +892,7 @@ class HookCore extends ObjectModel
         $check_exceptions = true,
         $use_push = false,
         $id_shop = null,
-        $chain = false
+        $chain = false,
     ) {
         if ($use_push) {
             Tools::displayParameterAsDeprecated('use_push');
@@ -1296,7 +1297,7 @@ class HookCore extends ObjectModel
      */
     private static function getAllHookRegistrations(
         Context $context,
-        ?string $hookName
+        ?string $hookName,
     ): array {
         $shop = $context->shop;
         $customer = $context->customer;
@@ -1511,7 +1512,7 @@ class HookCore extends ObjectModel
      */
     private static function getAllHookIds(
         bool $withAliases = false,
-        bool $refreshCache = false
+        bool $refreshCache = false,
     ): array {
         $cacheId = 'hook_idsbyname';
         if ($withAliases) {

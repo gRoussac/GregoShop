@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -102,7 +103,7 @@ class AbstractMultistoreConfigurationTest extends AbstractConfigurationTestCase
         ?string $expectedCalledMethod,
         bool $isMultistoreUsed = true,
         int $shopGroupId = 1,
-        int $shopId = 1
+        int $shopId = 1,
     ): DummyMultistoreConfiguration {
         return new DummyMultistoreConfiguration(
             $this->createShopConfigurationMock($expectedCalledMethod),

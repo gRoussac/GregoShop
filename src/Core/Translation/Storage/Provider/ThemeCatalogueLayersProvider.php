@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -101,7 +102,7 @@ class ThemeCatalogueLayersProvider implements CatalogueLayersProviderInterface
         ThemeRepository $themeRepository,
         Filesystem $filesystem,
         string $themeResourcesDir,
-        string $themeName
+        string $themeName,
     ) {
         $this->databaseTranslationLoader = $databaseTranslationLoader;
         $this->moduleCatalogueProviderFactory = $moduleCatalogueProviderFactory;
@@ -120,7 +121,7 @@ class ThemeCatalogueLayersProvider implements CatalogueLayersProviderInterface
      */
     public function getDefaultCatalogue(
         string $locale,
-        bool $refreshCache = false
+        bool $refreshCache = false,
     ): MessageCatalogue {
         // Extracts wordings from the theme's templates
         if ($this->defaultCatalogue === null) {

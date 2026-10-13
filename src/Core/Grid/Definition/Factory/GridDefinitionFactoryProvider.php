@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -16,7 +17,7 @@ class GridDefinitionFactoryProvider
 {
     public function __construct(
         #[AutowireLocator('core.grid_definition_factory')]
-        protected ServiceProviderInterface $factories
+        protected ServiceProviderInterface $factories,
     ) {
     }
 

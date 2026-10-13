@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -16,7 +17,7 @@ class Money
     public function __construct(
         private readonly DecimalNumber $amount,
         private readonly int $currencyId,
-        private readonly bool $taxIncluded
+        private readonly bool $taxIncluded,
     ) {
     }
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -70,7 +71,7 @@ class LocaleCache extends AbstractDataLayer implements CldrLocaleDataLayerInterf
      */
     public function write($id, $data)
     {
-        if (!($data instanceof LocaleData)) {
+        if (!$data instanceof LocaleData) {
             throw new LocalizationException('$data must be an instance of ' . LocaleData::class);
         }
 

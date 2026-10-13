@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -135,7 +136,7 @@ class EditableSupplier
         bool $enabled,
         array $associatedShops,
         string $dni,
-        ?array $logoImage = null
+        ?array $logoImage = null,
     ) {
         $this->supplierId = $supplierId;
         $this->name = $name;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -43,7 +44,7 @@ final class HookableKpiRowFactory implements KpiRowFactoryInterface
     public function __construct(
         array $kpis,
         HookDispatcherInterface $hookDispatcher,
-        $identifier
+        $identifier,
     ) {
         if ($this->validateKpis($kpis) && $this->validateIdentifier($identifier)) {
             $this->kpis = $kpis;

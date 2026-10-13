@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -25,7 +26,7 @@ class AddSearchTermAliasesHandler implements AddSearchTermAliasesHandlerInterfac
      * @param AliasRepository $aliasRepository
      */
     public function __construct(
-        AliasRepository $aliasRepository
+        AliasRepository $aliasRepository,
     ) {
         $this->aliasRepository = $aliasRepository;
     }

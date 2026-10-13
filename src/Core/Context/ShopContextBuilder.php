@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -31,7 +32,7 @@ class ShopContextBuilder implements LegacyContextBuilderInterface
     public function __construct(
         private readonly ShopRepository $shopRepository,
         private readonly ContextStateManager $contextStateManager,
-        private readonly MultistoreFeature $multistoreFeature
+        private readonly MultistoreFeature $multistoreFeature,
     ) {
     }
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -58,7 +59,7 @@ final class EditEmployeeHandler extends AbstractEmployeeHandler implements EditE
         Hashing $hashing,
         ProfileAccessCheckerInterface $profileAccessChecker,
         ContextEmployeeProviderInterface $contextEmployeeProvider,
-        LegacyContext $legacyContext
+        LegacyContext $legacyContext,
     ) {
         $this->hashing = $hashing;
         $this->profileAccessChecker = $profileAccessChecker;

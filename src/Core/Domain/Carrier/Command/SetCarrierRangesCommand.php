@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -30,7 +31,7 @@ class SetCarrierRangesCommand
          * }[] $ranges,
          */
         array $ranges,
-        private readonly ShopConstraint $shopConstraint
+        private readonly ShopConstraint $shopConstraint,
     ) {
         $this->carrierId = new CarrierId($carrierId);
         $this->ranges = new CarrierRangesCollection($ranges);

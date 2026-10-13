@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -51,7 +52,7 @@ class ProductToolbarButtonsProvider implements ToolbarButtonsProviderInterface
         RouterInterface $router,
         HelpProvider $helpUrlProvider,
         ModuleDataProvider $moduleDataProvider,
-        LegacyContext $legacyContext
+        LegacyContext $legacyContext,
     ) {
         $this->translator = $translator;
         $this->router = $router;

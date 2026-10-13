@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -48,7 +49,7 @@ class ModuleRepositoryTest extends TestCase
             $array_return,
             $check_exceptions,
             $use_push,
-            $id_shop
+            $id_shop,
         ) {
             // This mock represents a module that :
             // - overrides `dummy_payment` module `fullDescription` attributes
@@ -64,9 +65,9 @@ class ModuleRepositoryTest extends TestCase
                         ],
                     ],
                 ];
-            } else {
-                return [];
             }
+
+            return [];
         };
 
         $hookManager->method('exec')->willReturn(

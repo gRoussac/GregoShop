@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -32,7 +33,7 @@ class ThemeManagerBuilder
         private readonly Db $db,
         private ?ThemeValidator $themeValidator = null,
         ?LoggerInterface $logger = null,
-        ?ApiClientContext $apiClientContext = null
+        ?ApiClientContext $apiClientContext = null,
     ) {
         $this->logger = $logger ?? new NullLogger();
         $this->apiClientContext = $apiClientContext ?: new ApiClientContext(null);

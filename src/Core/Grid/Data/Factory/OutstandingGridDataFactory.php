@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -40,7 +41,7 @@ final class OutstandingGridDataFactory implements GridDataFactoryInterface
     public function __construct(
         GridDataFactoryInterface $outstandingDataFactory,
         RepositoryInterface $repositoryLocale,
-        string $contextLocale
+        string $contextLocale,
     ) {
         $this->outstandingDataFactory = $outstandingDataFactory;
         $this->repositoryLocale = $repositoryLocale;

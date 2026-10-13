@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -44,7 +45,7 @@ class ProductCustomizationField
         int $customizationFieldId,
         int $type,
         string $name,
-        bool $isRequired
+        bool $isRequired,
     ) {
         $this->customizationFieldId = $customizationFieldId;
         $this->type = $type;

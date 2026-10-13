@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -22,7 +23,7 @@ final class CustomizationFieldTypeChoiceProvider implements FormChoiceProviderIn
      * @param TranslatorInterface $translator
      */
     public function __construct(
-        TranslatorInterface $translator
+        TranslatorInterface $translator,
     ) {
         $this->translator = $translator;
     }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -56,7 +57,7 @@ class LanguageController extends PrestaShopAdminController
         LanguageFilters $filters,
         #[Autowire(service: 'prestashop.core.grid.factory.language')]
         GridFactoryInterface $languageGridFactory,
-        UrlFileCheckerInterface $urlFileChecker
+        UrlFileCheckerInterface $urlFileChecker,
     ): Response {
         $languageGrid = $languageGridFactory->getGrid($filters);
 
@@ -87,7 +88,7 @@ class LanguageController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.language_form_builder')]
         FormBuilderInterface $languageFormBuilder,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.handler.language_form_handler')]
-        FormHandlerInterface $languageFormHandler
+        FormHandlerInterface $languageFormHandler,
     ): Response {
         $languageForm = $languageFormBuilder->getForm();
         $languageForm->handleRequest($request);
@@ -127,7 +128,7 @@ class LanguageController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.language_form_builder')]
         FormBuilderInterface $languageFormBuilder,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.handler.language_form_handler')]
-        FormHandlerInterface $languageFormHandler
+        FormHandlerInterface $languageFormHandler,
     ): Response {
         try {
             $languageForm = $languageFormBuilder->getFormFor((int) $languageId, [], [

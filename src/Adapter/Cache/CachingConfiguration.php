@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -52,7 +53,7 @@ class CachingConfiguration implements DataConfigurationInterface
         PhpParameters $phpParameters,
         CacheClearerInterface $symfonyCacheClearer,
         $isCachingEnabled,
-        $cachingSystem
+        $cachingSystem,
     ) {
         $this->memcacheServerManager = $memcacheServerManager;
         $this->phpParameters = $phpParameters;

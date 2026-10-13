@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -55,7 +56,7 @@ class OrderReturnController extends PrestaShopAdminController
         GridFactoryInterface $gridFactory,
         OrderReturnFilters $filters,
         #[Autowire(service: 'prestashop.admin.order_return_options.form_handler')]
-        OptionFormHandlerInterface $optionFormHandler
+        OptionFormHandlerInterface $optionFormHandler,
     ): Response {
         $optionsForm = $optionFormHandler->getForm();
         $optionsForm->handleRequest($request);
@@ -67,9 +68,8 @@ class OrderReturnController extends PrestaShopAdminController
                 $this->addFlash('success', $this->trans('Update successful', [], 'Admin.Notifications.Success'));
 
                 return $this->redirectToRoute('admin_merchandise_returns_index');
-            } else {
-                $this->addFlashErrors($errors);
             }
+            $this->addFlashErrors($errors);
         }
 
         return $this->render('@PrestaShop/Admin/Sell/CustomerService/OrderReturn/index.html.twig', [
@@ -95,7 +95,7 @@ class OrderReturnController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.order_return_form_builder')]
         FormBuilderInterface $formBuilder,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.handler.order_return_form_handler')]
-        FormHandlerInterface $formHandler
+        FormHandlerInterface $formHandler,
     ): Response {
         try {
             $form = $formBuilder->getFormFor($orderReturnId);

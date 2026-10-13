@@ -1598,7 +1598,7 @@ class ProductCore extends ObjectModel
         $order_way,
         $id_category = false,
         $only_active = false,
-        ?Context $context = null
+        ?Context $context = null,
     ) {
         if (!$context) {
             $context = Context::getContext();
@@ -1890,7 +1890,7 @@ class ProductCore extends ObjectModel
         $low_stock_alert = false,
         $mpn = null,
         $available_now = [],
-        $available_later = []
+        $available_later = [],
     ) {
         $id_product_attribute = $this->addAttribute(
             $price,
@@ -1988,9 +1988,9 @@ class ProductCore extends ObjectModel
 
         if ($result && $id_default_attribute) {
             return $id_default_attribute;
-        } else {
-            return $result;
         }
+
+        return $result;
     }
 
     /**
@@ -2078,7 +2078,7 @@ class ProductCore extends ObjectModel
         $low_stock_alert = false,
         $mpn = null,
         $available_now = null,
-        $available_later = null
+        $available_later = null,
     ) {
         $combination = new Combination($id_product_attribute);
 
@@ -2206,7 +2206,7 @@ class ProductCore extends ObjectModel
         $low_stock_alert = false,
         $mpn = null,
         $available_now = [],
-        $available_later = []
+        $available_later = [],
     ) {
         if (!$this->id) {
             return;
@@ -3004,9 +3004,9 @@ class ProductCore extends ObjectModel
             $row['id_product_attribute'] = (int) $result['id_product_attribute'];
 
             return $row;
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     /**
@@ -3033,7 +3033,7 @@ class ProductCore extends ObjectModel
         $order_way = null,
         $beginning = false,
         $ending = false,
-        ?Context $context = null
+        ?Context $context = null,
     ) {
         if (!$context) {
             $context = Context::getContext();
@@ -3378,7 +3378,7 @@ class ProductCore extends ObjectModel
         $use_group_reduction = true,
         ?Context $context = null,
         $use_customer_price = true,
-        $id_customization = null
+        $id_customization = null,
     ) {
         if (!$context) {
             $context = Context::getContext();
@@ -3585,7 +3585,7 @@ class ProductCore extends ObjectModel
         $use_customer_price = true,
         $id_cart = 0,
         $real_quantity = 0,
-        $id_customization = 0
+        $id_customization = 0,
     ) {
         static $address = null;
         static $context = null;
@@ -3856,7 +3856,7 @@ class ProductCore extends ObjectModel
         bool $withTaxes,
         bool $useReduction,
         bool $withEcoTax,
-        int $customizationId = 0
+        int $customizationId = 0,
     ): ?float {
         $sql = new DbQuery();
         $sql->select('od.*, t.rate AS tax_rate');
@@ -3961,7 +3961,7 @@ class ProductCore extends ObjectModel
         $divisor = null,
         $only_reduc = false,
         $usereduc = true,
-        $quantity = 1
+        $quantity = 1,
     ) {
         return Product::getPriceStatic((int) $this->id, $tax, $id_product_attribute, $decimals, $divisor, $only_reduc, $usereduc, $quantity);
     }
@@ -3984,7 +3984,7 @@ class ProductCore extends ObjectModel
         $divisor = null,
         $only_reduc = false,
         $usereduc = true,
-        $quantity = 1
+        $quantity = 1,
     ) {
         $specific_price_output = null;
 
@@ -4135,7 +4135,7 @@ class ProductCore extends ObjectModel
         $idProductAttribute = null,
         $cacheIsPack = null,
         ?CartCore $cart = null,
-        $idCustomization = null
+        $idCustomization = null,
     ) {
         $result = Hook::exec(
             'actionOverrideProductQuantity',
@@ -4540,9 +4540,8 @@ class ProductCore extends ObjectModel
                 unset($result[$k]);
 
                 continue;
-            } else {
-                $row['id_product_attribute'] = Product::getDefaultAttribute((int) $row['id_product']);
             }
+            $row['id_product_attribute'] = Product::getDefaultAttribute((int) $row['id_product']);
         }
 
         return $result;
@@ -7658,8 +7657,6 @@ class ProductCore extends ObjectModel
             '%s is deprecated since 9.0 and will be removed in 10.0.',
             __METHOD__
         ), E_USER_DEPRECATED);
-
-        return;
     }
 
     /**

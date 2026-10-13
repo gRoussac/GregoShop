@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -62,7 +63,7 @@ class OutstandingController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.grid.definition.factory.outstanding')]
         GridDefinitionFactoryInterface $definitionFactory,
         #[Autowire(service: 'prestashop.bundle.grid.response_builder')]
-        ResponseBuilder $responseBuilder
+        ResponseBuilder $responseBuilder,
     ) {
         return $responseBuilder->buildSearchResponse(
             $definitionFactory,

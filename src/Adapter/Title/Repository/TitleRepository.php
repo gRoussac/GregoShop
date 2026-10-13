@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -32,7 +33,7 @@ class TitleRepository extends AbstractObjectModelRepository
      * @param TitleValidator $titleValidator
      */
     public function __construct(
-        TitleValidator $titleValidator
+        TitleValidator $titleValidator,
     ) {
         $this->titleValidator = $titleValidator;
     }
@@ -83,7 +84,7 @@ class TitleRepository extends AbstractObjectModelRepository
     public function partialUpdate(
         Gender $title,
         array $propertiesToUpdate,
-        int $errorCode
+        int $errorCode,
     ): void {
         $this->partiallyUpdateObjectModel(
             $title,

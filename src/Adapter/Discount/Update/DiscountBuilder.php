@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -17,7 +18,7 @@ use PrestaShop\PrestaShop\Core\Util\DateTime\DateTime as DateTimeUtil;
 class DiscountBuilder
 {
     public function __construct(
-        private readonly DiscountTypeRepository $discountTypeRepository
+        private readonly DiscountTypeRepository $discountTypeRepository,
     ) {
     }
 

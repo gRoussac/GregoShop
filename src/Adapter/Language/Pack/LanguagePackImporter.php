@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -31,7 +32,7 @@ final class LanguagePackImporter implements LanguagePackImporterInterface
      */
     public function __construct(
         LanguagePackInstallerInterface $languagePack,
-        CacheClearerInterface $entireCacheClearer
+        CacheClearerInterface $entireCacheClearer,
     ) {
         $this->languagePack = $languagePack;
         $this->entireCacheClearer = $entireCacheClearer;

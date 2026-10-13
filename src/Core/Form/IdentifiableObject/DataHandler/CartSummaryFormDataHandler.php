@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -32,7 +33,7 @@ class CartSummaryFormDataHandler implements FormDataHandlerInterface
      */
     public function __construct(
         CommandBusInterface $commandBus,
-        int $contextEmployeeId
+        int $contextEmployeeId,
     ) {
         $this->commandBus = $commandBus;
         $this->contextEmployeeId = $contextEmployeeId;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -35,7 +36,7 @@ class ProductStockProperties
     public function __construct(
         ?StockModification $stockModification = null,
         ?OutOfStockType $outOfStockType = null,
-        ?string $location = null
+        ?string $location = null,
     ) {
         $this->stockModification = $stockModification;
         $this->outOfStockType = $outOfStockType;

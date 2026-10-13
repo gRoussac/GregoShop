@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -32,7 +33,7 @@ class GetRelatedProducts
      */
     public function __construct(
         int $productId,
-        int $languageId
+        int $languageId,
     ) {
         $this->productId = new ProductId($productId);
         $this->languageId = new LanguageId($languageId);

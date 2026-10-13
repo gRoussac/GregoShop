@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -122,7 +123,7 @@ class ProductController extends PrestaShopAdminController
         Request $request,
         #[Autowire(service: 'prestashop.core.grid.factory.product')]
         GridFactoryInterface $productGridFactory,
-        ProductFilters $filters
+        ProductFilters $filters,
     ): Response {
         $productGrid = $productGridFactory->getGrid($filters);
 
@@ -170,7 +171,7 @@ class ProductController extends PrestaShopAdminController
     public function searchGridAction(
         Request $request,
         #[Autowire(service: 'prestashop.core.grid.definition.factory.product')]
-        GridDefinitionFactoryInterface $definitionFactory
+        GridDefinitionFactoryInterface $definitionFactory,
     ): RedirectResponse {
         $filterId = ProductGridDefinitionFactory::GRID_ID;
 
@@ -262,7 +263,7 @@ class ProductController extends PrestaShopAdminController
         int $productId,
         ?int $shopGroupId,
         #[Autowire(service: 'prestashop.core.grid.factory.product.shops')]
-        GridFactoryInterface $gridFactory
+        GridFactoryInterface $gridFactory,
     ): Response {
         $shopConstraint = !empty($shopGroupId) ? ShopConstraint::shopGroup($shopGroupId) : ShopConstraint::allShops();
         $filters = new ProductFilters(
@@ -292,7 +293,7 @@ class ProductController extends PrestaShopAdminController
         ProductFilters $filters,
         Request $request,
         #[Autowire(service: 'prestashop.core.grid.factory.product_light')]
-        GridFactoryInterface $gridFactory
+        GridFactoryInterface $gridFactory,
     ): Response {
         $grid = $gridFactory->getGrid($filters);
 
@@ -314,7 +315,7 @@ class ProductController extends PrestaShopAdminController
         int $productId,
         ?int $shopId,
         #[Autowire(service: 'prestashop.adapter.shop.url.product_preview_provider')]
-        ProductPreviewProvider $previewUrlProvider
+        ProductPreviewProvider $previewUrlProvider,
     ): RedirectResponse {
         $shopConstraint = !empty($shopId) ? ShopConstraint::shop($shopId) : ShopConstraint::allShops();
         /** @var ProductForEditing $productForEditing */
@@ -347,7 +348,7 @@ class ProductController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.product_shops_form_builder')]
         FormBuilderInterface $productShopsFormBuilder,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.product_shops_form_handler')]
-        FormHandlerInterface $productShopsFormHandler
+        FormHandlerInterface $productShopsFormHandler,
     ): Response {
         if (!$this->getShopContext()->getShopConstraint()->isSingleShopContext()) {
             return $this->renderIncompatibleContext($productId);
@@ -388,7 +389,7 @@ class ProductController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.create_product_form_builder')]
         FormBuilderInterface $productFormBuilder,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.product_form_handler')]
-        FormHandlerInterface $productFormHandler
+        FormHandlerInterface $productFormHandler,
     ): Response {
         if ($request->query->has('shopId')) {
             $data['shop_id'] = $request->query->get('shopId');
@@ -489,15 +490,14 @@ class ProductController extends PrestaShopAdminController
                     $this->addFlash('success', $this->trans('Successful update', [], 'Admin.Notifications.Success'));
 
                     return $this->redirectToRoute('admin_products_edit', ['productId' => $productId]);
-                } else {
-                    // Display root level errors with flash messages
-                    foreach ($productForm->getErrors() as $error) {
-                        $this->addFlash('error', sprintf(
-                            '%s: %s',
-                            $error->getOrigin()->getName(),
-                            $error->getMessage()
-                        ));
-                    }
+                }
+                // Display root level errors with flash messages
+                foreach ($productForm->getErrors() as $error) {
+                    $this->addFlash('error', sprintf(
+                        '%s: %s',
+                        $error->getOrigin()->getName(),
+                        $error->getMessage()
+                    ));
                 }
             }
         } catch (Exception $e) {
@@ -897,9 +897,9 @@ class ProductController extends PrestaShopAdminController
         } catch (Exception $e) {
             if ($e instanceof BulkProductException) {
                 return $this->jsonBulkErrors($e);
-            } else {
-                return $this->json(['error' => $this->getErrorMessageForException($e, $this->getErrorMessages())], Response::HTTP_BAD_REQUEST);
             }
+
+            return $this->json(['error' => $this->getErrorMessageForException($e, $this->getErrorMessages())], Response::HTTP_BAD_REQUEST);
         }
 
         return $this->json(['success' => true]);
@@ -1112,7 +1112,7 @@ class ProductController extends PrestaShopAdminController
     public function searchProductsForAssociationAction(
         Request $request,
         string $languageCode,
-        LanguageRepositoryInterface $langRepository
+        LanguageRepositoryInterface $langRepository,
     ): JsonResponse {
         $lang = $langRepository->getOneByLocaleOrIsoCode($languageCode);
         if (null === $lang) {
@@ -1278,9 +1278,9 @@ class ProductController extends PrestaShopAdminController
         } catch (Exception $e) {
             if ($e instanceof BulkProductException) {
                 return $this->jsonBulkErrors($e);
-            } else {
-                return $this->json(['error' => $this->getErrorMessageForException($e, $this->getErrorMessages())], Response::HTTP_BAD_REQUEST);
             }
+
+            return $this->json(['error' => $this->getErrorMessageForException($e, $this->getErrorMessages())], Response::HTTP_BAD_REQUEST);
         }
 
         return $this->json(['success' => true]);
@@ -1337,9 +1337,9 @@ class ProductController extends PrestaShopAdminController
         } catch (Exception $e) {
             if ($e instanceof BulkProductException) {
                 return $this->jsonBulkErrors($e);
-            } else {
-                return $this->json(['error' => $this->getErrorMessageForException($e, $this->getErrorMessages())], Response::HTTP_BAD_REQUEST);
             }
+
+            return $this->json(['error' => $this->getErrorMessageForException($e, $this->getErrorMessages())], Response::HTTP_BAD_REQUEST);
         }
 
         return $this->json(['success' => true]);
@@ -1444,9 +1444,9 @@ class ProductController extends PrestaShopAdminController
         } catch (Exception $e) {
             if ($e instanceof BulkProductException) {
                 return $this->jsonBulkErrors($e);
-            } else {
-                return $this->json(['error' => $this->getErrorMessageForException($e, $this->getErrorMessages())], Response::HTTP_BAD_REQUEST);
             }
+
+            return $this->json(['error' => $this->getErrorMessageForException($e, $this->getErrorMessages())], Response::HTTP_BAD_REQUEST);
         }
 
         return $this->json(['success' => true]);

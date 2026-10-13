@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -32,7 +33,7 @@ class ProductSearchType extends TranslatorAwareType
         TranslatorInterface $translator,
         array $locales,
         RouterInterface $router,
-        string $employeeIsoCode
+        string $employeeIsoCode,
     ) {
         parent::__construct($translator, $locales);
         $this->router = $router;
@@ -77,20 +78,20 @@ class ProductSearchType extends TranslatorAwareType
                             'query' => '__QUERY__',
                             'filters' => $options['filters'],
                         ]);
-                    } else {
-                        return $router->generate('admin_products_search_products_for_association', [
-                            'languageCode' => $languageIsoCode,
-                            'query' => '__QUERY__',
-                        ]);
                     }
+
+                    return $router->generate('admin_products_search_products_for_association', [
+                        'languageCode' => $languageIsoCode,
+                        'query' => '__QUERY__',
+                    ]);
                 },
             ])
             ->setNormalizer('attr', static function (Options $options, ?array $value) use ($refLabel): array {
                 if ($options->offsetGet('include_combinations') === true) {
                     return array_merge(['data-reference-label' => $refLabel], (array) $value);
-                } else {
-                    return $value;
                 }
+
+                return $value;
             })
         ;
     }

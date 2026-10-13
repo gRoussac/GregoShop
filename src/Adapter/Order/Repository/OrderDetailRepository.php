@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -21,7 +22,7 @@ class OrderDetailRepository extends AbstractObjectModelRepository
 {
     public function __construct(
         private readonly ?Connection $connection = null,
-        private ?string $dbPrefix = null
+        private ?string $dbPrefix = null,
     ) {
     }
 
@@ -49,7 +50,7 @@ class OrderDetailRepository extends AbstractObjectModelRepository
     public function findByOrderIdAndProductId(
         OrderId $orderId,
         ProductId $productId,
-        ?CombinationId $combinationId
+        ?CombinationId $combinationId,
     ): ?OrderDetail {
         if (!$this->connection) {
             trigger_deprecation('prestashop/prestashop', '9.2', 'Connection must be set.');

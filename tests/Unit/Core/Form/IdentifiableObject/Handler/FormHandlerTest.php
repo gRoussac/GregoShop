@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -212,7 +213,7 @@ class FormHandlerTest extends TestCase
     public function testCreateSkipsExtraPropertiesPersistenceWhenIdCannotBeResolved(): void
     {
         // Unresolvable result (no int, not a CreatedApiClient, no getValue()).
-        $createdApiClientLike = new class() {
+        $createdApiClientLike = new class {
             public function getSecret(): string
             {
                 return 'secret';
@@ -234,7 +235,7 @@ class FormHandlerTest extends TestCase
 
     private function createIdentifiableObjectHandler(
         FormDataHandlerInterface $dataHandler,
-        ExtraPropertiesFormDataPersister $persister
+        ExtraPropertiesFormDataPersister $persister,
     ): IdentifiableObjectFormHandler {
         return new IdentifiableObjectFormHandler(
             $dataHandler,

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -23,7 +24,7 @@ class ImageManagerTest extends TestCase
     public function testIsCorrectImageFileExt(
         string $filename,
         ?array $authorizedExtensions,
-        bool $isCorrectImageFileExt
+        bool $isCorrectImageFileExt,
     ): void {
         self::assertSame(
             $isCorrectImageFileExt,
@@ -56,7 +57,7 @@ class ImageManagerTest extends TestCase
      */
     public function testGetMimeTypeByExtension(
         string $filename,
-        string $getMimeTypeByExtension
+        string $getMimeTypeByExtension,
     ): void {
         self::assertSame(
             $getMimeTypeByExtension,

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -39,7 +40,7 @@ final class ChangeOrderInvoiceAddressHandler extends AbstractOrderHandler implem
      */
     public function __construct(
         OrderAmountUpdater $orderAmountUpdater,
-        OrderDetailUpdater $orderDetailTaxUpdater
+        OrderDetailUpdater $orderDetailTaxUpdater,
     ) {
         $this->orderAmountUpdater = $orderAmountUpdater;
         $this->orderDetailTaxUpdater = $orderDetailTaxUpdater;

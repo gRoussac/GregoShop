@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -269,7 +270,7 @@ class PerformanceController extends PrestaShopAdminController
     #[AdminSecurity("is_granted('delete', request.get('_legacy_controller'))", message: 'You do not have permission to update this.', redirectRoute: 'admin_performance')]
     public function clearCacheAction(
         #[Autowire(service: 'prestashop.core.cache.clearer.cache_clearer_chain')]
-        CacheClearerInterface $cacheClearer
+        CacheClearerInterface $cacheClearer,
     ): RedirectResponse {
         $cacheClearer->clear();
         $this->addFlash('success', $this->trans('All caches cleared successfully', [], 'Admin.Advparameters.Notification'));

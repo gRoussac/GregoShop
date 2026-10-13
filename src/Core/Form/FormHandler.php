@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -64,7 +65,7 @@ class FormHandler implements FormHandlerInterface
         FormDataProviderInterface $formDataProvider,
         array $formTypes,
         $hookName,
-        $formName = 'form'
+        $formName = 'form',
     ) {
         $this->formName = $formName;
         $this->formBuilder = $formBuilder->getFormFactory()->createNamedBuilder($formName);

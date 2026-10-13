@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -61,7 +62,7 @@ class TranslationCatalogueBuilder
         ProviderDefinitionInterface $providerDefinition,
         string $locale,
         string $domain,
-        array $search
+        array $search,
     ): array {
         $this->validateParameters($providerDefinition, $domain);
 
@@ -115,7 +116,7 @@ class TranslationCatalogueBuilder
     public function getCatalogue(
         ProviderDefinitionInterface $providerDefinition,
         string $locale,
-        array $search
+        array $search,
     ): array {
         return $this->getRawCatalogue(
             $providerDefinition,
@@ -145,7 +146,7 @@ class TranslationCatalogueBuilder
         ProviderDefinitionInterface $providerDefinition,
         string $locale,
         array $search,
-        ?string $domain = null
+        ?string $domain = null,
     ): Catalogue {
         $this->validateParameters($providerDefinition);
 
@@ -200,7 +201,7 @@ class TranslationCatalogueBuilder
      */
     private function validateParameters(
         ProviderDefinitionInterface $providerDefinition,
-        ?string $domain = null
+        ?string $domain = null,
     ): void {
         if (!in_array($providerDefinition->getType(), ProviderDefinitionInterface::ALLOWED_TYPES)) {
             throw new UnexpectedTranslationTypeException('This \'type\' param is not valid.');

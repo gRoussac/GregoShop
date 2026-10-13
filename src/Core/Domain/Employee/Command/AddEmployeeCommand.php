@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -94,7 +95,7 @@ class AddEmployeeCommand
         bool $hasEnabledGravatar,
         int $minLength,
         int $maxLength,
-        int $minScore
+        int $minScore,
     ) {
         $this->firstName = new FirstName($firstName);
         $this->lastName = new LastName($lastName);

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -67,7 +68,7 @@ class TaxRulesGroupController extends PrestaShopAdminController
         Request $request,
         TaxRulesGroupFilters $filters,
         #[Autowire(service: 'prestashop.core.grid.factory.tax_rules_group')]
-        GridFactoryInterface $taxRulesGroupGridFactory
+        GridFactoryInterface $taxRulesGroupGridFactory,
     ): Response {
         $taxRulesGroupGrid = $taxRulesGroupGridFactory->getGrid($filters);
 
@@ -90,7 +91,7 @@ class TaxRulesGroupController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.tax_rules_group_form_builder')]
         FormBuilderInterface $formBuilder,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.handler.tax_rules_group_form_handler')]
-        FormHandlerInterface $formHandler
+        FormHandlerInterface $formHandler,
     ): Response {
         $taxRulesGroupForm = $formBuilder->getForm();
         $taxRulesGroupForm->handleRequest($request);
@@ -285,7 +286,7 @@ class TaxRulesGroupController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.tax_rule_form_builder')]
         FormBuilderInterface $formBuilder,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.handler.tax_rule_form_handler')]
-        FormHandlerInterface $formHandler
+        FormHandlerInterface $formHandler,
     ): Response {
         $isLiteDisplaying = $request->query->has('liteDisplaying');
         $taxRuleForm = $formBuilder->getForm(['tax_rules_group_id' => $taxRulesGroupId]);
@@ -340,7 +341,7 @@ class TaxRulesGroupController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.tax_rule_form_builder')]
         FormBuilderInterface $formBuilder,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.handler.tax_rule_form_handler')]
-        FormHandlerInterface $formHandler
+        FormHandlerInterface $formHandler,
     ): Response {
         $isLiteDisplaying = $request->query->has('liteDisplaying');
 

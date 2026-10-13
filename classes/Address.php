@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -245,10 +246,10 @@ class AddressCore extends ObjectModel
             }
 
             return parent::delete();
-        } else {
-            // If YES, we only soft delete it and keep it in the database.
-            return $this->softDelete();
         }
+
+        // If YES, we only soft delete it and keep it in the database.
+        return $this->softDelete();
     }
 
     /**

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -13,7 +14,7 @@ class SendEmployeePasswordResetEmailCommand
     private Email $email;
 
     public function __construct(
-        string $email
+        string $email,
     ) {
         $this->email = new Email($email);
     }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -51,7 +52,7 @@ class FeatureValueRepository extends AbstractObjectModelRepository
     public function __construct(
         Connection $connection,
         string $dbPrefix,
-        FeatureValueValidator $featureValueValidator
+        FeatureValueValidator $featureValueValidator,
     ) {
         $this->connection = $connection;
         $this->dbPrefix = $dbPrefix;

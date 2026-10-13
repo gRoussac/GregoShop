@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -180,7 +181,7 @@ class FormBuilderTest extends TestCase
         SymfonyFormBuilderInterface $formBuilder,
         string $formName,
         ?int $expectedId = null,
-        array $expectedOptions = []
+        array $expectedOptions = [],
     ): HookDispatcherInterface {
         if ($expectedId) {
             $hookNameEnd = 'FormDataProviderData';

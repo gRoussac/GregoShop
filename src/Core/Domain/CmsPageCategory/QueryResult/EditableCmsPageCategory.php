@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -72,7 +73,7 @@ class EditableCmsPageCategory
         array $localisedMetaDescription,
         array $metaTitle,
         array $localisedFriendlyUrl,
-        array $shopIds
+        array $shopIds,
     ) {
         $this->localisedName = $localisedName;
         $this->isDisplayed = $isDisplayed;

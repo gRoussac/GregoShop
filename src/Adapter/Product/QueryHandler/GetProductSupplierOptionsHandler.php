@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -35,7 +36,7 @@ class GetProductSupplierOptionsHandler extends AbstractProductSupplierHandler im
      */
     public function __construct(
         ProductSupplierRepository $productSupplierRepository,
-        ProductRepository $productRepository
+        ProductRepository $productRepository,
     ) {
         parent::__construct($productSupplierRepository);
         $this->productRepository = $productRepository;

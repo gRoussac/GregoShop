@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -27,7 +28,7 @@ class PaymentMethodsController extends PrestaShopAdminController
     #[AdminSecurity("is_granted('read', request.get('_legacy_controller'))")]
     public function indexAction(
         Request $request,
-        PaymentModulesPresenter $paymentMethodsPresenter
+        PaymentModulesPresenter $paymentMethodsPresenter,
     ): Response {
         $legacyController = $request->attributes->get('_legacy_controller');
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -39,7 +40,7 @@ class QuantifiedProduct
     public function __construct(
         int $productId,
         int $quantity,
-        ?int $combinationId = null
+        ?int $combinationId = null,
     ) {
         $this->productId = new ProductId($productId);
         $this->quantity = $quantity;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -28,7 +29,7 @@ class CurrencyChoiceType extends AbstractType
 
     public function __construct(
         CurrencyDataProviderInterface $currencyDataProvider,
-        CurrencyByIdChoiceProvider $currencyByIdChoiceProvider
+        CurrencyByIdChoiceProvider $currencyByIdChoiceProvider,
     ) {
         $this->currencyByIdChoiceProvider = $currencyByIdChoiceProvider;
         $this->currencyDataProvider = $currencyDataProvider;

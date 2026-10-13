@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -146,7 +147,7 @@ final class GetOrderForViewingHandler extends AbstractOrderHandler implements Ge
         GetOrderProductsForViewingHandlerInterface $getOrderProductsForViewingHandler,
         Configuration $configuration,
         ShipmentRepository $shipmentRepository,
-        ?AddressFormatterInterface $addressFormatter = null
+        ?AddressFormatterInterface $addressFormatter = null,
     ) {
         $this->translator = $translator;
         $this->contextLanguageId = $contextLanguageId;

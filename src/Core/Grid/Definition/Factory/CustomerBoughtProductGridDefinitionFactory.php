@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -35,7 +36,7 @@ final class CustomerBoughtProductGridDefinitionFactory extends AbstractGridDefin
      */
     public function __construct(
         HookDispatcherInterface $hookDispatcher,
-        $contextDateFormat
+        $contextDateFormat,
     ) {
         parent::__construct($hookDispatcher);
         $this->contextDateFormat = $contextDateFormat;

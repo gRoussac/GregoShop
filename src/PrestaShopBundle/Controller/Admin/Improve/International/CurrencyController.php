@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -80,7 +81,7 @@ class CurrencyController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.grid.factory.currency')]
         GridFactoryInterface $currencyGridFactory,
         #[Autowire(service: 'prestashop.admin.currency_settings.form_handler')]
-        ConfigurationFormHandlerInterface $settingsFormHandler
+        ConfigurationFormHandlerInterface $settingsFormHandler,
     ): Response {
         $currencyGrid = $currencyGridFactory->getGrid($filters);
 
@@ -358,7 +359,7 @@ class CurrencyController extends PrestaShopAdminController
     public function updateLiveExchangeRatesAction(
         Request $request,
         #[Autowire(service: 'prestashop.admin.currency_settings.form_handler')]
-        ConfigurationFormHandlerInterface $settingsFormHandler
+        ConfigurationFormHandlerInterface $settingsFormHandler,
     ): JsonResponse {
         if ($this->isDemoModeEnabled()) {
             return $this->json([

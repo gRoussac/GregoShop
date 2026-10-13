@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -45,7 +46,7 @@ class GetSpecificPriceForEditingHandler implements GetSpecificPriceForEditingHan
      */
     public function __construct(
         SpecificPriceRepository $specificPriceRepository,
-        CustomerRepository $customerRepository
+        CustomerRepository $customerRepository,
     ) {
         $this->specificPriceRepository = $specificPriceRepository;
         $this->customerRepository = $customerRepository;

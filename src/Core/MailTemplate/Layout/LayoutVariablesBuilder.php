@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -38,7 +39,7 @@ class LayoutVariablesBuilder implements LayoutVariablesBuilderInterface
     public function __construct(
         HookDispatcherInterface $hookDispatcher,
         LanguageDefaultFontsCatalog $languageDefaultFonts,
-        array $defaultVariables = []
+        array $defaultVariables = [],
     ) {
         $this->hookDispatcher = $hookDispatcher;
         $this->languageDefaultFonts = $languageDefaultFonts;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -96,7 +97,7 @@ class AddProductToOrderCommand
         ?bool $hasFreeShipping = null,
         ?int $shipmentId = null,
         ?int $carrierId = null,
-        ?bool $isVirtual = null
+        ?bool $isVirtual = null,
     ) {
         $command = new self(
             $orderId,
@@ -145,7 +146,7 @@ class AddProductToOrderCommand
         int $productQuantity,
         ?int $shipmentId = null,
         ?int $carrierId = null,
-        ?bool $isVirtual = null
+        ?bool $isVirtual = null,
     ) {
         $command = new self(
             $orderId,
@@ -182,7 +183,7 @@ class AddProductToOrderCommand
         int $combinationId,
         string $productPriceTaxIncluded,
         string $productPriceTaxExcluded,
-        int $productQuantity
+        int $productQuantity,
     ) {
         $this->orderId = new OrderId($orderId);
         $this->productId = new ProductId($productId);

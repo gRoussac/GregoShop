@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -139,7 +140,7 @@ class AddCustomerCommand
         $isEnabled = true,
         $isPartnerOffersSubscribed = false,
         $birthday = null,
-        $isGuest = false
+        $isGuest = false,
     ) {
         $this->firstName = new FirstName($firstName);
         $this->lastName = new LastName($lastName);

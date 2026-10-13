@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -178,7 +179,7 @@ class CatalogPriceRuleController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.catalog_price_rule_form_builder')]
         FormBuilderInterface $catalogPriceRuleBuilder,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.handler.catalog_price_rule_form_handler')]
-        FormHandlerInterface $catalogPriceRuleHandler
+        FormHandlerInterface $catalogPriceRuleHandler,
     ): Response {
         $catalogPriceRuleForm = $catalogPriceRuleBuilder->getForm();
         $catalogPriceRuleForm->handleRequest($request);
@@ -217,7 +218,7 @@ class CatalogPriceRuleController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.catalog_price_rule_form_builder')]
         FormBuilderInterface $catalogPriceRuleBuilder,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.handler.catalog_price_rule_form_handler')]
-        FormHandlerInterface $catalogPriceRuleHandler
+        FormHandlerInterface $catalogPriceRuleHandler,
     ): Response {
         $catalogPriceRuleId = (int) $catalogPriceRuleId;
 
@@ -349,7 +350,7 @@ class CatalogPriceRuleController extends PrestaShopAdminController
         string $reductionType,
         DecimalNumber $reductionValue,
         string $currencyIsoCode,
-        bool $taxIncl
+        bool $taxIncl,
     ): string {
         if ($reductionValue->equalsZero()) {
             return self::UNSPECIFIED_VALUE_FORMAT;

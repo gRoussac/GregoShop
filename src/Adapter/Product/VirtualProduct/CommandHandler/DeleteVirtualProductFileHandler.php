@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -27,7 +28,7 @@ class DeleteVirtualProductFileHandler implements DeleteVirtualProductFileHandler
      * @param VirtualProductUpdater $virtualProductUpdater
      */
     public function __construct(
-        VirtualProductUpdater $virtualProductUpdater
+        VirtualProductUpdater $virtualProductUpdater,
     ) {
         $this->virtualProductUpdater = $virtualProductUpdater;
     }

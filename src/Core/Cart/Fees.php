@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -69,7 +70,7 @@ class Fees
         CartCore $cart,
         CartRowCollection $cartRowCollection,
         $computePrecision,
-        $id_carrier = null
+        $id_carrier = null,
     ) {
         if ($id_carrier === null) {
             $this->shippingFees = new AmountImmutable(

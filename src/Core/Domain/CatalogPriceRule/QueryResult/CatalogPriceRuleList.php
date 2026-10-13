@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -29,7 +30,7 @@ class CatalogPriceRuleList
      */
     public function __construct(
         array $catalogPriceRules,
-        int $totalCount
+        int $totalCount,
     ) {
         $this->catalogPriceRules = $catalogPriceRules;
         $this->totalCount = $totalCount;

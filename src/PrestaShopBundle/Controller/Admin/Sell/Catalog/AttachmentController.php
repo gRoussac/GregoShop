@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -49,7 +50,7 @@ class AttachmentController extends PrestaShopAdminController
         Request $request,
         AttachmentFilters $filters,
         #[Autowire(service: 'prestashop.core.grid.factory.attachment')]
-        GridFactoryInterface $attachmentGridFactory
+        GridFactoryInterface $attachmentGridFactory,
     ): Response {
         $attachmentGrid = $attachmentGridFactory->getGrid($filters);
 
@@ -72,7 +73,7 @@ class AttachmentController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.attachment_form_builder')]
         FormBuilderInterface $attachmentFormBuilder,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.handler.attachment_form_handler')]
-        FormHandlerInterface $attachmentFormHandler
+        FormHandlerInterface $attachmentFormHandler,
     ): Response {
         $attachmentForm = $attachmentFormBuilder->getForm();
         $attachmentForm->handleRequest($request);
@@ -122,7 +123,7 @@ class AttachmentController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.attachment_form_builder')]
         FormBuilderInterface $attachmentFormBuilder,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.handler.attachment_form_handler')]
-        FormHandlerInterface $attachmentFormHandler
+        FormHandlerInterface $attachmentFormHandler,
     ): Response {
         try {
             /** @var EditableAttachment $attachmentInformation */

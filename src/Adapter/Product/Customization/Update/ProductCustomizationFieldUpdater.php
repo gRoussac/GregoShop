@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -48,7 +49,7 @@ class ProductCustomizationFieldUpdater
     public function __construct(
         CustomizationFieldRepository $customizationFieldRepository,
         CustomizationFieldDeleter $customizationFieldDeleter,
-        ProductRepository $productRepository
+        ProductRepository $productRepository,
     ) {
         $this->customizationFieldRepository = $customizationFieldRepository;
         $this->customizationFieldDeleter = $customizationFieldDeleter;
@@ -63,7 +64,7 @@ class ProductCustomizationFieldUpdater
     public function setProductCustomizationFields(
         ProductId $productId,
         array $customizationFields,
-        ShopConstraint $shopConstraint
+        ShopConstraint $shopConstraint,
     ): void {
         $productShops = $this->productRepository->getAssociatedShopIds($productId);
         $deletableFieldIds = $this->getDeletableFieldIds($customizationFields, $productId);

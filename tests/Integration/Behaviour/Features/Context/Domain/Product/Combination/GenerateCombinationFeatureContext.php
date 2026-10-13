@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -121,7 +122,7 @@ class GenerateCombinationFeatureContext extends AbstractCombinationFeatureContex
     public function assertDefaultCombinationForShop(
         string $productReference,
         string $shopReference,
-        string $combinationReference
+        string $combinationReference,
     ): void {
         $this->assertDefaultCombination(
             $productReference,
@@ -138,7 +139,7 @@ class GenerateCombinationFeatureContext extends AbstractCombinationFeatureContex
     private function assertDefaultCombination(
         string $productReference,
         string $combinationReference,
-        int $shopId
+        int $shopId,
     ) {
         $combinationId = $this->getSharedStorage()->get($combinationReference);
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -55,7 +56,7 @@ class BulkCombinationPriceType extends TranslatorAwareType
         string $defaultCurrencyIsoCode,
         string $weightUnit,
         ProductRepository $productRepository,
-        TaxComputer $taxComputer
+        TaxComputer $taxComputer,
     ) {
         parent::__construct($translator, $locales);
         $this->defaultCurrencyIsoCode = $defaultCurrencyIsoCode;

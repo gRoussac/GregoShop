@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -33,7 +34,7 @@ class AliasRepository extends AbstractObjectModelRepository
     public function __construct(
         protected Connection $connection,
         protected string $dbPrefix,
-        protected AliasValidator $aliasValidator
+        protected AliasValidator $aliasValidator,
     ) {
     }
 

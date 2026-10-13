@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -32,7 +33,7 @@ class VisibilityType extends TranslatorAwareType
     public function __construct(
         TranslatorInterface $translator,
         array $locales,
-        $productVisibilityChoiceProvider
+        $productVisibilityChoiceProvider,
     ) {
         parent::__construct($translator, $locales);
         $this->productVisibilityChoiceProvider = $productVisibilityChoiceProvider;

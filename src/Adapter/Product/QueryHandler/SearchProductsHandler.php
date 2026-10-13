@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -72,7 +73,7 @@ final class SearchProductsHandler extends AbstractOrderHandler implements Search
         LocaleInterface $contextLocale,
         Tools $tools,
         CurrencyDataProvider $currencyDataProvider,
-        ContextStateManager $contextStateManager
+        ContextStateManager $contextStateManager,
     ) {
         $this->contextLangId = $contextLangId;
         $this->contextLocale = $contextLocale;
@@ -171,7 +172,7 @@ final class SearchProductsHandler extends AbstractOrderHandler implements Search
         string $isoCodeCurrency,
         int $computingPrecision,
         ?Order $order = null,
-        ?Address $address = null
+        ?Address $address = null,
     ): FoundProduct {
         // It's important to use null (not 0) as attribute ID so that Product::priceCalculation can fallback to default combination
         $priceTaxExcluded = $this->getProductPriceForOrder((int) $product->id, null, false, $computingPrecision, $order) ?? 0.00;
@@ -234,7 +235,7 @@ final class SearchProductsHandler extends AbstractOrderHandler implements Search
         Product $product,
         string $currencyIsoCode,
         int $computingPrecision,
-        ?Order $order = null
+        ?Order $order = null,
     ): array {
         $productCombinations = [];
         $combinations = $product->getAttributeCombinations();

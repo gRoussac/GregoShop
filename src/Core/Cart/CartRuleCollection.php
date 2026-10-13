@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -61,8 +62,8 @@ class CartRuleCollection implements Iterator
         $keys = array_keys($this->cartRules);
         if (!isset($keys[$iteratorPosition])) {
             return null;
-        } else {
-            return $keys[$iteratorPosition];
         }
+
+        return $keys[$iteratorPosition];
     }
 }

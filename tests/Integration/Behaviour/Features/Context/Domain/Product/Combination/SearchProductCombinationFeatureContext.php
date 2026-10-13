@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -37,7 +38,7 @@ class SearchProductCombinationFeatureContext extends AbstractCombinationFeatureC
         string $langIso,
         string $shopReference,
         int $limit,
-        ProductCombinationsCollection $expectedResults
+        ProductCombinationsCollection $expectedResults,
     ): void {
         $this->searchProductCombinations(
             $productReference,
@@ -67,7 +68,7 @@ class SearchProductCombinationFeatureContext extends AbstractCombinationFeatureC
         string $searchPhrase,
         string $langIso,
         int $limit,
-        ProductCombinationsCollection $expectedResults
+        ProductCombinationsCollection $expectedResults,
     ): void {
         $this->searchProductCombinations(
             $productReference,
@@ -117,7 +118,7 @@ class SearchProductCombinationFeatureContext extends AbstractCombinationFeatureC
         string $langIso,
         string $shopReference,
         int $limit,
-        ProductCombinationsCollection $expectedResults
+        ProductCombinationsCollection $expectedResults,
     ): void {
         $this->searchProductCombinations(
             $productReference,
@@ -147,7 +148,7 @@ class SearchProductCombinationFeatureContext extends AbstractCombinationFeatureC
         string $langIso,
         ShopConstraint $shopConstraint,
         int $limit,
-        ProductCombinationsCollection $expectedResults
+        ProductCombinationsCollection $expectedResults,
     ): void {
         /** @var ProductCombinationsCollection $productCombinationsResults */
         $productCombinationsResults = $this->getQueryBus()->handle(new SearchProductCombinations(

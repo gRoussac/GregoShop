@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -34,7 +35,7 @@ use Symfony\Component\PropertyAccess\PropertyAccessorInterface;
 class CommandMappingAdapter implements OpenApiSchemaAdapterInterface
 {
     public function __construct(
-        protected readonly PropertyAccessorInterface $propertyAccessor
+        protected readonly PropertyAccessorInterface $propertyAccessor,
     ) {
     }
 

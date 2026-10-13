@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -26,7 +27,7 @@ class OrderRefundUpdater
     public function updateRefundData(
         OrderRefundSummary $orderRefundSummary,
         bool $returnedProducts,
-        bool $restock
+        bool $restock,
     ) {
         // Update order details (after credit slip to avoid updating refunded quantities while the credit slip fails)
         foreach ($orderRefundSummary->getProductRefunds() as $orderDetailId => $productRefund) {

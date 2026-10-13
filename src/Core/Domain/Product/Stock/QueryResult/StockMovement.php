@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -88,7 +89,7 @@ class StockMovement
         ?string $employeeName,
         int $deltaQuantity,
         array $apiClientIds = [],
-        array $apiClientNames = []
+        array $apiClientNames = [],
     ) {
         $this->type = $type;
         $this->dates = $this->initializeDates($dates);
@@ -146,7 +147,7 @@ class StockMovement
         ?string $employeeName,
         int $deltaQuantity,
         array $apiClientIds = [],
-        array $apiClientNames = []
+        array $apiClientNames = [],
     ): self {
         return new static(
             static::EDITION_TYPE,
@@ -184,7 +185,7 @@ class StockMovement
         array $employeeIds,
         int $deltaQuantity,
         array $apiClientIds = [],
-        array $apiClientNames = []
+        array $apiClientNames = [],
     ): self {
         return new static(
             static::ORDERS_TYPE,

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -52,7 +53,7 @@ class EditProductFormType extends TranslatorAwareType
         TranslatorInterface $translator,
         array $locales,
         EventSubscriberInterface $productTypeListener,
-        ToolbarButtonsProviderInterface $toolbarButtonsProvider
+        ToolbarButtonsProviderInterface $toolbarButtonsProvider,
     ) {
         parent::__construct($translator, $locales);
         $this->productTypeListener = $productTypeListener;

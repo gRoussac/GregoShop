@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -34,7 +35,7 @@ final class ModuleMetaPageNameChoiceProvider implements FormChoiceProviderInterf
      */
     public function __construct(
         RequestStack $requestStack,
-        MetaDataProviderInterface $dataProvider
+        MetaDataProviderInterface $dataProvider,
     ) {
         $this->requestStack = $requestStack;
         $this->dataProvider = $dataProvider;

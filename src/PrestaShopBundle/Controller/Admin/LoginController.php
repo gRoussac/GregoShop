@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -163,7 +164,7 @@ class LoginController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.admin.reset_password.form_handler')]
         FormHandlerInterface $resetPasswordFormHandler,
         Request $request,
-        string $resetToken
+        string $resetToken,
     ): Response {
         $resetPasswordForm = $resetPasswordFormHandler->getForm();
         $resetPasswordForm->handleRequest($request);

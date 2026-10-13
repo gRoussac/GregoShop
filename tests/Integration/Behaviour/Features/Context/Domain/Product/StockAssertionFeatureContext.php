@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -50,7 +51,7 @@ class StockAssertionFeatureContext extends AbstractProductFeatureContext
     public function assertStockInformationForShops(
         string $productReference,
         string $shopReferences,
-        TableNode $table
+        TableNode $table,
     ): void {
         $shopReferences = explode(',', $shopReferences);
 
@@ -105,7 +106,7 @@ class StockAssertionFeatureContext extends AbstractProductFeatureContext
     public function assertProductLastStockMovementsForSpecificShop(
         string $productReference,
         string $shopReferences,
-        TableNode $table
+        TableNode $table,
     ): void {
         foreach ($this->referencesToIds($shopReferences) as $shopId) {
             $this->assertLastStockMovementsForProduct(
@@ -134,7 +135,7 @@ class StockAssertionFeatureContext extends AbstractProductFeatureContext
     public function assertCombinationLastStockMovementsForSpecificShop(
         string $combinationReference,
         string $shopReferences,
-        TableNode $table
+        TableNode $table,
     ): void {
         foreach ($this->referencesToIds($shopReferences) as $shopId) {
             $this->assertLastStockMovementsForCombination(
@@ -153,7 +154,7 @@ class StockAssertionFeatureContext extends AbstractProductFeatureContext
      */
     public function assertCombinationNoLastStockMovementsForShop(
         string $combinationReference,
-        string $shopReference
+        string $shopReference,
     ): void {
         $this->assertNoStockMovementForCombination($combinationReference, $this->getSharedStorage()->get($shopReference));
     }
@@ -164,7 +165,7 @@ class StockAssertionFeatureContext extends AbstractProductFeatureContext
     public function assertProductLastStockMovementForDefaultShop(
         string $productReference,
         string $movementType,
-        int $movementQuantity
+        int $movementQuantity,
     ): void {
         $this->assertProductLastStockMovement(
             $productReference,
@@ -181,7 +182,7 @@ class StockAssertionFeatureContext extends AbstractProductFeatureContext
         string $productReference,
         string $shopReference,
         string $movementType,
-        int $movementQuantity
+        int $movementQuantity,
     ): void {
         $this->assertProductLastStockMovement(
             $productReference,
@@ -197,7 +198,7 @@ class StockAssertionFeatureContext extends AbstractProductFeatureContext
     public function assertCombinationLastStockMovementForDefaultShop(
         string $combinationReference,
         string $movementType,
-        int $movementQuantity
+        int $movementQuantity,
     ): void {
         $this->assertCombinationLastStockMovement(
             $combinationReference,
@@ -214,7 +215,7 @@ class StockAssertionFeatureContext extends AbstractProductFeatureContext
         string $combinationReference,
         string $shopReference,
         string $movementType,
-        int $movementQuantity
+        int $movementQuantity,
     ): void {
         $this->assertCombinationLastStockMovement(
             $combinationReference,
@@ -298,7 +299,7 @@ class StockAssertionFeatureContext extends AbstractProductFeatureContext
     private function assertStockMovements(
         StockMovement $stockMovement,
         string $movementType,
-        int $movementQuantity
+        int $movementQuantity,
     ): void {
         $lastMovementType = $stockMovement->getDeltaQuantity() < 0 ? 'decreased' : 'increased';
 
@@ -326,7 +327,7 @@ class StockAssertionFeatureContext extends AbstractProductFeatureContext
         string $combinationReference,
         string $movementType,
         int $movementQuantity,
-        int $shopId
+        int $shopId,
     ): void {
         $combinationId = (int) $this->getSharedStorage()->get($combinationReference);
         $stockMovementHistories = $this->getQueryBus()->handle(
@@ -343,7 +344,7 @@ class StockAssertionFeatureContext extends AbstractProductFeatureContext
         string $productReference,
         string $movementType,
         int $movementQuantity,
-        int $shopId
+        int $shopId,
     ): void {
         $productId = (int) $this->getSharedStorage()->get($productReference);
         $stockMovementHistories = $this->getQueryBus()->handle(
@@ -359,7 +360,7 @@ class StockAssertionFeatureContext extends AbstractProductFeatureContext
     private function assertLastStockMovementsForCombination(
         string $combinationReference,
         int $shopId,
-        TableNode $table
+        TableNode $table,
     ): void {
         $combinationId = (int) $this->getSharedStorage()->get($combinationReference);
         $stockMovementHistories = $this->getQueryBus()->handle(
@@ -371,7 +372,7 @@ class StockAssertionFeatureContext extends AbstractProductFeatureContext
     private function assertLastStockMovementsForProduct(
         string $productReference,
         int $shopId,
-        TableNode $table
+        TableNode $table,
     ): void {
         $productId = (int) $this->getSharedStorage()->get($productReference);
         $stockMovementHistories = $this->getQueryBus()->handle(

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -105,7 +106,7 @@ class Repository implements RepositoryInterface
         $numberingSystem = Locale::NUMBERING_SYSTEM_LATIN,
         $currencyDisplayType = PriceSpecification::CURRENCY_DISPLAY_SYMBOL,
         $groupingUsed = true,
-        $maxFractionDigits = self::MAX_FRACTION_DIGITS
+        $maxFractionDigits = self::MAX_FRACTION_DIGITS,
     ) {
         $this->cldrLocaleRepository = $cldrLocaleRepository;
         $this->currencyRepository = $currencyRepository;

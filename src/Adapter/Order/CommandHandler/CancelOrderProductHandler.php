@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -56,7 +57,7 @@ final class CancelOrderProductHandler extends AbstractOrderCommandHandler implem
     public function __construct(
         OrderProductQuantityUpdater $orderProductQuantityUpdater,
         LoggerInterface $logger,
-        TranslatorInterface $translator
+        TranslatorInterface $translator,
     ) {
         $this->orderProductQuantityUpdater = $orderProductQuantityUpdater;
         $this->logger = $logger;
