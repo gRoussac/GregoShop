@@ -1,20 +1,19 @@
 <?php
-
 /**
  * For the full copyright and license information, please view the
- * LICENSE file that was distributed with this source code.
+ * docs/licenses/LICENSE.txt file that was distributed with this source code.
  */
 
 namespace PrestaShop\PrestaShop\Adapter\Customer\QueryHandler;
 
 use Context;
+use Currency;
 use Customer;
 use CustomerThread;
 use Db;
 use Gender;
 use Group;
 use Language;
-use PrestaShop\PrestaShop\Adapter\LegacyContext;
 use PrestaShop\PrestaShop\Core\CommandBus\Attributes\AsQueryHandler;
 use PrestaShop\PrestaShop\Core\Domain\Customer\Exception\CustomerNotFoundException;
 use PrestaShop\PrestaShop\Core\Domain\Customer\Query\GetCustomerForViewing;
@@ -44,11 +43,6 @@ use Tools;
 final class GetCustomerForViewingHandler implements GetCustomerForViewingHandlerInterface
 {
     /**
-     * @var LegacyContext
-     */
-    private $context;
-
-    /**
      * @var int
      */
     private $contextLangId;
@@ -71,9 +65,8 @@ final class GetCustomerForViewingHandler implements GetCustomerForViewingHandler
     public function __construct(
         TranslatorInterface $translator,
         $contextLangId,
-        Locale $locale,
+        Locale $locale
     ) {
-        $this->context = new LegacyContext();
         $this->contextLangId = $contextLangId;
         $this->translator = $translator;
         $this->locale = $locale;
@@ -228,8 +221,11 @@ final class GetCustomerForViewingHandler implements GetCustomerForViewingHandler
             }
         }
 
+        // Each order total is converted to the default currency by its conversion rate
+        $defaultCurrency = new Currency(Currency::getDefaultCurrencyId());
+
         return new OrdersInformation(
-            $this->locale->formatPrice($ordersTotal, $this->context->getContext()->currency->iso_code),
+            $this->locale->formatPrice($ordersTotal, $defaultCurrency->iso_code),
             $validOrders,
             $invalidOrders
         );
