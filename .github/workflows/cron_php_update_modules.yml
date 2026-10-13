@@ -17,8 +17,7 @@ jobs:
       fail-fast: false
       matrix:
         BRANCH:
-          - develop
-          - 9.1.x
+          - dev
     env:
       GH_BRANCH: ${{ matrix.BRANCH }}
       IGNORE_PRESTASHOP_PACKAGES: "prestashop/psgdpr prestashop/ps_apiresources"
@@ -29,7 +28,7 @@ jobs:
         with:
           fetch-depth: 0
           ref: ${{ env.GH_BRANCH }}
-          token: ${{ secrets.JARVIS_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -139,4 +138,4 @@ jobs:
           branch: chore/update-prestashop-packages-${{ env.GH_BRANCH }}
           base: ${{ env.GH_BRANCH }}
           delete-branch: true
-          token: ${{ secrets.JARVIS_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
