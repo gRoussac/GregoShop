@@ -264,7 +264,7 @@ jobs:
           project_id: ${{ secrets.GC_PROJECT_ID }}
 
       - name: Setup Cloud Sdk
-        uses: google-github-actions/setup-gcloud@v1
+        uses: google-github-actions/setup-gcloud@v3
 
       - name: Upload to Google Cloud Storage (GCS)
         run: gsutil cp -r "${{ env.COMBINED_REPORT_DIR }}/**" gs://prestashop-core-nightly/reports

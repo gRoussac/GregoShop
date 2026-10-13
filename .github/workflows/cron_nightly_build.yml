@@ -86,7 +86,7 @@ jobs:
           project_id: ${{ env.GC_PROJECT_ID }}
 
       - name: Setup Cloud Sdk
-        uses: google-github-actions/setup-gcloud@v1
+        uses: google-github-actions/setup-gcloud@v3
 
       - name: Delete last Nightly zip for each branch
         run: gsutil rm -rf gs://prestashop-core-nightly/${{ env.ZIP_FILE }}
