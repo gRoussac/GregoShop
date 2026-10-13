@@ -198,7 +198,7 @@
         "spaze/phpstan-disallowed-calls": "^4.14",
         "symfony/browser-kit": "~6.4.0",
         "symfony/css-selector": "~6.4.0",
-        "symfony/phpunit-bridge": "~6.4.0",
+        "symfony/phpunit-bridge": "~8.1.6",
         "symfony/stopwatch": "~6.4.0",
         "vincentlanglet/twig-cs-fixer": "^3.1"
     },
