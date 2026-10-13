@@ -131,7 +131,7 @@ jobs:
 
       - name: Create Pull Request
         if: steps.outdated.outputs.has_updates == 'true'
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           commit-message: "Update prestashop/* composer packages"
           title: "Update prestashop/* composer packages"
