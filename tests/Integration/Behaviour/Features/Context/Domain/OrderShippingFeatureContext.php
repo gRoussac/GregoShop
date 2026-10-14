@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -28,7 +29,7 @@ class OrderShippingFeatureContext extends AbstractDomainFeatureContext
      * @param string $carrierReference
      */
     public function updateOrderTrackingNumberToAndCarrierTo(
-        string $orderReference, string $trackingNumber, string $carrierReference
+        string $orderReference, string $trackingNumber, string $carrierReference,
     ) {
         $orderId = SharedStorage::getStorage()->get($orderReference);
         $order = new Order($orderId);

@@ -35,7 +35,7 @@ class AttributeType extends TranslatorAwareType
         TranslatorInterface $translator,
         array $locales,
         protected readonly AttributeGroupChoiceProvider $attributeGroupChoiceProvider,
-        protected readonly FeatureInterface $multistoreFeature
+        protected readonly FeatureInterface $multistoreFeature,
     ) {
         parent::__construct($translator, $locales);
     }

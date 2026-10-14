@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -38,7 +39,7 @@ class LocalizationController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.admin.localization.local_units.form_handler')]
         FormHandlerInterface $localUnitsFormHandler,
         #[Autowire(service: 'prestashop.admin.localization.advanced.form_handler')]
-        FormHandlerInterface $advancedFormHandler
+        FormHandlerInterface $advancedFormHandler,
     ): Response {
         $legacyController = $request->attributes->get('_legacy_controller');
 
@@ -117,7 +118,7 @@ class LocalizationController extends PrestaShopAdminController
     public function processAdvancedFormAction(
         Request $request,
         #[Autowire(service: 'prestashop.admin.localization.advanced.form_handler')]
-        FormHandlerInterface $advancedFormHandler
+        FormHandlerInterface $advancedFormHandler,
     ): RedirectResponse {
         return $this->processForm(
             $request,
@@ -172,7 +173,7 @@ class LocalizationController extends PrestaShopAdminController
     #[AdminSecurity("is_granted('update', request.get('_legacy_controller')) && is_granted('create', request.get('_legacy_controller')) && is_granted('delete', request.get('_legacy_controller'))", message: 'You do not have permission to edit this.', redirectRoute: 'admin_localization_index')]
     public function importPackAction(
         Request $request,
-        LocalizationPackImporter $localizationPackImporter
+        LocalizationPackImporter $localizationPackImporter,
     ): RedirectResponse {
         $localizationPackImportForm = $this->createForm(ImportLocalizationPackType::class);
         $localizationPackImportForm->handleRequest($request);

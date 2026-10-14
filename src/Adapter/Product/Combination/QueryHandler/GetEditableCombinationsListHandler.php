@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -68,7 +69,7 @@ final class GetEditableCombinationsListHandler implements GetEditableCombination
         AttributeRepository $attributeRepository,
         ProductImageRepository $productImageRepository,
         ProductImagePathFactory $productImagePathFactory,
-        CombinationNameBuilderInterface $combinationNameBuilder
+        CombinationNameBuilderInterface $combinationNameBuilder,
     ) {
         $this->combinationQueryBuilder = $combinationQueryBuilder;
         $this->attributeRepository = $attributeRepository;
@@ -143,7 +144,7 @@ final class GetEditableCombinationsListHandler implements GetEditableCombination
         array $attributesInformationByCombinationId,
         int $totalCombinationsCount,
         array $imageIdsByCombinationIds,
-        array $defaultImageIds
+        array $defaultImageIds,
     ): CombinationListForEditing {
         $combinationsForEditing = [];
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -35,7 +36,7 @@ class CustomMoneyTypeExtension extends AbstractTypeExtension
         private Locale $locale,
         private int $defaultCurrencyId,
         private CurrencyRepository $currencyRepository,
-        private LocaleNumberTransformer $localeNumberTransformer
+        private LocaleNumberTransformer $localeNumberTransformer,
     ) {
     }
 
@@ -112,7 +113,7 @@ class CustomMoneyTypeExtension extends AbstractTypeExtension
     {
         $priceSpecification = $this->locale->getPriceSpecification($currencyCode);
 
-        if (!($priceSpecification instanceof Price)) {
+        if (!$priceSpecification instanceof Price) {
             throw new InvalidArgumentException(sprintf('Expected instance of %s', Price::class));
         }
 

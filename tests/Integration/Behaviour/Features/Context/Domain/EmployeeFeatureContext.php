@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -49,7 +50,7 @@ class EmployeeFeatureContext extends AbstractDomainFeatureContext
     public function addNewEmployeeToShopWithTheFollowingDetails(
         string $employeeReference,
         string $shopReference,
-        TableNode $table
+        TableNode $table,
     ) {
         $testCaseData = $table->getRowsHash();
 

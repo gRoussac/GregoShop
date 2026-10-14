@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -681,7 +682,7 @@ class CombinationFormDataProviderTest extends TestCase
     }
 
     private function createFormDataProvider(
-        CommandBusInterface $queryBusMock
+        CommandBusInterface $queryBusMock,
     ): CombinationFormDataProvider {
         return new CombinationFormDataProvider(
             $queryBusMock,

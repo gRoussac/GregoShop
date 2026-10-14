@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -43,7 +44,7 @@ class SpecificPricePriorityUpdater
     public function __construct(
         Connection $connection,
         string $dbPrefix,
-        ConfigurationInterface $configuration
+        ConfigurationInterface $configuration,
     ) {
         $this->connection = $connection;
         $this->dbPrefix = $dbPrefix;

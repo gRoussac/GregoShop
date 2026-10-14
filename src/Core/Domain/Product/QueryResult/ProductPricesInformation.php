@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -102,7 +103,7 @@ class ProductPricesInformation
         DecimalNumber $unitPriceTaxIncluded,
         string $unity,
         DecimalNumber $unitPriceRatio,
-        ?PriorityList $specificPricePriorities
+        ?PriorityList $specificPricePriorities,
     ) {
         $this->price = $price;
         $this->priceTaxIncluded = $priceTaxIncluded;

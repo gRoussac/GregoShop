@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -32,7 +33,7 @@ class PreferencesController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.admin.shipping_preferences.handling.form_handler')]
         FormHandlerInterface $handlingFormHandler,
         #[Autowire(service: 'prestashop.admin.shipping_preferences.carrier_options.form_handler')]
-        FormHandlerInterface $carrierOptionsFormHandler
+        FormHandlerInterface $carrierOptionsFormHandler,
     ): Response {
         $handlingForm = $handlingFormHandler->getForm();
         $carrierOptionsForm = $carrierOptionsFormHandler->getForm();
@@ -51,7 +52,7 @@ class PreferencesController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.admin.shipping_preferences.handling.form_handler')]
         FormHandlerInterface $handlingFormHandler,
         #[Autowire(service: 'prestashop.admin.shipping_preferences.carrier_options.form_handler')]
-        FormHandlerInterface $carrierOptionsFormHandler
+        FormHandlerInterface $carrierOptionsFormHandler,
     ): Response {
         $this->dispatchHookWithParameters(
             'actionAdminShippingPreferencesControllerPostProcessCarrierOptionsBefore',
@@ -92,7 +93,7 @@ class PreferencesController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.admin.shipping_preferences.handling.form_handler')]
         FormHandlerInterface $handlingFormHandler,
         #[Autowire(service: 'prestashop.admin.shipping_preferences.carrier_options.form_handler')]
-        FormHandlerInterface $carrierOptionsFormHandler
+        FormHandlerInterface $carrierOptionsFormHandler,
     ): Response {
         $this->dispatchHookWithParameters(
             'actionAdminShippingPreferencesControllerPostProcessHandlingBefore',

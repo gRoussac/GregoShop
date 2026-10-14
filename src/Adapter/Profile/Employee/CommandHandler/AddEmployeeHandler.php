@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -49,7 +50,7 @@ final class AddEmployeeHandler extends AbstractEmployeeHandler implements AddEmp
     public function __construct(
         Hashing $hashing,
         ProfileAccessCheckerInterface $profileAccessChecker,
-        ContextEmployeeProviderInterface $contextEmployeeProvider
+        ContextEmployeeProviderInterface $contextEmployeeProvider,
     ) {
         $this->hashing = $hashing;
         $this->profileAccessChecker = $profileAccessChecker;

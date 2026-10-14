@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -748,9 +749,9 @@ class CustomerCore extends ObjectModel
         $res = Db::getInstance()->executeS($sql);
         if (count($res) === 1) {
             return $res[0];
-        } else {
-            return $res;
         }
+
+        return $res;
     }
 
     /**

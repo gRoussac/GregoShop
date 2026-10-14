@@ -30,7 +30,7 @@ class CustomClientCredentialsGrant extends ClientCredentialsGrant
         DateInterval $accessTokenTTL,
         ClientEntityInterface $client,
         $userIdentifier,
-        array $scopes = []
+        array $scopes = [],
     ) {
         /** @var Client $client */
         if ($client->getLifetime() !== null) {

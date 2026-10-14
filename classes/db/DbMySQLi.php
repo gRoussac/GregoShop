@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -168,15 +169,14 @@ class DbMySQLiCore extends Db
 
         if (method_exists($result, 'fetch_all')) {
             return $result->fetch_all(MYSQLI_ASSOC);
-        } else {
-            $ret = [];
-
-            while ($row = $this->nextRow($result)) {
-                $ret[] = $row;
-            }
-
-            return $ret;
         }
+        $ret = [];
+
+        while ($row = $this->nextRow($result)) {
+            $ret[] = $row;
+        }
+
+        return $ret;
     }
 
     /**

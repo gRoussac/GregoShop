@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -41,7 +42,7 @@ final class CustomerGridDataFactoryDecorator implements GridDataFactoryInterface
     public function __construct(
         GridDataFactoryInterface $customerDoctrineGridDataFactory,
         LocaleInterface $locale,
-        $contextCurrencyIsoCode
+        $contextCurrencyIsoCode,
     ) {
         $this->customerDoctrineGridDataFactory = $customerDoctrineGridDataFactory;
         $this->locale = $locale;

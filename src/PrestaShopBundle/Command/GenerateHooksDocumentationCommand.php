@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -61,7 +62,7 @@ final class GenerateHooksDocumentationCommand extends Command
 
     public function __construct(
         private readonly HookExtractor $hookExtractor,
-        private string $hookFile
+        private string $hookFile,
     ) {
         parent::__construct();
     }
@@ -274,8 +275,8 @@ final class GenerateHooksDocumentationCommand extends Command
             return 'action';
         } elseif (str_starts_with($hookName, 'display')) {
             return 'display';
-        } else {
-            return 'notDefined';
         }
+
+        return 'notDefined';
     }
 }

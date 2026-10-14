@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -33,7 +34,7 @@ class LegacyContextSubscriber implements EventSubscriberInterface
      * @param iterable|LegacyContextBuilderInterface[] $legacyBuilders
      */
     public function __construct(
-        private readonly iterable $legacyBuilders
+        private readonly iterable $legacyBuilders,
     ) {
     }
 

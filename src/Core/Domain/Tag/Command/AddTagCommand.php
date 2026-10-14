@@ -14,7 +14,7 @@ class AddTagCommand
     public function __construct(
         private readonly string $name,
         private readonly int $languageId,
-        private readonly array $productIds = []
+        private readonly array $productIds = [],
     ) {
     }
 

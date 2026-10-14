@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -36,7 +37,7 @@ class UpdateCombinationSuppliersHandler extends AbstractProductSupplierHandler i
     public function __construct(
         CombinationRepository $combinationRepository,
         ProductSupplierRepository $productSupplierRepository,
-        ProductSupplierUpdater $productSupplierUpdater
+        ProductSupplierUpdater $productSupplierUpdater,
     ) {
         parent::__construct($productSupplierRepository);
         $this->combinationRepository = $combinationRepository;

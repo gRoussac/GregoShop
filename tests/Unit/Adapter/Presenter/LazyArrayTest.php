@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -44,7 +45,7 @@ class LazyArrayTest extends TestCase
 
     public function testExtraPropertiesIndexExposedWhenBagIsInitialized()
     {
-        $test = new class() extends LazyArrayImplementation {
+        $test = new class extends LazyArrayImplementation {
             public function __construct()
             {
                 // Mimics the presenter pattern: bag set before parent::__construct().

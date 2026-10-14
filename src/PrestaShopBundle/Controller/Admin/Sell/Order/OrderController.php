@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -210,7 +211,7 @@ class OrderController extends PrestaShopAdminController
     #[AdminSecurity("is_granted('create', request.get('_legacy_controller'))")]
     public function placeAction(
         Request $request,
-        #[Autowire(service: 'prestashop.core.form.identifiable_object.handler.cart_summary_form_handler')] FormHandlerInterface $formHandler
+        #[Autowire(service: 'prestashop.core.form.identifiable_object.handler.cart_summary_form_handler')] FormHandlerInterface $formHandler,
     ) {
         $summaryForm = $this->createForm(CartSummaryType::class);
         $summaryForm->handleRequest($request);
@@ -698,7 +699,7 @@ class OrderController extends PrestaShopAdminController
     public function getAddProductForm(
         int $orderId,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.add_product_form_builder')] FormBuilderInterface $addProductFormBuilder,
-        FeatureFlagStateCheckerInterface $featureFlagStateChecker
+        FeatureFlagStateCheckerInterface $featureFlagStateChecker,
     ): Response {
         $orderForViewing = $this->dispatchQuery(new GetOrderForViewing($orderId, QuerySorting::DESC));
         $form = $addProductFormBuilder->getFormFor($orderId);
@@ -718,7 +719,7 @@ class OrderController extends PrestaShopAdminController
         int $orderDetailId,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.edit_order_product_form_builder')] FormBuilderInterface $orderProductFormBuilder,
         FeatureFlagStateCheckerInterface $featureFlagStateChecker,
-        CurrencyDataProvider $currencyDataProvider
+        CurrencyDataProvider $currencyDataProvider,
     ): Response {
         $orderForViewing = $this->dispatchQuery(new GetOrderForViewing($orderId, QuerySorting::DESC));
         $form = $orderProductFormBuilder->getFormFor($orderId);
@@ -1302,7 +1303,7 @@ class OrderController extends PrestaShopAdminController
     public function getShipmentsAction(
         int $orderId,
         #[Autowire(service: 'PrestaShop\PrestaShop\Core\Grid\Factory\ShipmentFactory')] GridFactoryInterface $shipmentGridFactory,
-        ShipmentFilters $filters
+        ShipmentFilters $filters,
     ) {
         $filters = new ShipmentFilters(['filters' => ['order_id' => $orderId]] + $filters->all());
         $shipmentsGrid = $shipmentGridFactory->getGrid($filters);
@@ -1703,7 +1704,7 @@ class OrderController extends PrestaShopAdminController
     public function sendMessageAction(
         Request $request,
         int $orderId,
-        RouterInterface $router
+        RouterInterface $router,
     ): Response {
         $orderMessageForm = $this->createForm(OrderMessageType::class);
 
@@ -2133,7 +2134,7 @@ class OrderController extends PrestaShopAdminController
     public function displayCustomizationImageAction(
         int $orderId,
         string $value,
-        LegacyContext $context
+        LegacyContext $context,
     ) {
         $uploadDir = $context->getUploadDirectory();
         $filePath = $uploadDir . $value;

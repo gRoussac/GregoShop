@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -39,7 +40,7 @@ class OrderProductRemover
     public function deleteProductFromOrder(
         Order $order,
         OrderDetail $orderDetail,
-        bool $updateCart = true
+        bool $updateCart = true,
     ): CartProductsComparator {
         $cart = new Cart($order->id_cart);
 
@@ -76,7 +77,7 @@ class OrderProductRemover
      */
     private function updateCart(
         Cart $cart,
-        OrderDetail $orderDetail
+        OrderDetail $orderDetail,
     ): void {
         $knownUpdates = [
             new CartProductUpdate(
@@ -114,7 +115,7 @@ class OrderProductRemover
      */
     private function deleteOrderDetail(
         Order $order,
-        OrderDetail $orderDetail
+        OrderDetail $orderDetail,
     ) {
         if (!$orderDetail->delete()) {
             throw new DeleteProductFromOrderException('Could not delete order detail');
@@ -149,7 +150,7 @@ class OrderProductRemover
     private function deleteOrderCartRule(
         Order $order,
         OrderDetail $orderDetail,
-        Cart $cart
+        Cart $cart,
     ): void {
         $orderCartRules = $order->getDeletedCartRules();
         if (empty($orderCartRules)) {
@@ -187,7 +188,7 @@ class OrderProductRemover
     private function deleteSpecificPrice(
         Order $order,
         OrderDetail $orderDetail,
-        Cart $cart
+        Cart $cart,
     ): void {
         $productQuantity = $cart->getProductQuantity($orderDetail->product_id, $orderDetail->product_attribute_id);
         if (!isset($productQuantity['quantity']) || (int) $productQuantity['quantity'] > 0) {
@@ -226,7 +227,7 @@ class OrderProductRemover
      */
     private function removeSpecificProductCartRules(
         Order $order,
-        OrderDetail $orderDetail
+        OrderDetail $orderDetail,
     ): void {
         foreach ($order->getCartRules() as $orderCartRule) {
             $cartRuleId = (int) $orderCartRule['id_cart_rule'];

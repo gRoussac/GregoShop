@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -17,7 +18,7 @@ class ForceApiClientSecretCommand
 
     public function __construct(
         int $apiClientId,
-        string $secret
+        string $secret,
     ) {
         $this->apiClientId = new ApiClientId($apiClientId);
         $this->secret = new ApiClientSecret($secret);

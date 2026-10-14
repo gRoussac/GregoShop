@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -32,7 +33,7 @@ class ProductPreviewRepository
 
     public function __construct(
         ProductRepository $productRepository,
-        ProductImageProviderInterface $productImageProvider
+        ProductImageProviderInterface $productImageProvider,
     ) {
         $this->productRepository = $productRepository;
         $this->productImageProvider = $productImageProvider;

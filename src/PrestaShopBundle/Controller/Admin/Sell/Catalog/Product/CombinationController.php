@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -69,7 +70,7 @@ class CombinationController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.combination_form_builder')]
         FormBuilderInterface $combinationFormBuilder,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.combination_form_handler')]
-        FormHandlerInterface $combinationFormHandler
+        FormHandlerInterface $combinationFormHandler,
     ): Response {
         $liteDisplaying = $request->query->has('liteDisplaying');
         try {
@@ -217,7 +218,7 @@ class CombinationController extends PrestaShopAdminController
         Request $request,
         int $productId,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.bulk_combination_form_builder')]
-        FormBuilderInterface $bulkFormBuilder
+        FormBuilderInterface $bulkFormBuilder,
     ): Response {
         $bulkCombinationForm = $bulkFormBuilder->getForm([], [
             'product_id' => $productId,
@@ -246,7 +247,7 @@ class CombinationController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.bulk_combination_form_builder')]
         FormBuilderInterface $bulkFormBuilder,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.bulk_combination_form_handler')]
-        FormHandlerInterface $bulkFormHandler
+        FormHandlerInterface $bulkFormHandler,
     ): JsonResponse {
         $combinationIds = $request->request->get('combinationIds');
         if (!$combinationIds) {
@@ -317,7 +318,7 @@ class CombinationController extends PrestaShopAdminController
     public function paginatedListAction(
         int $productId,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.combination_list_form_builder')]
-        FormBuilderInterface $listFormBuilder
+        FormBuilderInterface $listFormBuilder,
     ): Response {
         $combinationsForm = $listFormBuilder->getForm();
 
@@ -511,7 +512,7 @@ class CombinationController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.combination_list_form_builder')]
         FormBuilderInterface $listFormBuilder,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.combination_list_form_handler')]
-        FormHandlerInterface $listFormHandler
+        FormHandlerInterface $listFormHandler,
     ): JsonResponse {
         $combinationsListForm = $listFormBuilder->getForm([], [
             'method' => Request::METHOD_PATCH,

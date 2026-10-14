@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -40,7 +41,7 @@ class CategoryPreviewRepository
      */
     public function __construct(
         CategoryRepository $categoryRepository,
-        ImagePathFactory $categoryImagePathFactory
+        ImagePathFactory $categoryImagePathFactory,
     ) {
         $this->categoryRepository = $categoryRepository;
         $this->categoryImagePathFactory = $categoryImagePathFactory;

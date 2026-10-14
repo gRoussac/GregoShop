@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -77,9 +78,9 @@ class UpgraderCore
         $destPath = realpath($dest) . DIRECTORY_SEPARATOR . $filename;
         if (@copy($this->link, $destPath)) {
             return true;
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     /**
@@ -148,9 +149,9 @@ class UpgraderCore
             $this->need_upgrade = true;
 
             return ['name' => $this->version_name, 'link' => $this->link];
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     /**

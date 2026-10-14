@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -19,7 +20,7 @@ class EditableAttribute
         private readonly array $localizedNames,
         private readonly string $color,
         private readonly array $shopAssociationIds,
-        private readonly ?array $textureImage
+        private readonly ?array $textureImage,
     ) {
     }
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -43,7 +44,7 @@ class LinkTest extends TestCase
         bool $statusUseRoutes,
         int $id_product,
         ?int $id_product_attribute,
-        ?string $ean13 = null
+        ?string $ean13 = null,
     ): array {
         $reflectionDispatcher = new ReflectionClass('Dispatcher');
         $property = $reflectionDispatcher->getProperty('use_routes');

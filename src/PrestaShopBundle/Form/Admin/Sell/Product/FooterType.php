@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -63,7 +64,7 @@ class FooterType extends TranslatorAwareType
         ProductPreviewProvider $productPreviewUrlProvider,
         RouterInterface $router,
         FeatureInterface $multiStoreFeature,
-        ?int $contextShopId
+        ?int $contextShopId,
     ) {
         parent::__construct($translator, $locales);
         $this->productUrlProvider = $productUrlProvider;

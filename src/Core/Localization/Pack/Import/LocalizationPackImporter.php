@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -45,7 +46,7 @@ final class LocalizationPackImporter implements LocalizationPackImporterInterfac
         LocalizationPackLoaderInterface $remoteLocalizationPackLoader,
         LocalizationPackLoaderInterface $localLocalizationPackLoader,
         LocalizationPackFactoryInterface $localizationPackFactory,
-        TranslatorInterface $translator
+        TranslatorInterface $translator,
     ) {
         $this->remoteLocalizationPackLoader = $remoteLocalizationPackLoader;
         $this->localLocalizationPackLoader = $localLocalizationPackLoader;

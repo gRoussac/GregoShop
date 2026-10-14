@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -33,7 +34,7 @@ class ManufacturerType extends AbstractType
      */
     public function __construct(
         TranslatorInterface $translator,
-        FormChoiceProviderInterface $manufacturerChoiceProvider
+        FormChoiceProviderInterface $manufacturerChoiceProvider,
     ) {
         $this->translator = $translator;
         $this->manufacturerChoiceProvider = $manufacturerChoiceProvider;

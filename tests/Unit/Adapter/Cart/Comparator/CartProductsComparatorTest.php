@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -28,7 +29,7 @@ class CartProductsComparatorTest extends TestCase
         array $initialProducts,
         array $newProducts,
         array $knownUpdatedProducts,
-        array $expectedModifiedProducts
+        array $expectedModifiedProducts,
     ) {
         $cart = $this->mockCart($initialProducts, $newProducts);
         $comparator = new CartProductsComparator($cart);
@@ -242,7 +243,7 @@ class CartProductsComparatorTest extends TestCase
         array $initialProducts,
         array $newProducts,
         array $knownUpdatedProducts,
-        array $expectedModifiedProducts
+        array $expectedModifiedProducts,
     ) {
         $cart = $this->mockCart($initialProducts, $newProducts);
         $comparator = new CartProductsComparator($cart);
@@ -284,7 +285,7 @@ class CartProductsComparatorTest extends TestCase
         array $initialProducts,
         array $newProducts,
         array $knownUpdatedProducts,
-        array $expectedModifiedProducts
+        array $expectedModifiedProducts,
     ) {
         $cart = $this->mockCart($initialProducts, $newProducts);
         $comparator = new CartProductsComparator($cart);

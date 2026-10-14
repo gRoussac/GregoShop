@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -59,7 +60,7 @@ final class EmptyCategoryQueryBuilder extends AbstractDoctrineQueryBuilder
         $contextShopId,
         DoctrineSearchCriteriaApplicator $searchCriteriaApplicator,
         MultistoreContextCheckerInterface $multistoreContextChecker,
-        $rootCategoryId
+        $rootCategoryId,
     ) {
         parent::__construct($connection, $dbPrefix);
         $this->contextLangId = $contextLangId;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -67,7 +68,7 @@ class EditableState
         string $name,
         string $isoCode,
         bool $enabled,
-        array $associatedShops
+        array $associatedShops,
     ) {
         $this->stateId = $stateId;
         $this->countryId = $countryId;

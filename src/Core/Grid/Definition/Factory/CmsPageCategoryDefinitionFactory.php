@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -65,7 +66,7 @@ final class CmsPageCategoryDefinitionFactory extends AbstractFilterableGridDefin
         HookDispatcherInterface $hookDispatcher,
         RequestStack $requestStack,
         MultistoreContextCheckerInterface $multistoreContextChecker,
-        $isMultiStoreFeatureUsed
+        $isMultiStoreFeatureUsed,
     ) {
         parent::__construct($hookDispatcher);
         $this->setCmsPageCategoryParentId($requestStack);

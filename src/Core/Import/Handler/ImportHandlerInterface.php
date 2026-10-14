@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -38,7 +39,7 @@ interface ImportHandlerInterface
     public function importRow(
         ImportConfigInterface $importConfig,
         ImportRuntimeConfigInterface $runtimeConfig,
-        DataRowInterface $dataRow
+        DataRowInterface $dataRow,
     );
 
     /**

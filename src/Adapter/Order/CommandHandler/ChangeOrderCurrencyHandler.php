@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -216,7 +217,7 @@ final class ChangeOrderCurrencyHandler extends AbstractOrderHandler implements C
         ObjectModel $object,
         array $fields,
         Currency $oldCurrency,
-        Currency $newCurrency
+        Currency $newCurrency,
     ) {
         foreach ($fields as $field) {
             if (isset($object->$field)) {

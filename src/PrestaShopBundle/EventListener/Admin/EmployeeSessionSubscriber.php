@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -120,7 +121,7 @@ class EmployeeSessionSubscriber implements EventSubscriberInterface
     private function logSuccessfulLogin(LoginSuccessEvent $event): void
     {
         try {
-            if (!($event->getAuthenticator() instanceof FormLoginAuthenticator)) {
+            if (!$event->getAuthenticator() instanceof FormLoginAuthenticator) {
                 return;
             }
 

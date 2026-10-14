@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -32,7 +33,7 @@ final class GetCustomerCartsHandler extends AbstractCustomerHandler implements G
      * @param LocaleInterface $locale
      */
     public function __construct(
-        LocaleInterface $locale
+        LocaleInterface $locale,
     ) {
         $this->locale = $locale;
     }

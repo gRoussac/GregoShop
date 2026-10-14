@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -31,7 +32,7 @@ class NewProductsProductSearchProvider implements ProductSearchProviderInterface
     private $sortOrdersCollection;
 
     public function __construct(
-        TranslatorInterface $translator
+        TranslatorInterface $translator,
     ) {
         $this->translator = $translator;
         $this->sortOrdersCollection = new SortOrdersCollection($this->translator);
@@ -47,7 +48,7 @@ class NewProductsProductSearchProvider implements ProductSearchProviderInterface
     private function getProductsOrCount(
         ProductSearchContext $context,
         ProductSearchQuery $query,
-        $type = 'products'
+        $type = 'products',
     ) {
         $isTypeProducts = $type === 'products';
         $result = Product::getNewProducts(
@@ -67,7 +68,7 @@ class NewProductsProductSearchProvider implements ProductSearchProviderInterface
      */
     public function runQuery(
         ProductSearchContext $context,
-        ProductSearchQuery $query
+        ProductSearchQuery $query,
     ) {
         if (!$products = $this->getProductsOrCount($context, $query, 'products')) {
             $products = [];

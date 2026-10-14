@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -27,7 +28,7 @@ class ShipmentMerger implements ShipmentMergerInterface
     public function merge(
         Shipment $source,
         Shipment $target,
-        array $productsToMove
+        array $productsToMove,
     ): void {
         $sourceProducts = $this->indexProducts($source);
         $targetProducts = $this->indexProducts($target);

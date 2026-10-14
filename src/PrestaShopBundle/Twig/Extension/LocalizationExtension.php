@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -58,9 +59,9 @@ class LocalizationExtension extends AbstractExtension
             $cldrLocale = $this->localeRepository->getLocale($locale);
 
             return $cldrLocale->formatPrice($price, $currencyCode ?? $this->currencyContext->getIsoCode());
-        } else {
-            return $this->languageContext->formatPrice($price, $currencyCode ?? $this->currencyContext->getIsoCode());
         }
+
+        return $this->languageContext->formatPrice($price, $currencyCode ?? $this->currencyContext->getIsoCode());
     }
 
     /**

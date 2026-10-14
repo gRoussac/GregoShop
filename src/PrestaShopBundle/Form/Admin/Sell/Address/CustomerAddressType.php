@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -66,7 +67,7 @@ class CustomerAddressType extends TranslatorAwareType
         array $locales,
         ConfigurableFormChoiceProviderInterface $stateChoiceProvider,
         $contextCountryId,
-        RouterInterface $router
+        RouterInterface $router,
     ) {
         parent::__construct($translator, $locales);
         $this->stateChoiceProvider = $stateChoiceProvider;

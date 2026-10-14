@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -64,7 +65,7 @@ class ProductImage
         array $localizedLegends,
         string $imageUrl,
         string $thumbnailUrl,
-        array $shopIds
+        array $shopIds,
     ) {
         $this->imageId = $imageId;
         $this->cover = $cover;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -38,7 +39,7 @@ class GeolocationController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.admin.geolocation.options.form_handler')]
         FormHandlerInterface $geolocationOptionsFormHandler,
         #[Autowire(service: 'prestashop.core.geolocation.geo_lite_city.checker')]
-        GeoLiteCityCheckerInterface $geoLiteCityChecker
+        GeoLiteCityCheckerInterface $geoLiteCityChecker,
     ): Response {
         $legacyController = $request->attributes->get('_legacy_controller');
 
@@ -111,7 +112,7 @@ class GeolocationController extends PrestaShopAdminController
     public function processOptionsFormAction(
         Request $request,
         #[Autowire(service: 'prestashop.admin.geolocation.options.form_handler')]
-        FormHandlerInterface $geolocationOptionsFormHandler
+        FormHandlerInterface $geolocationOptionsFormHandler,
     ): RedirectResponse {
         return $this->processForm(
             $request,

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -88,7 +89,7 @@ class EditableCurrency
         int $precision,
         $isEnabled,
         bool $isUnofficial,
-        array $associatedShopIds
+        array $associatedShopIds,
     ) {
         $this->currencyId = new CurrencyId($currencyId);
         $this->isoCode = $isoCode;

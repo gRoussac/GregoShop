@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -43,7 +44,7 @@ class ProductImagePathFactory
     public function __construct(
         string $pathToBaseDir,
         string $temporaryImgDir,
-        string $contextLangIsoCode
+        string $contextLangIsoCode,
     ) {
         // make sure one trailing slash is always there
         $this->temporaryImgDir = rtrim($temporaryImgDir, '/') . '/';

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -98,11 +99,11 @@ class Container
 
         if (count($args) > 0) {
             return $refl->newInstanceArgs($args);
-        } else {
-            // newInstanceArgs with empty array fails in PHP 5.3 when the class
-            // doesn't have an explicitly defined constructor
-            return $refl->newInstance();
         }
+
+        // newInstanceArgs with empty array fails in PHP 5.3 when the class
+        // doesn't have an explicitly defined constructor
+        return $refl->newInstance();
     }
 
     private function doMake($serviceName, array $alreadySeen = [])
@@ -121,25 +122,24 @@ class Container
 
         if ($binding['shared'] && array_key_exists($serviceName, $this->instances)) {
             return $this->instances[$serviceName];
-        } else {
-            $constructor = $binding['constructor'];
-
-            if (is_callable($constructor)) {
-                $service = call_user_func($constructor);
-            } elseif (!is_string($constructor)) {
-                // user already provided the value, no need to construct it.
-                $service = $constructor;
-            } else {
-                // assume the $constructor is a class name
-                $service = $this->makeInstanceFromClassName($constructor, $alreadySeen);
-            }
-
-            if ($binding['shared']) {
-                $this->instances[$serviceName] = $service;
-            }
-
-            return $service;
         }
+        $constructor = $binding['constructor'];
+
+        if (is_callable($constructor)) {
+            $service = call_user_func($constructor);
+        } elseif (!is_string($constructor)) {
+            // user already provided the value, no need to construct it.
+            $service = $constructor;
+        } else {
+            // assume the $constructor is a class name
+            $service = $this->makeInstanceFromClassName($constructor, $alreadySeen);
+        }
+
+        if ($binding['shared']) {
+            $this->instances[$serviceName] = $service;
+        }
+
+        return $service;
     }
 
     public function make($serviceName)

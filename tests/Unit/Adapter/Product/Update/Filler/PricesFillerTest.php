@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -32,7 +33,7 @@ class PricesFillerTest extends ProductFillerTestCase
         UpdateProductCommand $command,
         array $expectedUpdatableProperties,
         bool $ecoTaxEnabled,
-        Product $expectedProduct
+        Product $expectedProduct,
     ): void {
         $this->fillUpdatableProperties(
             $this->getFiller($ecoTaxEnabled, $command->getShopConstraint()),

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -662,8 +663,6 @@ class AdminCarriersControllerCore extends AdminController
             ]);
 
             return $tpl->fetch();
-        } else {
-            return;
         }
     }
 
@@ -701,8 +700,6 @@ class AdminCarriersControllerCore extends AdminController
             $tpl->assign(array_merge($this->tpl_delete_link_vars, $data));
 
             return $tpl->fetch();
-        } else {
-            return;
         }
     }
 }

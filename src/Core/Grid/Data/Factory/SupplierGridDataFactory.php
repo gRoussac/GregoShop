@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -32,7 +33,7 @@ final class SupplierGridDataFactory implements GridDataFactoryInterface
      */
     public function __construct(
         GridDataFactoryInterface $supplierDataFactory,
-        ImageProviderInterface $supplierLogoImageProvider
+        ImageProviderInterface $supplierLogoImageProvider,
     ) {
         $this->supplierDataFactory = $supplierDataFactory;
         $this->supplierLogoImageProvider = $supplierLogoImageProvider;

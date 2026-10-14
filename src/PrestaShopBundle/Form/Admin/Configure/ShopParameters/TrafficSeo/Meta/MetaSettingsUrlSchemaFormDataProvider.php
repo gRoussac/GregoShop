@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -44,7 +45,7 @@ final class MetaSettingsUrlSchemaFormDataProvider implements FormDataProviderInt
     public function __construct(
         DataConfigurationInterface $urlSchemaDataConfiguration,
         TranslatorInterface $translator,
-        RouteValidator $routeValidator
+        RouteValidator $routeValidator,
     ) {
         $this->urlSchemaDataConfiguration = $urlSchemaDataConfiguration;
         $this->routeValidator = $routeValidator;

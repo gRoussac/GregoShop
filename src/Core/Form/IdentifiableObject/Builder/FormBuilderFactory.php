@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -47,7 +48,7 @@ final class FormBuilderFactory implements FormBuilderFactoryInterface
         FormFactoryInterface $formFactory,
         HookDispatcherInterface $hookDispatcher,
         FormRegistryInterface $registry,
-        ExtraPropertiesFormBuilderModifier $extraPropertiesFormBuilderModifier
+        ExtraPropertiesFormBuilderModifier $extraPropertiesFormBuilderModifier,
     ) {
         $this->formFactory = $formFactory;
         $this->hookDispatcher = $hookDispatcher;
@@ -65,7 +66,7 @@ final class FormBuilderFactory implements FormBuilderFactoryInterface
     public function create(
         $formType,
         FormDataProviderInterface $dataProvider,
-        ?FormOptionsProviderInterface $optionProvider = null
+        ?FormOptionsProviderInterface $optionProvider = null,
     ) {
         return new FormBuilder(
             $this->formFactory,

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -23,7 +24,7 @@ class CheckoutAddressesStepCore extends AbstractCheckoutStep
     public function __construct(
         Context $context,
         TranslatorInterface $translator,
-        CustomerAddressForm $addressForm
+        CustomerAddressForm $addressForm,
     ) {
         parent::__construct($context, $translator);
         $this->addressForm = $addressForm;

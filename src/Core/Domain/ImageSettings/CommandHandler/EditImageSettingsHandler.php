@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -18,7 +19,7 @@ use PrestaShop\PrestaShop\Core\Domain\ImageSettings\Exception\ImageTypeException
 final class EditImageSettingsHandler extends AbstractObjectModelHandler implements EditImageSettingsHandlerInterface
 {
     public function __construct(
-        private readonly ImageConfiguration $imageConfiguration
+        private readonly ImageConfiguration $imageConfiguration,
     ) {
     }
 

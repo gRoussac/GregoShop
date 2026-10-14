@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -117,7 +118,7 @@ class TestAbstractBulkCommandHandler extends AbstractBulkCommandHandler
 
     public function __construct(
         array $failingIdsMock,
-        string $supportedIdType
+        string $supportedIdType,
     ) {
         $this->failingIdsMock = $failingIdsMock;
         $this->supportedIdType = $supportedIdType;
@@ -188,7 +189,7 @@ class ExampleId implements IdInterface
     private $id;
 
     public function __construct(
-        int $id
+        int $id,
     ) {
         $this->id = $id;
     }
@@ -211,7 +212,7 @@ class FailingId implements IdInterface
 
     public function __construct(
         int $id,
-        Throwable $exceptionToThrow
+        Throwable $exceptionToThrow,
     ) {
         $this->id = $id;
         $this->exceptionToThrow = $exceptionToThrow;

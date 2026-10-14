@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -17,7 +18,7 @@ class DeleteFeatureCommand
     private $featureId;
 
     public function __construct(
-        int $featureId
+        int $featureId,
     ) {
         $this->featureId = new FeatureId($featureId);
     }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -46,7 +47,7 @@ final class WebserviceKeyQueryBuilder extends AbstractDoctrineQueryBuilder
         $dbPrefix,
         DoctrineSearchCriteriaApplicatorInterface $searchCriteriaApplicator,
         array $contextShopIds,
-        DoctrineFilterApplicatorInterface $doctrineFilterApplicator
+        DoctrineFilterApplicatorInterface $doctrineFilterApplicator,
     ) {
         parent::__construct($connection, $dbPrefix);
         $this->searchCriteriaApplicator = $searchCriteriaApplicator;

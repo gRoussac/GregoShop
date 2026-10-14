@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -70,7 +71,7 @@ final class GetCustomerForViewingHandler implements GetCustomerForViewingHandler
     public function __construct(
         TranslatorInterface $translator,
         $contextLangId,
-        Locale $locale
+        Locale $locale,
     ) {
         $this->context = new LegacyContext();
         $this->contextLangId = $contextLangId;

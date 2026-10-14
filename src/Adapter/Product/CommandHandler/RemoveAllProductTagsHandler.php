@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -33,7 +34,7 @@ final class RemoveAllProductTagsHandler implements RemoveAllProductTagsHandlerIn
      */
     public function __construct(
         ProductRepository $productRepository,
-        ProductTagUpdater $productTagUpdater
+        ProductTagUpdater $productTagUpdater,
     ) {
         $this->productRepository = $productRepository;
         $this->productTagUpdater = $productTagUpdater;

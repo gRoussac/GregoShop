@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -36,7 +37,7 @@ final class GetCartForViewingHandler implements GetCartForViewingHandlerInterfac
     public function __construct(
         private ImageManager $imageManager,
         private Locale $locale,
-        private ModuleHtmlAuthorizationChecker $moduleHtmlAuthorizationChecker
+        private ModuleHtmlAuthorizationChecker $moduleHtmlAuthorizationChecker,
     ) {
     }
 

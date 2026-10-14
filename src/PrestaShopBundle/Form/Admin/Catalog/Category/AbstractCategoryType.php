@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -62,7 +63,7 @@ abstract class AbstractCategoryType extends TranslatorAwareType
         array $locales,
         array $customerGroupChoices,
         FeatureInterface $multiStoreFeature,
-        ConfigurationInterface $configuration
+        ConfigurationInterface $configuration,
     ) {
         parent::__construct($translator, $locales);
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -46,7 +47,7 @@ class StockType extends TranslatorAwareType
         array $locales,
         FormChoiceProviderInterface $packStockTypeChoiceProvider,
         RouterInterface $router,
-        string $employeeIsoCode
+        string $employeeIsoCode,
     ) {
         parent::__construct($translator, $locales);
         $this->packStockTypeChoiceProvider = $packStockTypeChoiceProvider;
@@ -128,9 +129,9 @@ class StockType extends TranslatorAwareType
                     return $this->trans('Virtual product', 'Admin.Catalog.Feature');
                 } elseif ($productType === ProductType::TYPE_PACK) {
                     return $this->trans('Pack', 'Admin.Catalog.Feature');
-                } else {
-                    return $this->trans('Stocks', 'Admin.Catalog.Feature');
                 }
+
+                return $this->trans('Stocks', 'Admin.Catalog.Feature');
             })
         ;
     }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -47,7 +48,7 @@ class UpdateCartDeliverySettingsCommand
         bool $allowFreeShipping,
         ?bool $isAGift = null,
         ?bool $useRecycledPackaging = null,
-        ?string $giftMessage = null
+        ?string $giftMessage = null,
     ) {
         $this->cartId = new CartId($cartId);
         $this->allowFreeShipping = $allowFreeShipping;

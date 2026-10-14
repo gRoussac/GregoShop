@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -172,7 +173,7 @@ class ProductLazyArrayTest extends TestCase
      */
     public function testQuantityInformations(
         array $product,
-        string $availabilityMessage
+        string $availabilityMessage,
     ): void {
         $language = $this->mockLanguage;
 
@@ -233,7 +234,7 @@ class ProductLazyArrayTest extends TestCase
      */
     public function testDeliveryInformation(
         array $product,
-        ?string $deliveryInformationMessage
+        ?string $deliveryInformationMessage,
     ): void {
         $language = $this->mockLanguage;
 
@@ -893,7 +894,7 @@ class ProductLazyArrayTest extends TestCase
     public function testFlagsOutOfStock(
         array $product,
         array $expected,
-        bool $configOrderOutOfStock
+        bool $configOrderOutOfStock,
     ): void {
         $language = $this->mockLanguage;
 
@@ -992,7 +993,7 @@ class ProductLazyArrayTest extends TestCase
     public function testFlagsPrice(
         array $product,
         array $expected,
-        bool $settingsCatalogMode
+        bool $settingsCatalogMode,
     ): void {
         $this->mockProductPresentationSettings
             ->method('shouldShowPrice')

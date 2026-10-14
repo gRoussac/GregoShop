@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -50,7 +51,7 @@ class TitleValidator extends AbstractObjectModelValidator
     private function validateTitleProperty(
         Gender $title,
         string $propertyName,
-        int $errorCode = 0
+        int $errorCode = 0,
     ): void {
         $this->validateObjectModelProperty(
             $title,

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -38,7 +39,7 @@ final class ManufacturerFormDataProvider implements FormDataProviderInterface
     public function __construct(
         CommandBusInterface $bus,
         $multistoreEnabled,
-        array $defaultShopAssociation
+        array $defaultShopAssociation,
     ) {
         $this->bus = $bus;
         $this->multistoreEnabled = $multistoreEnabled;

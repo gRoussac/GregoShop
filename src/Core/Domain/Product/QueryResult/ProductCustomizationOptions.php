@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -47,7 +48,7 @@ class ProductCustomizationOptions
      */
     public static function createAllowsCustomization(
         int $availableTextCustomizationsCount,
-        int $availableFileCustomizationsCount
+        int $availableFileCustomizationsCount,
     ): ProductCustomizationOptions {
         return new self(
             ProductCustomizabilitySettings::ALLOWS_CUSTOMIZATION,
@@ -64,7 +65,7 @@ class ProductCustomizationOptions
      */
     public static function createRequiresCustomization(
         int $availableTextCustomizationsCount,
-        int $availableFileCustomizationsCount
+        int $availableFileCustomizationsCount,
     ): ProductCustomizationOptions {
         return new self(
             ProductCustomizabilitySettings::REQUIRES_CUSTOMIZATION,

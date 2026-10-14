@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -34,7 +35,7 @@ final class EmployeeLanguageUpdater
     public function __construct(
         Connection $connection,
         string $dbPrefix,
-        int $langDefaultId
+        int $langDefaultId,
     ) {
         $this->connection = $connection;
         $this->dbPrefix = $dbPrefix;

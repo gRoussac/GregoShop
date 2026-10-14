@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -39,7 +40,7 @@ class SetProductShopsCommand
     public function __construct(
         int $productId,
         int $sourceShopId,
-        array $shopIds
+        array $shopIds,
     ) {
         $this->assertShopsNotEmpty($shopIds);
         $this->assertSourceShopExistsInShops($sourceShopId, $shopIds);

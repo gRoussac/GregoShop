@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -84,7 +85,7 @@ class EditAttachmentCommand
         string $pathName,
         string $mimeType,
         string $originalFileName,
-        int $fileSize
+        int $fileSize,
     ): EditAttachmentCommand {
         $this->pathName = $pathName;
         $this->mimeType = $mimeType;

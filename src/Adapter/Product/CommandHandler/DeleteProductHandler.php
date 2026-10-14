@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -25,7 +26,7 @@ class DeleteProductHandler implements DeleteProductHandlerInterface
     private $productDeleter;
 
     public function __construct(
-        ProductDeleter $productDeleter
+        ProductDeleter $productDeleter,
     ) {
         $this->productDeleter = $productDeleter;
     }

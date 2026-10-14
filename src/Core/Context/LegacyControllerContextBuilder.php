@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -130,9 +131,9 @@ class LegacyControllerContextBuilder
                 // Here, we use the controller's name to retrieve the object model's name, passing it in singular form.
                 if (preg_match('/Admin([a-zA-Z]+)/', $controllerName, $matches)) {
                     return Inflector::getInflector()->singularize($matches[1]);
-                } else {
-                    return null;
                 }
+
+                return null;
         }
     }
 
@@ -167,9 +168,9 @@ class LegacyControllerContextBuilder
     {
         if (in_array($controllerName, $this->controllersLockedToAllShopContext)) {
             return ShopConstraint::ALL_SHOPS;
-        } else {
-            return ShopConstraint::ALL_SHOPS | ShopConstraint::SHOP_GROUP | ShopConstraint::SHOP;
         }
+
+        return ShopConstraint::ALL_SHOPS | ShopConstraint::SHOP_GROUP | ShopConstraint::SHOP;
     }
 
     private function getCurrentIndex(): string

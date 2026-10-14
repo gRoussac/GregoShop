@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -469,9 +470,9 @@ class ToolsCore
     {
         if (Tools::usingSecureMode()) {
             return 'https://';
-        } else {
-            return 'http://';
         }
+
+        return 'http://';
     }
 
     /**
@@ -775,14 +776,13 @@ class ToolsCore
         $cookie->id_currency = (int) $currency->id;
         if ($currency->isAssociatedToShop()) {
             return $currency;
-        } else {
-            // Get currency from context
-            $currency = Shop::getEntityIds('currency', Context::getContext()->shop->id, true, true);
-            if (isset($currency[0]) && $currency[0]['id_currency']) {
-                $cookie->id_currency = $currency[0]['id_currency'];
+        }
+        // Get currency from context
+        $currency = Shop::getEntityIds('currency', Context::getContext()->shop->id, true, true);
+        if (isset($currency[0]) && $currency[0]['id_currency']) {
+            $cookie->id_currency = $currency[0]['id_currency'];
 
-                return Currency::getCurrencyInstance((int) $cookie->id_currency);
-            }
+            return Currency::getCurrencyInstance((int) $cookie->id_currency);
         }
 
         return $currency;
@@ -1241,9 +1241,9 @@ class ToolsCore
         }
         if ($page === true) {
             return Tools::hash($context->customer->id . $context->customer->passwd . $_SERVER['SCRIPT_NAME']);
-        } else {
-            return Tools::hash($context->customer->id . $context->customer->passwd . $page);
         }
+
+        return Tools::hash($context->customer->id . $context->customer->passwd . $page);
     }
 
     /**
@@ -1444,10 +1444,9 @@ class ToolsCore
                     $truncate .= Tools::substr($tag[3], 0, $left + $entities_length);
 
                     break;
-                } else {
-                    $truncate .= $tag[3];
-                    $total_length += $content_length;
                 }
+                $truncate .= $tag[3];
+                $total_length += $content_length;
 
                 if ($total_length >= $length) {
                     break;
@@ -1877,7 +1876,7 @@ class ToolsCore
         $url,
         $curl_timeout,
         $opts,
-        array $options = []
+        array $options = [],
     ) {
         if (!function_exists('curl_init')) {
             return false;
@@ -2083,7 +2082,7 @@ class ToolsCore
     private static function file_get_contents_fopen(
         $url,
         $use_include_path,
-        $stream_context
+        $stream_context,
     ) {
         $content = false;
 
@@ -2110,7 +2109,7 @@ class ToolsCore
         $use_include_path = false,
         $stream_context = null,
         $curl_timeout = 5,
-        $fallback = false
+        $fallback = false,
     ) {
         $is_local_file = !preg_match('/^https?:\/\//', $url);
         $require_fopen = false;
@@ -3348,9 +3347,9 @@ exit;
         closedir($dh);
         if (@chmod($path, $filemode)) {
             return true;
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     /**
@@ -3406,27 +3405,26 @@ exit;
     {
         if (is_numeric($value)) {
             return $value;
-        } else {
-            $value_length = strlen($value);
-            $qty = (int) substr($value, 0, $value_length - 1);
-            $unit = Tools::strtolower(substr($value, $value_length - 1));
-            switch ($unit) {
-                case 'k':
-                    $qty *= 1024;
-
-                    break;
-                case 'm':
-                    $qty *= 1048576;
-
-                    break;
-                case 'g':
-                    $qty *= 1073741824;
-
-                    break;
-            }
-
-            return $qty;
         }
+        $value_length = strlen($value);
+        $qty = (int) substr($value, 0, $value_length - 1);
+        $unit = Tools::strtolower(substr($value, $value_length - 1));
+        switch ($unit) {
+            case 'k':
+                $qty *= 1024;
+
+                break;
+            case 'm':
+                $qty *= 1048576;
+
+                break;
+            case 'g':
+                $qty *= 1073741824;
+
+                break;
+        }
+
+        return $qty;
     }
 
     /**

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -199,7 +200,7 @@ class CartController extends PrestaShopAdminController
         Request $request,
         int $cartId,
         #[Autowire(service: 'prestashop.core.kpi_row.factory.cart')] HookableKpiRowFactory $kpiRowFactory,
-        IniConfiguration $iniConfiguration
+        IniConfiguration $iniConfiguration,
     ) {
         try {
             $cartView = $this->dispatchQuery(new GetCartForViewing($cartId));
@@ -238,7 +239,7 @@ class CartController extends PrestaShopAdminController
     #[AdminSecurity("is_granted('read', request.get('_legacy_controller')) || is_granted('create', 'AdminOrders')")]
     public function getInfoAction(
         int $cartId,
-        IniConfiguration $iniConfiguration
+        IniConfiguration $iniConfiguration,
     ) {
         try {
             $cartInfo = $this->dispatchQuery(
@@ -265,7 +266,7 @@ class CartController extends PrestaShopAdminController
     #[AdminSecurity("is_granted('create', request.get('_legacy_controller')) || is_granted('create', 'AdminOrders')")]
     public function createAction(
         Request $request,
-        IniConfiguration $iniConfiguration
+        IniConfiguration $iniConfiguration,
     ): JsonResponse {
         try {
             $customerId = $request->request->getInt('customerId');
@@ -292,7 +293,7 @@ class CartController extends PrestaShopAdminController
     public function editAddressesAction(
         int $cartId,
         Request $request,
-        IniConfiguration $iniConfiguration
+        IniConfiguration $iniConfiguration,
     ): JsonResponse {
         $invoiceAddressId = $request->request->getInt('invoiceAddressId');
         $deliveryAddressId = $request->request->getInt('deliveryAddressId');
@@ -323,7 +324,7 @@ class CartController extends PrestaShopAdminController
     public function editCurrencyAction(
         int $cartId,
         Request $request,
-        IniConfiguration $iniConfiguration
+        IniConfiguration $iniConfiguration,
     ): JsonResponse {
         try {
             $this->dispatchCommand(new UpdateCartCurrencyCommand(
@@ -350,7 +351,7 @@ class CartController extends PrestaShopAdminController
     public function editLanguageAction(
         int $cartId,
         Request $request,
-        IniConfiguration $iniConfiguration
+        IniConfiguration $iniConfiguration,
     ): JsonResponse {
         try {
             $this->dispatchCommand(new UpdateCartLanguageCommand(
@@ -377,7 +378,7 @@ class CartController extends PrestaShopAdminController
     public function editCarrierAction(
         Request $request,
         int $cartId,
-        IniConfiguration $iniConfiguration
+        IniConfiguration $iniConfiguration,
     ): JsonResponse {
         try {
             $carrierId = (int) $request->request->get('carrierId');
@@ -405,7 +406,7 @@ class CartController extends PrestaShopAdminController
     public function updateDeliverySettingsAction(
         Request $request,
         int $cartId,
-        IniConfiguration $iniConfiguration
+        IniConfiguration $iniConfiguration,
     ): JsonResponse {
         $configuration = $this->getConfiguration();
         $recycledPackagingEnabled = (bool) $configuration->get('PS_RECYCLABLE_PACK');
@@ -441,7 +442,7 @@ class CartController extends PrestaShopAdminController
     public function addCartRuleAction(
         Request $request,
         int $cartId,
-        IniConfiguration $iniConfiguration
+        IniConfiguration $iniConfiguration,
     ): JsonResponse {
         $cartRuleId = $request->request->getInt('cartRuleId');
         try {
@@ -468,7 +469,7 @@ class CartController extends PrestaShopAdminController
     public function deleteCartRuleAction(
         int $cartId,
         int $cartRuleId,
-        IniConfiguration $iniConfiguration
+        IniConfiguration $iniConfiguration,
     ): JsonResponse {
         try {
             $this->dispatchCommand(new RemoveCartRuleFromCartCommand($cartId, $cartRuleId));
@@ -494,7 +495,7 @@ class CartController extends PrestaShopAdminController
     public function addProductAction(
         Request $request,
         int $cartId,
-        IniConfiguration $iniConfiguration
+        IniConfiguration $iniConfiguration,
     ): JsonResponse {
         $productId = $request->request->getInt('product_id');
         $quantity = $request->request->getInt('product_quantity');
@@ -540,7 +541,7 @@ class CartController extends PrestaShopAdminController
         Request $request,
         int $cartId,
         int $productId,
-        IniConfiguration $iniConfiguration
+        IniConfiguration $iniConfiguration,
     ): JsonResponse {
         try {
             $addSpecificPriceCommand = new UpdateProductPriceInCartCommand(
@@ -576,7 +577,7 @@ class CartController extends PrestaShopAdminController
         Request $request,
         int $cartId,
         int $productId,
-        IniConfiguration $iniConfiguration
+        IniConfiguration $iniConfiguration,
     ) {
         try {
             $newQty = $request->request->getInt('newQty');
@@ -617,7 +618,7 @@ class CartController extends PrestaShopAdminController
     public function deleteProductAction(
         Request $request,
         int $cartId,
-        IniConfiguration $iniConfiguration
+        IniConfiguration $iniConfiguration,
     ): JsonResponse {
         try {
             $productId = $request->request->getInt('productId');
@@ -685,7 +686,7 @@ class CartController extends PrestaShopAdminController
      */
     private function getErrorMessages(
         Exception $e,
-        IniConfiguration $iniConfig
+        IniConfiguration $iniConfig,
     ) {
         $minimalQuantity = $e instanceof MinimalQuantityException ? $e->getMinimalQuantity() : 0;
 

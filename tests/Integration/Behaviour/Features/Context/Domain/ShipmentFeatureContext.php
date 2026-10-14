@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -221,7 +222,7 @@ class ShipmentFeatureContext extends AbstractDomainFeatureContext
     public function assertAvailableShipmentsForProduct(
         string $orderReference,
         string $productReference,
-        TableNode $table
+        TableNode $table,
     ): void {
         $expected = [];
         foreach ($table->getColumnsHash() as $row) {
@@ -577,7 +578,7 @@ class ShipmentFeatureContext extends AbstractDomainFeatureContext
     public function assertProductIsLinkedToShipments(
         string $productName,
         string $orderReference,
-        TableNode $table
+        TableNode $table,
     ): void {
         $expectedShipments = $table->getColumnsHash();
         $orderId = $this->referenceToId($orderReference);

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -40,7 +41,7 @@ final class AddProductImageHandler implements AddProductImageHandlerInterface
     public function __construct(
         ProductImageUploader $productImageUploader,
         ProductImageRepository $productImageRepository,
-        ProductImageFileValidator $imageValidator
+        ProductImageFileValidator $imageValidator,
     ) {
         $this->productImageUploader = $productImageUploader;
         $this->imageValidator = $imageValidator;

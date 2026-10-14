@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -31,7 +32,7 @@ class ProductImageFileValidatorTest extends TestCase
     public function testItThrowsExceptionWhenFileSizeIsLargerThanMaxUploadSize(
         string $filePath,
         int $maxPhpIniUploadSize,
-        int $maxUploadQuotaSize
+        int $maxUploadQuotaSize,
     ) {
         $imageValidator = new ProductImageFileValidator($maxPhpIniUploadSize, $this->mockQuotaConfiguration($maxUploadQuotaSize));
 
@@ -50,7 +51,7 @@ class ProductImageFileValidatorTest extends TestCase
     public function testItValidatesImageFileSuccessfully(
         string $filePath,
         int $maxPhpIniUploadSize,
-        int $maxUploadQuotaSize
+        int $maxUploadQuotaSize,
     ): void {
         $imageValidator = new ProductImageFileValidator(
             $maxPhpIniUploadSize,

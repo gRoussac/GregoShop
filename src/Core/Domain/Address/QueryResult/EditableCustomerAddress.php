@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -152,7 +153,7 @@ class EditableCustomerAddress
         string $homePhone,
         string $mobilePhone,
         string $other,
-        array $requiredFields
+        array $requiredFields,
     ) {
         $this->addressId = $addressId;
         $this->customerId = $customerId;

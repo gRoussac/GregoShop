@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -55,7 +56,7 @@ class CombinationItemType extends TranslatorAwareType
         array $locales,
         Currency $defaultCurrency,
         FeatureInterface $multiStoreFeature,
-        int $contextShopId
+        int $contextShopId,
     ) {
         parent::__construct($translator, $locales);
         $this->defaultCurrency = $defaultCurrency;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -36,7 +37,7 @@ class ControllerResponseBuilder
      */
     public function __construct(
         GridFilterFormFactoryInterface $filterFormFactory,
-        Router $router
+        Router $router,
     ) {
         $this->filterFormFactory = $filterFormFactory;
         $this->router = $router;
@@ -54,7 +55,7 @@ class ControllerResponseBuilder
         GridDefinitionFactoryInterface $definitionFactory,
         Request $request,
         $redirectRoute,
-        array $queryParamsToKeep = []
+        array $queryParamsToKeep = [],
     ) {
         /** @var GridDefinitionInterface $definition */
         $definition = $definitionFactory->getDefinition();

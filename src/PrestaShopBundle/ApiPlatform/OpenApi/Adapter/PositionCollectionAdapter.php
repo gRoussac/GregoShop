@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -19,7 +20,7 @@ use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactoryInterface;
 class PositionCollectionAdapter implements OpenApiSchemaAdapterInterface
 {
     public function __construct(
-        protected readonly ClassMetadataFactoryInterface $classMetadataFactory
+        protected readonly ClassMetadataFactoryInterface $classMetadataFactory,
     ) {
     }
 
@@ -40,7 +41,7 @@ class PositionCollectionAdapter implements OpenApiSchemaAdapterInterface
             $property = $resourceReflectionClass->getProperty($propertyName);
             foreach ($property->getAttributes() as $attribute) {
                 if ($attribute->getName() === PositionCollection::class || is_subclass_of($attribute->getName(), PositionCollection::class)) {
-                    if (!($propertySchema instanceof ArrayObject)) {
+                    if (!$propertySchema instanceof ArrayObject) {
                         $definition['properties'][$propertyName] = new ArrayObject();
                     }
                     unset($definition['properties'][$propertyName]['type']);

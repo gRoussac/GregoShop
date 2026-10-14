@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -82,9 +83,9 @@ class HelperCore
 
         if (isset($override_tpl_path) && file_exists($override_tpl_path)) {
             return $this->context->smarty->createTemplate($override_tpl_path, $this->context->smarty);
-        } else {
-            return $this->context->smarty->createTemplate($this->base_folder . $tpl_name, $this->context->smarty);
         }
+
+        return $this->context->smarty->createTemplate($this->base_folder . $tpl_name, $this->context->smarty);
     }
 
     /**
@@ -122,7 +123,7 @@ class HelperCore
         $input_name = 'categoryBox',
         $use_radio = false,
         $use_search = false,
-        $disabled_categories = []
+        $disabled_categories = [],
     ) {
         $translator = Context::getContext()->getTranslator();
 

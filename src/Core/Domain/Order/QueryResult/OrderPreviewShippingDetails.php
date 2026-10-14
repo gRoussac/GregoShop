@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -132,7 +133,7 @@ class OrderPreviewShippingDetails
         ?string $carrierName,
         ?string $trackingNumber,
         ?string $dni = null,
-        ?string $trackingUrl = null
+        ?string $trackingUrl = null,
     ) {
         $this->firstName = $firstName;
         $this->lastName = $lastName;

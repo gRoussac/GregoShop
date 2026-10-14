@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -114,16 +115,14 @@ class HookParserVisitor extends NodeVisitorAbstract
             return $prettyPrinter->prettyPrintExpr($expr);
         } elseif ($expr instanceof Node\Expr\Variable) {
             return '$' . $expr->name;
-        } else {
-            $prettyPrinter = new Standard();
-            if ($expr instanceof Node\Stmt\Expression) {
-                return $prettyPrinter->prettyPrint([$expr->expr]);
-            } elseif ($expr instanceof Node\Expr) {
-                return $prettyPrinter->prettyPrint([$expr]);
-            } else {
-                throw new InvalidArgumentException('Unsupported node type.');
-            }
         }
+        $prettyPrinter = new Standard();
+        if ($expr instanceof Node\Stmt\Expression) {
+            return $prettyPrinter->prettyPrint([$expr->expr]);
+        } elseif ($expr instanceof Node\Expr) {
+            return $prettyPrinter->prettyPrint([$expr]);
+        }
+        throw new InvalidArgumentException('Unsupported node type.');
     }
 
     /**
@@ -317,17 +316,15 @@ class HookParserVisitor extends NodeVisitorAbstract
 
         if ($startPos !== null && $endPos !== null) {
             return substr($this->code, $startPos, $endPos - $startPos + 1);
-        } else {
-            // Fallback to pretty printer if positions are not available
-            $prettyPrinter = new Standard();
-
-            if ($node instanceof Node\Stmt\Expression) {
-                return $prettyPrinter->prettyPrint([$node->expr]);
-            } elseif ($node instanceof Node\Expr) {
-                return $prettyPrinter->prettyPrint([$node]);
-            } else {
-                throw new InvalidArgumentException('Unsupported node type.');
-            }
         }
+        // Fallback to pretty printer if positions are not available
+        $prettyPrinter = new Standard();
+
+        if ($node instanceof Node\Stmt\Expression) {
+            return $prettyPrinter->prettyPrint([$node->expr]);
+        } elseif ($node instanceof Node\Expr) {
+            return $prettyPrinter->prettyPrint([$node]);
+        }
+        throw new InvalidArgumentException('Unsupported node type.');
     }
 }

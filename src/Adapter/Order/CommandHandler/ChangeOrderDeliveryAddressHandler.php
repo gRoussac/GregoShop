@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -59,7 +60,7 @@ final class ChangeOrderDeliveryAddressHandler extends AbstractOrderCommandHandle
         OrderAmountUpdater $orderAmountUpdater,
         OrderDetailUpdater $orderDetailTaxUpdater,
         ContextStateManager $contextStateManager,
-        OrderProductQuantityUpdater $orderProductQuantityUpdater
+        OrderProductQuantityUpdater $orderProductQuantityUpdater,
     ) {
         $this->orderAmountUpdater = $orderAmountUpdater;
         $this->orderDetailTaxUpdater = $orderDetailTaxUpdater;
@@ -112,7 +113,7 @@ final class ChangeOrderDeliveryAddressHandler extends AbstractOrderCommandHandle
     private function synchronizeOrderWithCart(
         Order $order,
         Cart $cart,
-        CartProductsComparator $productsComparator
+        CartProductsComparator $productsComparator,
     ): void {
         $modified = $productsComparator->getModifiedProducts();
         foreach ($modified as $productUpdate) {

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -74,7 +75,7 @@ class AttributeGroupController extends PrestaShopAdminController
         #[Autowire(service: 'PrestaShop\PrestaShop\Core\Form\IdentifiableObject\Builder\AttributeGroupFormBuilder')]
         FormBuilderInterface $attributeGroupFormBuilder,
         #[Autowire(service: 'PrestaShop\PrestaShop\Core\Form\IdentifiableObject\Handler\AttributeGroupFormHandler')]
-        FormHandlerInterface $attributeFormHandler
+        FormHandlerInterface $attributeFormHandler,
     ): Response {
         $attributeGroupForm = $attributeGroupFormBuilder->getForm();
         $attributeGroupForm->handleRequest($request);
@@ -156,7 +157,7 @@ class AttributeGroupController extends PrestaShopAdminController
     public function exportAction(
         AttributeGroupFilters $filters,
         #[Autowire(service: 'prestashop.core.grid.factory.attribute_group')]
-        GridFactoryInterface $attributeGroupGridFactory
+        GridFactoryInterface $attributeGroupGridFactory,
     ): CsvResponse {
         $filters = new AttributeGroupFilters(['limit' => null] + $filters->all());
         $attributeGroupGrid = $attributeGroupGridFactory->getGrid($filters);
@@ -194,7 +195,7 @@ class AttributeGroupController extends PrestaShopAdminController
     public function updatePositionAction(
         Request $request,
         #[Autowire(service: 'prestashop.core.grid.attribute_group.position_definition')]
-        PositionDefinition $positionDefinition
+        PositionDefinition $positionDefinition,
     ): RedirectResponse {
         $positionsData = [
             'positions' => $request->request->all('positions'),

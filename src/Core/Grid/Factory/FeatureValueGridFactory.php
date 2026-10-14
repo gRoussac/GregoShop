@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -55,7 +56,7 @@ class FeatureValueGridFactory extends GridFactory
         GridFilterFormFactoryInterface $filterFormFactory,
         HookDispatcherInterface $hookDispatcher,
         protected readonly FeatureRepository $featureRepository,
-        protected readonly TranslatorInterface $translator
+        protected readonly TranslatorInterface $translator,
     ) {
         parent::__construct($definitionFactory, $dataFactory, $filterFormFactory, $hookDispatcher);
     }

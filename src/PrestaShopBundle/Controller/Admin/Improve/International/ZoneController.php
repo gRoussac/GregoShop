@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -53,7 +54,7 @@ class ZoneController extends PrestaShopAdminController
         Request $request,
         ZoneFilters $zoneFilters,
         #[Autowire(service: 'prestashop.core.grid.factory.zone')]
-        GridFactoryInterface $zoneGridFactory
+        GridFactoryInterface $zoneGridFactory,
     ): Response {
         $zoneGrid = $zoneGridFactory->getGrid($zoneFilters);
 
@@ -76,7 +77,7 @@ class ZoneController extends PrestaShopAdminController
     public function searchAction(
         Request $request,
         #[Autowire(service: 'prestashop.core.grid.definition.factory.zone')]
-        GridDefinitionFactoryInterface $zoneGridDefinitionFactory
+        GridDefinitionFactoryInterface $zoneGridDefinitionFactory,
     ): RedirectResponse {
         return $this->buildSearchResponse(
             $zoneGridDefinitionFactory,
@@ -99,7 +100,7 @@ class ZoneController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.zone_form_builder')]
         FormBuilderInterface $zoneFormBuilder,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.handler.zone_form_handler')]
-        FormHandlerInterface $zoneFormHandler
+        FormHandlerInterface $zoneFormHandler,
     ): Response {
         $zoneForm = $zoneFormBuilder->getForm();
         $zoneForm->handleRequest($request);
@@ -139,7 +140,7 @@ class ZoneController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.zone_form_builder')]
         FormBuilderInterface $formBuilder,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.handler.zone_form_handler')]
-        FormHandlerInterface $formHandler
+        FormHandlerInterface $formHandler,
     ): Response {
         try {
             /** @var EditableZone $editableZone */

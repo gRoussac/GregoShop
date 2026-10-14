@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -38,7 +39,7 @@ final class HookDescriptionGenerator implements HookDescriptionGeneratorInterfac
     public function __construct(
         array $hookDescriptions,
         StringValidatorInterface $stringValidator,
-        StringModifierInterface $stringModifier
+        StringModifierInterface $stringModifier,
     ) {
         $this->hookDescriptions = $hookDescriptions;
         $this->stringValidator = $stringValidator;

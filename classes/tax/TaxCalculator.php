@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -44,7 +45,7 @@ class TaxCalculatorCore
     {
         // sanity check
         foreach ($taxes as $tax) {
-            if (!($tax instanceof Tax)) {
+            if (!$tax instanceof Tax) {
                 throw new Exception('Invalid Tax Object');
             }
         }

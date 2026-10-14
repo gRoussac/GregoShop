@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -52,7 +53,7 @@ class EditableAttributeGroup
         array $name,
         array $publicName,
         string $type,
-        array $associatedShopIds
+        array $associatedShopIds,
     ) {
         $this->attributeGroupId = new AttributeGroupId($attributeGroupId);
         $this->name = $name;

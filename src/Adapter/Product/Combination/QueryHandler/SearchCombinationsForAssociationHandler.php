@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -54,7 +55,7 @@ class SearchCombinationsForAssociationHandler implements SearchCombinationsForAs
         ProductRepository $productRepository,
         AttributeRepository $attributeRepository,
         ProductImagePathFactory $productImagePathFactory,
-        CombinationNameBuilderInterface $combinationNameBuilder
+        CombinationNameBuilderInterface $combinationNameBuilder,
     ) {
         $this->productRepository = $productRepository;
         $this->productImagePathFactory = $productImagePathFactory;

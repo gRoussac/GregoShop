@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -20,7 +21,7 @@ class UpdateCombinationStockFeatureContext extends AbstractCombinationFeatureCon
      */
     public function updateStockForDefaultShop(
         string $combinationReference,
-        TableNode $tableNode
+        TableNode $tableNode,
     ): void {
         $this->updateStockAvailable(
             $combinationReference,
@@ -35,7 +36,7 @@ class UpdateCombinationStockFeatureContext extends AbstractCombinationFeatureCon
     public function updateStockForShop(
         string $combinationReference,
         string $shopReference,
-        TableNode $tableNode
+        TableNode $tableNode,
     ): void {
         $this->updateStockAvailable(
             $combinationReference,
@@ -50,7 +51,7 @@ class UpdateCombinationStockFeatureContext extends AbstractCombinationFeatureCon
     public function updateStockForShopCollection(
         string $combinationReference,
         string $shopReferences,
-        TableNode $tableNode
+        TableNode $tableNode,
     ): void {
         $this->updateStockAvailable(
             $combinationReference,
@@ -64,7 +65,7 @@ class UpdateCombinationStockFeatureContext extends AbstractCombinationFeatureCon
      */
     public function updateStockForAllShops(
         string $combinationReference,
-        TableNode $tableNode
+        TableNode $tableNode,
     ): void {
         $this->updateStockAvailable(
             $combinationReference,

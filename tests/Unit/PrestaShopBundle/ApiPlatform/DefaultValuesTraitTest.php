@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -92,7 +93,7 @@ class DefaultValuesTraitTest extends TestCase
 
     private function applyDefaultValues(mixed $input, ?Operation $operation): mixed
     {
-        $applier = new class() {
+        $applier = new class {
             use DefaultValuesTrait;
 
             public function apply(mixed $input, ?Operation $operation): mixed

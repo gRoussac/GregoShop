@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -38,7 +39,7 @@ class FeatureFlagCommand extends Command
 
     public function __construct(
         private readonly FeatureFlagRepository $featureFlagRepository,
-        private readonly FeatureFlagManager $featureFlagManager
+        private readonly FeatureFlagManager $featureFlagManager,
     ) {
         parent::__construct();
     }
@@ -66,9 +67,9 @@ class FeatureFlagCommand extends Command
 
         if ($action === 'list') {
             return $this->listFeatureFlags($output);
-        } else {
-            return $this->toggleFeatureFlag('enable' === $action, $input, $output);
         }
+
+        return $this->toggleFeatureFlag('enable' === $action, $input, $output);
     }
 
     private function listFeatureFlags(OutputInterface $output): int

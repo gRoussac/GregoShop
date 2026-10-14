@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -48,10 +49,10 @@ class UpdateProductInOrderCommand
     private $orderInvoiceId;
 
     /**
-     * @var null|array<int, array{
+     * @var array<int, array{
      *     shipment_id: int,
      *     quantity: int
-     * }>
+     * }>|null
      */
     private ?array $shipmentsQuantities;
 
@@ -62,10 +63,10 @@ class UpdateProductInOrderCommand
      * @param string $priceTaxExcluded
      * @param int $quantity
      * @param int|null $orderInvoiceId
-     * @param null|array<int, array{
+     * @param array<int, array{
      *     shipment_id: int,
      *     quantity: int
-     * }> $shipmentsQuantities
+     * }>|null $shipmentsQuantities
      */
     public function __construct(
         int $orderId,
@@ -74,7 +75,7 @@ class UpdateProductInOrderCommand
         string $priceTaxExcluded,
         int $quantity,
         ?int $orderInvoiceId = null,
-        ?array $shipmentsQuantities = null
+        ?array $shipmentsQuantities = null,
     ) {
         $this->orderId = new OrderId($orderId);
         $this->orderDetailId = $orderDetailId;
@@ -151,10 +152,10 @@ class UpdateProductInOrderCommand
     }
 
     /**
-     * @param null|array<int, array{
+     * @param array<int, array{
      *     shipment_id: int,
      *     quantity: int
-     * }> $shipmentsQuantities
+     * }>|null $shipmentsQuantities
      *
      * @throws InvalidProductQuantityException
      */
@@ -184,10 +185,10 @@ class UpdateProductInOrderCommand
     }
 
     /**
-     * @return null|array<int, array{
+     * @return array<int, array{
      *     shipment_id: int,
      *     quantity: int
-     * }>
+     * }>|null
      */
     public function getShipmentsQuantities()
     {

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -166,7 +167,7 @@ class GetCombinationIdsFeatureContext extends AbstractCombinationFeatureContext
         string $productReference,
         array $dataRows,
         int $shopId,
-        bool $wholeList = false
+        bool $wholeList = false,
     ): void {
         $searchCriteriaKey = $this->getSearchCriteriaKey($productReference, $shopId);
         if ($wholeList) {

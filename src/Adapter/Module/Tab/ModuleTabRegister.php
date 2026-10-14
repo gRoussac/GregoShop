@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -82,7 +83,7 @@ class ModuleTabRegister
         TranslatorInterface $translator,
         Filesystem $filesystem,
         array $languages,
-        Loader $routingConfigLoader
+        Loader $routingConfigLoader,
     ) {
         $this->langRepository = $langRepository;
         $this->tabRepository = $tabRepository;

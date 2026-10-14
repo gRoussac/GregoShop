@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -41,7 +42,7 @@ class ImportDataConfigurationType extends TranslatorAwareType
         TranslatorInterface $translator,
         array $locales,
         array $dataMatchChoices,
-        array $entityFieldChoices
+        array $entityFieldChoices,
     ) {
         parent::__construct($translator, $locales);
 

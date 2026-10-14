@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -49,7 +50,7 @@ final class CountryByIdChoiceProvider implements FormChoiceProviderInterface, Fo
         $langId,
         CountryDataProvider $countryDataProvider,
         private string $psImageDir,
-        private string $psImageBaseUrl
+        private string $psImageBaseUrl,
     ) {
         $this->langId = $langId;
         $this->countryDataProvider = $countryDataProvider;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -45,7 +46,7 @@ class CartView
         $currencyId,
         array $customerInformation,
         array $orderInformation,
-        array $cartSummary
+        array $cartSummary,
     ) {
         $this->customerInformation = $customerInformation;
         $this->orderInformation = $orderInformation;

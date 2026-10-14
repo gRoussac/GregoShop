@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -13,7 +14,7 @@ class ProviderDefinitionFactory
 {
     public function build(
         string $type,
-        ?string $selectedValue = null
+        ?string $selectedValue = null,
     ): ProviderDefinitionInterface {
         switch ($type) {
             case ProviderDefinitionInterface::TYPE_MODULES:

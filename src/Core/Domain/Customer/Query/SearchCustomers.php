@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -38,7 +39,7 @@ class SearchCustomers
     public function __construct(
         array $phrases,
         ?ShopConstraint $shopConstraint = null,
-        bool $excludeGuests = false
+        bool $excludeGuests = false,
     ) {
         $this->assertPhrasesAreNotEmpty($phrases);
         $this->assertShopConstraintIsSupported($shopConstraint);

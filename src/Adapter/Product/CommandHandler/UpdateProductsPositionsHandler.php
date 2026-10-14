@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -43,7 +44,7 @@ class UpdateProductsPositionsHandler implements UpdateProductsPositionsHandlerIn
     public function __construct(
         PositionDefinition $positionDefinition,
         PositionUpdateFactoryInterface $positionUpdateFactory,
-        GridPositionUpdaterInterface $positionUpdater
+        GridPositionUpdaterInterface $positionUpdater,
     ) {
         $this->positionDefinition = $positionDefinition;
         $this->positionUpdateFactory = $positionUpdateFactory;

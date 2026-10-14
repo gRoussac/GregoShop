@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -25,6 +26,6 @@ interface ImporterInterface
     public function import(
         ImportConfigInterface $importConfig,
         ImportRuntimeConfigInterface $runtimeConfig,
-        ImportHandlerInterface $importHandler
+        ImportHandlerInterface $importHandler,
     );
 }

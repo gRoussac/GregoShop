@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -201,9 +202,9 @@ class SupplierControllerCore extends ProductListingFrontController
     {
         if (Validate::isLoadedObject($this->supplier) && $this->supplier->active && $this->supplier->isAssociatedToShop()) {
             return $this->trans('List of products by supplier %supplier_name%', ['%supplier_name%' => $this->supplier->name], 'Shop.Theme.Catalog');
-        } else {
-            return $this->trans('List of all suppliers', [], 'Shop.Theme.Catalog');
         }
+
+        return $this->trans('List of all suppliers', [], 'Shop.Theme.Catalog');
     }
 
     public function getBreadcrumbLinks(): array

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -61,7 +62,7 @@ class TokenAuthenticatorTest extends TestCase
             $key,
             static fn (
                 Builder $builder,
-                DateTimeImmutable $issuedAt
+                DateTimeImmutable $issuedAt,
             ): Builder => $builder
                 ->issuedBy('https://api.my-awesome-app.io')
                 ->permittedFor('https://client-app.io')

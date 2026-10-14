@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -31,7 +32,7 @@ class CommandBuilderTest extends TestCase
     public function testBuildSingleCommand(
         CommandBuilderConfig $config,
         array $data,
-        array $expectedCommands
+        array $expectedCommands,
     ): void {
         $builder = new CommandBuilder($config);
         $commands = $builder->buildCommands(
@@ -245,7 +246,7 @@ class CommandBuilderTest extends TestCase
     public function testBuildMultiShopCommands(
         CommandBuilderConfig $config,
         array $data,
-        array $expectedCommands
+        array $expectedCommands,
     ): void {
         $builder = new CommandBuilder($config);
         $commands = $builder->buildCommands(

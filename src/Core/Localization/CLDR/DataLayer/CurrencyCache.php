@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -71,7 +72,7 @@ final class CurrencyCache extends AbstractDataLayer implements CurrencyDataLayer
      */
     public function write($id, $data)
     {
-        if (!($data instanceof CurrencyData)) {
+        if (!$data instanceof CurrencyData) {
             throw new LocalizationException('$data must be an instance of ' . CurrencyData::class);
         }
 

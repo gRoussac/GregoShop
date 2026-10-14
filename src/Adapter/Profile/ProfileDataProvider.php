@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -30,7 +31,7 @@ class ProfileDataProvider
      */
     public function __construct(
         ContextEmployeeProviderInterface $contextEmployeeProvider,
-        $superAdminProfileId
+        $superAdminProfileId,
     ) {
         $this->contextEmployeeProvider = $contextEmployeeProvider;
         $this->superAdminProfileId = $superAdminProfileId;

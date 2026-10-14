@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -19,7 +20,7 @@ class DeliveryOptionsFinderCore implements DeliveryOptionsInterface
         Context $context,
         TranslatorInterface $translator,
         ObjectPresenter $objectPresenter,
-        PriceFormatter $priceFormatter
+        PriceFormatter $priceFormatter,
     ) {
         $this->context = $context;
         $this->objectPresenter = $objectPresenter;

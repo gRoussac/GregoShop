@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -70,7 +71,7 @@ class ConfigurablePermissions
         array $bulkConfiguration,
         array $permissions,
         int $employeeProfileId,
-        bool $hasEmployeeEditPermission
+        bool $hasEmployeeEditPermission,
     ) {
         $this->profilePermissionsForTabs = $profilePermissionsForTabs;
         $this->profiles = $profiles;

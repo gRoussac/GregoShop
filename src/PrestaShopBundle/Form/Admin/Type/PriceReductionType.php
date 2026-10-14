@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -42,7 +43,7 @@ class PriceReductionType extends TranslatorAwareType
         array $locales,
         EventSubscriberInterface $eventSubscriber,
         ReductionTypeChoiceProvider $reductionTypeChoiceProvider,
-        CurrencyDataProviderInterface $currencyDataProvider
+        CurrencyDataProviderInterface $currencyDataProvider,
     ) {
         parent::__construct($translator, $locales);
         $this->eventSubscriber = $eventSubscriber;

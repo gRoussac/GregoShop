@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -18,7 +19,7 @@ class BulkQuickAccessException extends QuickAccessException implements BulkComma
         private readonly array $exceptions,
         string $message = 'Errors occurred during Quick Access bulk action',
         int $code = 0,
-        ?Throwable $previous = null
+        ?Throwable $previous = null,
     ) {
         parent::__construct($message, $code, $previous);
     }

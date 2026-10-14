@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -81,7 +82,7 @@ class AddCmsPageCommand
         array $localizedContent,
         $indexedForSearch,
         $displayed,
-        array $shopAssociation
+        array $shopAssociation,
     ) {
         $this->cmsPageCategoryId = new CmsPageCategoryId($cmsPageCategoryId);
         $this->localizedTitle = $localizedTitle;

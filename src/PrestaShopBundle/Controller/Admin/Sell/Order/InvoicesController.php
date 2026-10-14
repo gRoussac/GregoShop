@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -57,7 +58,7 @@ class InvoicesController extends PrestaShopAdminController
     #[AdminSecurity("is_granted('read', request.get('_legacy_controller'))", message: 'Access denied.')]
     public function generatePdfByDateAction(
         Request $request,
-        #[Autowire(service: 'prestashop.admin.order.invoices.by_date.form_handler')] FormHandlerInterface $formHandler
+        #[Autowire(service: 'prestashop.admin.order.invoices.by_date.form_handler')] FormHandlerInterface $formHandler,
     ) {
         $this->processForm($formHandler, $request);
 
@@ -74,7 +75,7 @@ class InvoicesController extends PrestaShopAdminController
     #[AdminSecurity("is_granted('read', request.get('_legacy_controller'))", message: 'Access denied.')]
     public function generatePdfByStatusAction(
         Request $request,
-        #[Autowire(service: 'prestashop.admin.order.invoices.by_status.form_handler')] FormHandlerInterface $formHandler
+        #[Autowire(service: 'prestashop.admin.order.invoices.by_status.form_handler')] FormHandlerInterface $formHandler,
     ) {
         $this->processForm($formHandler, $request);
 
@@ -132,7 +133,7 @@ class InvoicesController extends PrestaShopAdminController
     #[AdminSecurity("is_granted('read', request.get('_legacy_controller'))", message: 'Access denied.')]
     public function generatePdfByIdAction(
         int $invoiceId,
-        #[Autowire(service: 'prestashop.adapter.pdf.generator.single_invoice')] InvoicePdfGenerator $invoicePdfGenerator
+        #[Autowire(service: 'prestashop.adapter.pdf.generator.single_invoice')] InvoicePdfGenerator $invoicePdfGenerator,
     ): Response {
         $generatedPdf = $invoicePdfGenerator->generatePDFForResponse([$invoiceId]);
 

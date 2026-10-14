@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -52,7 +53,7 @@ class WebserviceKeyType extends TranslatorAwareType
         array $locales,
         $isMultistoreFeatureUsed,
         array $resourceChoices,
-        array $permissionChoices
+        array $permissionChoices,
     ) {
         parent::__construct($translator, $locales);
         $this->isMultistoreFeatureUsed = $isMultistoreFeatureUsed;

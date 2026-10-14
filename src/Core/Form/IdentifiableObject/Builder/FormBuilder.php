@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -71,7 +72,7 @@ final class FormBuilder implements FormBuilderInterface
         string $formType,
         FormRegistryInterface $registry,
         ?FormOptionsProviderInterface $optionsProvider = null,
-        ?ExtraPropertiesFormBuilderModifier $extraPropertiesFormBuilderModifier = null
+        ?ExtraPropertiesFormBuilderModifier $extraPropertiesFormBuilderModifier = null,
     ) {
         $this->formFactory = $formFactory;
         $this->hookDispatcher = $hookDispatcher;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -273,7 +274,7 @@ class OrderForViewing
         string $note = '',
         string $paymentName = '',
         string $paymentModule = '',
-        int $cartId = 0
+        int $cartId = 0,
     ) {
         $this->reference = $reference;
         $this->customer = $customer;

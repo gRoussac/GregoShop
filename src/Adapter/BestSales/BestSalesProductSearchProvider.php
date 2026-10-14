@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -28,7 +29,7 @@ class BestSalesProductSearchProvider implements ProductSearchProviderInterface
     private $sortOrdersCollection;
 
     public function __construct(
-        TranslatorInterface $translator
+        TranslatorInterface $translator,
     ) {
         $this->translator = $translator;
         $this->sortOrdersCollection = new SortOrdersCollection($this->translator);
@@ -42,7 +43,7 @@ class BestSalesProductSearchProvider implements ProductSearchProviderInterface
      */
     public function runQuery(
         ProductSearchContext $context,
-        ProductSearchQuery $query
+        ProductSearchQuery $query,
     ) {
         // If provided sort order is unsupported random, we set a fallback
         if ($query->getSortOrder()->isRandom()) {

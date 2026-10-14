@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -38,7 +39,7 @@ class SupplierProductSearchProvider implements ProductSearchProviderInterface
 
     public function __construct(
         TranslatorInterface $translator,
-        Supplier $supplier
+        Supplier $supplier,
     ) {
         $this->translator = $translator;
         $this->supplier = $supplier;
@@ -55,7 +56,7 @@ class SupplierProductSearchProvider implements ProductSearchProviderInterface
     private function getProductsOrCount(
         ProductSearchContext $context,
         ProductSearchQuery $query,
-        $type = 'products'
+        $type = 'products',
     ) {
         $isTypeProducts = $type === 'products';
 
@@ -77,7 +78,7 @@ class SupplierProductSearchProvider implements ProductSearchProviderInterface
      */
     public function runQuery(
         ProductSearchContext $context,
-        ProductSearchQuery $query
+        ProductSearchQuery $query,
     ) {
         $products = $this->getProductsOrCount($context, $query, 'products');
         $count = $this->getProductsOrCount($context, $query, 'count');

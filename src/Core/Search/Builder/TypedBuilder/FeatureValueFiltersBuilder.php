@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -19,7 +20,7 @@ class FeatureValueFiltersBuilder extends AbstractFiltersBuilder implements Typed
     private Request $request;
 
     public function __construct(
-        protected readonly ContextLanguageProviderInterface $contextLanguageProvider
+        protected readonly ContextLanguageProviderInterface $contextLanguageProvider,
     ) {
     }
 

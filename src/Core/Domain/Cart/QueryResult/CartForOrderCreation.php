@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -82,7 +83,7 @@ class CartForOrderCreation
         array $addresses,
         CartSummary $summary,
         ?CartShipping $shipping = null,
-        int $customerId = 0
+        int $customerId = 0,
     ) {
         $this->cartId = $cartId;
         $this->customerId = $customerId;

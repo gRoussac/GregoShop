@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -38,7 +39,7 @@ final class ProductLightQueryBuilder extends AbstractDoctrineQueryBuilder
         string $dbPrefix,
         DoctrineSearchCriteriaApplicatorInterface $searchCriteriaApplicator,
         Configuration $configuration,
-        ProductQueryBuilder $productQueryBuilder
+        ProductQueryBuilder $productQueryBuilder,
     ) {
         parent::__construct($connection, $dbPrefix);
         $this->searchCriteriaApplicator = $searchCriteriaApplicator;

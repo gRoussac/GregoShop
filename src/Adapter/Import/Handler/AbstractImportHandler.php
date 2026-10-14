@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -187,7 +188,7 @@ abstract class AbstractImportHandler implements ImportHandlerInterface
         Database $legacyDatabase,
         CacheClearerInterface $cacheClearer,
         Configuration $configuration,
-        Validate $validate
+        Validate $validate,
     ) {
         $this->dataFormatter = $dataFormatter;
         $this->contextShopIds = $contextShopIds;
@@ -265,7 +266,7 @@ abstract class AbstractImportHandler implements ImportHandlerInterface
     public function importRow(
         ImportConfigInterface $importConfig,
         ImportRuntimeConfigInterface $runtimeConfig,
-        DataRowInterface $dataRow
+        DataRowInterface $dataRow,
     ) {
         if ($dataRow->isEmpty()) {
             $this->warning(
@@ -430,7 +431,7 @@ abstract class AbstractImportHandler implements ImportHandlerInterface
         ObjectModel $entity,
         array $entityFields,
         DataRowInterface $dataRow,
-        $languageId
+        $languageId,
     ) {
         foreach ($entityFields as $field) {
             $value = $this->fetchDataValueByKey($dataRow, $entityFields, $field);

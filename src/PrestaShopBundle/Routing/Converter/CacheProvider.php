@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -36,7 +37,7 @@ class CacheProvider extends AbstractLegacyRouteProvider implements CacheCleanerI
     public function __construct(
         LegacyRouteProviderInterface $legacyRouteProvider,
         CacheItemPoolInterface $cache,
-        CacheKeyGeneratorInterface $cacheKeyGenerator
+        CacheKeyGeneratorInterface $cacheKeyGenerator,
     ) {
         $this->legacyRouteProvider = $legacyRouteProvider;
         $this->cache = $cache;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -1173,9 +1174,9 @@ class AdminControllerCore extends Controller
             $this->object = $this->loadObject();
 
             return $this->processUpdate();
-        } else {
-            return $this->processAdd();
         }
+
+        return $this->processAdd();
     }
 
     /**
@@ -1763,11 +1764,10 @@ class AdminControllerCore extends Controller
             }
 
             return $this->object;
-        } else {
-            $this->errors[] = $this->trans('The object cannot be loaded (the identifier is missing or invalid)', [], 'Admin.Notifications.Error');
-
-            return false;
         }
+        $this->errors[] = $this->trans('The object cannot be loaded (the identifier is missing or invalid)', [], 'Admin.Notifications.Error');
+
+        return false;
     }
 
     /**
@@ -3095,7 +3095,7 @@ class AdminControllerCore extends Controller
         $order_way = null,
         $start = 0,
         $limit = null,
-        $id_lang_shop = false
+        $id_lang_shop = false,
     ) {
         Hook::exec('action' . $this->controller_name . 'ListingFieldsModifier', [
             'select' => &$this->_select,
@@ -3997,9 +3997,9 @@ class AdminControllerCore extends Controller
 
         if (isset($result)) {
             return $result;
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     protected function ajaxProcessOpenHelp()
@@ -4279,9 +4279,9 @@ class AdminControllerCore extends Controller
             )
         ) {
             return Permission::LEVEL_READ;
-        } else {
-            return 0;
         }
+
+        return 0;
     }
 
     /**

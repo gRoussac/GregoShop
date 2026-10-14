@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -26,7 +27,7 @@ class BulkUninstallModuleCommand
      */
     public function __construct(
         array $modules,
-        private readonly bool $deleteFiles = false
+        private readonly bool $deleteFiles = false,
     ) {
         $this->modules = array_map(fn (string $technicalName) => new ModuleTechnicalName($technicalName), $modules);
     }

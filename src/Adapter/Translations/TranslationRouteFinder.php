@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -71,7 +72,7 @@ class TranslationRouteFinder
         TranslationService $translationService,
         Link $link,
         ModuleRepositoryInterface $moduleRepository,
-        FeatureFlagStateCheckerInterface $featureFlagStateChecker
+        FeatureFlagStateCheckerInterface $featureFlagStateChecker,
     ) {
         $this->translationService = $translationService;
         $this->link = $link;
@@ -202,7 +203,7 @@ class TranslationRouteFinder
     {
         $module = $this->moduleRepository->getModule($moduleName);
 
-        if (!($module->getInstance() instanceof Module)) {
+        if (!$module->getInstance() instanceof Module) {
             throw new InvalidModuleException($moduleName);
         }
 

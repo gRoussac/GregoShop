@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -78,7 +79,7 @@ class OrderAmountUpdater
         ShopConfigurationInterface $shopConfiguration,
         ContextStateManager $contextStateManager,
         OrderDetailUpdater $orderDetailUpdater,
-        OrderProductRemover $orderProductRemover
+        OrderProductRemover $orderProductRemover,
     ) {
         $this->shopConfiguration = $shopConfiguration;
         $this->contextStateManager = $contextStateManager;
@@ -98,7 +99,7 @@ class OrderAmountUpdater
     public function update(
         Order $order,
         Cart $cart,
-        ?int $orderInvoiceId = null
+        ?int $orderInvoiceId = null,
     ): void {
         $this->cleanCaches();
 
@@ -410,7 +411,7 @@ class OrderAmountUpdater
         Order $order,
         Cart $cart,
         int $computingPrecision,
-        ?int $orderInvoiceId
+        ?int $orderInvoiceId,
     ): void {
         /*
          * We need to run automatic cart rule actions.

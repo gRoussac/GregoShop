@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -68,7 +69,7 @@ final class SearchCriteriaWithCategoryParentIdFilterFactory implements Decorated
         FeatureInterface $multistoreFeature,
         MultistoreContextCheckerInterface $multistoreContextChecker,
         $contextShopCategoryId,
-        RequestStack $requestStack
+        RequestStack $requestStack,
     ) {
         $this->configuration = $configuration;
         $this->shopContext = $shopContext;

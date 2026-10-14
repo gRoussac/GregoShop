@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -100,7 +101,7 @@ class EditableCmsPage
         $indexedForSearch,
         $displayed,
         array $shopAssociation,
-        $previewUrl
+        $previewUrl,
     ) {
         $this->cmsPageId = new CmsPageId($cmsPageId);
         $this->cmsPageCategoryId = new CmsPageCategoryId($cmsPageCategoryId);

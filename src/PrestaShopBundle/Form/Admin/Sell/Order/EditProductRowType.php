@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -40,7 +41,7 @@ class EditProductRowType extends TranslatorAwareType
         TranslatorInterface $translator,
         array $locales,
         ConfigurableFormChoiceProviderInterface $orderInvoiceByIdChoiceProvider,
-        int $contextLangId
+        int $contextLangId,
     ) {
         parent::__construct($translator, $locales);
 

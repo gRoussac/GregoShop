@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -31,7 +32,7 @@ final class SupplierLogoThumbnailProvider implements ImageProviderInterface
      */
     public function __construct(
         ImageTagSourceParserInterface $imageTagSourceParser,
-        ImageManager $imageManager
+        ImageManager $imageManager,
     ) {
         $this->imageTagSourceParser = $imageTagSourceParser;
         $this->imageManager = $imageManager;

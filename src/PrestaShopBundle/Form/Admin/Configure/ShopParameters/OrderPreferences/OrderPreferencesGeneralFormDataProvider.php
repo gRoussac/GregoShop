@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -36,7 +37,7 @@ class OrderPreferencesGeneralFormDataProvider implements FormDataProviderInterfa
     public function __construct(
         GeneralConfiguration $generalConfiguration,
         TranslatorInterface $translator,
-        CMSDataProvider $cmsDataProvider
+        CMSDataProvider $cmsDataProvider,
     ) {
         $this->generalConfiguration = $generalConfiguration;
         $this->translator = $translator;

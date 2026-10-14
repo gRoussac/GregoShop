@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -83,7 +84,7 @@ class AbstractMultiShopObjectModelRepository extends AbstractObjectModelReposito
         ObjectModel $objectModel,
         array $shopIds,
         string $exceptionClass,
-        int $errorCode = 0
+        int $errorCode = 0,
     ): void {
         // Force internal shop list which is used as an override of the one from Context when generating the SQL queries
         // this way we can control exactly which shop is updated
@@ -108,7 +109,7 @@ class AbstractMultiShopObjectModelRepository extends AbstractObjectModelReposito
         array $propertiesToUpdate,
         array $shopIds,
         string $exceptionClass,
-        int $errorCode = 0
+        int $errorCode = 0,
     ): void {
         $objectModel->setFieldsToUpdate($this->formatPropertiesToUpdate($propertiesToUpdate));
         $this->updateObjectModelForShops($objectModel, $shopIds, $exceptionClass, $errorCode);
@@ -170,7 +171,7 @@ class AbstractMultiShopObjectModelRepository extends AbstractObjectModelReposito
         int $id,
         string $objectModelClassName,
         ShopId $shopId,
-        string $shopAssociationExceptionClass = ShopAssociationNotFound::class
+        string $shopAssociationExceptionClass = ShopAssociationNotFound::class,
     ): void {
         if (!$this->hasShopAssociation($id, $objectModelClassName, $shopId)) {
             throw new $shopAssociationExceptionClass(sprintf(
@@ -278,7 +279,7 @@ class AbstractMultiShopObjectModelRepository extends AbstractObjectModelReposito
     protected function updateObjectModelShopAssociations(
         int $id,
         string $objectModelClassName,
-        array $updatedShopIds
+        array $updatedShopIds,
     ): void {
         if (empty($updatedShopIds)) {
             return;

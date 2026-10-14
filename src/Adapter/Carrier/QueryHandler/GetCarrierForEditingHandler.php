@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -19,7 +20,7 @@ use PrestaShop\PrestaShop\Core\Domain\Carrier\QueryResult\EditableCarrier;
 final class GetCarrierForEditingHandler implements GetCarrierForEditingHandlerInterface
 {
     public function __construct(
-        private readonly CarrierRepository $carrierRepository
+        private readonly CarrierRepository $carrierRepository,
     ) {
     }
 

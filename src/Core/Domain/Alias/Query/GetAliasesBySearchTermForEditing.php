@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -9,7 +10,7 @@ namespace PrestaShop\PrestaShop\Core\Domain\Alias\Query;
 class GetAliasesBySearchTermForEditing
 {
     public function __construct(
-        private readonly string $searchTerm
+        private readonly string $searchTerm,
     ) {
     }
 

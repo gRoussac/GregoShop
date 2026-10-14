@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -35,7 +36,7 @@ class ProductSupplierOptions
     public function __construct(
         int $defaultSupplierId,
         array $supplierIds,
-        array $productSuppliers
+        array $productSuppliers,
     ) {
         $this->defaultSupplierId = $defaultSupplierId;
         $this->supplierIds = $supplierIds;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -121,7 +122,7 @@ class OrderShippingAddressForViewing
         string $phone,
         string $phoneMobile,
         ?string $vatNumber = null,
-        ?string $dni = null
+        ?string $dni = null,
     ) {
         $this->addressId = $addressId;
         $this->firstName = $firstName;

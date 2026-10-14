@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -50,7 +51,7 @@ class GetOrderReturnForEditingHandler implements GetOrderReturnForEditingHandler
     public function __construct(
         OrderReturnRepository $orderReturnRepository,
         CustomerRepository $customerRepository,
-        OrderRepository $orderRepository
+        OrderRepository $orderRepository,
     ) {
         $this->orderReturnRepository = $orderReturnRepository;
         $this->customerRepository = $customerRepository;

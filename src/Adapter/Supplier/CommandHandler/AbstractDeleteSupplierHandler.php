@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -48,7 +49,7 @@ abstract class AbstractDeleteSupplierHandler
     public function __construct(
         SupplierAddressProvider $supplierAddressProvider,
         ProductSupplierUpdater $productSupplierUpdater,
-        string $dbPrefix
+        string $dbPrefix,
     ) {
         $this->dbPrefix = $dbPrefix;
         $this->supplierAddressProvider = $supplierAddressProvider;

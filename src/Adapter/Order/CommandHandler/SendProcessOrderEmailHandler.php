@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -41,7 +42,7 @@ class SendProcessOrderEmailHandler implements SendProcessOrderEmailHandlerInterf
 
     public function __construct(
         TranslatorInterface $translator,
-        Link $contextLink
+        Link $contextLink,
     ) {
         $this->translator = $translator;
         $this->contextLink = $contextLink;

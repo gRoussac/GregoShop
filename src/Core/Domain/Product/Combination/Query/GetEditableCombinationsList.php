@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -75,7 +76,7 @@ class GetEditableCombinationsList
         ?int $offset = null,
         ?string $orderBy = null,
         ?string $orderWay = null,
-        array $filters = []
+        array $filters = [],
     ) {
         $this->productId = new ProductId($productId);
         $this->languageId = new LanguageId($languageId);

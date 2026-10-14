@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -61,7 +62,7 @@ class SpecificPriceRepository extends AbstractObjectModelRepository
         Connection $connection,
         string $dbPrefix,
         SpecificPriceValidator $specificPriceValidator,
-        ConfigurationInterface $configuration
+        ConfigurationInterface $configuration,
     ) {
         $this->connection = $connection;
         $this->dbPrefix = $dbPrefix;
@@ -151,7 +152,7 @@ class SpecificPriceRepository extends AbstractObjectModelRepository
         LanguageId $langId,
         ?int $limit = null,
         ?int $offset = null,
-        array $filters = []
+        array $filters = [],
     ): array {
         $qb = $this->getSpecificPricesQueryBuilder($productId, $langId, $filters)
             ->select('
@@ -234,7 +235,7 @@ class SpecificPriceRepository extends AbstractObjectModelRepository
         int $customerId,
         int $fromQuantity,
         string $durationFrom,
-        string $durationTo
+        string $durationTo,
     ): ?SpecificPriceId {
         try {
             $id = (int) SpecificPrice::exists(

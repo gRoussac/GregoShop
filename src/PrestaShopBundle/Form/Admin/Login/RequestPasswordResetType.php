@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -19,7 +20,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class RequestPasswordResetType extends AbstractType
 {
     public function __construct(
-        protected readonly TranslatorInterface $translator
+        protected readonly TranslatorInterface $translator,
     ) {
     }
 

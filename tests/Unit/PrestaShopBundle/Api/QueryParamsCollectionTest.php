@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -85,7 +86,7 @@ class QueryParamsCollectionTest extends TestCase
         string $order,
         $pageIndex,
         $pageSize,
-        array $expectedSqlClauses
+        array $expectedSqlClauses,
     ): void {
         $requestMock = $this->mockRequest(
             [
@@ -123,7 +124,7 @@ class QueryParamsCollectionTest extends TestCase
         string $order,
         $pageIndex,
         $pageSize,
-        array $expectedSqlClauses
+        array $expectedSqlClauses,
     ): void {
         $requestMock = $this->mockRequest(
             [
@@ -211,7 +212,7 @@ class QueryParamsCollectionTest extends TestCase
     public function testItShouldMakeQueryParamsWithFilterFromARequest(
         array $params,
         array $expectedSql,
-        string $message
+        string $message,
     ): void {
         $requestMock = $this->mockRequest(array_merge(
             $params,

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -62,7 +63,7 @@ class OrderPreview
         bool $isVirtual,
         bool $taxIncluded,
         string $invoiceAddressFormatted = '',
-        string $shippingAddressFormatted = ''
+        string $shippingAddressFormatted = '',
     ) {
         $this->invoiceDetails = $invoiceDetails;
         $this->shippingDetails = $shippingDetails;

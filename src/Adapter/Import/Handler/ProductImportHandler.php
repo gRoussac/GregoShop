@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -111,7 +112,7 @@ final class ProductImportHandler extends AbstractImportHandler
         Address $shopAddress,
         Validate $validate,
         Tools $tools,
-        ImageCopier $imageCopier
+        ImageCopier $imageCopier,
     ) {
         parent::__construct(
             $dataFormatter,
@@ -189,7 +190,7 @@ final class ProductImportHandler extends AbstractImportHandler
     public function importRow(
         ImportConfigInterface $importConfig,
         ImportRuntimeConfigInterface $runtimeConfig,
-        DataRowInterface $dataRow
+        DataRowInterface $dataRow,
     ) {
         parent::importRow($importConfig, $runtimeConfig, $dataRow);
 
@@ -354,7 +355,7 @@ final class ProductImportHandler extends AbstractImportHandler
     private function fetchProductId(
         DataRowInterface $dataRow,
         array $entityFields,
-        $fetchByReference
+        $fetchByReference,
     ) {
         $productId = $this->fetchDataValueByKey($dataRow, $entityFields, 'id');
 
@@ -786,7 +787,7 @@ final class ProductImportHandler extends AbstractImportHandler
         $productExistsByReference,
         $validateOnly,
         DataRowInterface $dataRow,
-        array $entityFields
+        array $entityFields,
     ) {
         if (!$product->quantity) {
             $product->quantity = 0;
@@ -913,7 +914,7 @@ final class ProductImportHandler extends AbstractImportHandler
         $reductionFrom,
         $reductionTo,
         $validateOnly,
-        $productName
+        $productName,
     ) {
         $reductionPercent = (float) $reductionPercent;
         $reductionPrice = (float) $reductionPrice;

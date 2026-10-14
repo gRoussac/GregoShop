@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -88,7 +89,7 @@ class ProductFormDataProvider implements FormDataProviderInterface
         int $contextLangId,
         int $defaultShopId,
         ?int $contextShopId,
-        FeaturesChoiceProvider $featuresChoiceProvider
+        FeaturesChoiceProvider $featuresChoiceProvider,
     ) {
         $this->queryBus = $queryBus;
         $this->configuration = $configuration;

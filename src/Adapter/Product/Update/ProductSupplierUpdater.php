@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -71,7 +72,7 @@ class ProductSupplierUpdater
         CombinationRepository $combinationRepository,
         SupplierRepository $supplierRepository,
         ProductSupplierRepository $productSupplierRepository,
-        int $defaultCurrencyId
+        int $defaultCurrencyId,
     ) {
         $this->supplierRepository = $supplierRepository;
         $this->productSupplierRepository = $productSupplierRepository;
@@ -190,7 +191,7 @@ class ProductSupplierUpdater
      */
     public function updateSuppliersForProduct(
         ProductId $productId,
-        array $productSuppliers
+        array $productSuppliers,
     ): array {
         $product = $this->productRepository->getProductByDefaultShop($productId);
 
@@ -211,7 +212,7 @@ class ProductSupplierUpdater
     public function updateSuppliersForCombination(
         ProductId $productId,
         CombinationId $combinationId,
-        array $productSuppliers
+        array $productSuppliers,
     ): array {
         return $this->updateProductSuppliers($productId, $productSuppliers, $combinationId);
     }

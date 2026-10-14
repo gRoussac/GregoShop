@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -37,7 +38,7 @@ class DateTimeImmutableNormalizer implements DenormalizerInterface, NormalizerIn
 
     public function normalize(mixed $object, ?string $format = null, array $context = [])
     {
-        if (!($object instanceof DateTimeImmutable)) {
+        if (!$object instanceof DateTimeImmutable) {
             throw new InvalidArgumentException('Expected object to be a ' . DateTimeImmutable::class);
         }
 

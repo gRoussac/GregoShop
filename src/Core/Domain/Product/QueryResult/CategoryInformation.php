@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -35,7 +36,7 @@ class CategoryInformation
     public function __construct(
         int $id,
         string $name,
-        string $displayName
+        string $displayName,
     ) {
         $this->id = $id;
         $this->name = $name;

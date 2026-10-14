@@ -49,7 +49,7 @@ class EditTagHandler implements EditTagCommandHandlerInterface
 
     protected function updateLegacyTagWithCommandData(
         Tag $tag,
-        EditTagCommand $command
+        EditTagCommand $command,
     ): void {
         if (null !== $command->getName()) {
             $tag->name = $command->getName();

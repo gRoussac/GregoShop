@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -27,7 +28,7 @@ class FeatureAttributeRepository
         private readonly ShopContext $shopContext,
         private readonly LanguageContext $languageContext,
         private readonly FeatureRepository $featureRepository,
-        private readonly AttributeRepository $attributeRepository
+        private readonly AttributeRepository $attributeRepository,
     ) {
     }
 

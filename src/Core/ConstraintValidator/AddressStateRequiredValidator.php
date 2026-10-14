@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -40,7 +41,7 @@ class AddressStateRequiredValidator extends ConstraintValidator
      */
     public function validate($value, Constraint $constraint)
     {
-        if (!($constraint instanceof AddressStateRequired)) {
+        if (!$constraint instanceof AddressStateRequired) {
             return;
         }
         $countryId = new CountryId((int) $constraint->id_country);

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -62,7 +63,7 @@ class CarrierGridDefinitionFactory extends AbstractGridDefinitionFactory
     public function __construct(
         HookDispatcherInterface $hookDispatcher,
         $dbPrefix,
-        Connection $connection
+        Connection $connection,
     ) {
         parent::__construct($hookDispatcher);
         $this->connection = $connection;

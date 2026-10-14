@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -41,7 +42,7 @@ final class AverageProductsInCategoryKpi implements KpiInterface
     public function __construct(
         TranslatorInterface $translator,
         ConfigurationInterface $kpiConfiguration,
-        $sourceUrl
+        $sourceUrl,
     ) {
         $this->translator = $translator;
         $this->kpiConfiguration = $kpiConfiguration;

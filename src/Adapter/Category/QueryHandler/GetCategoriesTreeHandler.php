@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -55,7 +56,7 @@ final class GetCategoriesTreeHandler implements GetCategoriesTreeHandlerInterfac
         CategoryDisplayNameBuilder $displayNameBuilder,
         ContextStateManager $contextStateManager,
         ShopRepository $shopRepository,
-        int $rootCategoryId
+        int $rootCategoryId,
     ) {
         $this->displayNameBuilder = $displayNameBuilder;
         $this->contextStateManager = $contextStateManager;

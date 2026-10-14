@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -72,7 +73,7 @@ final class CustomerGridDefinitionFactory extends AbstractGridDefinitionFactory
         $isB2bFeatureEnabled,
         $isMultistoreFeatureEnabled,
         string $contextDateFormat,
-        bool $isGroupsFeatureEnabled = true
+        bool $isGroupsFeatureEnabled = true,
     ) {
         parent::__construct($hookDispatcher);
         $this->isB2bFeatureEnabled = $isB2bFeatureEnabled;

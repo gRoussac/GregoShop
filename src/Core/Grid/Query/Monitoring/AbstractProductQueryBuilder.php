@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -52,7 +53,7 @@ abstract class AbstractProductQueryBuilder extends AbstractDoctrineQueryBuilder
         $contextLangId,
         $contextShopId,
         DoctrineSearchCriteriaApplicator $searchCriteriaApplicator,
-        MultistoreContextCheckerInterface $multistoreContextChecker
+        MultistoreContextCheckerInterface $multistoreContextChecker,
     ) {
         parent::__construct($connection, $dbPrefix);
         $this->contextLangId = $contextLangId;

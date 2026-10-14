@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -504,7 +505,7 @@ abstract class ProductListingFrontControllerCore extends ProductPresentingFrontC
      */
     protected function getTemplateVarPagination(
         ProductSearchQuery $query,
-        ProductSearchResult $result
+        ProductSearchResult $result,
     ) {
         $pagination = new Pagination();
         $pagination
@@ -707,13 +708,12 @@ abstract class ProductListingFrontControllerCore extends ProductPresentingFrontC
             $this->ajaxRender(json_encode($this->getAjaxProductSearchVariables()));
 
             return;
-        } else {
-            $variables = $this->getProductSearchVariables();
-            $this->context->smarty->assign([
-                'listing' => $variables,
-            ]);
-            $this->setTemplate($template, $params, $locale);
         }
+        $variables = $this->getProductSearchVariables();
+        $this->context->smarty->assign([
+            'listing' => $variables,
+        ]);
+        $this->setTemplate($template, $params, $locale);
     }
 
     abstract public function getListingLabel();

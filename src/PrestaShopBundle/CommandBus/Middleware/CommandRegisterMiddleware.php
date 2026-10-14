@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -19,7 +20,7 @@ final class CommandRegisterMiddleware implements MiddlewareInterface
 {
     public function __construct(
         private readonly HandlersLocatorInterface $handlersLocator,
-        private readonly ExecutedCommandRegistry $executedCommandRegistry
+        private readonly ExecutedCommandRegistry $executedCommandRegistry,
     ) {
     }
 

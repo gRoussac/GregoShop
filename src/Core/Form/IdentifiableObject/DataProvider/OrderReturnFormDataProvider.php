@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -46,7 +47,7 @@ class OrderReturnFormDataProvider implements FormDataProviderInterface
         CommandBusInterface $queryBus,
         RouterInterface $router,
         TranslatorInterface $translator,
-        string $dateFormat
+        string $dateFormat,
     ) {
         $this->queryBus = $queryBus;
         $this->router = $router;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -184,7 +185,7 @@ class MailThemeController extends PrestaShopAdminController
     public function saveConfigurationAction(
         Request $request,
         #[Autowire(service: 'prestashop.admin.mail_theme.form_handler')]
-        FormHandlerInterface $formHandler
+        FormHandlerInterface $formHandler,
     ): Response {
         /** @var Form $form */
         $form = $formHandler->getForm()->handleRequest($request);
@@ -344,7 +345,7 @@ class MailThemeController extends PrestaShopAdminController
     public function translateBodyAction(
         Request $request,
         #[Autowire(service: 'prestashop.service.translation')]
-        TranslationService $translationService
+        TranslationService $translationService,
     ): RedirectResponse {
         $translateMailsBodyForm = $this->createForm(TranslateMailsBodyType::class);
         $translateMailsBodyForm->handleRequest($request);

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -34,7 +35,7 @@ class UploadedFileNormalizer implements DenormalizerInterface, NormalizerInterfa
 
     public function normalize(mixed $object, ?string $format = null, array $context = [])
     {
-        if (!($object instanceof File)) {
+        if (!$object instanceof File) {
             throw new InvalidArgumentException('Expected object to be a ' . File::class);
         }
 

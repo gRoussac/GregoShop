@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -63,7 +64,7 @@ class EditableContact
         $email,
         $isMessagesSavingEnabled,
         $localisedDescription,
-        array $shopAssociation
+        array $shopAssociation,
     ) {
         $this->contactId = new ContactId($contactId);
         $this->localisedTitles = $localisedTitles;

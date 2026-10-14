@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -36,7 +37,7 @@ class MailTemplateGenerator
      */
     public function __construct(
         MailTemplateRendererInterface $renderer,
-        ?LoggerInterface $logger = null
+        ?LoggerInterface $logger = null,
     ) {
         $this->renderer = $renderer;
         $this->logger = null !== $logger ? $logger : new NullLogger();
@@ -57,7 +58,7 @@ class MailTemplateGenerator
         LanguageInterface $language,
         $coreOutputFolder,
         $modulesOutputFolder,
-        $overwriteTemplates = false
+        $overwriteTemplates = false,
     ) {
         if (!is_dir($coreOutputFolder)) {
             throw new FileNotFoundException(sprintf('Invalid core output folder "%s"', $coreOutputFolder));

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -42,7 +43,7 @@ class CartSummaryType extends AbstractType
     public function __construct(
         FormChoiceProviderInterface $orderStatesChoiceProvider,
         FormChoiceProviderInterface $paymentModulesChoiceProvider,
-        TranslatorInterface $translator
+        TranslatorInterface $translator,
     ) {
         $this->orderStatesChoiceProvider = $orderStatesChoiceProvider;
         $this->paymentModulesChoiceProvider = $paymentModulesChoiceProvider;

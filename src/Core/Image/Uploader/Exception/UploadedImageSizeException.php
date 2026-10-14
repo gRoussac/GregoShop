@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -28,7 +29,7 @@ class UploadedImageSizeException extends ImageUploadException
         int $allowedSizeBytes,
         ?string $message = null,
         int $code = 0,
-        ?Throwable $previous = null
+        ?Throwable $previous = null,
     ): self {
         if (null === $message) {
             $message = sprintf(
@@ -63,7 +64,7 @@ class UploadedImageSizeException extends ImageUploadException
         int $allowedSizeBytes,
         string $message = '',
         int $code = 0,
-        ?Throwable $previous = null
+        ?Throwable $previous = null,
     ) {
         $this->allowedSizeBytes = $allowedSizeBytes;
         parent::__construct($message, $code, $previous);

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -21,7 +22,7 @@ class ModuleGraphTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->object = new class() extends ModuleGraph {
+        $this->object = new class extends ModuleGraph {
             public function getData($layers)
             {
                 return ModuleGraphTest::$data;

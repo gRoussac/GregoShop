@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -46,7 +47,7 @@ class StockManagerCore implements StockManagerInterface
         $price_te,
         $is_usable = true,
         $id_supply_order = null,
-        $employee = null
+        $employee = null,
     ) {
         if (!Validate::isLoadedObject($warehouse) || !$quantity || !$id_product) {
             return false;
@@ -204,7 +205,7 @@ class StockManagerCore implements StockManagerInterface
         $is_usable = true,
         $id_order = null,
         $ignore_pack = 0,
-        $employee = null
+        $employee = null,
     ) {
         $return = [];
 
@@ -625,7 +626,7 @@ class StockManagerCore implements StockManagerInterface
         $id_warehouse_from,
         $id_warehouse_to,
         $usable_from = true,
-        $usable_to = true
+        $usable_to = true,
     ) {
         // Checks if this transfer is possible
         if ($this->getProductPhysicalQuantities($id_product, $id_product_attribute, [$id_warehouse_from], $usable_from) < $quantity) {

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -138,14 +139,13 @@ class NormalizationMapper
                 }
 
                 return;
-            } else {
-                // We keep diving into the data
-                $subPath = $propertyPath->isIndex($elementIndex) ? '[' . $property . ']' : '.' . $property;
-                if (!$this->propertyAccessor->isReadable($data, $subPath)) {
-                    return;
-                }
-                $data = $this->propertyAccessor->getValue($data, $subPath);
             }
+            // We keep diving into the data
+            $subPath = $propertyPath->isIndex($elementIndex) ? '[' . $property . ']' : '.' . $property;
+            if (!$this->propertyAccessor->isReadable($data, $subPath)) {
+                return;
+            }
+            $data = $this->propertyAccessor->getValue($data, $subPath);
         }
     }
 }

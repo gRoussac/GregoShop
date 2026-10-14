@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -23,7 +24,7 @@ final class DeleteImagesFromTypeHandler implements DeleteImagesFromTypeHandlerIn
 {
     public function __construct(
         private readonly ImageTypeRepository $imageTypeRepository,
-        private readonly ImageThumbnailsRegenerator $imageThumbnailsRegenerator
+        private readonly ImageThumbnailsRegenerator $imageThumbnailsRegenerator,
     ) {
     }
 

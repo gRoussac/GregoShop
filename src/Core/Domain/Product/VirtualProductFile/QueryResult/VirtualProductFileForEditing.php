@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -59,7 +60,7 @@ class VirtualProductFileForEditing
         string $displayName,
         int $accessDays,
         int $downloadTimesLimit,
-        ?DateTimeInterface $expirationDate
+        ?DateTimeInterface $expirationDate,
     ) {
         $this->id = $id;
         $this->fileName = $fileName;

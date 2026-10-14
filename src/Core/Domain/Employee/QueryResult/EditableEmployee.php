@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -95,7 +96,7 @@ class EditableEmployee
         $active,
         $profileId,
         array $shopAssociation,
-        bool $hasEnabledGravatar = false
+        bool $hasEnabledGravatar = false,
     ) {
         $this->employeeId = $employeeId;
         $this->firstName = $firstName;

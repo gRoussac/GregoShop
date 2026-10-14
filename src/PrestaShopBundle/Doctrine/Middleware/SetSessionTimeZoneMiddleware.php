@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -33,7 +34,7 @@ final class SetSessionTimeZoneMiddleware implements Middleware
         return new class($driver) extends AbstractDriverMiddleware {
             public function connect(
                 #[SensitiveParameter]
-                array $params
+                array $params,
             ): Connection {
                 $connection = parent::connect($params);
 

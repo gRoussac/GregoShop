@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -34,7 +35,7 @@ class CategoryDisplayNameBuilder
      */
     public function __construct(
         CategoryRepository $categoryRepository,
-        string $breadcrumbSeparator
+        string $breadcrumbSeparator,
     ) {
         $this->categoryRepository = $categoryRepository;
         $this->breadcrumbSeparator = $breadcrumbSeparator;
@@ -59,7 +60,7 @@ class CategoryDisplayNameBuilder
         ShopId $shopId,
         LanguageId $languageId,
         CategoryId $categoryId,
-        bool $useCache = true
+        bool $useCache = true,
     ): string {
         $duplicateNameIds = $this->getDuplicateNameIds($shopId, $languageId, $useCache);
         $isDuplicate = false;

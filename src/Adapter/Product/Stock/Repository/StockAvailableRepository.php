@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -56,7 +57,7 @@ class StockAvailableRepository extends AbstractMultiShopObjectModelRepository
         Connection $connection,
         string $dbPrefix,
         StockAvailableValidator $stockAvailableValidator,
-        ShopGroupRepository $shopGroupRepository
+        ShopGroupRepository $shopGroupRepository,
     ) {
         $this->connection = $connection;
         $this->dbPrefix = $dbPrefix;

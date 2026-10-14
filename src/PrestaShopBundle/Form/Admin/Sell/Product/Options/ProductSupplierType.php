@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -58,7 +59,7 @@ class ProductSupplierType extends TranslatorAwareType
         array $locales,
         string $defaultCurrencyIsoCode,
         CurrencyRepository $currencyRepository,
-        FormCloner $formCloner
+        FormCloner $formCloner,
     ) {
         parent::__construct($translator, $locales);
         $this->defaultCurrencyIsoCode = $defaultCurrencyIsoCode;

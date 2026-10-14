@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -30,7 +31,7 @@ final class CustomerBoughtProductQueryBuilder extends AbstractDoctrineQueryBuild
     public function __construct(
         Connection $connection,
         string $dbPrefix,
-        DoctrineSearchCriteriaApplicatorInterface $searchCriteriaApplicator
+        DoctrineSearchCriteriaApplicatorInterface $searchCriteriaApplicator,
     ) {
         parent::__construct($connection, $dbPrefix);
         $this->searchCriteriaApplicator = $searchCriteriaApplicator;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -21,8 +22,8 @@ class SmartyCustomTemplateCore extends Smarty_Internal_Template
             }
 
             return $tpl;
-        } else {
-            return parent::fetch($template, $cache_id, $compile_id, $parent);
         }
+
+        return parent::fetch($template, $cache_id, $compile_id, $parent);
     }
 }

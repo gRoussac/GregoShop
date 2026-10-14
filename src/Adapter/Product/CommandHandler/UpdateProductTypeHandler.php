@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -28,7 +29,7 @@ class UpdateProductTypeHandler implements UpdateProductTypeHandlerInterface
      * @param ProductTypeUpdater $productTypeUpdater
      */
     public function __construct(
-        ProductTypeUpdater $productTypeUpdater
+        ProductTypeUpdater $productTypeUpdater,
     ) {
         $this->productTypeUpdater = $productTypeUpdater;
     }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -20,7 +21,7 @@ class TaxManagerFactoryCore
         $cache_id = TaxManagerFactory::getCacheKey($address) . '-' . $type;
         if (!isset(TaxManagerFactory::$cache_tax_manager[$cache_id])) {
             $tax_manager = TaxManagerFactory::execHookTaxManagerFactory($address, $type);
-            if (!($tax_manager instanceof TaxManagerInterface)) {
+            if (!$tax_manager instanceof TaxManagerInterface) {
                 $tax_manager = new TaxRulesTaxManager($address, $type);
             }
 

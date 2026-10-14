@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -51,7 +52,7 @@ class TaxOptionsType extends TranslatorAwareType
         array $locales,
         bool $isEcotaxEnabled,
         FormChoiceProviderInterface $taxAddressTypeChoiceProvider,
-        FormChoiceProviderInterface $taxRuleGroupChoiceProvider
+        FormChoiceProviderInterface $taxRuleGroupChoiceProvider,
     ) {
         parent::__construct($translator, $locales);
         $this->isEcotaxEnabled = $isEcotaxEnabled;

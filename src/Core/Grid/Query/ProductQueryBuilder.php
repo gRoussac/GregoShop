@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -57,7 +58,7 @@ class ProductQueryBuilder extends AbstractDoctrineQueryBuilder
         int $contextLanguageId,
         DoctrineFilterApplicatorInterface $filterApplicator,
         Configuration $configuration,
-        ShopGroupRepository $shopGroupRepository
+        ShopGroupRepository $shopGroupRepository,
     ) {
         parent::__construct($connection, $dbPrefix);
         $this->searchCriteriaApplicator = $searchCriteriaApplicator;

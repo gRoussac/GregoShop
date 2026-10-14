@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -109,7 +110,7 @@ class Number implements NumberInterface
         $minFractionDigits,
         $groupingUsed,
         $primaryGroupSize,
-        $secondaryGroupSize
+        $secondaryGroupSize,
     ) {
         $this->positivePattern = $positivePattern;
         $this->negativePattern = $negativePattern;

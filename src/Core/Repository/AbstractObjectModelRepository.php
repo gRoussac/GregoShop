@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -142,7 +143,7 @@ abstract class AbstractObjectModelRepository
         ObjectModel $objectModel,
         array $propertiesToUpdate,
         string $exceptionClass,
-        int $errorCode = 0
+        int $errorCode = 0,
     ): void {
         $objectModel->setFieldsToUpdate($this->formatPropertiesToUpdate($propertiesToUpdate));
         $this->updateObjectModel($objectModel, $exceptionClass, $errorCode);

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -75,7 +76,7 @@ class ValueObjectNormalizer implements NormalizerInterface, DenormalizerInterfac
     protected array $noValueClasses = [];
 
     public function __construct(
-        protected readonly ClassMetadataFactoryInterface $classMetadataFactory
+        protected readonly ClassMetadataFactoryInterface $classMetadataFactory,
     ) {
         $this->inflector = InflectorFactory::create()->build();
     }

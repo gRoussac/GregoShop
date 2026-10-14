@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -62,7 +63,7 @@ class AddManufacturerCommand
         array $localizedDescriptions,
         array $localizedMetaTitles,
         array $localizedMetaDescriptions,
-        array $shopAssociation
+        array $shopAssociation,
     ) {
         $this->name = $name;
         $this->enabled = $enabled;

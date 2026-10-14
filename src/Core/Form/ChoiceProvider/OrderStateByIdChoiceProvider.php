@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -49,7 +50,7 @@ final class OrderStateByIdChoiceProvider implements FormChoiceProviderInterface,
         $langId,
         OrderStateDataProviderInterface $orderStateDataProvider,
         ColorBrightnessCalculator $colorBrightnessCalculator,
-        TranslatorInterface $translator
+        TranslatorInterface $translator,
     ) {
         $this->langId = $langId;
         $this->orderStateDataProvider = $orderStateDataProvider;

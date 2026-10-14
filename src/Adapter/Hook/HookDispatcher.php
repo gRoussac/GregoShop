@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -59,7 +60,7 @@ class HookDispatcher extends EventDispatcher implements HookDispatcherInterface
         ?RequestStack $requestStack = null,
         ?iterable $hookSubscribers = null,
         ?HookRegistry $hookRegistry = null,
-        bool $isDebug = false
+        bool $isDebug = false,
     ) {
         $this->requestStack = $requestStack;
         $this->hookRegistry = $hookRegistry;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -27,7 +28,7 @@ class CategoryImageUploader
 
     public function __construct(
         ImageUploaderInterface $categoryCoverUploader,
-        ImageUploaderInterface $categoryThumbnailUploader
+        ImageUploaderInterface $categoryThumbnailUploader,
     ) {
         $this->categoryCoverUploader = $categoryCoverUploader;
         $this->categoryThumbnailUploader = $categoryThumbnailUploader;
@@ -41,7 +42,7 @@ class CategoryImageUploader
     public function uploadImages(
         CategoryId $categoryId,
         ?UploadedFile $coverImage = null,
-        ?UploadedFile $thumbnailImage = null
+        ?UploadedFile $thumbnailImage = null,
     ): void {
         if (null !== $coverImage) {
             $this->categoryCoverUploader->upload($categoryId->getValue(), $coverImage);

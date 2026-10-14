@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -49,7 +50,7 @@ final class DeliveryTimeNoteTypesProvider implements FormChoiceProviderInterface
         TranslatorInterface $translator,
         RouterInterface $router,
         ConfigurationInterface $configuration,
-        int $langId
+        int $langId,
     ) {
         $this->translator = $translator;
         $this->router = $router;

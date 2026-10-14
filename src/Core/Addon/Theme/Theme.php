@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -52,7 +53,7 @@ class Theme implements AddonInterface
     public function __construct(
         array $attributes,
         ?string $configurationCacheDirectory = null,
-        string $themesDirectory = _PS_ALL_THEMES_DIR_
+        string $themesDirectory = _PS_ALL_THEMES_DIR_,
     ) {
         if (isset($attributes['parent'])) {
             if (null === $configurationCacheDirectory) {

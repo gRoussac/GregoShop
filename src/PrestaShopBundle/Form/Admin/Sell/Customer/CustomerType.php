@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -88,7 +89,7 @@ class CustomerType extends TranslatorAwareType
         $isB2bFeatureEnabled,
         $isPartnerOffersEnabled,
         ConfigurationInterface $configuration,
-        FormCloner $formCloner
+        FormCloner $formCloner,
     ) {
         parent::__construct($translator, $locales);
         $this->isB2bFeatureEnabled = $isB2bFeatureEnabled;

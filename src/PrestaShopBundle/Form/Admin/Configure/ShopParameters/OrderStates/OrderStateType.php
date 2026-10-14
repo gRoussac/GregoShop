@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -54,7 +55,7 @@ class OrderStateType extends TranslatorAwareType
         ThemeCatalogInterface $themeCatalog,
         UrlGeneratorInterface $routing,
         ShopConfigurationInterface $configuration,
-        LegacyEmailTemplateLister $legacyTemplateLister
+        LegacyEmailTemplateLister $legacyTemplateLister,
     ) {
         parent::__construct($translator, $locales);
 

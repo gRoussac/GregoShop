@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -59,7 +60,7 @@ class EntityTranslator implements EntityTranslatorInterface
         Db $db,
         string $dbPrefix,
         TranslatorInterface $translator,
-        DataLangCore $dataLang
+        DataLangCore $dataLang,
     ) {
         $this->dataLang = $dataLang;
         $this->db = $db;

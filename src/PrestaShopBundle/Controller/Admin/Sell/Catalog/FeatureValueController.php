@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -87,7 +88,7 @@ class FeatureValueController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.feature_value_form_builder')]
         FormBuilderInterface $featureValueFormBuilder,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.handler.feature_value_form_handler')]
-        FormHandlerInterface $featureValueFormHandler
+        FormHandlerInterface $featureValueFormHandler,
     ): Response {
         $featureId = $request->query->getInt('featureId');
 
@@ -149,7 +150,7 @@ class FeatureValueController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.feature_value_form_builder')]
         FormBuilderInterface $featureValueFormBuilder,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.handler.feature_value_form_handler')]
-        FormHandlerInterface $featureValueFormHandler
+        FormHandlerInterface $featureValueFormHandler,
     ): Response {
         try {
             $featureValueForm = $featureValueFormBuilder->getFormFor($featureValueId);
@@ -196,7 +197,7 @@ class FeatureValueController extends PrestaShopAdminController
     public function exportAction(
         FeatureValueFilters $filters,
         #[Autowire(service: FeatureValueGridFactory::class)]
-        GridFactoryInterface $gridFactory
+        GridFactoryInterface $gridFactory,
     ): CsvResponse {
         $filtersParameters = $filters->all();
         $filtersParameters['filters']['feature_id'] = $filters->getFeatureId();
@@ -278,7 +279,7 @@ class FeatureValueController extends PrestaShopAdminController
     #[AdminSecurity("is_granted('read', request.get('_legacy_controller')) || is_granted('read', 'AdminProducts')")]
     public function getFeatureValuesAction(
         int $featureId,
-        FeatureValuesChoiceProvider $featureValuesChoiceProvider
+        FeatureValuesChoiceProvider $featureValuesChoiceProvider,
     ): JsonResponse {
         if ($featureId == 0) {
             return new JsonResponse();

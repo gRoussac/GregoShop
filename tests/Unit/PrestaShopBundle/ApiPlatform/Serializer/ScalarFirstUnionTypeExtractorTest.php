@@ -84,7 +84,7 @@ class ScalarFirstUnionTypeExtractorTest extends TestCase
      */
     public function testWorksOnTheReflectedOrderOfARealUnion(): void
     {
-        $object = new class() {
+        $object = new class {
             public int|string|bool|DecimalNumber|null $value;
         };
 

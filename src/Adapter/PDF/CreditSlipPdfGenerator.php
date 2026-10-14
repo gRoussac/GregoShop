@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -39,7 +40,7 @@ final class CreditSlipPdfGenerator implements PDFGeneratorInterface
      */
     public function __construct(
         $dbPrefix,
-        Connection $connection
+        Connection $connection,
     ) {
         $this->dbPrefix = $dbPrefix;
         $this->connection = $connection;

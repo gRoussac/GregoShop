@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -49,7 +50,7 @@ class TranslationsFactory implements TranslationsFactoryInterface
         $domainIdentifier,
         $locale = self::DEFAULT_LOCALE,
         $theme = null,
-        $search = null
+        $search = null,
     ) {
         foreach ($this->providers as $provider) {
             if ($domainIdentifier === $provider->getIdentifier()) {

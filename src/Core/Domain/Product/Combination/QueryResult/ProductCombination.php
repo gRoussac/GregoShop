@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -25,7 +26,7 @@ class ProductCombination
      */
     public function __construct(
         int $combinationId,
-        string $combinationName
+        string $combinationName,
     ) {
         $this->combinationId = $combinationId;
         $this->combinationName = $combinationName;

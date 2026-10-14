@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -17,7 +18,7 @@ class FailedToEnableThemeModuleException extends ThemeException
         $moduleName,
         $message = '',
         $code = 0,
-        $previous = null
+        $previous = null,
     ) {
         parent::__construct($message, $code, $previous);
 

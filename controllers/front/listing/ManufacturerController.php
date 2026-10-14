@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -203,9 +204,9 @@ class ManufacturerControllerCore extends ProductListingFrontController
     {
         if (Validate::isLoadedObject($this->manufacturer) && $this->manufacturer->active && $this->manufacturer->isAssociatedToShop()) {
             return $this->trans('List of products by brand %brand_name%', ['%brand_name%' => $this->manufacturer->name], 'Shop.Theme.Catalog');
-        } else {
-            return $this->trans('List of all brands', [], 'Shop.Theme.Catalog');
         }
+
+        return $this->trans('List of all brands', [], 'Shop.Theme.Catalog');
     }
 
     public function getBreadcrumbLinks(): array

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -21,7 +22,7 @@ class LocalizedValueUpdater
 {
     public function __construct(
         protected LangRepository $languageRepository,
-        protected ClassMetadataFactoryInterface $classMetadataFactory
+        protected ClassMetadataFactoryInterface $classMetadataFactory,
     ) {
     }
 

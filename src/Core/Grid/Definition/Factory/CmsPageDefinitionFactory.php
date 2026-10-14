@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -66,7 +67,7 @@ class CmsPageDefinitionFactory extends AbstractGridDefinitionFactory
         CommandBusInterface $queryBus,
         RequestStack $requestStack,
         MultistoreContextCheckerInterface $multistoreContextChecker,
-        $isMultiStoreFeatureUsed
+        $isMultiStoreFeatureUsed,
     ) {
         parent::__construct($hookDispatcher);
 

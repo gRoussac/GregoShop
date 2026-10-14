@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -28,7 +29,7 @@ class RedirectOptionType extends TranslatorAwareType
         private readonly RouterInterface $router,
         private readonly DataTransformerInterface $targetTransformer,
         private readonly EventSubscriberInterface $eventSubscriber,
-        private readonly int $homeCategoryId
+        private readonly int $homeCategoryId,
     ) {
         parent::__construct($translator, $locales);
     }

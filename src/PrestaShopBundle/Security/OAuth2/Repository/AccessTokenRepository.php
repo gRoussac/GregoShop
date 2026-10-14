@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -23,7 +24,7 @@ class AccessTokenRepository implements AccessTokenRepositoryInterface
     public function getNewToken(
         ClientEntityInterface $clientEntity,
         array $scopes,
-        $userIdentifier = null
+        $userIdentifier = null,
     ): AccessTokenEntityInterface {
         $token = new AccessToken();
         $token->setClient($clientEntity);

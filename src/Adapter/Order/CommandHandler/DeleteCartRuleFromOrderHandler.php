@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -55,7 +56,7 @@ final class DeleteCartRuleFromOrderHandler extends AbstractOrderHandler implemen
     public function __construct(
         OrderAmountUpdater $orderAmountUpdater,
         OrderProductQuantityUpdater $orderProductQuantityUpdater,
-        ContextStateManager $contextStateManager
+        ContextStateManager $contextStateManager,
     ) {
         $this->orderAmountUpdater = $orderAmountUpdater;
         $this->orderProductQuantityUpdater = $orderProductQuantityUpdater;

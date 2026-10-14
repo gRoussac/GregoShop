@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -140,15 +141,12 @@ class CartControllerCore extends FrontController
             ]));
 
             return;
-        } else {
-            $this->ajaxRender(json_encode([
-                'hasError' => true,
-                'errors' => $this->errors,
-                'quantity' => $productQuantity,
-            ]));
-
-            return;
         }
+        $this->ajaxRender(json_encode([
+            'hasError' => true,
+            'errors' => $this->errors,
+            'quantity' => $productQuantity,
+        ]));
     }
 
     public function displayAjaxRefresh(): void

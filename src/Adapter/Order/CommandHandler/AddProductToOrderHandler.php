@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -120,7 +121,7 @@ final class AddProductToOrderHandler extends AbstractOrderHandler implements Add
         $this->assertProductNotDuplicate($order, $command);
 
         $cart = Cart::getCartByOrderId($order->id);
-        if (!($cart instanceof Cart)) {
+        if (!$cart instanceof Cart) {
             throw new OrderException('Cart linked to the order cannot be found.');
         }
 
@@ -265,7 +266,7 @@ final class AddProductToOrderHandler extends AbstractOrderHandler implements Add
      */
     private function updateAffectedOrderDetails(
         Order $order,
-        array $updatedProducts
+        array $updatedProducts,
     ): void {
         $orderDetails = $order->getOrderDetailList();
         foreach ($updatedProducts as $updatedProduct) {
@@ -299,7 +300,7 @@ final class AddProductToOrderHandler extends AbstractOrderHandler implements Add
      */
     private function getCreatedCartProducts(
         array $creationUpdates,
-        array $cartProducts
+        array $cartProducts,
     ): array {
         $additionalProducts = [];
         foreach ($creationUpdates as $additionalUpdate) {
@@ -403,7 +404,7 @@ final class AddProductToOrderHandler extends AbstractOrderHandler implements Add
         AddProductToOrderCommand $command,
         Order $order,
         Cart $cart,
-        array $products
+        array $products,
     ) {
         if ($order->hasInvoice()) {
             return $command->getOrderInvoiceId() ?

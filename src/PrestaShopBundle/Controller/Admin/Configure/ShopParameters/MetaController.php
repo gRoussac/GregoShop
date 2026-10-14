@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -349,7 +350,7 @@ class MetaController extends PrestaShopAdminController
         FormInterface $setUpUrlsForm,
         FormInterface $shopUrlsForm,
         FormInterface $seoOptionsForm,
-        ?FormInterface $urlSchemaForm = null
+        ?FormInterface $urlSchemaForm = null,
     ): Response {
         $isShopContext = $this->getShopContext()->getShopConstraint()->isSingleShopContext();
         $isShopFeatureActive = $this->getShopContext()->isMultiShopEnabled();
@@ -432,9 +433,8 @@ class MetaController extends PrestaShopAdminController
                 $this->addFlash('success', $this->trans('Update successful', [], 'Admin.Notifications.Success'));
 
                 return $this->redirectToRoute('admin_metas_index');
-            } else {
-                $this->addFlashErrors($saveErrors);
             }
+            $this->addFlashErrors($saveErrors);
         }
 
         return $form;

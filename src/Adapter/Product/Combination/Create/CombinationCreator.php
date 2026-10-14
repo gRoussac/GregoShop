@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -93,7 +94,7 @@ class CombinationCreator
         AttributeGroupRepository $attributeGroupRepository,
         AttributeRepository $attributeRepository,
         DefaultCombinationUpdater $defaultCombinationUpdater,
-        HookDispatcherInterface $hookDispatcher
+        HookDispatcherInterface $hookDispatcher,
     ) {
         $this->combinationGenerator = $combinationGenerator;
         $this->combinationRepository = $combinationRepository;
@@ -149,7 +150,7 @@ class CombinationCreator
     private function syncOutOfStockType(
         Product $product,
         ShopConstraint $shopConstraint,
-        array $shopIdsByConstraint
+        array $shopIdsByConstraint,
     ): void {
         $productId = new ProductId((int) $product->id);
         $productStockAvailable = $this->stockAvailableRepository->getForProduct($productId, new ShopId($product->getShopId()));
@@ -259,7 +260,7 @@ class CombinationCreator
     private function persistCombination(
         ProductId $productId,
         array $generatedCombination,
-        array $shopIds
+        array $shopIds,
     ): CombinationId {
         $combination = $this->combinationRepository->create($productId, $shopIds);
         $combinationId = new CombinationId((int) $combination->id);
@@ -321,7 +322,7 @@ class CombinationCreator
     private function assertAttributesExistenceInShops(
         ProductId $productId,
         array $groupedAttributeIdsList,
-        ShopConstraint $shopConstraint
+        ShopConstraint $shopConstraint,
     ): void {
         $attributeGroupIds = [];
         $attributeIds = [];

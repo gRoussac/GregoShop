@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -49,7 +50,7 @@ class StateType extends AbstractType
     public function __construct(
         TranslatorInterface $translator,
         ConfigurableFormChoiceProviderInterface $countriesChoiceProvider,
-        ConfigurableFormChoiceProviderInterface $zonesChoiceProvider
+        ConfigurableFormChoiceProviderInterface $zonesChoiceProvider,
     ) {
         $this->translator = $translator;
         $this->countriesChoiceProvider = $countriesChoiceProvider;

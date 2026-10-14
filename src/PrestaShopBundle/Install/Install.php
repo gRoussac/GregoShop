@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -145,7 +146,7 @@ class Install extends AbstractInstall
         $database_password,
         $database_name,
         $database_prefix,
-        $database_engine
+        $database_engine,
     ) {
         // Check permissions for settings file
         if (
@@ -241,9 +242,9 @@ class Install extends AbstractInstall
             $this->setError($this->translator->trans('%file% file is not writable (check permissions)', ['%file%' => $this->settingsFile], 'Install'));
 
             return false;
-        } else {
-            return $this->emptyYamlParameters();
         }
+
+        return $this->emptyYamlParameters();
     }
 
     /**

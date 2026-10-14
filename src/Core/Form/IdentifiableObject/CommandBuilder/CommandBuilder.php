@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -127,7 +128,7 @@ class CommandBuilder
     public function buildCommands(
         array $data,
         object $singleShopCommand,
-        ?object $allShopsCommand = null
+        ?object $allShopsCommand = null,
     ): array {
         $updatedCommands = [];
 
@@ -197,7 +198,7 @@ class CommandBuilder
         CommandField $commandField,
         array $data,
         object $singleShopCommand,
-        ?object $allShopsCommand
+        ?object $allShopsCommand,
     ): object {
         if (null === $allShopsCommand || !$commandField->isMultiShopField()) {
             return $singleShopCommand;

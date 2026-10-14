@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -29,7 +30,7 @@ final class UploadQuotaDataProvider implements FormDataProviderInterface
 
     public function __construct(
         DataConfigurationInterface $dataConfiguration,
-        UploadSizeConfigurationInterface $uploadSizeConfiguration
+        UploadSizeConfigurationInterface $uploadSizeConfiguration,
     ) {
         $this->dataConfiguration = $dataConfiguration;
         $this->uploadSizeConfiguration = $uploadSizeConfiguration;
@@ -93,26 +94,25 @@ final class UploadQuotaDataProvider implements FormDataProviderInterface
     {
         if (is_numeric($value)) {
             return $value;
-        } else {
-            $value_length = strlen($value);
-            $qty = (int) substr($value, 0, $value_length - 1);
-            $unit = strtolower(substr($value, $value_length - 1));
-            switch ($unit) {
-                case 'k':
-                    $qty *= 1024;
-
-                    break;
-                case 'm':
-                    $qty *= 1048576;
-
-                    break;
-                case 'g':
-                    $qty *= 1073741824;
-
-                    break;
-            }
-
-            return $qty;
         }
+        $value_length = strlen($value);
+        $qty = (int) substr($value, 0, $value_length - 1);
+        $unit = strtolower(substr($value, $value_length - 1));
+        switch ($unit) {
+            case 'k':
+                $qty *= 1024;
+
+                break;
+            case 'm':
+                $qty *= 1048576;
+
+                break;
+            case 'g':
+                $qty *= 1073741824;
+
+                break;
+        }
+
+        return $qty;
     }
 }

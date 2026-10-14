@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -111,7 +112,7 @@ class PersonalInformation
         $shopName,
         $languageName,
         Subscriptions $subscriptions,
-        $isActive
+        $isActive,
     ) {
         $this->firstName = $firstName;
         $this->lastName = $lastName;

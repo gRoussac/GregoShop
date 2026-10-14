@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -29,7 +30,7 @@ abstract class AbstractSqlRequestHandler
 
     public function __construct(
         SqlQueryValidator $sqlQueryValidator,
-        TranslatorInterface $translator
+        TranslatorInterface $translator,
     ) {
         $this->sqlQueryValidator = $sqlQueryValidator;
         $this->translator = $translator;

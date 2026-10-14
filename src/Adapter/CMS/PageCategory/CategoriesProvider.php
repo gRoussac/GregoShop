@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -32,7 +33,7 @@ class CategoriesProvider
      */
     public function __construct(
         $contextLanguageId,
-        array $contextShopIds
+        array $contextShopIds,
     ) {
         $this->contextLanguageId = (int) $contextLanguageId;
         $this->contextShopIds = array_map(function ($item) { return (int) $item; }, $contextShopIds);

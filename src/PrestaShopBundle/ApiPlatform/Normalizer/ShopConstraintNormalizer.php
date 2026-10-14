@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -44,7 +45,7 @@ class ShopConstraintNormalizer implements DenormalizerInterface, NormalizerInter
 
     public function normalize($object, ?string $format = null, array $context = [])
     {
-        if (!($object instanceof ShopConstraint)) {
+        if (!$object instanceof ShopConstraint) {
             throw new InvalidArgumentException('Expected object to be a ' . ShopConstraint::class);
         }
 

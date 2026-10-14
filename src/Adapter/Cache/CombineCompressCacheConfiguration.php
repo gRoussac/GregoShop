@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -48,7 +49,7 @@ class CombineCompressCacheConfiguration implements DataConfigurationInterface
         Filesystem $filesystem,
         Tools $tools,
         $themePath,
-        $themeName
+        $themeName,
     ) {
         $this->configuration = $configuration;
         $this->filesystem = $filesystem;

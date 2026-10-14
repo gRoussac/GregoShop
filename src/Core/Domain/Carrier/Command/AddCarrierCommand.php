@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -50,7 +51,7 @@ class AddCarrierCommand
         private int $max_height = 0,
         private int $max_depth = 0,
         private float $max_weight = 0,
-        private ?string $logoPathName = null
+        private ?string $logoPathName = null,
     ) {
         $this->assertCarrierHasAtLeastOneZone($zones);
         $this->shippingMethod = new ShippingMethod($shippingMethod);

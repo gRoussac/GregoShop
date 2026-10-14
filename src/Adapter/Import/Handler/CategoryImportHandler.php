@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -92,7 +93,7 @@ final class CategoryImportHandler extends AbstractImportHandler
         ImageCopier $imageCopier,
         Tools $tools,
         Connection $connection,
-        $dbPrefix
+        $dbPrefix,
     ) {
         parent::__construct(
             $dataFormatter,
@@ -140,7 +141,7 @@ final class CategoryImportHandler extends AbstractImportHandler
     public function importRow(
         ImportConfigInterface $importConfig,
         ImportRuntimeConfigInterface $runtimeConfig,
-        DataRowInterface $dataRow
+        DataRowInterface $dataRow,
     ) {
         parent::importRow($importConfig, $runtimeConfig, $dataRow);
 
@@ -215,7 +216,7 @@ final class CategoryImportHandler extends AbstractImportHandler
     private function findParentCategory(
         Category $category,
         ImportRuntimeConfigInterface $runtimeConfig,
-        $categoryId
+        $categoryId,
     ) {
         if (!isset($category->parent)) {
             return;
@@ -369,7 +370,7 @@ final class CategoryImportHandler extends AbstractImportHandler
         ImportRuntimeConfigInterface $runtimeConfig,
         $categoryId,
         $categoryName,
-        $shopData
+        $shopData,
     ) {
         $unfriendlyError = $this->configuration->getBoolean('UNFRIENDLY_ERROR');
         $movedCategories = [];

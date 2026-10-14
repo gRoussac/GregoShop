@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -46,7 +47,7 @@ class IssueStandardRefundCommand extends AbstractRefundCommand
         bool $refundShippingCost,
         bool $generateCreditSlip,
         bool $generateVoucher,
-        int $voucherRefundType
+        int $voucherRefundType,
     ) {
         parent::__construct(
             $orderId,

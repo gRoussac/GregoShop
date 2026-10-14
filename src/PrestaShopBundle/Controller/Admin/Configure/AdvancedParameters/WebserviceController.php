@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -316,9 +317,8 @@ class WebserviceController extends PrestaShopAdminController
                 $this->addFlash('success', $this->trans('Update successful', [], 'Admin.Notifications.Success'));
 
                 return $this->redirectToRoute('admin_webservice_keys_index');
-            } else {
-                $this->addFlashErrors($saveErrors);
             }
+            $this->addFlashErrors($saveErrors);
         }
 
         return $this->renderPage($request, $filters, $form, $gridFactory, $serverRequirementsChecker, $webserviceFormDataProvider);

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -19,7 +20,7 @@ class ImagePathFactory
      * @param string $pathToBaseDir
      */
     public function __construct(
-        string $pathToBaseDir
+        string $pathToBaseDir,
     ) {
         $this->pathToBaseDir = rtrim($pathToBaseDir, '/');
     }

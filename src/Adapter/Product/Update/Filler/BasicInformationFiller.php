@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -27,7 +28,7 @@ class BasicInformationFiller implements ProductFillerInterface
      * @param int $defaultLanguageId
      */
     public function __construct(
-        int $defaultLanguageId
+        int $defaultLanguageId,
     ) {
         $this->defaultLanguageId = $defaultLanguageId;
     }

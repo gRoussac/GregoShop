@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -37,7 +38,7 @@ class GroupedAttributeIds
      */
     public function __construct(
         int $attributeGroupId,
-        array $attributeIds
+        array $attributeIds,
     ) {
         $this->attributeGroupId = new AttributeGroupId($attributeGroupId);
         $this->setAttributeIds($attributeIds);

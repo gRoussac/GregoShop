@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -271,9 +272,9 @@ class MediaCore
             return Media::getCSSPath($folder . $file);
         } elseif (@file_exists($fileUri . $name . '/' . $file)) {
             return Media::getCSSPath($folder . $name . '/' . $file);
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     /**

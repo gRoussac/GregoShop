@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -37,7 +38,7 @@ final class AddressZipCodeValidator extends ConstraintValidator
      */
     public function __construct(
         TranslatorInterface $translator,
-        CountryZipCodeRequirementsProviderInterface $requirementsProvider
+        CountryZipCodeRequirementsProviderInterface $requirementsProvider,
     ) {
         $this->translator = $translator;
         $this->requirementsProvider = $requirementsProvider;
@@ -50,7 +51,7 @@ final class AddressZipCodeValidator extends ConstraintValidator
      */
     public function validate($value, Constraint $constraint)
     {
-        if (!($constraint instanceof AddressZipCode)) {
+        if (!$constraint instanceof AddressZipCode) {
             return;
         }
         $countryId = (int) $constraint->id_country;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -32,7 +33,7 @@ class MultiParameterSetterAdapter implements OpenApiSchemaAdapterInterface
 {
     public function __construct(
         protected readonly ClassMetadataFactoryInterface $classMetadataFactory,
-        protected readonly DomainObjectDetector $domainObjectDetector
+        protected readonly DomainObjectDetector $domainObjectDetector,
     ) {
     }
 

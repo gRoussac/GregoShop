@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -25,7 +26,7 @@ class QuickAccessQueryBuilder extends AbstractDoctrineQueryBuilder
         Connection $connection,
         string $dbPrefix,
         DoctrineSearchCriteriaApplicatorInterface $searchCriteriaApplicator,
-        private readonly LanguageContext $languageContext
+        private readonly LanguageContext $languageContext,
     ) {
         parent::__construct($connection, $dbPrefix);
         $this->searchCriteriaApplicator = $searchCriteriaApplicator;

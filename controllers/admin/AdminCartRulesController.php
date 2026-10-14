@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -676,9 +677,9 @@ class AdminCartRulesControllerCore extends AdminController
                 'products' => $products,
                 'found' => true,
             ];
-        } else {
-            return ['found' => false, 'notfound' => $this->trans('No product has been found.', [], 'Admin.Catalog.Notification')];
         }
+
+        return ['found' => false, 'notfound' => $this->trans('No product has been found.', [], 'Admin.Catalog.Notification')];
     }
 
     public function ajaxProcessSearchProducts()

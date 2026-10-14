@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -46,7 +47,7 @@ class OrderMessageController extends PrestaShopAdminController
         Request $request,
         #[Autowire(service: 'prestashop.core.grid.grid_factory.order_message')]
         GridFactoryInterface $orderMessageGridFactory,
-        OrderMessageFilters $filters
+        OrderMessageFilters $filters,
     ): Response {
         $grid = $orderMessageGridFactory->getGrid($filters);
 
@@ -79,7 +80,7 @@ class OrderMessageController extends PrestaShopAdminController
         FormBuilderInterface $formBuilder,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.handler.order_message_form_handler')]
         FormHandlerInterface $formHandler,
-        MultistoreFeature $multiStoreFeature
+        MultistoreFeature $multiStoreFeature,
     ): Response {
         $form = $formBuilder->getForm();
         $form->handleRequest($request);
@@ -126,7 +127,7 @@ class OrderMessageController extends PrestaShopAdminController
         FormBuilderInterface $formBuilder,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.handler.order_message_form_handler')]
         FormHandlerInterface $formHandler,
-        LanguageContext $languageContext
+        LanguageContext $languageContext,
     ): Response {
         try {
             /** @var EditableOrderMessage $editableOrderMessage */

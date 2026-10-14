@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -132,7 +133,7 @@ class LinkCore
         $relativeProtocol = false,
         $withIdInAnchor = false,
         $extraParams = [],
-        bool $addAnchor = true
+        bool $addAnchor = true,
     ) {
         $dispatcher = Dispatcher::getInstance();
 
@@ -275,7 +276,7 @@ class LinkCore
     public function getRemoveFromCartURL(
         $idProduct,
         $idProductAttribute,
-        $idCustomization = null
+        $idCustomization = null,
     ) {
         $params = [
             'delete' => 1,
@@ -308,7 +309,7 @@ class LinkCore
     public function getUpQuantityCartURL(
         $idProduct,
         $idProductAttribute,
-        $idCustomization = null
+        $idCustomization = null,
     ) {
         return $this->getUpdateQuantityCartURL($idProduct, $idProductAttribute, $idCustomization, 'up');
     }
@@ -325,7 +326,7 @@ class LinkCore
     public function getDownQuantityCartURL(
         $idProduct,
         $idProductAttribute,
-        $idCustomization = null
+        $idCustomization = null,
     ) {
         return $this->getUpdateQuantityCartURL($idProduct, $idProductAttribute, $idCustomization, 'down');
     }
@@ -344,7 +345,7 @@ class LinkCore
         $idProduct,
         $idProductAttribute,
         $idCustomization = null,
-        $op = null
+        $op = null,
     ) {
         $params = [
             'update' => 1,
@@ -438,7 +439,7 @@ class LinkCore
         $idLang = null,
         $selectedFilters = null,
         $idShop = null,
-        $relativeProtocol = false
+        $relativeProtocol = false,
     ) {
         $dispatcher = Dispatcher::getInstance();
 
@@ -511,7 +512,7 @@ class LinkCore
         $alias = null,
         $idLang = null,
         $idShop = null,
-        $relativeProtocol = false
+        $relativeProtocol = false,
     ) {
         if (!$idLang) {
             $idLang = Context::getContext()->language->id;
@@ -565,7 +566,7 @@ class LinkCore
         $ssl = null,
         $idLang = null,
         $idShop = null,
-        $relativeProtocol = false
+        $relativeProtocol = false,
     ) {
         if (!$idLang) {
             $idLang = Context::getContext()->language->id;
@@ -611,7 +612,7 @@ class LinkCore
         $alias = null,
         $idLang = null,
         $idShop = null,
-        $relativeProtocol = false
+        $relativeProtocol = false,
     ) {
         if (!$idLang) {
             $idLang = Context::getContext()->language->id;
@@ -666,7 +667,7 @@ class LinkCore
         $alias = null,
         $idLang = null,
         $idShop = null,
-        $relativeProtocol = false
+        $relativeProtocol = false,
     ) {
         if (!$idLang) {
             $idLang = Context::getContext()->language->id;
@@ -716,7 +717,7 @@ class LinkCore
         $ssl = null,
         $idLang = null,
         $idShop = null,
-        $relativeProtocol = false
+        $relativeProtocol = false,
     ) {
         if (!$idLang) {
             $idLang = Context::getContext()->language->id;
@@ -731,9 +732,9 @@ class LinkCore
         // If the module has its own route ... just use it !
         if (Dispatcher::getInstance()->hasRoute('module-' . $module . '-' . $controller, $idLang, $idShop)) {
             return $this->getPageLink('module-' . $module . '-' . $controller, $ssl, $idLang, $params, false, $idShop);
-        } else {
-            return $url . Dispatcher::getInstance()->createUrl('module', $idLang, $params, $this->allow, '', $idShop);
         }
+
+        return $url . Dispatcher::getInstance()->createUrl('module', $idLang, $params, $this->allow, '', $idShop);
     }
 
     /**
@@ -1286,7 +1287,7 @@ class LinkCore
         $ssl = null,
         $idLang = null,
         $idShop = null,
-        $relativeProtocol = false
+        $relativeProtocol = false,
     ) {
         if (!$idLang) {
             $idLang = Context::getContext()->language->id;
@@ -1387,9 +1388,9 @@ class LinkCore
         if (!$array) {
             if (count($vars)) {
                 return $url . (!strstr($url, '?') && ($this->allow || $url == $this->url) ? '?' : '&') . http_build_query($vars, '', '&');
-            } else {
-                return $url;
             }
+
+            return $url;
         }
 
         $vars['requestUrl'] = $url;

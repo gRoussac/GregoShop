@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -52,7 +53,7 @@ final class OrderQueryBuilder implements DoctrineQueryBuilderInterface
         $dbPrefix,
         DoctrineSearchCriteriaApplicatorInterface $criteriaApplicator,
         $contextLangId,
-        array $contextShopIds
+        array $contextShopIds,
     ) {
         $this->connection = $connection;
         $this->dbPrefix = $dbPrefix;

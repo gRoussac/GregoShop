@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -62,22 +63,21 @@ class LegacyRouterChecker
                     $queryController,
                     $moduleName
                 ));
+            }
+            $controllerName = $controllers[strtolower($queryController)];
+            // Controllers in modules can be named AdminXXX.php or AdminXXXController.php
+            include_once _PS_MODULE_DIR_ . "{$moduleName}/controllers/admin/$controllerName.php";
+            if (file_exists(
+                _PS_OVERRIDE_DIR_ . "modules/{$moduleName}/controllers/admin/$controllerName.php"
+            )) {
+                include_once _PS_OVERRIDE_DIR_ . "modules/{$moduleName}/controllers/admin/$controllerName.php";
+                $controllerClass = $controllerName . (
+                    strpos($controllerName, 'Controller') ? 'Override' : 'ControllerOverride'
+                );
             } else {
-                $controllerName = $controllers[strtolower($queryController)];
-                // Controllers in modules can be named AdminXXX.php or AdminXXXController.php
-                include_once _PS_MODULE_DIR_ . "{$moduleName}/controllers/admin/$controllerName.php";
-                if (file_exists(
-                    _PS_OVERRIDE_DIR_ . "modules/{$moduleName}/controllers/admin/$controllerName.php"
-                )) {
-                    include_once _PS_OVERRIDE_DIR_ . "modules/{$moduleName}/controllers/admin/$controllerName.php";
-                    $controllerClass = $controllerName . (
-                        strpos($controllerName, 'Controller') ? 'Override' : 'ControllerOverride'
-                    );
-                } else {
-                    $controllerClass = $controllerName . (
-                        strpos($controllerName, 'Controller') ? '' : 'Controller'
-                    );
-                }
+                $controllerClass = $controllerName . (
+                    strpos($controllerName, 'Controller') ? '' : 'Controller'
+                );
             }
         } else {
             $controllers = Dispatcher::getControllers(

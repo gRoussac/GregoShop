@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -122,7 +123,7 @@ class ModuleCatalogueLayersProvider implements CatalogueLayersProviderInterface
         string $moduleName,
         array $filenameFilters,
         array $translationDomains,
-        ExtraPropertyTranslationExtractor $extraPropertyTranslationExtractor
+        ExtraPropertyTranslationExtractor $extraPropertyTranslationExtractor,
     ) {
         $this->databaseTranslationLoader = $databaseTranslationLoader;
         $this->moduleName = $moduleName;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -95,7 +96,7 @@ class ProductGridDefinitionFactory extends AbstractGridDefinitionFactory
         AccessibilityCheckerInterface $singleShopChecker,
         AccessibilityCheckerInterface $multipleShopsChecker,
         protected readonly AccessCheckerInterface $accessChecker,
-        protected readonly ContextEmployeeProviderInterface $contextEmployerProvider
+        protected readonly ContextEmployeeProviderInterface $contextEmployerProvider,
     ) {
         parent::__construct($hookDispatcher);
         $this->configuration = $configuration;
@@ -763,7 +764,7 @@ class ProductGridDefinitionFactory extends AbstractGridDefinitionFactory
         string $progressTitle,
         string $progressMessage,
         string $icon = '',
-        array $routeParams = []
+        array $routeParams = [],
     ): AjaxBulkAction {
         $ajaxBulkAction = new AjaxBulkAction($actionId);
         $ajaxBulkAction

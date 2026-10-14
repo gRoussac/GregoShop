@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -20,7 +21,7 @@ class VirtualProductFileListener implements EventSubscriberInterface
     private $formCloner;
 
     public function __construct(
-        FormCloner $formCloner
+        FormCloner $formCloner,
     ) {
         $this->formCloner = $formCloner;
     }

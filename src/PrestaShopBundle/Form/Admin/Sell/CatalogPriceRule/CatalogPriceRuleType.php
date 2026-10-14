@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -58,7 +59,7 @@ class CatalogPriceRuleType extends AbstractType
         TranslatorInterface $translator,
         bool $isMultiShopEnabled,
         array $groupByIdChoices,
-        array $shopByIdChoices
+        array $shopByIdChoices,
     ) {
         $this->translator = $translator;
         $this->isMultiShopEnabled = $isMultiShopEnabled;

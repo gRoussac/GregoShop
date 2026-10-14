@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -60,7 +61,7 @@ class AddVirtualProductFileCommand
         string $displayName,
         ?int $accessDays = null,
         ?int $downloadTimesLimit = null,
-        ?DateTimeInterface $expirationDate = null
+        ?DateTimeInterface $expirationDate = null,
     ) {
         $this->productId = new ProductId($productId);
         $this->filePath = $filePath;

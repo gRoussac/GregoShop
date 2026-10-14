@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -64,7 +65,7 @@ class OrderPaymentType extends AbstractType
         ConfigurableFormChoiceProviderInterface $orderInvoiceChoiceProvider,
         FormChoiceProviderInterface $installedPaymentModulesChoiceProvider,
         int $contextLanguageId,
-        int $contextShopId
+        int $contextShopId,
     ) {
         $this->translator = $translator;
         $this->currencySymbolByIdChoiceProvider = $currencySymbolByIdChoiceProvider;

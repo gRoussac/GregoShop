@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -108,7 +109,7 @@ class SpecificPriceValidator extends AbstractObjectModelValidator
         GroupRepository $groupRepository,
         CustomerRepository $customerRepository,
         ProductRepository $productRepository,
-        NumberExtractor $numberExtractor
+        NumberExtractor $numberExtractor,
     ) {
         $this->shopGroupRepository = $shopGroupRepository;
         $this->shopRepository = $shopRepository;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -41,7 +42,7 @@ final class ContactFormDataProvider implements FormDataProviderInterface
     public function __construct(
         CommandBusInterface $queryBus,
         DataTransformerInterface $stringArrayToIntegerArrayDataTransformer,
-        array $contextShopIds
+        array $contextShopIds,
     ) {
         $this->queryBus = $queryBus;
         $this->contextShopIds = $contextShopIds;

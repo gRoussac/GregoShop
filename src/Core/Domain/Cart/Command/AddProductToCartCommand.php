@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -55,7 +56,7 @@ class AddProductToCartCommand
         int $productId,
         int $quantity,
         ?int $combinationId = null,
-        array $customizationsByFieldIds = []
+        array $customizationsByFieldIds = [],
     ) {
         $this->assertQtyIsPositive($quantity);
         $this->setCombinationId($combinationId);

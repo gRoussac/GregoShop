@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -39,7 +40,7 @@ final class TranslationsKpi implements KpiInterface
     public function __construct(
         TranslatorInterface $translator,
         ConfigurationInterface $configuration,
-        $sourceLink
+        $sourceLink,
     ) {
         $this->translator = $translator;
         $this->configuration = $configuration;

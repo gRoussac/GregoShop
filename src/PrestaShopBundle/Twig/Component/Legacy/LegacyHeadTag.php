@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -126,9 +127,9 @@ class LegacyHeadTag extends HeadTag
             $breadcrumbs = $this->menuBuilder->getBreadcrumbLinks();
             if (empty($breadcrumbs)) {
                 return '';
-            } else {
-                return $breadcrumbs['tab']->name;
             }
+
+            return $breadcrumbs['tab']->name;
         }
 
         if (is_array($legacyMetaTitle)) {

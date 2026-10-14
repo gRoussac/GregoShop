@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -51,7 +52,7 @@ class LoadLegacyClassesinCommandTest extends KernelTestCase
         $this->expectExceptionMessage('Attempt to read property "controller_type" on null');
 
         $application = new Application(static::$kernel);
-        $application->add(new class() extends Command {
+        $application->add(new class extends Command {
             protected function configure()
             {
                 $this->setName('prestashop-tests:load-legacy-classes');
@@ -83,7 +84,7 @@ class LoadLegacyClassesinCommandTest extends KernelTestCase
     public function testLoadLegacyCommandWithContextWorks()
     {
         $application = new Application(static::$kernel);
-        $application->add(new class() extends Command {
+        $application->add(new class extends Command {
             protected function configure()
             {
                 $this->setName('prestashop-tests:load-legacy-classes');

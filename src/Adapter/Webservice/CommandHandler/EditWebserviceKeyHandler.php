@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -55,7 +56,7 @@ final class EditWebserviceKeyHandler extends AbstractWebserviceKeyHandler implem
      */
     private function updateLegacyWebserviceKeyWithCommandData(
         WebserviceKey $webserviceKey,
-        EditWebserviceKeyCommand $command
+        EditWebserviceKeyCommand $command,
     ) {
         if (null !== $command->getKey()) {
             $webserviceKey->key = $command->getKey()->getValue();

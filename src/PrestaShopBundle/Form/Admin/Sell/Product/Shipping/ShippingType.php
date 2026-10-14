@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -50,7 +51,7 @@ class ShippingType extends TranslatorAwareType
         array $locales,
         string $currencyIsoCode,
         FormChoiceProviderInterface $carrierChoiceProvider,
-        FormChoiceProviderInterface $additionalDeliveryTimeNoteTypesProvider
+        FormChoiceProviderInterface $additionalDeliveryTimeNoteTypesProvider,
     ) {
         parent::__construct($translator, $locales);
         $this->currencyIsoCode = $currencyIsoCode;

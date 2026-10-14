@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -97,7 +98,7 @@ final class AddTaxRuleHandler implements AddTaxRuleHandlerInterface
         int $taxRulesGroupId,
         int $countryId,
         int $stateId,
-        AddTaxRuleCommand $command
+        AddTaxRuleCommand $command,
     ): TaxRuleId {
         $taxRule = new TaxRule();
         $taxRule->id_tax_rules_group = $taxRulesGroupId;

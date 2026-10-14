@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -72,7 +73,7 @@ class OrderReturnForEditing
         int $orderId,
         DateTimeImmutable $orderDate,
         int $orderReturnStateId,
-        string $question
+        string $question,
     ) {
         $this->orderReturnId = $orderReturnId;
         $this->customerId = $customerId;

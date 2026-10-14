@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -54,7 +55,7 @@ class AttributeController extends PrestaShopAdminController
         AttributeFilters $attributeFilters,
         #[Autowire(service: 'prestashop.core.grid.factory.attribute')]
         GridFactoryInterface $attributeGridFactory,
-        AttributeGroupViewDataProvider $attributeGroupViewDataProvider
+        AttributeGroupViewDataProvider $attributeGroupViewDataProvider,
     ): Response {
         try {
             $attributeGrid = $attributeGridFactory->getGrid($attributeFilters);
@@ -118,7 +119,7 @@ class AttributeController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.form.identifiable_object.builder.attribute_form_builder')]
         FormBuilderInterface $attributeFormBuilder,
         #[Autowire(service: 'prestashop.core.form.identifiable_object.attribute_form_handler')]
-        FormHandlerInterface $attributeFormHandler
+        FormHandlerInterface $attributeFormHandler,
     ): Response {
         $attributeGroupId = (int) $request->query->get('attributeGroupId');
 
@@ -279,7 +280,7 @@ class AttributeController extends PrestaShopAdminController
     public function exportAction(
         AttributeFilters $filters,
         #[Autowire(service: 'prestashop.core.grid.factory.attribute')]
-        GridFactoryInterface $attributeGridFactory
+        GridFactoryInterface $attributeGridFactory,
     ): CsvResponse {
         $filters = new AttributeFilters(['limit' => null] + $filters->all());
         $attributeGrid = $attributeGridFactory->getGrid($filters);

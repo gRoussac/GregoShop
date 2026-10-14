@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -267,7 +268,7 @@ class FormClonerTest extends AbstractFormTester
     private function compareFormConfigs(
         FormConfigInterface $originalConfig,
         FormConfigInterface $clonedConfig,
-        array $newOptions = []
+        array $newOptions = [],
     ): void {
         $this->assertSame($originalConfig->getName(), $clonedConfig->getName());
         $this->assertSame($originalConfig->getPropertyPath(), $clonedConfig->getPropertyPath());

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -56,7 +57,7 @@ class DecimalNumberNormalizer implements DenormalizerInterface, NormalizerInterf
 
     public function normalize($object, ?string $format = null, array $context = [])
     {
-        if (!($object instanceof DecimalNumber)) {
+        if (!$object instanceof DecimalNumber) {
             throw new InvalidArgumentException('Expected object to be a ' . DecimalNumber::class);
         }
 

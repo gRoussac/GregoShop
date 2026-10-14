@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -32,7 +33,7 @@ class PaymentModulesPresenter
      */
     public function __construct(
         PresenterInterface $modulePresenter,
-        PaymentModuleListProvider $paymentModuleListProvider
+        PaymentModuleListProvider $paymentModuleListProvider,
     ) {
         $this->modulePresenter = $modulePresenter;
         $this->paymentModuleListProvider = $paymentModuleListProvider;

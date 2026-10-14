@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -55,7 +56,7 @@ class ProductDefaultCategoryChoiceProvider implements ConfigurableFormChoiceProv
         CategoryRepository $categoryRepository,
         CategoryDisplayNameBuilder $categoryDisplayNameBuilder,
         int $shopId,
-        int $languageId
+        int $languageId,
     ) {
         $this->defaultCategoryId = new CategoryId($homeCategoryId);
         $this->categoryRepository = $categoryRepository;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -68,7 +69,7 @@ class OrderDocumentForViewing
         ?string $amount,
         ?string $amountMismatch,
         ?string $note,
-        bool $isAddPaymentAllowed
+        bool $isAddPaymentAllowed,
     ) {
         $this->id = $id;
         $this->type = $type;

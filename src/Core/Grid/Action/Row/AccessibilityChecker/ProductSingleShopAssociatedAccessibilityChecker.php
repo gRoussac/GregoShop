@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -22,7 +23,7 @@ class ProductSingleShopAssociatedAccessibilityChecker implements AccessibilityCh
     private $multiStoreContext;
 
     public function __construct(
-        MultistoreContextCheckerInterface $multiStoreContext
+        MultistoreContextCheckerInterface $multiStoreContext,
     ) {
         $this->multiStoreContext = $multiStoreContext;
     }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -57,7 +58,7 @@ class EditableWebserviceKey
         $description,
         $status,
         array $resourcePermissions,
-        array $associatedShops
+        array $associatedShops,
     ) {
         $this->webserviceKeyId = $webserviceKeyId;
         $this->key = $key;

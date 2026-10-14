@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -23,7 +24,7 @@ class UniqueStateIsoCodeValidator extends ConstraintValidator
      */
     public function validate($value, Constraint $constraint)
     {
-        if (!($constraint instanceof UniqueStateIsoCode)) {
+        if (!$constraint instanceof UniqueStateIsoCode) {
             return;
         }
         $countryStateByIsoCodeProvider = new CountryStateByIsoCodeProvider();

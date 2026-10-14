@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -121,7 +122,7 @@ class SpecificPriceForEditing
         ?int $shopId,
         ?int $currencyId,
         ?int $countryId,
-        ?int $groupId
+        ?int $groupId,
     ) {
         $this->specificPriceId = $specificPriceId;
         $this->reductionType = $reductionType;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -18,7 +19,7 @@ class Database extends AbstractInstall
     private bool $canOfferCreateDatabase = false;
 
     public function __construct(
-        ?PrestaShopLoggerInterface $logger = null
+        ?PrestaShopLoggerInterface $logger = null,
     ) {
         parent::__construct();
         $this->logger = $logger;

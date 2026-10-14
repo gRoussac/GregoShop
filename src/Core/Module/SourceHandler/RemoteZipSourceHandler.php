@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -45,7 +46,7 @@ class RemoteZipSourceHandler implements SourceHandlerInterface
     public function __construct(
         ZipSourceHandler $zipSourceHandler,
         HttpClientInterface $httpClient,
-        string $downloadDir
+        string $downloadDir,
     ) {
         $this->zipSourceHandler = $zipSourceHandler;
         $this->httpClient = $httpClient;

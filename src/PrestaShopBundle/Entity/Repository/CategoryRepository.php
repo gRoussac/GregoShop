@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -54,7 +55,7 @@ class CategoryRepository
     public function __construct(
         Connection $connection,
         ContextAdapter $contextAdapter,
-        $tablePrefix
+        $tablePrefix,
     ) {
         $this->connection = $connection;
         $this->tablePrefix = $tablePrefix;

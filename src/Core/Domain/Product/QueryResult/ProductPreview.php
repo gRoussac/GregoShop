@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -36,7 +37,7 @@ class ProductPreview
     public function __construct(
         int $productId,
         string $name,
-        string $imageUrl
+        string $imageUrl,
     ) {
         $this->productId = $productId;
         $this->name = $name;

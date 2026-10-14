@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -48,7 +49,7 @@ class RedirectTargetProvider
     public function __construct(
         ProductPreviewRepository $productPreviewRepository,
         CategoryPreviewRepository $categoryPreviewRepository,
-        LegacyContext $legacyContext
+        LegacyContext $legacyContext,
     ) {
         $this->productPreviewRepository = $productPreviewRepository;
         $this->categoryPreviewRepository = $categoryPreviewRepository;
@@ -66,7 +67,7 @@ class RedirectTargetProvider
      */
     public function getRedirectTarget(
         string $redirectType,
-        int $redirectTargetId
+        int $redirectTargetId,
     ): ?RedirectTargetInformation {
         if (empty($redirectTargetId)) {
             return null;

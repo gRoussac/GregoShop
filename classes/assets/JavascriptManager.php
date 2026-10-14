@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -44,7 +45,7 @@ class JavascriptManagerCore extends AbstractAssetManager
         $inline = false,
         $attribute = null,
         $server = 'local',
-        ?string $version = null
+        ?string $version = null,
     ) {
         if ('remote' === $server) {
             $this->add($id, $relativePath, $position, $priority, $inline, $attribute, $server, $version);

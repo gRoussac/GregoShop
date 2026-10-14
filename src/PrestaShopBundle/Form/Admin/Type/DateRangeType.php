@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -42,7 +43,7 @@ class DateRangeType extends AbstractType
      */
     public function __construct(
         TranslatorInterface $translator,
-        FormCloner $formCloner
+        FormCloner $formCloner,
     ) {
         $this->translator = $translator;
         $this->formCloner = $formCloner;

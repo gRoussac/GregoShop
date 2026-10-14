@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -55,7 +56,7 @@ class TranslationsTreeBuilder
     public function getTree(
         ProviderDefinitionInterface $providerDefinition,
         string $locale,
-        array $search
+        array $search,
     ): array {
         $tree = $this->translationCatalogueBuilder->getRawCatalogue(
             $providerDefinition,
@@ -89,7 +90,7 @@ class TranslationsTreeBuilder
         array $routeParams,
         array $metadataSubtree,
         ?string $subtreeName = null,
-        ?string $fullSubtreeName = null
+        ?string $fullSubtreeName = null,
     ): array {
         $current = [];
         if ($subtreeName !== null) {

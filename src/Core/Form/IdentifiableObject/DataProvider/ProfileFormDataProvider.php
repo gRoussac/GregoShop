@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -30,7 +31,7 @@ final class ProfileFormDataProvider implements FormDataProviderInterface
      */
     public function __construct(
         CommandBusInterface $queryBus,
-        string $defaultAvatarUrl
+        string $defaultAvatarUrl,
     ) {
         $this->queryBus = $queryBus;
         $this->defaultAvatarUrl = $defaultAvatarUrl;

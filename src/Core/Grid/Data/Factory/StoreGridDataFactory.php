@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -20,7 +21,7 @@ class StoreGridDataFactory implements GridDataFactoryInterface
     private $storeDataFactory;
 
     public function __construct(
-        GridDataFactoryInterface $storeDataFactory
+        GridDataFactoryInterface $storeDataFactory,
     ) {
         $this->storeDataFactory = $storeDataFactory;
     }

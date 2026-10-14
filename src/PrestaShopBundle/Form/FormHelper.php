@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -26,9 +27,8 @@ class FormHelper
         foreach ($list as $item) {
             if (array_key_exists($item[$mapping_name], $new_list)) {
                 return self::formatDataDuplicateChoicesList($list, $mapping_value, $mapping_name);
-            } else {
-                $new_list[$item[$mapping_name]] = $item[$mapping_value];
             }
+            $new_list[$item[$mapping_name]] = $item[$mapping_value];
         }
 
         return $new_list;

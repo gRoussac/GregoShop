@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -70,7 +71,7 @@ class ModuleSelfConfigurator
         ModuleRepository $moduleRepository,
         Configuration $configuration,
         Connection $connection,
-        Filesystem $filesystem
+        Filesystem $filesystem,
     ) {
         $this->module = null;
         $this->configFile = null;

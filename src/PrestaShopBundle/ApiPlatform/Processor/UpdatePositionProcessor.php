@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -72,9 +73,8 @@ class UpdatePositionProcessor implements ProcessorInterface
                     'Position definition expects %s field in data, maybe check your ApiResourceMapping.',
                     $parentIdField,
                 ));
-            } else {
-                $positionsData['parentId'] = $data[$parentIdField];
             }
+            $positionsData['parentId'] = $data[$parentIdField];
         }
 
         return $positionsData;

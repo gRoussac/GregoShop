@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -36,7 +37,7 @@ class ProductIndexationUpdater
 
     public function __construct(
         ContextStateManager $contextStateManager,
-        bool $isSearchIndexationOn
+        bool $isSearchIndexationOn,
     ) {
         $this->contextStateManager = $contextStateManager;
         $this->isSearchIndexationOn = $isSearchIndexationOn;

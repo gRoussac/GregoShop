@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -305,7 +306,7 @@ class AttributeGroupFeatureContext extends AbstractDomainFeatureContext
     public function assertAttributesInGroupForShops(
         TableNode $tableNode,
         string $attributeGroupReference,
-        string $shopReferences
+        string $shopReferences,
     ): void {
         $shopIds = $this->referencesToIds($shopReferences);
 
@@ -368,7 +369,7 @@ class AttributeGroupFeatureContext extends AbstractDomainFeatureContext
         TableNode $tableNode,
         string $productReference,
         string $attributeGroupReference,
-        string $shopReferences
+        string $shopReferences,
     ): void {
         $shopIds = $this->referencesToIds($shopReferences);
 
@@ -392,7 +393,7 @@ class AttributeGroupFeatureContext extends AbstractDomainFeatureContext
     public function assertProductAttributesInGroupForAllShops(
         TableNode $tableNode,
         string $productReference,
-        string $attributeGroupReference
+        string $attributeGroupReference,
     ): void {
         $this->assertProductAttributesInGroup(
             $tableNode,
@@ -413,7 +414,7 @@ class AttributeGroupFeatureContext extends AbstractDomainFeatureContext
         TableNode $tableNode,
         string $productReference,
         string $attributeGroupReference,
-        ShopConstraint $shopConstraint
+        ShopConstraint $shopConstraint,
     ): void {
         $this->performAttributesInGroupAssertion(
             $tableNode,

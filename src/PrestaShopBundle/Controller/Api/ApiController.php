@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -94,7 +95,7 @@ abstract class ApiController
     protected function addAdditionalInfo(
         Request $request,
         ?QueryParamsCollection $queryParams = null,
-        $headers = []
+        $headers = [],
     ) {
         $router = $this->container->get('router');
 
@@ -162,7 +163,7 @@ abstract class ApiController
         Request $request,
         ?QueryParamsCollection $queryParams = null,
         $status = 200,
-        $headers = []
+        $headers = [],
     ) {
         $response = [
             'info' => $this->addAdditionalInfo($request, $queryParams, $headers),

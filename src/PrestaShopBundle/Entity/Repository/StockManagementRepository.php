@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -81,7 +82,7 @@ abstract class StockManagementRepository
         EntityManager $entityManager,
         ContextAdapter $contextAdapter,
         ImageManager $imageManager,
-        $tablePrefix
+        $tablePrefix,
     ) {
         $this->container = $container;
         $this->connection = $connection;
@@ -245,7 +246,7 @@ abstract class StockManagementRepository
     protected function selectSql(
         $andWhereClause = '',
         $having = '',
-        $orderByClause = null
+        $orderByClause = null,
     ) {
         throw new RuntimeException('You need to implement your own `selectSql` function.');
     }
@@ -375,7 +376,7 @@ abstract class StockManagementRepository
     protected function bindStockManagementValues(
         Statement $statement,
         ?QueryParamsCollection $queryParams = null,
-        ?ProductIdentity $productIdentity = null
+        ?ProductIdentity $productIdentity = null,
     ) {
         $shop = $this->getCurrentShop();
         $shopId = $shop->getContextualShopId();

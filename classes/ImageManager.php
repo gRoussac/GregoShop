@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -178,7 +179,7 @@ class ImageManagerCore
         $quality = 5,
         &$sourceWidth = null,
         &$sourceHeight = null,
-        string $imageFitment = ImageFitment::FIT
+        string $imageFitment = ImageFitment::FIT,
     ) {
         clearstatcache(true, $sourceFile);
 
@@ -387,7 +388,7 @@ class ImageManagerCore
         $dstH,
         $srcW,
         $srcH,
-        $quality = 3
+        $quality = 3,
     ) {
         // Plug-and-Play fastimagecopyresampled function replaces much slower imagecopyresampled.
         // Just include this function and change all "imagecopyresampled" references to "fastimagecopyresampled".

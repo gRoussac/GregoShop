@@ -19,7 +19,7 @@ class AddApiClientCommand
         private readonly bool $enabled,
         private readonly string $description,
         private readonly int $lifetime,
-        private readonly array $scopes = []
+        private readonly array $scopes = [],
     ) {
         if (count($scopes) !== count(array_filter($scopes, 'is_string'))) {
             throw new ApiClientConstraintException('Expected list of non empty string for scopes', ApiClientConstraintException::INVALID_SCOPES);

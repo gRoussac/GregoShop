@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -68,7 +69,7 @@ class Locale implements LocaleInterface
         string $localeCode,
         NumberInterface $numberSpecification,
         NumberCollection $priceSpecifications,
-        NumberFormatter $formatter
+        NumberFormatter $formatter,
     ) {
         $this->code = $localeCode;
         $this->numberSpecification = $numberSpecification;

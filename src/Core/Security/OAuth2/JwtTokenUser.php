@@ -41,7 +41,6 @@ class JwtTokenUser implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function eraseCredentials()
     {
-        return;
     }
 
     public function getUserIdentifier(): string

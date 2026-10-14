@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -47,7 +48,7 @@ class SetAssociatedProductCategoriesCommand
         int $productId,
         int $defaultCategoryId,
         array $categoryIds,
-        ShopConstraint $shopConstraint
+        ShopConstraint $shopConstraint,
     ) {
         $this->setCategoryIds($categoryIds);
         $this->defaultCategoryId = new CategoryId($defaultCategoryId);

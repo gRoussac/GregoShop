@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -21,7 +22,7 @@ final class AttributeGridDataFactory implements GridDataFactoryInterface
      */
     public function __construct(
         private readonly GridDataFactoryInterface $attributeDataFactory,
-        private readonly ImageFolderProvider $imageFolderProvider
+        private readonly ImageFolderProvider $imageFolderProvider,
     ) {
     }
 

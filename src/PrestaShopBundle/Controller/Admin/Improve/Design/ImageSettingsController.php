@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -52,7 +53,7 @@ class ImageSettingsController extends PrestaShopAdminController
         #[Autowire(service: 'prestashop.core.grid.factory.image_type')]
         GridFactoryInterface $imageTypeGridFactory,
         #[Autowire(service: 'prestashop.admin.image_settings.form_handler')]
-        ConfigurationFormHandlerInterface $configFormHandler
+        ConfigurationFormHandlerInterface $configFormHandler,
     ): Response {
         // Get image type grid
         $imageTypeGrid = $imageTypeGridFactory->getGrid($filters);
@@ -87,7 +88,7 @@ class ImageSettingsController extends PrestaShopAdminController
     public function saveSettingsAction(
         Request $request,
         #[Autowire(service: 'prestashop.admin.image_settings.form_handler')]
-        ConfigurationFormHandlerInterface $configFormHandler
+        ConfigurationFormHandlerInterface $configFormHandler,
     ): Response {
         try {
             // Create form to set some image settings

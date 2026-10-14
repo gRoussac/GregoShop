@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -37,7 +38,7 @@ class AddressDniRequiredValidator extends ConstraintValidator
      */
     public function validate($value, Constraint $constraint)
     {
-        if (!($constraint instanceof AddressDniRequired)) {
+        if (!$constraint instanceof AddressDniRequired) {
             return;
         }
         $countryId = new CountryId((int) $constraint->id_country);

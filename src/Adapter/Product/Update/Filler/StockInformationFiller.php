@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -29,7 +30,7 @@ class StockInformationFiller implements ProductFillerInterface
      */
     public function fillUpdatableProperties(
         Product $product,
-        UpdateProductCommand $command
+        UpdateProductCommand $command,
     ): array {
         $updatableProperties = [];
 

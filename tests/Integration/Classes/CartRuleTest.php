@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -404,7 +405,7 @@ class CartRuleTest extends TestCase
         bool $active,
         int $customerId,
         bool $code = true,
-        bool $highlight = false
+        bool $highlight = false,
     ): CartRule {
         $randomNumber = rand(999, 9999);
         $cart_rule = new CartRule();

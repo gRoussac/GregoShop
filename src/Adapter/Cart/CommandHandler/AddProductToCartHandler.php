@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -38,7 +39,7 @@ final class AddProductToCartHandler extends AbstractCartHandler implements AddPr
      */
     public function __construct(
         AddCustomizationHandlerInterface $addCustomizationHandler,
-        UpdateProductQuantityInCartHandlerInterface $updateProductQuantityInCartHandler
+        UpdateProductQuantityInCartHandlerInterface $updateProductQuantityInCartHandler,
     ) {
         $this->addCustomizationHandler = $addCustomizationHandler;
         $this->updateProductQuantityInCartHandler = $updateProductQuantityInCartHandler;

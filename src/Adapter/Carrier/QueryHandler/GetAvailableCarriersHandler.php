@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -41,7 +42,7 @@ class GetAvailableCarriersHandler implements GetAvailableCarriersHandlerInterfac
         private readonly LanguageContext $languageContext,
         #[Autowire(service: 'prestashop.default.language.context')]
         private readonly LanguageContext $defaultLanguageContext,
-        private readonly ShopContext $shopContext
+        private readonly ShopContext $shopContext,
     ) {
     }
 

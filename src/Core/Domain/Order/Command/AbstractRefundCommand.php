@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -72,7 +73,7 @@ abstract class AbstractRefundCommand
         bool $generateCreditSlip,
         bool $generateVoucher,
         int $voucherRefundType,
-        ?string $voucherRefundAmount = null
+        ?string $voucherRefundAmount = null,
     ) {
         $this->orderId = new OrderId($orderId);
         $this->restockRefundedProducts = $restockRefundedProducts;

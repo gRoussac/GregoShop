@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -426,9 +427,9 @@ class CartCore extends ObjectModel
 
         if ($cart_vat_amount == 0 || $cartAmountTaxExcluded == 0) {
             return 0;
-        } else {
-            return Tools::ps_round($cart_vat_amount / $cartAmountTaxExcluded, Tax::TAX_DEFAULT_PRECISION);
         }
+
+        return Tools::ps_round($cart_vat_amount / $cartAmountTaxExcluded, Tax::TAX_DEFAULT_PRECISION);
     }
 
     /**
@@ -684,7 +685,7 @@ class CartCore extends ObjectModel
         $id_country = null,
         $fullInfos = true,
         bool $keepOrderPrices = false,
-        bool $shouldSplitGiftProductsQuantity = false
+        bool $shouldSplitGiftProductsQuantity = false,
     ) {
         // If the cart is not saved, then there can't be any products in it
         if (!$this->id) {
@@ -1089,7 +1090,7 @@ class CartCore extends ObjectModel
         int $productQuantity,
         ?int $addressId,
         Context $shopContext,
-        &$specificPriceOutput
+        &$specificPriceOutput,
     ): array {
         $cartPrices = [];
         $cartPrices['price_without_reduction'] = $this->getCartPriceFromCatalog(
@@ -1171,7 +1172,7 @@ class CartCore extends ObjectModel
         int $productQuantity,
         ?int $addressId,
         Context $shopContext,
-        &$specificPriceOutput
+        &$specificPriceOutput,
     ): ?float {
         return Product::getPriceStatic(
             $productId,
@@ -1211,7 +1212,7 @@ class CartCore extends ObjectModel
         int $productQuantity,
         ?int $addressId,
         Context $shopContext,
-        &$specificPriceOutput
+        &$specificPriceOutput,
     ): array {
         $orderPrices = [];
         $orderPrices['price_without_reduction'] = Product::getPriceFromOrder(
@@ -1667,7 +1668,7 @@ class CartCore extends ObjectModel
         $auto_add_cart_rule = true,
         $skipAvailabilityCheckOutOfStock = false,
         bool $preserveGiftRemoval = true,
-        bool $useOrderPrices = false
+        bool $useOrderPrices = false,
     ) {
         if (!$shop) {
             $shop = Context::getContext()->shop;
@@ -1976,7 +1977,7 @@ class CartCore extends ObjectModel
         $id_customization = 0,
         $id_address_delivery = 0,
         bool $preserveGiftsRemoval = true,
-        bool $useOrderPrices = false
+        bool $useOrderPrices = false,
     ) {
         /*
          * Wipe all product-related caches, because something may just changed and we will need fresh data.
@@ -2202,7 +2203,7 @@ class CartCore extends ObjectModel
         $products = null,
         $id_carrier = null,
         $use_cache = false,
-        bool $keepOrderPrices = false
+        bool $keepOrderPrices = false,
     ) {
         if ((int) $id_carrier <= 0) {
             $id_carrier = null;
@@ -3611,7 +3612,7 @@ class CartCore extends ObjectModel
         ?Country $default_country = null,
         $product_list = null,
         $id_zone = null,
-        bool $keepOrderPrices = false
+        bool $keepOrderPrices = false,
     ) {
         $shippingCost = $this->getPackageShippingCostValue(
             $id_carrier,
@@ -3658,7 +3659,7 @@ class CartCore extends ObjectModel
         ?Country $default_country = null,
         $product_list = null,
         $id_zone = null,
-        bool $keepOrderPrices = false
+        bool $keepOrderPrices = false,
     ) {
         // If the cart is fully virtual, there is no shipping cost
         if ($this->isVirtualCart()) {
@@ -4834,7 +4835,7 @@ class CartCore extends ObjectModel
         $id_address_delivery,
         $new_id_address_delivery,
         $quantity = 1,
-        $keep_quantity = false
+        $keep_quantity = false,
     ) {
         @trigger_error(sprintf(
             '%s is deprecated since 9.0 and will be removed in 10.0.',
@@ -4855,8 +4856,6 @@ class CartCore extends ObjectModel
             '%s is deprecated since 9.0 and will be removed in 10.0.',
             __METHOD__
         ), E_USER_DEPRECATED);
-
-        return;
     }
 
     /**
@@ -4870,8 +4869,6 @@ class CartCore extends ObjectModel
             '%s is deprecated since 9.0 and will be removed in 10.0.',
             __METHOD__
         ), E_USER_DEPRECATED);
-
-        return;
     }
 
     public function deleteAssociations()

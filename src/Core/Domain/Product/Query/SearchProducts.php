@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -50,7 +51,7 @@ class SearchProducts
         string $phrase,
         int $resultsLimit,
         string $isoCode,
-        ?int $orderId = null
+        ?int $orderId = null,
     ) {
         $this->assertIsNotEmptyString($phrase);
         $this->phrase = $phrase;

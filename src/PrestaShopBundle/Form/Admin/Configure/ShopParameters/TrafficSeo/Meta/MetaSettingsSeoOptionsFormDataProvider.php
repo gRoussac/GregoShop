@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -27,7 +28,7 @@ final class MetaSettingsSeoOptionsFormDataProvider implements FormDataProviderIn
      * @param DataConfigurationInterface $seoOptionsDataConfiguration
      */
     public function __construct(
-        DataConfigurationInterface $seoOptionsDataConfiguration
+        DataConfigurationInterface $seoOptionsDataConfiguration,
     ) {
         $this->seoOptionsDataConfiguration = $seoOptionsDataConfiguration;
     }

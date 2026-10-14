@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -102,7 +103,7 @@ class EditableCatalogPriceRule
         Reduction $reduction,
         bool $includeTax,
         ?DateTime $from,
-        ?DateTime $to
+        ?DateTime $to,
     ) {
         $this->catalogPriceRuleId = $catalogPriceRuleId;
         $this->name = $name;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -13,7 +14,7 @@ class ConditionsToApproveFinderCore
 
     public function __construct(
         Context $context,
-        TranslatorInterface $translator
+        TranslatorInterface $translator,
     ) {
         $this->context = $context;
         $this->translator = $translator;

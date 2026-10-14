@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -35,7 +36,7 @@ final class InvoiceOptionsConfiguration extends AbstractMultistoreConfiguration
         Configuration $configuration,
         Context $shopContext,
         FeatureInterface $multistoreFeature,
-        FormChoiceProviderInterface $invoiceModelByNameChoiceProvider
+        FormChoiceProviderInterface $invoiceModelByNameChoiceProvider,
     ) {
         parent::__construct($configuration, $shopContext, $multistoreFeature);
         $this->invoiceModelByNameChoiceProvider = $invoiceModelByNameChoiceProvider;

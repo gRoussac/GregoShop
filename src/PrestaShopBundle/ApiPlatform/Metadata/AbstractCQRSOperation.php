@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -105,6 +106,7 @@ abstract class AbstractCQRSOperation extends AbstractScopedOperation
         ?array $defaultValues = null,
     ) {
         $passedArguments = \get_defined_vars();
+        unset($passedArguments['this']);
 
         if (!empty($defaultValues)) {
             $this->checkArgumentAndExtraParameterValidity('defaultValues', $defaultValues, $passedArguments['extraProperties']);

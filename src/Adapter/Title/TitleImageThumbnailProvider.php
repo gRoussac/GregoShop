@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -40,7 +41,7 @@ class TitleImageThumbnailProvider implements ImageProviderInterface
     public function __construct(
         ImageTagSourceParserInterface $imageTagSourceParser,
         ImageManager $imageManager,
-        string $genderImageDirectoryName
+        string $genderImageDirectoryName,
     ) {
         $this->imageTagSourceParser = $imageTagSourceParser;
         $this->imageManager = $imageManager;

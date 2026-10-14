@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -87,7 +88,7 @@ class AddPaymentCommand
         int $paymentCurrencyId,
         int $employeeId,
         ?int $orderInvoiceId = null,
-        ?string $transactionId = null
+        ?string $transactionId = null,
     ) {
         $amount = new DecimalNumber($paymentAmount);
         $this->assertAmountIsPositive($amount);

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -538,9 +539,9 @@ class AdminGroupsControllerCore extends AdminController
     {
         if (!Validate::isPrice($reduction) || $reduction > 100 || $reduction < 0) {
             return false;
-        } else {
-            return true;
         }
+
+        return true;
     }
 
     public function ajaxProcessAddCategoryReduction()

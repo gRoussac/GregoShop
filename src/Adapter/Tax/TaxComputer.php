@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -34,7 +35,7 @@ class TaxComputer
      * @param TaxRulesGroupRepository $taxRulesGroupRepository
      */
     public function __construct(
-        TaxRulesGroupRepository $taxRulesGroupRepository
+        TaxRulesGroupRepository $taxRulesGroupRepository,
     ) {
         $this->taxRulesGroupRepository = $taxRulesGroupRepository;
     }
@@ -49,7 +50,7 @@ class TaxComputer
     public function computePriceWithTaxes(
         DecimalNumber $priceTaxExcluded,
         TaxRulesGroupId $taxRulesGroupId,
-        CountryId $countryId
+        CountryId $countryId,
     ): DecimalNumber {
         $taxRatio = $this->getTaxRatio($taxRulesGroupId, $countryId);
 
@@ -66,7 +67,7 @@ class TaxComputer
     public function computePriceWithoutTaxes(
         DecimalNumber $priceTaxIncluded,
         TaxRulesGroupId $taxRulesGroupId,
-        CountryId $countryId
+        CountryId $countryId,
     ): DecimalNumber {
         $taxRatio = $this->getTaxRatio($taxRulesGroupId, $countryId);
 

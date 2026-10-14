@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -21,7 +22,7 @@ class ForceApiClientSecretHandler implements ForceApiClientSecretHandlerInterfac
 {
     public function __construct(
         private readonly ApiClientRepository $repository,
-        private readonly PasswordHasherInterface $passwordHasher
+        private readonly PasswordHasherInterface $passwordHasher,
     ) {
     }
 

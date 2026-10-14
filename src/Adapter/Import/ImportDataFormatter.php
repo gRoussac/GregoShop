@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -27,7 +28,7 @@ final class ImportDataFormatter
 
     public function __construct(
         ConfigurationInterface $configuration,
-        Tools $tools
+        Tools $tools,
     ) {
         $this->configuration = $configuration;
         $this->tools = $tools;

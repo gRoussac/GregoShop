@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -394,9 +395,9 @@ class SpecificPriceCore extends ObjectModel
         $second_value = (int) $second_value;
         if ($first_value != $second_value) {
             return 'IN (' . $first_value . ', ' . $second_value . ')';
-        } else {
-            return ' = ' . $first_value;
         }
+
+        return ' = ' . $first_value;
     }
 
     /**
@@ -452,7 +453,7 @@ class SpecificPriceCore extends ObjectModel
         $id_product_attribute,
         $id_customer,
         $id_cart,
-        $real_quantity
+        $real_quantity,
     ) {
         if (self::$_no_specific_values !== null) {
             // $_no_specific_values contains the fieldName from the DB which don't have values != 0
@@ -496,7 +497,7 @@ class SpecificPriceCore extends ObjectModel
         $id_product_attribute = null,
         $id_customer = 0,
         $id_cart = 0,
-        $real_quantity = 0
+        $real_quantity = 0,
     ) {
         if (!SpecificPrice::isFeatureActive()) {
             return [];

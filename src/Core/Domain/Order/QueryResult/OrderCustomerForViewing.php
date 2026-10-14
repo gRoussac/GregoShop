@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -110,7 +111,7 @@ class OrderCustomerForViewing
         int $languageId,
         string $ape = '',
         string $siret = '',
-        array $groups = []
+        array $groups = [],
     ) {
         $this->id = $id;
         $this->firstName = $firstName;

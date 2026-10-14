@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -18,7 +19,7 @@ class CustomerPersisterCore
         Context $context,
         Crypto $crypto,
         TranslatorInterface $translator,
-        $guest_allowed
+        $guest_allowed,
     ) {
         $this->context = $context;
         $this->crypto = $crypto;

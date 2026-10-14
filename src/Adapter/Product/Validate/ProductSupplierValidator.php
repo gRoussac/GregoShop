@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -47,7 +48,7 @@ class ProductSupplierValidator extends AbstractObjectModelValidator
     public function __construct(
         ProductRepository $productRepository,
         SupplierRepository $supplierProvider,
-        CurrencyRepository $currencyRepository
+        CurrencyRepository $currencyRepository,
     ) {
         $this->productRepository = $productRepository;
         $this->supplierRepository = $supplierProvider;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -42,7 +43,7 @@ class OrderMessageType extends AbstractType
     public function __construct(
         FormChoiceProviderInterface $orderMessageNameChoiceProvider,
         ConfigurableFormChoiceProviderInterface $orderMessageChoiceProvider,
-        TranslatorInterface $translator
+        TranslatorInterface $translator,
     ) {
         $this->orderMessageNameChoiceProvider = $orderMessageNameChoiceProvider;
         $this->orderMessageChoiceProvider = $orderMessageChoiceProvider;

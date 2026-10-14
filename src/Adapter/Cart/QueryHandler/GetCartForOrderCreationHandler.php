@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -80,7 +81,7 @@ final class GetCartForOrderCreationHandler extends AbstractCartHandler implement
         int $contextLangId,
         Link $contextLink,
         ContextStateManager $contextStateManager,
-        int $defaultCarrierId
+        int $defaultCarrierId,
     ) {
         $this->locale = $locale;
         $this->contextLangId = $contextLangId;
@@ -523,7 +524,7 @@ final class GetCartForOrderCreationHandler extends AbstractCartHandler implement
     private function buildCartProduct(
         Cart $cart,
         Currency $currency,
-        array $product
+        array $product,
     ): CartProduct {
         return new CartProduct(
             (int) $product['id_product'],

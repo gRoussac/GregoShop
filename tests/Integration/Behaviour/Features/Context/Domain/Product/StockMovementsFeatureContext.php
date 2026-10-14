@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -21,7 +22,7 @@ class StockMovementsFeatureContext extends AbstractProductFeatureContext
      */
     public function assertStockMovementsOfProductForDefaultShop(
         string $productReference,
-        TableNode $table
+        TableNode $table,
     ): void {
         $this->assertStockMovements(
             new GetProductStockMovements(
@@ -39,7 +40,7 @@ class StockMovementsFeatureContext extends AbstractProductFeatureContext
         string $productReference,
         int $offset,
         int $limit,
-        TableNode $table
+        TableNode $table,
     ): void {
         $this->assertStockMovements(
             new GetProductStockMovements(

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -31,7 +32,7 @@ final class ContactByIdChoiceProvider implements FormChoiceProviderInterface
      */
     public function __construct(
         ContactRepositoryInterface $contactRepository,
-        $langId
+        $langId,
     ) {
         $this->contactRepository = $contactRepository;
         $this->langId = $langId;

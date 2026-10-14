@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -15,7 +16,7 @@ class MinimumAmount extends Money
         DecimalNumber $amount,
         int $currencyId,
         bool $taxIncluded,
-        private readonly bool $shippingIncluded
+        private readonly bool $shippingIncluded,
     ) {
         parent::__construct($amount, $currencyId, $taxIncluded);
     }

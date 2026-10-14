@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -39,7 +40,7 @@ final class FilterFormFactoryFormActionDecorator implements GridFilterFormFactor
     public function __construct(
         GridFilterFormFactoryInterface $delegate,
         UrlGeneratorInterface $urlGenerator,
-        string $formActionRoute
+        string $formActionRoute,
     ) {
         $this->delegate = $delegate;
         $this->urlGenerator = $urlGenerator;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -185,7 +186,7 @@ class TranslatorLanguageLoader
         string $moduleName,
         string $modulePath,
         string $locale,
-        bool $withDB = true
+        bool $withDB = true,
     ): void {
         $translationDir = sprintf('%s/translations/%s', $modulePath, $locale);
         if (!is_dir($translationDir)) {

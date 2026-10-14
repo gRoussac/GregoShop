@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -25,7 +26,7 @@ class StockManagerFactoryCore
     {
         if (!isset(StockManagerFactory::$stock_manager)) {
             $stock_manager = StockManagerFactory::execHookStockManagerFactory();
-            if (!($stock_manager instanceof StockManagerInterface)) {
+            if (!$stock_manager instanceof StockManagerInterface) {
                 $stock_manager = new StockManager();
             }
             StockManagerFactory::$stock_manager = $stock_manager;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -41,7 +42,7 @@ class EditableAttachment
     public function __construct(
         string $fileName,
         array $name,
-        array $description
+        array $description,
     ) {
         $this->fileName = $fileName;
         $this->name = $name;

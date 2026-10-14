@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -19,7 +20,7 @@ use PrestaShop\PrestaShop\Core\Domain\AttributeGroup\Command\DeleteAttributeText
 final class DeleteAttributeTextureImageHandler extends AbstractAttributeHandler implements DeleteAttributeTextureImageHandlerInterface
 {
     public function __construct(
-        private AttributeFileUploader $attributeFileUploader
+        private AttributeFileUploader $attributeFileUploader,
     ) {
     }
 

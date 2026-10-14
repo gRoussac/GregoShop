@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -15,7 +16,7 @@ use PrestaShopBundle\Entity\Repository\FeatureFlagRepository;
 class DbLayer implements TypeLayerInterface
 {
     public function __construct(
-        protected readonly FeatureFlagRepository $featureFlagRepository
+        protected readonly FeatureFlagRepository $featureFlagRepository,
     ) {
     }
 

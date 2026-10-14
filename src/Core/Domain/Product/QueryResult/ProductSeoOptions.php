@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -53,7 +54,7 @@ class ProductSeoOptions
         array $localizedMetaDescriptions,
         array $localizedLinkRewrites,
         string $redirectType,
-        ?RedirectTargetInformation $redirectTarget
+        ?RedirectTargetInformation $redirectTarget,
     ) {
         $this->localizedMetaTitles = $localizedMetaTitles;
         $this->localizedMetaDescriptions = $localizedMetaDescriptions;

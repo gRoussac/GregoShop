@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -1194,9 +1195,9 @@ class AdminCustomerThreadsControllerCore extends AdminController
         }
         if ($str_errors . $str_error_delete) {
             return ['hasError' => true, 'errors' => [$str_errors . $str_error_delete]];
-        } else {
-            return ['hasError' => false, 'errors' => ''];
         }
+
+        return ['hasError' => false, 'errors' => ''];
     }
 
     protected function getEncoding($structure)

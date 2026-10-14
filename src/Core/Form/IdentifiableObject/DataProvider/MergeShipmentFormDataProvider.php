@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -19,7 +20,7 @@ class MergeShipmentFormDataProvider extends ShipmentFormDataProvider
 {
     public function __construct(
         private CommandBusInterface $queryBus,
-        private RequestStack $requestStack
+        private RequestStack $requestStack,
     ) {
         parent::__construct($queryBus);
     }

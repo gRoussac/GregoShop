@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -39,7 +40,7 @@ class EditableFeatureValue
     public function __construct(
         FeatureValueId $featureValueId,
         FeatureId $featureId,
-        array $localizedValues
+        array $localizedValues,
     ) {
         $this->featureValueId = $featureValueId;
         $this->featureId = $featureId;

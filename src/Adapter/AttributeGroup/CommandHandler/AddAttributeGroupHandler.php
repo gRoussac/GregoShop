@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -24,7 +25,7 @@ final class AddAttributeGroupHandler implements AddAttributeGroupHandlerInterfac
 {
     public function __construct(
         private AttributeGroupRepository $attributeGroupRepository,
-        private AttributeGroupValidator $validator
+        private AttributeGroupValidator $validator,
     ) {
     }
 

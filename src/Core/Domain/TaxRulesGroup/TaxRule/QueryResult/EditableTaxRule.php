@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -70,7 +71,7 @@ class EditableTaxRule
         string $zipcodeTo,
         int $taxId,
         int $behavior,
-        string $description
+        string $description,
     ) {
         $this->taxRuleId = $taxRuleId;
         $this->taxRulesGroupId = $taxRulesGroupId;

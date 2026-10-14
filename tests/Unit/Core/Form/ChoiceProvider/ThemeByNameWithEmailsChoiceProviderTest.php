@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -24,7 +25,7 @@ class ThemeByNameWithEmailsChoiceProviderTest extends ChoiceProviderTestCase
      */
     public function testItProvidesChoicesAsExpected(
         ThemeCollection $themeCollection,
-        array $expectedChoices
+        array $expectedChoices,
     ): void {
         $choiceProvider = new ThemeByNameWithEmailsChoiceProvider(
             $themeCollection

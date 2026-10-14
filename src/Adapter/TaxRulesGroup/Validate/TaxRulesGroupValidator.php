@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -59,7 +60,7 @@ class TaxRulesGroupValidator extends AbstractObjectModelValidator
     private function validateTaxRulesGroupProperty(
         TaxRulesGroup $taxRulesGroup,
         string $propertyName,
-        int $errorCode = 0
+        int $errorCode = 0,
     ): void {
         $this->validateObjectModelProperty(
             $taxRulesGroup,

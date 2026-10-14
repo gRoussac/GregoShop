@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -21,7 +22,7 @@ use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactoryInterface;
 class LocalizedValueAdapter implements OpenApiSchemaAdapterInterface
 {
     public function __construct(
-        protected readonly ClassMetadataFactoryInterface $classMetadataFactory
+        protected readonly ClassMetadataFactoryInterface $classMetadataFactory,
     ) {
     }
 
@@ -42,7 +43,7 @@ class LocalizedValueAdapter implements OpenApiSchemaAdapterInterface
             $property = $resourceReflectionClass->getProperty($propertyName);
             foreach ($property->getAttributes() as $attribute) {
                 if ($attribute->getName() === LocalizedValue::class || is_subclass_of($attribute->getName(), LocalizedValue::class)) {
-                    if (!($propertySchema instanceof ArrayObject)) {
+                    if (!$propertySchema instanceof ArrayObject) {
                         $definition['properties'][$propertyName] = new ArrayObject();
                     }
                     unset($definition['properties'][$propertyName]['type']);

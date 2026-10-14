@@ -524,9 +524,9 @@ abstract class ModuleCore implements ModuleInterface
     {
         if (version_compare(_PS_VERSION_, $this->ps_versions_compliancy['min'], '<') || version_compare(_PS_VERSION_, $this->ps_versions_compliancy['max'], '>')) {
             return false;
-        } else {
-            return true;
         }
+
+        return true;
     }
 
     public static function updateTranslationsAfterInstall($update = true)
@@ -2437,30 +2437,29 @@ abstract class ModuleCore implements ModuleInterface
     {
         if (($overloaded = Module::_isTemplateOverloadedStatic(basename($file, '.php'), $template)) === null) {
             return Context::getContext()->getTranslator()->trans('No template found for module', [], 'Admin.Modules.Notification') . ' ' . basename($file, '.php') . (_PS_MODE_DEV_ ? ' (' . $template . ')' : '');
-        } else {
-            $this->smarty->assign([
-                'module_dir' => __PS_BASE_URI__ . 'modules/' . basename($file, '.php') . '/',
-                'module_template_dir' => ($overloaded ? _THEME_DIR_ : __PS_BASE_URI__) . 'modules/' . basename($file, '.php') . '/',
-                'allow_push' => false, // required by dashboard modules
-            ]);
-
-            if ($cache_id !== null) {
-                Tools::enableCache();
-            }
-            if ($compile_id === null) {
-                $compile_id = $this->getDefaultCompileId();
-            }
-
-            $result = $this->getCurrentSubTemplate($template, $cache_id, $compile_id)->fetch();
-
-            if ($cache_id !== null) {
-                Tools::restoreCacheSettings();
-            }
-
-            $this->resetCurrentSubTemplate($template, $cache_id, $compile_id);
-
-            return $result;
         }
+        $this->smarty->assign([
+            'module_dir' => __PS_BASE_URI__ . 'modules/' . basename($file, '.php') . '/',
+            'module_template_dir' => ($overloaded ? _THEME_DIR_ : __PS_BASE_URI__) . 'modules/' . basename($file, '.php') . '/',
+            'allow_push' => false, // required by dashboard modules
+        ]);
+
+        if ($cache_id !== null) {
+            Tools::enableCache();
+        }
+        if ($compile_id === null) {
+            $compile_id = $this->getDefaultCompileId();
+        }
+
+        $result = $this->getCurrentSubTemplate($template, $cache_id, $compile_id)->fetch();
+
+        if ($cache_id !== null) {
+            Tools::restoreCacheSettings();
+        }
+
+        $this->resetCurrentSubTemplate($template, $cache_id, $compile_id);
+
+        return $result;
     }
 
     /**
@@ -2554,9 +2553,9 @@ abstract class ModuleCore implements ModuleInterface
             return _PS_MODULE_DIR_ . $this->name . '/views/templates/front/' . $template;
         } elseif (Tools::file_exists_cache(_PS_MODULE_DIR_ . $this->name . '/' . $template)) {
             return _PS_MODULE_DIR_ . $this->name . '/' . $template;
-        } else {
-            return null;
         }
+
+        return null;
     }
 
     public function isCached($template, $cache_id = null, $compile_id = null)
@@ -2609,21 +2608,20 @@ abstract class ModuleCore implements ModuleInterface
             }
 
             return 0;
-        } else {
-            if ($ps_smarty_clear_cache == 'never') {
-                return 0;
-            }
-
-            if ($cache_id === null) {
-                $cache_id = $this->name;
-            }
-
-            Tools::enableCache();
-            $number_of_template_cleared = Tools::clearCache(Context::getContext()->smarty, $this->getTemplatePath($template), $cache_id, $compile_id);
-            Tools::restoreCacheSettings();
-
-            return $number_of_template_cleared;
         }
+        if ($ps_smarty_clear_cache == 'never') {
+            return 0;
+        }
+
+        if ($cache_id === null) {
+            $cache_id = $this->name;
+        }
+
+        Tools::enableCache();
+        $number_of_template_cleared = Tools::clearCache(Context::getContext()->smarty, $this->getTemplatePath($template), $cache_id, $compile_id);
+        Tools::restoreCacheSettings();
+
+        return $number_of_template_cleared;
     }
 
     /**
@@ -2938,7 +2936,7 @@ abstract class ModuleCore implements ModuleInterface
      */
     public function adminDisplayWarning($msg)
     {
-        if (!($this->context->controller instanceof AdminController)) {
+        if (!$this->context->controller instanceof AdminController) {
             return false;
         }
         $this->context->controller->warnings[] = $msg;
@@ -2953,7 +2951,7 @@ abstract class ModuleCore implements ModuleInterface
      */
     protected function adminDisplayInformation($msg)
     {
-        if (!($this->context->controller instanceof AdminController)) {
+        if (!$this->context->controller instanceof AdminController) {
             return false;
         }
         $this->context->controller->informations[] = $msg;
@@ -3043,9 +3041,8 @@ abstract class ModuleCore implements ModuleInterface
 
         if (!file_exists($path_override)) {
             return false;
-        } else {
-            file_put_contents($path_override, preg_replace('#(\r\n|\r)#ism', "\n", file_get_contents($path_override)));
         }
+        file_put_contents($path_override, preg_replace('#(\r\n|\r)#ism', "\n", file_get_contents($path_override)));
 
         $psOverrideDir = _PS_ROOT_DIR_ . DIRECTORY_SEPARATOR . 'override';
 

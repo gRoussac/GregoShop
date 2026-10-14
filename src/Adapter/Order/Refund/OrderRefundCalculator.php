@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -45,7 +46,7 @@ class OrderRefundCalculator
         array $orderDetailRefunds,
         DecimalNumber $shippingRefund,
         int $voucherRefundType,
-        ?DecimalNumber $chosenVoucherAmount
+        ?DecimalNumber $chosenVoucherAmount,
     ): OrderRefundSummary {
         $isTaxIncluded = $this->isTaxIncludedInOrder($order);
         $precision = $this->getPrecision($order);
@@ -145,7 +146,7 @@ class OrderRefundCalculator
         array $orderDetailRefunds,
         bool $isTaxIncluded,
         array $orderDetails,
-        int $precision
+        int $precision,
     ) {
         $productRefunds = [];
         /** @var OrderDetailRefund $orderDetailRefund */

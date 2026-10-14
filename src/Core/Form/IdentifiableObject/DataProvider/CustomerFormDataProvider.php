@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -47,7 +48,7 @@ final class CustomerFormDataProvider implements FormDataProviderInterface
         CommandBusInterface $queryBus,
         ConfigurationInterface $configuration,
         DefaultGroupsProviderInterface $defaultGroupsProvider,
-        $isB2bFeatureEnabled
+        $isB2bFeatureEnabled,
     ) {
         $this->queryBus = $queryBus;
         $this->configuration = $configuration;

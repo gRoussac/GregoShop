@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -53,7 +54,7 @@ class ModifyTranslationsType extends TranslatorAwareType
         array $translationTypeChoices,
         array $emailContentTypeChoices,
         array $themeChoices,
-        array $moduleChoices
+        array $moduleChoices,
     ) {
         parent::__construct($translator, $locales);
         $this->translationTypeChoices = $translationTypeChoices;

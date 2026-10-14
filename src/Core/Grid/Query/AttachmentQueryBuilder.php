@@ -1,4 +1,5 @@
 <?php
+
 /**
  * For the full copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
@@ -31,7 +32,7 @@ final class AttachmentQueryBuilder extends AbstractDoctrineQueryBuilder
         Connection $connection,
         string $dbPrefix,
         DoctrineSearchCriteriaApplicatorInterface $searchCriteriaApplicator,
-        private LanguageContext $languageContext
+        private LanguageContext $languageContext,
     ) {
         parent::__construct($connection, $dbPrefix);
 
