@@ -147,7 +147,7 @@ class AddCustomerCommand
         $isPartnerOffersSubscribed = false,
         $birthday = null,
         $isGuest = false,
-        $isNewsletterSubscribed = false
+        $isNewsletterSubscribed = false,
     ) {
         $this->firstName = new FirstName($firstName);
         $this->lastName = new LastName($lastName);

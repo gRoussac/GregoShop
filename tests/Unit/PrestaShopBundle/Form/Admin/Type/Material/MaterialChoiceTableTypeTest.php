@@ -25,7 +25,7 @@ class MaterialChoiceTableTypeTest extends TestCase
         array $viewData,
         array $choices,
         bool $displayTotalItems,
-        array $expectedReturn
+        array $expectedReturn,
     ): void {
         $mockForm = $this
             ->getMockBuilder(FormInterface::class)
