@@ -10,6 +10,7 @@ namespace PrestaShop\PrestaShop\Adapter\Customer\QueryHandler;
 use Cart;
 use Currency;
 use Customer;
+use PrestaShop\PrestaShop\Adapter\ContextStateManager;
 use PrestaShop\PrestaShop\Adapter\Customer\CommandHandler\AbstractCustomerHandler;
 use PrestaShop\PrestaShop\Core\CommandBus\Attributes\AsQueryHandler;
 use PrestaShop\PrestaShop\Core\Domain\Customer\Query\GetCustomerCarts;
@@ -30,12 +31,20 @@ final class GetCustomerCartsHandler extends AbstractCustomerHandler implements G
     private $locale;
 
     /**
+     * @var ContextStateManager
+     */
+    private $contextStateManager;
+
+    /**
      * @param LocaleInterface $locale
+     * @param ContextStateManager $contextStateManager
      */
     public function __construct(
         LocaleInterface $locale,
+        ContextStateManager $contextStateManager,
     ) {
         $this->locale = $locale;
+        $this->contextStateManager = $contextStateManager;
     }
 
     /**
@@ -66,10 +75,19 @@ final class GetCustomerCartsHandler extends AbstractCustomerHandler implements G
             $currency = new Currency((int) $customerCart['id_currency']);
             $cart = new Cart($cartId);
 
+            // The product prices of the total are computed for the context cart, which is not set outside the
+            // front office (e.g. Admin API, where no employee is in the context either)
+            $this->contextStateManager->setCart($cart);
+            try {
+                $orderTotal = $cart->getOrderTotal();
+            } finally {
+                $this->contextStateManager->restorePreviousContext();
+            }
+
             $summarizedCarts[] = new CartSummary(
                 $cart->id,
                 $cart->date_add,
-                $this->locale->formatPrice($cart->getOrderTotal(), $currency->iso_code)
+                $this->locale->formatPrice($orderTotal, $currency->iso_code)
             );
         }
 

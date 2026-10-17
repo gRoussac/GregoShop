@@ -287,15 +287,22 @@
      {
 --- a/tests/Integration/ApiPlatform/VersionedEndpointsTest.php
 +++ b/tests/Integration/ApiPlatform/VersionedEndpointsTest.php
-@@ -42,6 +42,8 @@
-  * this class copied the test resource keeps serving its old routes (without the test resource) even after
-  * the cache has been cleared. For the same reason, the resource is copied and the cache is cleared BEFORE
+@@ -23,6 +23,7 @@
+ namespace PsApiResourcesTest\Integration\ApiPlatform;
+ 
+ use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
++use PHPUnit\Framework\Attributes\Group;
+ use PrestaShop\PrestaShop\Core\Version;
+ 
+ /**
+@@ -45,6 +46,7 @@
   * the parent setUpBeforeClass boots the first kernel of each process.
-+ *
-+ * @group requires-demo-catalog
   */
  #[RunTestsInSeparateProcesses]
++#[Group('requires-demo-catalog')]
  class VersionedEndpointsTest extends ApiTestCase
+ {
+     public static function setUpBeforeClass(): void
 --- a/tests/Integration/phpunit-ci.xml
 +++ b/tests/Integration/phpunit-ci.xml
 @@ -12,6 +12,11 @@

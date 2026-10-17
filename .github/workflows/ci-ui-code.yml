@@ -16,6 +16,7 @@ on:
 
 defaults:
   run:
+    if: github.event_name != 'push' || !github.event.repository.private
     working-directory: ./tests/UI/
 
 env:
@@ -27,8 +28,10 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+# Pull-requests on a private repository are not coming from a fork, so avoid running the same job twice with push and pull_request events.
 
   ESLint:
+    if: github.event_name != 'push' || !github.event.repository.private
     runs-on: ubuntu-26.04
     name: ESLint
 
@@ -54,6 +57,7 @@ jobs:
         run: npm run lint
 
   tscheck:
+    if: github.event_name != 'push' || !github.event.repository.private
     runs-on: ubuntu-26.04
     name: TypeScript Check
 
@@ -79,6 +83,7 @@ jobs:
         run: npm run check:typescript
 
   Steps-identifiers:
+    if: github.event_name != 'push' || !github.event.repository.private
     runs-on: ubuntu-26.04
     name: Checking Steps identifiers
 
@@ -111,6 +116,7 @@ jobs:
         run: npm run check:step-identifiers
 
   suites:
+    if: github.event_name != 'push' || !github.event.repository.private
     runs-on: ubuntu-26.04
     name: Checking Suites Count
 
