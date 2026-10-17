@@ -48,8 +48,8 @@
         "martinlindhe/php-mb-helpers": "^0.1.6",
         "matthiasmullie/minify": "~1.3.0",
         "mobiledetect/mobiledetectlib": "^3.74.0",
-        "monolog/monolog": "^2",
-        "mrclay/minify": "^3.0.11",
+        "monolog/monolog": "^3",
+        "mrclay/minify": "^4.0.2",
         "nikic/php-parser": "^4.0",
         "nyholm/psr7": "^1.8",
         "pelago/emogrifier": "^8.2.0",
@@ -105,7 +105,7 @@
         "prestashop/ps_themecusto": "^1",
         "prestashop/ps_viewedproduct": "^2",
         "prestashop/ps_wirepayment": "^3.0",
-        "prestashop/psgdpr": "^1.4",
+        "prestashop/psgdpr": "^2.0",
         "prestashop/statsbestcategories": "^2",
         "prestashop/statsbestcustomers": "^2",
         "prestashop/statsbestmanufacturers": "^2",
@@ -200,7 +200,7 @@
         "symfony/css-selector": "~6.4.0",
         "symfony/phpunit-bridge": "~8.1.6",
         "symfony/stopwatch": "~6.4.0",
-        "vincentlanglet/twig-cs-fixer": "^3.1"
+        "vincentlanglet/twig-cs-fixer": "^4.1"
     },
     "repositories": {
         "php-sql-parser": {
