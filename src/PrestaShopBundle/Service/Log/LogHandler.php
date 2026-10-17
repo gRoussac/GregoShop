@@ -9,16 +9,11 @@ namespace PrestaShopBundle\Service\Log;
 
 use Monolog\Handler\AbstractProcessingHandler;
 use Monolog\Logger;
+use Monolog\LogRecord;
 use PrestaShop\PrestaShop\Adapter\LegacyLogger;
 use Symfony\Component\DependencyInjection\Container;
 
 /**
- * @phpstan-import-type LevelName from Logger
- * @phpstan-import-type Level from Logger
- * @phpstan-import-type Record from Logger
- *
- * @phpstan-type FormattedRecord array{message: string, context: mixed[], level: Level, level_name: LevelName, channel: string, datetime: \DateTimeImmutable, extra: mixed[], formatted: mixed}
- *
  * This handler is an interface between Monolog and the legacy logger.
  *
  * It also provides a feature that allows you saving log records, it is always disabled by default, but you can temporarily
@@ -29,7 +24,7 @@ class LogHandler extends AbstractProcessingHandler
     protected $container;
 
     /**
-     * @var array<int, array<int, array{level: int, message: string, context: array}>>
+     * @var array<int, list<array{level: int, message: string, context: array}>>
      */
     protected array $savedRecords = [];
 
@@ -42,17 +37,19 @@ class LogHandler extends AbstractProcessingHandler
     }
 
     /**
-     * Writes the record down to the log of the implementing handler
-     *
-     * @phpstan-param FormattedRecord $record
+     * Writes the record down to the log of the implementing handler.
      */
-    protected function write(array $record): void
+    protected function write(LogRecord $record): void
     {
         /** @var LegacyLogger $logger */
         $logger = $this->container->get('prestashop.adapter.legacy.logger');
-        $logger->log($record['level'], $record['message'], $record['context']);
-        if (!empty($record['level']) && $record['level'] > Logger::DEBUG && $this->recordsSaved) {
-            $this->savedRecords[$record['level']][] = $record;
+        $logger->log($record->level->value, $record->message, $record->context);
+        if ($record->level->value > Logger::DEBUG && $this->recordsSaved) {
+            $this->savedRecords[$record->level->value][] = [
+                'level' => $record->level->value,
+                'message' => $record->message,
+                'context' => $record->context,
+            ];
         }
     }
 
