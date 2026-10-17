@@ -108,7 +108,6 @@ class ApiAccessTokenEndpointTest extends ApiTestCase
             'error' => 'invalid_scope',
             'error_description' => 'The requested scope is invalid, unknown, or malformed',
             'hint' => 'Check the `non_existent_scope` scope',
-            'message' => 'The requested scope is invalid, unknown, or malformed',
         ], $decodedResponse);
     }
 
@@ -136,7 +135,6 @@ class ApiAccessTokenEndpointTest extends ApiTestCase
             'error' => 'access_denied',
             'error_description' => 'The resource owner or authorization server denied the request.',
             'hint' => 'Usage of scope `customer_group_write` is not allowed for this client',
-            'message' => 'The resource owner or authorization server denied the request.',
         ], $decodedResponse);
     }
 
@@ -160,7 +158,6 @@ class ApiAccessTokenEndpointTest extends ApiTestCase
         $this->assertEquals([
             'error' => 'invalid_client',
             'error_description' => 'Client authentication failed',
-            'message' => 'Client authentication failed',
         ], $decodedResponse);
 
         // Test with existing API client but invalid secret
@@ -181,7 +178,6 @@ class ApiAccessTokenEndpointTest extends ApiTestCase
         $this->assertEquals([
             'error' => 'invalid_client',
             'error_description' => 'Client authentication failed',
-            'message' => 'Client authentication failed',
         ], $decodedResponse);
     }
 }

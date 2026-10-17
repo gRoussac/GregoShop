@@ -29,7 +29,7 @@ class CustomClientCredentialsGrant extends ClientCredentialsGrant
     protected function issueAccessToken(
         DateInterval $accessTokenTTL,
         ClientEntityInterface $client,
-        string|null $userIdentifier,
+        ?string $userIdentifier,
         array $scopes = [],
     ): AccessTokenEntityInterface {
         /** @var Client $client */
