@@ -149,7 +149,7 @@ jobs:
         timeout-minutes: 15
         uses: ./.github/actions/setup-env
         with:
-          PHP_VERSION: 8.1
+          PHP_VERSION: 8.4
           ENABLE_SSL: "true"
           INSTALL_AUTO: "true"
           DISABLE_MAKE: "false"
