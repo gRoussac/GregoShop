@@ -1,12 +1,10 @@
 # This workflow aim to run all UI tests on active branches
 # and upload the report on Google cloud platform storage
 name: Nightly tests and report - develop (mariadb)
+# Disabled for GregoShop: upstream branch matrix / Nightly Build chain.
 
 on:
-  workflow_run:
-    workflows: [ 'Nightly Build' ]
-    types:
-      - requested
+  workflow_dispatch:
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true

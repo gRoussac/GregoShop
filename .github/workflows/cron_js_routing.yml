@@ -1,7 +1,7 @@
 name: Cron Update JS Routing
+# Disabled for GregoShop: matrix targets upstream branches that are not on this fork.
+# Re-enable schedule only after retargeting to `dev`.
 on:
-  schedule:
-    - cron: '0 23 * * *'
   workflow_dispatch:
 
 permissions: { }

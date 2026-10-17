@@ -2,9 +2,8 @@
 # and upload the report on Google cloud platform storage
 name: Nightly tests (Report)
 
+# Disabled for GregoShop: pushes reports to Prestashop project nightly API.
 on:
-  schedule:
-    - cron: '0 5 * * *'
   workflow_dispatch:
 
 env:

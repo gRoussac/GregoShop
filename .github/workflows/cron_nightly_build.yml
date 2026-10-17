@@ -1,9 +1,9 @@
 # This workflow aim to create nightly builds on active branches
 name: Nightly Build
 
+# Disabled for GregoShop: upstream PrestaShop branches (develop / 9.1.x / 8.2.x)
+# and GCS nightly bucket do not exist on this fork. Keep workflow_dispatch only.
 on:
-  schedule:
-    - cron: '30 23 * * *'
   workflow_dispatch:
 
 permissions:
