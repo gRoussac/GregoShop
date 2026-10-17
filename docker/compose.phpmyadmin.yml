@@ -10,6 +10,6 @@ services:
       PMA_HOST: mysql
       PMA_USER: root
       PMA_PASSWORD: ${DB_PASSWD:-prestashop}
-    restart: unless-stopped
+    restart: "no"
     depends_on:
       - mysql
