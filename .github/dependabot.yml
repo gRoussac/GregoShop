@@ -1,6 +1,8 @@
-# Dependabot version updates for composer and GitHub Actions.
+# Dependabot version updates for composer, npm theme locks, and GitHub Actions.
 # Security-tab Dependabot alerts are a separate org Settings toggle.
 # Majors: human review on every PR; do not auto-merge.
+# npm: one grouped PR per directory (stops drip of transitive security bumps).
+# Same policy as Interchouette-ITC/jhgr (eslint major ignore only; paths mapped to GregoShop).
 version: 2
 updates:
   - package-ecosystem: composer
@@ -12,6 +14,10 @@ updates:
     target-branch: dev
     labels:
       - dependencies
+    groups:
+      composer:
+        patterns:
+          - "*"
 
   - package-ecosystem: github-actions
     directory: /
@@ -22,3 +28,87 @@ updates:
     target-branch: dev
     labels:
       - dependencies
+    groups:
+      github-actions:
+        patterns:
+          - "*"
+
+  # FO core webpack (jhgr has no separate entry; GregoShop keeps themes/ package.json).
+  - package-ecosystem: npm
+    directory: /themes
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 1
+    target-branch: dev
+    labels:
+      - dependencies
+    ignore:
+      - dependency-name: eslint
+        update-types: [ "version-update:semver-major" ]
+      - dependency-name: "eslint-*"
+        update-types: [ "version-update:semver-major" ]
+    groups:
+      themes-core-npm:
+        patterns:
+          - "*"
+
+  # FO theme (jhgr: /themes/jhgr)
+  - package-ecosystem: npm
+    directory: /themes/default
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 1
+    target-branch: dev
+    labels:
+      - dependencies
+    ignore:
+      - dependency-name: eslint
+        update-types: [ "version-update:semver-major" ]
+      - dependency-name: "eslint-*"
+        update-types: [ "version-update:semver-major" ]
+    groups:
+      fo-default-npm:
+        patterns:
+          - "*"
+
+  # BO legacy theme (jhgr: /jhgr4dmeen/themes/default)
+  - package-ecosystem: npm
+    directory: /admin-dev/themes/default
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 1
+    target-branch: dev
+    labels:
+      - dependencies
+    ignore:
+      - dependency-name: eslint
+        update-types: [ "version-update:semver-major" ]
+      - dependency-name: "eslint-*"
+        update-types: [ "version-update:semver-major" ]
+    groups:
+      bo-default-npm:
+        patterns:
+          - "*"
+
+  # BO new-theme (jhgr: /jhgr4dmeen/themes/new-theme)
+  - package-ecosystem: npm
+    directory: /admin-dev/themes/new-theme
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 1
+    target-branch: dev
+    labels:
+      - dependencies
+    ignore:
+      - dependency-name: eslint
+        update-types: [ "version-update:semver-major" ]
+      - dependency-name: "eslint-*"
+        update-types: [ "version-update:semver-major" ]
+    groups:
+      bo-new-theme-npm:
+        patterns:
+          - "*"
