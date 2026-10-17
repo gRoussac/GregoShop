@@ -1,9 +1,10 @@
-# This tests the build for development
+# Smoke-build the local GregoShop docker stack (Apache + PHP-FPM).
 name: Cron docker build
 
 on:
   schedule:
     - cron: "0 1 * * *"
+  workflow_dispatch:
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
@@ -11,21 +12,20 @@ env:
 jobs:
   docker-build:
     name: Docker build
-
     runs-on: ubuntu-26.04
-
-    strategy:
-      matrix:
-        version:
-          - 8.4
-        base:
-          - apache
-          - fpm
 
     steps:
       - uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
-      - name: Running latest prestashop with docker
-        run: docker compose -f docker/docker-compose.yml --project-directory . build --build-arg VERSION=${{ matrix.version }}-${{ matrix.base }}
+      - name: Generate TLS certs for Apache image
+        run: |
+          mkdir -p docker/apache/certs
+          openssl req -x509 -nodes -newkey rsa:2048 -days 365 \
+            -keyout docker/apache/certs/localhost.key \
+            -out docker/apache/certs/localhost.crt \
+            -subj "/CN=localhost"
+
+      - name: Build docker images
+        run: docker compose -f docker/docker-compose.yml --project-directory . build
