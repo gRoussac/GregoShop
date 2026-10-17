@@ -15,6 +15,7 @@ env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
+# Pull-requests on a private repository are not coming from a fork, so avoid running the same job twice with push and pull_request events.
   symfony-console:
     strategy:
       matrix:

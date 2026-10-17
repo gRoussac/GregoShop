@@ -19,8 +19,10 @@ env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
+# Pull-requests on a private repository are not coming from a fork, so avoid running the same job twice with push and pull_request events.
   # Define which PHP versions need to be used
   workflow_matrix_generator:
+    if: github.event_name != 'push' || !github.event.repository.private
     name: Sanity matrix
     uses: ./.github/workflows/workflow-matrix-generator.yml
     with:

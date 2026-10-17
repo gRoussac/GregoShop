@@ -15,7 +15,9 @@ env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
+# Pull-requests on a private repository are not coming from a fork, so avoid running the same job twice with push and pull_request events.
   stylelint:
+    if: github.event_name != 'push' || !github.event.repository.private
     name: SCSS Lint
     runs-on: ubuntu-26.04
     steps:
@@ -33,6 +35,7 @@ jobs:
         run: cd ./admin-dev/themes/default && npm ci && npm run scss-lint
 
   eslint:
+    if: github.event_name != 'push' || !github.event.repository.private
     name: ESLint
     runs-on: ubuntu-26.04
     steps:
@@ -56,6 +59,7 @@ jobs:
         run: cd ./admin-dev/themes/new-theme && npm ci && npm run lint
 
   yamllint_sf:
+    if: github.event_name != 'push' || !github.event.repository.private
     name: YAML Lint (Symfony Check)
     runs-on: ubuntu-26.04
     steps:
@@ -89,6 +93,7 @@ jobs:
         run: php bin/console lint:yaml src --parse-tags
 
   yamllint:
+    if: github.event_name != 'push' || !github.event.repository.private
     name: YAML Lint (YamlLint Check)
     runs-on: ubuntu-26.04
     steps:
@@ -109,6 +114,7 @@ jobs:
         run: yamllint -c .github/workflows/yamllint/.yamllint.yml src
 
   legacy_link_lint:
+    if: github.event_name != 'push' || !github.event.repository.private
     name: Legacy Link Lint
     runs-on: ubuntu-26.04
     steps:

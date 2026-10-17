@@ -15,7 +15,9 @@ env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
+# Pull-requests on a private repository are not coming from a fork, so avoid running the same job twice with push and pull_request events.
   js-unit-tests:
+    if: github.event_name != 'push' || !github.event.repository.private
     runs-on: ubuntu-26.04
     name: Run unit tests
     strategy:
