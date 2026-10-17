@@ -6,12 +6,12 @@ Feature: Create an empty cart for a customer
   I must be able to create an empty cart for an existing customer only
 
   Scenario: Create an empty cart for an existing customer
-    Given I create customer "customer1" with following details:
+    When I create customer "customer1" with following details:
       | firstName | John                 |
       | lastName  | Doe                  |
       | email     | john.doe@example.com |
       | password  | PrestaShopForever1_! |
-    When I create an empty cart "cart1" for customer "customer1"
+    And I create an empty cart "cart1" for customer "customer1"
     Then cart "cart1" should belong to customer "customer1"
 
   Scenario: Creating an empty cart for a customer that does not exist is rejected
