@@ -25,7 +25,7 @@ PrestaShop is a e-commerce platform, both through modules and themes. Developers
 
 Same baseline as upstream PrestaShop 9:
 
-- PHP 8.1+
+- PHP 8.4+
 - MySQL 5.6+ (or MariaDB / Percona equivalent)
 - Apache or Nginx
 

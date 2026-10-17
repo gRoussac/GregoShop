@@ -16,7 +16,7 @@ jobs:
     uses: ./.github/workflows/cron_nightly_tests_reusable.yml
     with:
       BRANCH: develop
-      PHP_VERSION: '8.2'
+      PHP_VERSION: '8.4'
       NODE_VERSION: '20'
       DB_SERVER: 'mysql'
     secrets:

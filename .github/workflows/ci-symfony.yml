@@ -28,7 +28,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.1
+          php-version: 8.4
           extensions: mbstring, intl, gd, xml, dom, json, fileinfo, curl, zip, iconv
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -102,7 +102,7 @@ jobs:
         timeout-minutes: 15
         uses: ./.github/actions/setup-env
         with:
-          PHP_VERSION: 8.1
+          PHP_VERSION: 8.4
           ENABLE_SSL: 'true'
           INSTALL_AUTO: 'false'
       - name: Setup Environment failure

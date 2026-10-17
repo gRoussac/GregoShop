@@ -1,21 +1,6 @@
 {
   "include": [
     {
-      "php": "8.1",
-      "browser": "chromium",
-      "db": "mysql"
-    },
-    {
-      "php": "8.2",
-      "browser": "chromium",
-      "db": "mysql"
-    },
-    {
-      "php": "8.3",
-      "browser": "chromium",
-      "db": "mysql"
-    },
-    {
       "php": "8.4",
       "browser": "chromium",
       "db": "mysql"
