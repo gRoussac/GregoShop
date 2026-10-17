@@ -37,7 +37,7 @@ class ScopeRepository implements ScopeRepositoryInterface
         $this->apiResourceScopes = $this->scopesExtractor->getEnabledApiResourceScopes();
     }
 
-    public function getScopeEntityByIdentifier($identifier): ?ScopeEntityInterface
+    public function getScopeEntityByIdentifier(string $identifier): ?ScopeEntityInterface
     {
         foreach ($this->apiResourceScopes as $apiResourceScope) {
             if (in_array($identifier, $apiResourceScope->getScopes())) {
@@ -53,11 +53,11 @@ class ScopeRepository implements ScopeRepositoryInterface
      */
     public function finalizeScopes(
         array $scopes,
-        $grantType,
+        string $grantType,
         ClientEntityInterface $clientEntity,
-        $userIdentifier = null,
-        $authCodeId = null,
-    ) {
+        string|null $userIdentifier = null,
+        ?string $authCodeId = null,
+    ): array {
         $finalizedScopes = [
             new ScopeEntity('is_authenticated'),
         ];
