@@ -81,7 +81,7 @@ $(() => {
   // So only the related component won't work instead of breaking whole product page
   try {
     new CategoriesManager(eventEmitter);
-  } catch (e: any) {
+  } catch {
     console.error('Failed to initialize categories manager');
   }
 

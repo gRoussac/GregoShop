@@ -224,7 +224,7 @@ export default class ProductFormModel {
     let taxRate;
     try {
       taxRate = new BigNumber($taxInput.data('taxRate'));
-    } catch (error) {
+    } catch {
       taxRate = new BigNumber(NaN);
     }
     if (taxRate.isNaN()) {

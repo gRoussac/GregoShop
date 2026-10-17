@@ -34,7 +34,7 @@ $(() => {
         if (response.status) {
           setTimeout(() => window.location.reload(), 1500);
         }
-      } catch (_e) {
+      } catch {
         // ignore non-JSON responses
       }
     }

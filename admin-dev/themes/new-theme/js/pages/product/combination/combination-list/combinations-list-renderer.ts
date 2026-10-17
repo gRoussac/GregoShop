@@ -262,7 +262,7 @@ export default class CombinationsListRenderer {
 
     let ecoTax;
 
-    if (combinationEcoTax !== undefined && combinationEcoTax > 0) {
+    if (combinationEcoTax !== undefined && Number(combinationEcoTax) > 0) {
       ecoTax = new BigNumber(combinationEcoTax.toString());
     } else {
       ecoTax = this.productFormModel.getBigNumber('price.ecotaxTaxExcluded') ?? new BigNumber(0);

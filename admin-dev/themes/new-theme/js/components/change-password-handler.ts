@@ -7,8 +7,7 @@ import {zxcvbn, zxcvbnOptions, ZxcvbnResult} from '@zxcvbn-ts/core';
 import * as zxcvbnCommonPackage from '@zxcvbn-ts/language-common';
 import * as zxcvbnEnPackage from '@zxcvbn-ts/language-en';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const {sprintf} = require('sprintf-js');
+import {sprintf} from 'sprintf-js';
 
 // Initialize zxcvbn-ts with language packages
 const zxcvbnConfig = {

@@ -66,7 +66,7 @@ export default class CategoryTreeSelector {
 
     try {
       this.initModal();
-    } catch (e: any) {
+    } catch {
       // catch and log fatal errors to avoid breaking other components
       console.error('Category tree selector component stopped working due to fatal error.');
       return;

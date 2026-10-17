@@ -84,4 +84,4 @@ export default class AliasesCollectionManager {
       this.$collection.children().find(AliasFormMap.deleteAliasButton).removeClass('d-none');
     }
   }
-};
+}

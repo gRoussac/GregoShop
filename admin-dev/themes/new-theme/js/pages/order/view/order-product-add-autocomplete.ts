@@ -195,12 +195,12 @@ export default class OrderProductAutocomplete {
       const productId = document.querySelector<HTMLInputElement>(OrderViewPageMap.productAddIdInput)?.value;
       this.fetchCarrierFromProduct(Number(productId));
     }
-  };
+  }
 
   toggleSubmitButton(event: Event): void {
     const element = event.target as HTMLSelectElement;
     this.addProductBtnAction.disabled = !element.value;
-  };
+  }
 
   fetchCarrierFromProduct(productId: number): void {
     this.selectCarriers.disabled = true;

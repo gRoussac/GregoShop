@@ -152,4 +152,4 @@ export default class PriceSummary {
 
     return bigNumber;
   }
-};
+}
