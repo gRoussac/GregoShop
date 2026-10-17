@@ -261,8 +261,6 @@
         "symfony-web-dir": "."
     },
     "scripts": {
-        "post-install-cmd": [],
-        "post-update-cmd": [],
         "api-module-tests": [
             "@composer create-test-db",
             "bash tests/Resources/ci/apply-ps-apiresources-empty-shop-patch.sh",
