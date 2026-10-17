@@ -21,6 +21,7 @@ jobs:
 
       - name: Generate TLS certs for Apache image
         run: |
+          mkdir -p docker/apache/certs
           openssl req -x509 -nodes -newkey rsa:2048 -days 365 \
             -keyout docker/apache/certs/localhost.key \
             -out docker/apache/certs/localhost.crt \
