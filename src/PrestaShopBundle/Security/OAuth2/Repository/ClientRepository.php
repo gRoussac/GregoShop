@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace PrestaShopBundle\Security\OAuth2\Repository;
 
+use League\OAuth2\Server\Entities\ClientEntityInterface;
 use League\OAuth2\Server\Repositories\ClientRepositoryInterface;
 use LogicException;
 use PrestaShopBundle\Entity\ApiClient;
@@ -32,7 +33,7 @@ class ClientRepository implements ClientRepositoryInterface
     ) {
     }
 
-    public function getClientEntity($clientIdentifier): ?Client
+    public function getClientEntity(string $clientIdentifier): ?ClientEntityInterface
     {
         $user = $this->getUser($clientIdentifier);
 
@@ -49,7 +50,7 @@ class ClientRepository implements ClientRepositoryInterface
         return $client;
     }
 
-    public function validateClient($clientIdentifier, $clientSecret, $grantType): bool
+    public function validateClient(string $clientIdentifier, ?string $clientSecret, ?string $grantType): bool
     {
         if ($grantType !== 'client_credentials' || $clientSecret === null) {
             return false;
@@ -68,7 +69,7 @@ class ClientRepository implements ClientRepositoryInterface
         return $this->passwordEncoder->isPasswordValid($client, $clientSecret);
     }
 
-    private function getUser($clientIdentifier): ?UserInterface
+    private function getUser(string $clientIdentifier): ?UserInterface
     {
         try {
             return $this->userProvider->loadUserByIdentifier($clientIdentifier);

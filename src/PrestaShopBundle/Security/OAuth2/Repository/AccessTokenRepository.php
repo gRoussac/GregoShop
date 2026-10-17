@@ -24,7 +24,7 @@ class AccessTokenRepository implements AccessTokenRepositoryInterface
     public function getNewToken(
         ClientEntityInterface $clientEntity,
         array $scopes,
-        $userIdentifier = null,
+        ?string $userIdentifier = null,
     ): AccessTokenEntityInterface {
         $token = new AccessToken();
         $token->setClient($clientEntity);
@@ -42,12 +42,12 @@ class AccessTokenRepository implements AccessTokenRepositoryInterface
     {
     }
 
-    public function revokeAccessToken($tokenId): void
+    public function revokeAccessToken(string $tokenId): void
     {
         // @ToDo: revoke AccessToken
     }
 
-    public function isAccessTokenRevoked($tokenId): bool
+    public function isAccessTokenRevoked(string $tokenId): bool
     {
         // @ToDo: check if AccessToken is revoked
         return false;
