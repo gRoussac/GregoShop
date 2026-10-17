@@ -252,7 +252,7 @@ export default class OrderProductEdit {
     this.shipmentQtyCounter.textContent = `(${total}/${maxQuantity})`;
     this.shipmentQtyCounter.classList.toggle('text-danger', total > maxQuantity);
     this.shipmentQtyCounter.classList.toggle('text-muted', total >= 0 && total <= maxQuantity);
-  };
+  }
 
   updateTotal(): void {
     const updatedTotal = this.priceTaxCalculator.calculateTotalPrice(

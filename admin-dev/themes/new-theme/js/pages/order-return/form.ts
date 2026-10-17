@@ -95,7 +95,7 @@ class OrderReturnDeletionStager {
       const decoded = JSON.parse(raw);
 
       return Array.isArray(decoded) ? decoded as StagedRow[] : [];
-    } catch (_error) {
+    } catch {
       return [];
     }
   }

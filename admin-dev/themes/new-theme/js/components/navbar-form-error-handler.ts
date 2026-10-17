@@ -44,7 +44,7 @@ export default class NavbarFormErrorHandler {
 
         const tab = field.closest('[role="tabpanel"]');
 
-        if (!tab || typeof tab === null) {
+        if (!tab || tab === null) {
           throw new Error('NavbarFormErrorHandler: Cannot find the tab that contains some form fields in error.');
         }
 

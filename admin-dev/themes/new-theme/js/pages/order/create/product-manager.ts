@@ -435,7 +435,7 @@ export default class ProductManager {
         productValues[i].stock += qty;
 
         // Update the stock also for combination */
-        if (attributeId && attributeId > 0) {
+        if (attributeId && Number(attributeId) > 0) {
           productValues[i].combinations[attributeId].stock += qty;
         }
 

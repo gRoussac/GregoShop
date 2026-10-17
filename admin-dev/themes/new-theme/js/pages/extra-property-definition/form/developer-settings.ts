@@ -129,7 +129,7 @@ export default class DeveloperSettings {
       try {
         textarea.value = JSON.stringify(JSON.parse(textarea.value), null, 4);
         refresh();
-      } catch (error) {
+      } catch {
         refresh();
       }
     });

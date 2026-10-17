@@ -31,7 +31,7 @@ export function notifyFormErrors(jsonResponse: any): void {
       });
     }
   });
-};
+}
 
 export default {
   notifyFormErrors,

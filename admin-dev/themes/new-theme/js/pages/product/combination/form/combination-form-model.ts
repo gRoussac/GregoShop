@@ -239,7 +239,7 @@ export default class CombinationFormModel {
     let taxRate;
     try {
       taxRate = new BigNumber($ecotaxTaxExcluded.data('taxRate'));
-    } catch (error) {
+    } catch {
       taxRate = new BigNumber(NaN);
     }
     if (taxRate.isNaN()) {
