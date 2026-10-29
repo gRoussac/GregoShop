@@ -203,7 +203,7 @@
             ],
             "authors": [
                 {
-                    "name": "K\u00e9vin Dunglas",
+                    "name": "Kévin Dunglas",
                     "email": "kevin@dunglas.fr",
                     "homepage": "https://dunglas.fr"
                 }
@@ -2345,7 +2345,7 @@
                     "role": "Owner"
                 },
                 {
-                    "name": "Andr\u00e9 Rothe",
+                    "name": "André Rothe",
                     "email": "phosco@gmx.de",
                     "homepage": "https://www.phosco.info",
                     "role": "Committer"
@@ -2730,7 +2730,7 @@
             ],
             "authors": [
                 {
-                    "name": "Lu\u00eds Cobucci",
+                    "name": "Luís Cobucci",
                     "email": "lcobucci@gmail.com",
                     "role": "Developer"
                 }
@@ -3143,7 +3143,7 @@
                     "email": "pabs@pablotron.org"
                 },
                 {
-                    "name": "Jonatan M\u00e4nnchen",
+                    "name": "Jonatan Männchen",
                     "email": "jonatan@maennchen.ch"
                 },
                 {
@@ -3151,7 +3151,7 @@
                     "email": "donatj@gmail.com"
                 },
                 {
-                    "name": "Andr\u00e1s Koles\u00e1r",
+                    "name": "András Kolesár",
                     "email": "kolesar@kolesar.hu"
                 }
             ],
@@ -4271,7 +4271,7 @@
                     "email": "github@oliverklee.de"
                 },
                 {
-                    "name": "Zoli Szab\u00f3",
+                    "name": "Zoli Szabó",
                     "email": "zoli.szabo+github@gmail.com"
                 },
                 {
@@ -5092,16 +5092,16 @@
         },
         {
             "name": "prestashop/productcomments",
-            "version": "v9.0.0",
+            "version": "v9.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PrestaShop/productcomments.git",
-                "reference": "6f12e718cc7bbdfff988f0308e3cd04413d30adc"
+                "reference": "46921bd5860cf8dc91387626634bbc8f2943f023"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PrestaShop/productcomments/zipball/6f12e718cc7bbdfff988f0308e3cd04413d30adc",
-                "reference": "6f12e718cc7bbdfff988f0308e3cd04413d30adc",
+                "url": "https://api.github.com/repos/PrestaShop/productcomments/zipball/46921bd5860cf8dc91387626634bbc8f2943f023",
+                "reference": "46921bd5860cf8dc91387626634bbc8f2943f023",
                 "shasum": ""
             },
             "require": {
@@ -5134,9 +5134,10 @@
             "homepage": "https://github.com/PrestaShop/productcomments",
             "support": {
                 "issues": "https://github.com/PrestaShop/productcomments/issues",
-                "source": "https://github.com/PrestaShop/productcomments/tree/v9.0.0"
+                "source": "https://github.com/PrestaShop/productcomments/tree/v9.0.1"
             },
-            "time": "2026-09-09T10:43:36+00:00"
+            "time": "2026-10-27T14:19:10+00:00",
+            "published-time": "2026-10-27T14:22:05+00:00"
         },
         {
             "name": "prestashop/ps_apiresources",
@@ -5864,16 +5865,16 @@
         },
         {
             "name": "prestashop/ps_emailsubscription",
-            "version": "v3.0.0",
+            "version": "v3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PrestaShop/ps_emailsubscription.git",
-                "reference": "e2546357dcef79c676565f006fb3cbbe9e5a2d3e"
+                "reference": "0dc8168e5c058adb9e16a72f3bbdbb0b2b36145e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PrestaShop/ps_emailsubscription/zipball/e2546357dcef79c676565f006fb3cbbe9e5a2d3e",
-                "reference": "e2546357dcef79c676565f006fb3cbbe9e5a2d3e",
+                "url": "https://api.github.com/repos/PrestaShop/ps_emailsubscription/zipball/0dc8168e5c058adb9e16a72f3bbdbb0b2b36145e",
+                "reference": "0dc8168e5c058adb9e16a72f3bbdbb0b2b36145e",
                 "shasum": ""
             },
             "require": {
@@ -5902,9 +5903,10 @@
             "homepage": "https://github.com/PrestaShop/ps_emailsubscription",
             "support": {
                 "issues": "https://github.com/PrestaShop/ps_emailsubscription/issues",
-                "source": "https://github.com/PrestaShop/ps_emailsubscription/tree/v3.0.0"
+                "source": "https://github.com/PrestaShop/ps_emailsubscription/tree/v3.0.1"
             },
-            "time": "2026-06-22T15:03:01+00:00"
+            "time": "2026-10-28T10:26:55+00:00",
+            "published-time": "2026-10-28T10:28:32+00:00"
         },
         {
             "name": "prestashop/ps_facetedsearch",
@@ -8835,7 +8837,7 @@
                     "email": "fabien@symfony.com"
                 },
                 {
-                    "name": "Jean-Fran\u00e7ois Simon",
+                    "name": "Jean-François Simon",
                     "email": "jeanfrancois.simon@sensiolabs.com"
                 },
                 {
@@ -10650,7 +10652,7 @@
             ],
             "authors": [
                 {
-                    "name": "J\u00e9r\u00e9my Deruss\u00e9",
+                    "name": "Jérémy Derussé",
                     "email": "jeremy@derusse.com"
                 },
                 {
@@ -12360,7 +12362,7 @@
             ],
             "authors": [
                 {
-                    "name": "K\u00e9vin Dunglas",
+                    "name": "Kévin Dunglas",
                     "email": "dunglas@gmail.com"
                 },
                 {
@@ -13801,7 +13803,7 @@
                     "email": "kevinbond@gmail.com"
                 },
                 {
-                    "name": "Simon Andr\u00e9",
+                    "name": "Simon André",
                     "email": "smn.andre@gmail.com"
                 },
                 {
@@ -14241,7 +14243,7 @@
             ],
             "authors": [
                 {
-                    "name": "K\u00e9vin Dunglas",
+                    "name": "Kévin Dunglas",
                     "email": "dunglas@gmail.com"
                 },
                 {
@@ -14613,7 +14615,7 @@
             ],
             "authors": [
                 {
-                    "name": "T\u00fabal Mart\u00edn",
+                    "name": "Túbal Martín",
                     "homepage": "http://tubalmartin.me/"
                 }
             ],
@@ -15204,7 +15206,7 @@
             ],
             "authors": [
                 {
-                    "name": "Christian L\u00fcck",
+                    "name": "Christian Lück",
                     "email": "christian@clue.engineering"
                 }
             ],
@@ -15432,7 +15434,7 @@
             ],
             "authors": [
                 {
-                    "name": "Andreas M\u00f6ller",
+                    "name": "Andreas Möller",
                     "email": "am@localheinz.com",
                     "homepage": "https://localheinz.com"
                 }
@@ -15511,7 +15513,7 @@
             ],
             "authors": [
                 {
-                    "name": "Andreas M\u00f6ller",
+                    "name": "Andreas Möller",
                     "email": "am@localheinz.com",
                     "homepage": "https://localheinz.com"
                 }
@@ -15587,7 +15589,7 @@
             ],
             "authors": [
                 {
-                    "name": "Andreas M\u00f6ller",
+                    "name": "Andreas Möller",
                     "email": "am@localheinz.com",
                     "homepage": "https://localheinz.com"
                 }
@@ -15668,7 +15670,7 @@
             ],
             "authors": [
                 {
-                    "name": "Andreas M\u00f6ller",
+                    "name": "Andreas Möller",
                     "email": "am@localheinz.com",
                     "homepage": "https://localheinz.com"
                 }
@@ -15741,7 +15743,7 @@
             ],
             "authors": [
                 {
-                    "name": "Andreas M\u00f6ller",
+                    "name": "Andreas Möller",
                     "email": "am@localheinz.com",
                     "homepage": "https://localheinz.com"
                 }
@@ -15816,7 +15818,7 @@
             ],
             "authors": [
                 {
-                    "name": "Andreas M\u00f6ller",
+                    "name": "Andreas Möller",
                     "email": "am@localheinz.com",
                     "homepage": "https://localheinz.com"
                 }
@@ -15893,7 +15895,7 @@
             ],
             "authors": [
                 {
-                    "name": "Andreas M\u00f6ller",
+                    "name": "Andreas Möller",
                     "email": "am@localheinz.com",
                     "homepage": "https://localheinz.com"
                 }
@@ -15948,7 +15950,7 @@
                     "email": "igor@wiedler.ch"
                 }
             ],
-            "description": "\u00c9v\u00e9nement is a very simple event dispatching library for PHP",
+            "description": "Événement is a very simple event dispatching library for PHP",
             "keywords": [
                 "event-dispatcher",
                 "event-emitter"
@@ -16000,7 +16002,7 @@
             ],
             "authors": [
                 {
-                    "name": "Th\u00e9o FIDRY",
+                    "name": "Théo FIDRY",
                     "email": "theo.fidry@gmail.com"
                 }
             ],
@@ -16102,7 +16104,7 @@
                     "email": "fabien@symfony.com"
                 },
                 {
-                    "name": "Dariusz Rumi\u0144ski",
+                    "name": "Dariusz Rumiński",
                     "email": "dariusz.ruminski@gmail.com"
                 }
             ],
@@ -17184,7 +17186,7 @@
             ],
             "authors": [
                 {
-                    "name": "Christian L\u00fcck",
+                    "name": "Christian Lück",
                     "email": "christian@clue.engineering",
                     "homepage": "https://clue.engineering/"
                 },
@@ -17260,7 +17262,7 @@
             ],
             "authors": [
                 {
-                    "name": "Christian L\u00fcck",
+                    "name": "Christian Lück",
                     "email": "christian@clue.engineering",
                     "homepage": "https://clue.engineering/"
                 },
@@ -17335,7 +17337,7 @@
             ],
             "authors": [
                 {
-                    "name": "Christian L\u00fcck",
+                    "name": "Christian Lück",
                     "email": "christian@clue.engineering",
                     "homepage": "https://clue.engineering/"
                 },
@@ -17409,7 +17411,7 @@
             ],
             "authors": [
                 {
-                    "name": "Christian L\u00fcck",
+                    "name": "Christian Lück",
                     "email": "christian@clue.engineering",
                     "homepage": "https://clue.engineering/"
                 },
@@ -17487,7 +17489,7 @@
                     "homepage": "https://sorgalla.com/"
                 },
                 {
-                    "name": "Christian L\u00fcck",
+                    "name": "Christian Lück",
                     "email": "christian@clue.engineering",
                     "homepage": "https://clue.engineering/"
                 },
@@ -17559,7 +17561,7 @@
             ],
             "authors": [
                 {
-                    "name": "Christian L\u00fcck",
+                    "name": "Christian Lück",
                     "email": "christian@clue.engineering",
                     "homepage": "https://clue.engineering/"
                 },
@@ -17634,7 +17636,7 @@
             ],
             "authors": [
                 {
-                    "name": "Christian L\u00fcck",
+                    "name": "Christian Lück",
                     "email": "christian@clue.engineering",
                     "homepage": "https://clue.engineering/"
                 },
@@ -18676,7 +18678,7 @@
             ],
             "authors": [
                 {
-                    "name": "Michal \u0160pa\u010dek",
+                    "name": "Michal Špaček",
                     "email": "mail@michalspacek.cz",
                     "homepage": "https://www.michalspacek.cz"
                 }
@@ -19209,5 +19211,5 @@
     "platform-overrides": {
         "php": "8.4.0"
     },
-    "plugin-api-version": "2.9.0"
+    "plugin-api-version": "2.11.0"
 }
